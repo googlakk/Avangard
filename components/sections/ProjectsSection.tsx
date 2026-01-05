@@ -2,47 +2,56 @@ import Link from 'next/link';
 
 // Программы школы
 const programs = [
+    // РЯД 1: ОБРАЗОВАТЕЛЬНЫЕ ПРОГРАММЫ
     {
         id: 1,
         title: 'Intellect Junior',
-        badge: '1–4 классы',
-        description: 'Углубленное изучение английского языка (8-10 уроков в неделю). В 1-4 классах работают классный руководитель и Co-teacher.',
+        badge: '2 Учителя',
+        description: 'Система с Co-teacher в классе. Углубленный английский (8-10 часов в неделю), ментальная арифметика и спортстекинг для развития мозга.',
+        subtitle: '1-4 классы',
         image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1000',
     },
     {
         id: 2,
         title: 'Intellect Pro',
-        badge: '5–11 классы',
-        description: 'Изучение точных наук на английском языке по системе Cambridge Assessment (математика, химия, физика, биология, информатика).',
+        badge: 'Cambridge System',
+        description: 'Точные науки (Math, Science) на английском языке. Подготовка к IELTS/SAT и поступлению в зарубежные ВУЗы на грант. Программирование и робототехника.',
+        subtitle: '5-11 классы',
         image: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=1000',
     },
     {
         id: 3,
-        title: 'Школа без домашней работы',
-        badge: 'Study Club',
-        description: 'Домашние задания выполняются в школе. Учебники хранятся в персональных шкафчиках, никаких тяжелых ранцев.',
-        image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1000',
+        title: 'Творчество и Спорт',
+        badge: '15+ Направлений',
+        description: 'Вам не нужны репетиторы. В школе есть всё: Шахматы, Комуз, Спидкубинг, Танцы. Спорт: Футбол, Каратэ, Волейбол, Грэпплинг.',
+        subtitle: 'Кружки и Секции',
+        image: 'https://images.unsplash.com/photo-1519315901367-f34ff9154487?q=80&w=1000',
     },
+
+    // РЯД 2: ЭКОСИСТЕМА
     {
         id: 4,
-        title: 'Навыки будущего',
-        badge: 'IT и Интеллект',
-        description: 'Программирование (IT), Ментальная арифметика, Ораторское искусство, Логика, Робототехника.',
-        image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1000',
+        title: 'Наши Гордость',
+        badge: 'Победы',
+        description: 'Ученики школы — победители мировых олимпиад: Memoriad (Las Vegas), Mental Calculation World Cup, World Memory Championship.',
+        subtitle: 'Мировые Чемпионы',
+        image: 'https://images.unsplash.com/photo-1567168544813-cc03465b4fa8?q=80&w=1000',
     },
     {
         id: 5,
-        title: 'Спорт и Здоровье',
-        badge: 'Секции включены',
-        description: 'Футбол, Баскетбол, Волейбол, Настольный теннис, Каратэ, Грэпплинг. 3-разовое питание (завтрак, обед, полдник).',
-        image: 'https://images.unsplash.com/photo-1519315901367-f34ff9154487?q=80&w=1000',
+        title: 'Глобальная сеть',
+        badge: 'Сотрудничество',
+        description: 'Сотрудничаем с международными ВУЗами и IT-компаниями. Открыты для франшизы и образовательных коллабораций. Строим будущее вместе.',
+        subtitle: 'Партнерам',
+        image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000',
     },
     {
         id: 6,
-        title: 'Мировые Чемпионы',
-        badge: 'Результат',
-        description: 'Наши ученики побеждают на мировых олимпиадах: Memoriad (Las Vegas), Mental Calculation World Cup, World Memory Championship.',
-        image: 'https://images.unsplash.com/photo-1567168544813-cc03465b4fa8?q=80&w=1000',
+        title: 'Команда Экспертов',
+        badge: 'Join Us',
+        description: 'Мы ищем лучших. Если вы — педагог-новатор, готовый работать по международным стандартам, присоединяйтесь к нашей команде.',
+        subtitle: 'Учителям',
+        image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1000',
     },
 ];
 
@@ -110,6 +119,9 @@ export default function ProgramsSection() {
                                 <h3 className="text-xl font-bold font-heading text-gray-900 mb-1">
                                     {program.title}
                                 </h3>
+                                {program.subtitle && (
+                                    <p className="text-sm text-gray-500 mb-3">{program.subtitle}</p>
+                                )}
                                 <Link
                                     href={`/programs/${program.id}`}
                                     className="inline-block bg-navy-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-navy-800 transition-colors mt-4"
