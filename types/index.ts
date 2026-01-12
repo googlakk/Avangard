@@ -12,6 +12,8 @@ export interface CardProps {
     description: string;
     image?: string;
     icon?: string;
+    badge?: string;
+    buttonText?: string;
     className?: string;
     style?: React.CSSProperties;
 }

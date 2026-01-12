@@ -2,18 +2,21 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-
-const NAV_LINKS = [
-    { label: 'Главная', href: '/' },
-    { label: 'О школе', href: '/about' },
-    { label: 'Программы', href: '/programs' },
-    { label: 'Преподаватели', href: '/teachers' },
-    { label: 'Поступление', href: '/admission' },
-    { label: 'Контакты', href: '/contacts' },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
+import LanguageSwitch from '@/components/ui/LanguageSwitch';
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { t } = useLanguage();
+
+    const NAV_LINKS = [
+        { label: t.header.home, href: '/' },
+        { label: t.header.about, href: '/about' },
+        { label: t.header.programs, href: '/programs' },
+        { label: 'Преподаватели', href: '/teachers' },
+        { label: 'Поступление', href: '/admission' },
+        { label: t.header.contacts, href: '/contacts' },
+    ];
 
     return (
         <header className="fixed top-0 left-0 right-0 z-50 bg-navy-900/95 backdrop-blur-md border-b border-white/10">
@@ -39,13 +42,16 @@ export default function Header() {
                         ))}
                     </nav>
 
-                    {/* CTA Button */}
-                    <Link
-                        href="/contacts"
-                        className="hidden md:inline-block bg-white text-navy-900 px-6 py-2.5 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors"
-                    >
-                        Записаться
-                    </Link>
+                    {/* Language Switch & CTA Button */}
+                    <div className="hidden md:flex items-center gap-4">
+                        <LanguageSwitch />
+                        <Link
+                            href="/contacts"
+                            className="bg-white text-navy-900 px-6 py-2.5 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors"
+                        >
+                            {t.common.contactUs}
+                        </Link>
+                    </div>
 
                     {/* Mobile Menu Button */}
                     <button
@@ -77,12 +83,15 @@ export default function Header() {
                                     {link.label}
                                 </Link>
                             ))}
+                            <div className="flex justify-center py-2">
+                                <LanguageSwitch />
+                            </div>
                             <Link
                                 href="/contacts"
                                 className="bg-white text-navy-900 px-6 py-2.5 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors text-center"
                                 onClick={() => setIsMenuOpen(false)}
                             >
-                                Записаться
+                                {t.common.contactUs}
                             </Link>
                         </div>
                     </nav>

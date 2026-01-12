@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
-import { Inter, Montserrat } from 'next/font/google';
+import { Inter, Montserrat, Cormorant_Garamond, IBM_Plex_Serif } from 'next/font/google';
 import './globals.css';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import ClientProviders from '@/components/ClientProviders';
 
 const inter = Inter({
     subsets: ['latin', 'cyrillic'],
@@ -14,6 +13,20 @@ const montserrat = Montserrat({
     subsets: ['latin', 'cyrillic'],
     variable: '--font-montserrat',
     display: 'swap',
+});
+
+const cormorantGaramond = Cormorant_Garamond({
+    subsets: ['latin', 'cyrillic'],
+    variable: '--font-cormorant',
+    display: 'swap',
+    weight: ['300', '400', '500', '600', '700'],
+});
+
+const ibmPlexSerif = IBM_Plex_Serif({
+    subsets: ['latin', 'cyrillic'],
+    variable: '--font-ibm-plex-serif',
+    display: 'swap',
+    weight: ['300', '400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
@@ -36,11 +49,9 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="ru" className={`${inter.variable} ${montserrat.variable}`}>
+        <html lang="ru" className={`${inter.variable} ${montserrat.variable} ${cormorantGaramond.variable} ${ibmPlexSerif.variable}`}>
             <body>
-                <Header />
-                <main className="min-h-screen">{children}</main>
-                <Footer />
+                <ClientProviders>{children}</ClientProviders>
             </body>
         </html>
     );

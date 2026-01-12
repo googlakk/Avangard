@@ -1,36 +1,49 @@
-import Link from 'next/link';
+'use client';
 
-// Философия образования
-const philosophy = [
-    {
-        id: 1,
-        title: 'Память и Внимание',
-        description: 'От памяти напрямую зависит успеваемость. Ребенку будет легко быть собранным и сфокусированным.',
-        image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800',
-    },
-    {
-        id: 2,
-        title: 'Критическое мышление',
-        description: 'Ребенок будет способен рассматривать вещи с разных сторон. Улучшаем способность принимать творческие решения.',
-        image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800',
-    },
-    {
-        id: 3,
-        title: 'Геймификация',
-        description: 'Увлекательный сюжет, мотивационно-игровые механики и вознаграждения. Ребенок никогда не заскучает у нас в школе.',
-        image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800',
-    },
-];
+import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function PhilosophySection() {
+    const { t } = useLanguage();
+
+    // Философия образования
+    const philosophy = [
+        {
+            id: 1,
+            title: t.philosophy.memory.title,
+            description: t.philosophy.memory.description,
+            image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800',
+            badge: t.philosophy.memory.badge,
+        },
+        {
+            id: 2,
+            title: t.philosophy.criticalThinking.title,
+            description: t.philosophy.criticalThinking.description,
+            image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800',
+            badge: t.philosophy.criticalThinking.badge,
+        },
+        {
+            id: 3,
+            title: t.philosophy.gamification.title,
+            description: t.philosophy.gamification.description,
+            image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800',
+            badge: t.philosophy.gamification.badge,
+        },
+    ];
+
     return (
-        <section className="py-16 bg-navy-900">
+        <section className="py-16 bg-gray-50">
             <div className="container mx-auto px-4">
                 {/* Заголовок */}
                 <div className="flex items-center justify-between mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
-                        Наша философия
+                    <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900">
+                        {t.philosophy.title}
                     </h2>
+                    <button className="text-gray-600 hover:text-gray-900 transition-colors">
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
                 </div>
 
                 {/* Сетка */}
@@ -38,25 +51,36 @@ export default function PhilosophySection() {
                     {philosophy.map((item) => (
                         <div
                             key={item.id}
-                            className="bg-white rounded-2xl overflow-hidden hover-lift"
+                            className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group"
                         >
-                            {/* Изображение */}
+                            {/* Изображение с бейджем */}
                             <div className="relative h-48 overflow-hidden">
                                 <img
                                     src={item.image}
                                     alt={item.title}
-                                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                 />
+                                {/* Бейдж */}
+                                <div className="absolute top-4 left-4">
+                                    <span className="bg-blue-600 text-white text-xs font-semibold px-3 py-1.5 rounded-full">
+                                        {item.badge}
+                                    </span>
+                                </div>
                             </div>
 
                             {/* Текст */}
                             <div className="p-6">
-                                <h3 className="text-2xl font-bold font-heading text-navy-900 mb-3">
+                                <h3 className="text-xl font-bold font-heading text-gray-900 mb-2">
                                     {item.title}
                                 </h3>
-                                <p className="text-gray-700 leading-relaxed">
+                                <p className="text-sm text-gray-600 leading-relaxed mb-4">
                                     {item.description}
                                 </p>
+
+                                {/* Кнопка */}
+                                <button className="bg-gray-900 hover:bg-gray-800 text-white text-sm font-semibold px-6 py-2.5 rounded-full transition-all duration-300 hover:shadow-lg">
+                                    {t.philosophy.learnMore}
+                                </button>
                             </div>
                         </div>
                     ))}

@@ -1,0 +1,51 @@
+{
+    "header": {
+        "home": "Home",
+        "about": "About",
+        "programs": "Programs",
+        "news": "News",
+        "contacts": "Contacts"
+    },
+    "hero": {
+        "since": "SINCE",
+        "students": "STUDENTS",
+        "clubs": "CLUBS",
+        "experience": "Experience and traditions",
+        "experienceDesc": "Time-tested education",
+        "happyChildren": "Happy children",
+        "happyChildrenDesc": "We are trusted with the most precious",
+        "clubsAndSections": "Clubs and sections",
+        "clubsAndSectionsDesc": "Sports, creativity and IT in one place"
+    },
+    "philosophy": {
+        "title": "Our Programs",
+        "memory": {
+            "title": "Memory and Attention",
+            "description": "Academic performance directly depends on memory. Your child will find it easy to stay focused and concentrated.",
+            "badge": "2 Teachers"
+        },
+        "criticalThinking": {
+            "title": "Critical Thinking",
+            "description": "Your child will be able to look at things from different perspectives. We improve the ability to make creative decisions.",
+            "badge": "Cambridge System"
+        },
+        "gamification": {
+            "title": "Gamification",
+            "description": "Exciting storyline, motivational game mechanics and rewards. Your child will never get bored at our school.",
+            "badge": "15+ Directions"
+        },
+        "learnMore": "Learn More"
+    },
+    "features": {
+        "title": "Why choose",
+        "titleHighlight": "us",
+        "subtitle": "We offer comprehensive solutions for your business development"
+    },
+    "footer": {
+        "rights": "All rights reserved"
+    },
+    "common": {
+        "readMore": "Read More",
+        "contactUs": "Contact Us"
+    }
+}

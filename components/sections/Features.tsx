@@ -1,16 +1,21 @@
+'use client';
+
 import Card from '@/components/ui/Card';
 import { FEATURES } from '@/lib/constants';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Features() {
+    const { t } = useLanguage();
+
     return (
         <section className="py-20 px-4">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
                     <h2 className="font-heading font-bold text-4xl md:text-5xl mb-4">
-                        Почему выбирают <span className="gradient-text">нас</span>
+                        {t.features.title} <span className="gradient-text">{t.features.titleHighlight}</span>
                     </h2>
                     <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                        Мы предлагаем комплексные решения для развития вашего бизнеса
+                        {t.features.subtitle}
                     </p>
                 </div>
 

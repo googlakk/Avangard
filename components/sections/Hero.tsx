@@ -1,8 +1,11 @@
 'use client';
 
 import { useCountUp } from '@/hooks/useCountUp';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Hero() {
+    const { t } = useLanguage();
+
     // Анимация для чисел
     const yearCount = useCountUp({ end: 2016, duration: 2000 });
     const studentsCount = useCountUp({ end: 1000, duration: 2500 });
@@ -32,46 +35,124 @@ export default function Hero() {
             </div>
 
             {/* Статистический блок внизу */}
-            <div className="relative z-10 container mx-auto px-4 mt-auto">
+            <div className="relative z-10 container mx-auto px-4 mt-auto mb-0">
                 <div className="max-w-5xl mx-auto">
-                    <div className="bg-white/10 backdrop-blur-xl border border-white/30 px-8 md:px-16 py-10 md:py-12 rounded-t-3xl">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                    <div className="bg-white/10 backdrop-blur-xl border border-white px-4 md:px-16 py-5 md:py-10 rounded-t-[2.5rem]">
+                        {/* Мобильная версия: SINCE 2016 сверху, два блока в ряд снизу */}
+                        <div className="flex flex-col gap-4 md:hidden" style={{ maxHeight: '35vh' }}>
+                            {/* Год основания */}
+                            <div className="text-center py-2">
+                                <div className="flex flex-col items-center mb-2">
+                                    <div className="text-4xl font-semibold font-[family-name:var(--font-ibm-plex-serif)] text-white tracking-tight">
+                                        {yearCount}
+                                    </div>
+                                    <div className="text-2xl font-semibold font-[family-name:var(--font-cormorant)] text-white tracking-wider">
+                                        {t.hero.since}
+                                    </div>
+                                </div>
+                                <div className="text-xs text-gray-200 font-medium mb-0.5">
+                                    {t.hero.experience}
+                                </div>
+                                <div className="text-[10px] text-gray-300 font-light">
+                                    {t.hero.experienceDesc}
+                                </div>
+                            </div>
+
+
+
+                            {/* Студенты и кружки в одном ряду */}
+                            <div className="grid grid-cols-2 gap-4">
+                                {/* Количество учеников */}
+                                <div className="text-center py-2">
+                                    <div className="flex flex-col items-center mb-2">
+                                        <div className="text-4xl font-semibold font-[family-name:var(--font-ibm-plex-serif)] text-white tracking-tight">
+                                            {studentsCount}+
+                                        </div>
+                                        <div className="text-2xl font-semibold font-[family-name:var(--font-cormorant)] text-white tracking-wider">
+                                            {t.hero.students}
+                                        </div>
+                                    </div>
+                                    <div className="text-xs text-gray-200 font-medium mb-0.5">
+                                        {t.hero.happyChildren}
+                                    </div>
+                                    <div className="text-[10px] text-gray-300 font-light">
+                                        {t.hero.happyChildrenDesc}
+                                    </div>
+                                </div>
+
+                                {/* Кружки и секции */}
+                                <div className="text-center py-2">
+                                    <div className="flex flex-col items-center mb-2">
+                                        <div className="text-4xl font-semibold font-[family-name:var(--font-ibm-plex-serif)] text-white tracking-tight">
+                                            {clubsCount}+
+                                        </div>
+                                        <div className="text-2xl font-semibold font-[family-name:var(--font-cormorant)] text-white tracking-wider">
+                                            {t.hero.clubs}
+                                        </div>
+                                    </div>
+                                    <div className="text-xs text-gray-200 font-medium mb-0.5">
+                                        {t.hero.clubsAndSections}
+                                    </div>
+                                    <div className="text-[10px] text-gray-300 font-light">
+                                        {t.hero.clubsAndSectionsDesc}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Десктопная версия: все три блока в один ряд */}
+                        <div className="hidden md:grid md:grid-cols-3 md:gap-12">
                             {/* Год основания */}
                             <div className="text-center">
-                                <div className="text-3xl md:text-4xl font-light font-heading text-white mb-3 tracking-wide whitespace-nowrap">
-                                    SINCE {yearCount}
+                                <div className="flex flex-col items-center mb-3">
+                                    <div className="text-5xl font-bold font-[family-name:var(--font-ibm-plex-serif)] text-white tracking-tight">
+                                        {yearCount}
+                                    </div>
+                                    <div className="text-3xl mt-2 font-semibold font-[family-name:var(--font-cormorant)] text-white tracking-wider">
+                                        {t.hero.since}
+                                    </div>
                                 </div>
-                                <div className="text-sm md:text-base text-gray-200 font-medium mb-1">
-                                    Опыт и традиции
+                                <div className="text-base text-gray-200 font-medium mb-1">
+                                    {t.hero.experience}
                                 </div>
                                 <div className="text-xs text-gray-300 font-light">
-                                    Образование проверенное временем
+                                    {t.hero.experienceDesc}
                                 </div>
                             </div>
 
                             {/* Количество учеников */}
                             <div className="text-center">
-                                <div className="text-3xl md:text-4xl font-light font-heading text-white mb-3 tracking-wide whitespace-nowrap">
-                                    {studentsCount} STUDENTS
+                                <div className="flex flex-col items-center mb-3">
+                                    <div className="text-5xl font-bold font-[family-name:var(--font-ibm-plex-serif)] text-white tracking-tight">
+                                        {studentsCount}+
+                                    </div>
+                                    <div className="text-3xl mt-2 font-semibold font-[family-name:var(--font-cormorant)] text-white tracking-wider">
+                                        {t.hero.students}
+                                    </div>
                                 </div>
-                                <div className="text-sm md:text-base text-gray-200 font-medium mb-1">
-                                    Счастливых детей
+                                <div className="text-base text-gray-200 font-medium mb-1">
+                                    {t.hero.happyChildren}
                                 </div>
                                 <div className="text-xs text-gray-300 font-light">
-                                    Нам доверяют самое ценное
+                                    {t.hero.happyChildrenDesc}
                                 </div>
                             </div>
 
                             {/* Кружки и секции */}
                             <div className="text-center">
-                                <div className="text-3xl md:text-4xl font-light font-heading text-white mb-3 tracking-wide whitespace-nowrap">
-                                    {clubsCount}+ CLUBS
+                                <div className="flex flex-col items-center mb-3">
+                                    <div className="text-5xl font-bold font-[family-name:var(--font-ibm-plex-serif)] text-white tracking-tight">
+                                        {clubsCount}+
+                                    </div>
+                                    <div className="text-3xl mt-2 font-semibold font-[family-name:var(--font-cormorant)] text-white tracking-wider">
+                                        {t.hero.clubs}
+                                    </div>
                                 </div>
-                                <div className="text-sm md:text-base text-gray-200 font-medium mb-1">
-                                    Кружков и секций
+                                <div className="text-base text-gray-200 font-medium mb-1">
+                                    {t.hero.clubsAndSections}
                                 </div>
                                 <div className="text-xs text-gray-300 font-light">
-                                    Спорт, творчество и IT в одном месте
+                                    {t.hero.clubsAndSectionsDesc}
                                 </div>
                             </div>
                         </div>
