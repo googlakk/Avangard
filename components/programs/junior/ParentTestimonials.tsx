@@ -46,7 +46,7 @@ export default function ParentTestimonials({ testimonials }: TestimonialsProps) 
 
                             {/* Цитата */}
                             <p className="text-gray-700 leading-relaxed mb-6 italic">
-                                "{testimonial.quote}"
+                                &quot;{testimonial.quote}&quot;
                             </p>
 
                             {/* Автор */}

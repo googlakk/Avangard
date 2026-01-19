@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
+import Image from 'next/image';
 
 export default function PhilosophySection() {
     const { t } = useLanguage();
@@ -55,10 +56,11 @@ export default function PhilosophySection() {
                         >
                             {/* Изображение с бейджем */}
                             <div className="relative h-48 overflow-hidden">
-                                <img
+                                <Image
                                     src={item.image}
                                     alt={item.title}
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    fill
+                                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                                 />
                                 {/* Бейдж */}
                                 <div className="absolute top-4 left-4">

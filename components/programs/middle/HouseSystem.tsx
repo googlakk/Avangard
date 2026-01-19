@@ -66,7 +66,7 @@ export default function HouseSystem({
 
                             {/* Motto */}
                             <p className="text-sm italic text-gray-600 mb-4">
-                                "{house.motto}"
+                                &quot;{house.motto}&quot;
                             </p>
                         </div>
                     ))}

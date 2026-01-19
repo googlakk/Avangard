@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 interface Activity {
     title: string;
     description: string;
@@ -43,11 +45,12 @@ export default function BeyondClassroom({
                             className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300"
                         >
                             {/* Image */}
-                            <div className="aspect-[3/4] overflow-hidden">
-                                <img
+                            <div className="aspect-[3/4] overflow-hidden relative">
+                                <Image
                                     src={activity.image}
                                     alt={activity.title}
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    fill
+                                    className="object-cover group-hover:scale-110 transition-transform duration-500"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
                             </div>

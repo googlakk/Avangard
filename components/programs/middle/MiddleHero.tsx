@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 interface MiddleHeroProps {
     title: string;
     subtitle: string;
@@ -23,10 +25,11 @@ export default function MiddleHero({
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
-                <img
+                <Image
                     src={backgroundImage}
                     alt={`${title} Hero Background`}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
             </div>

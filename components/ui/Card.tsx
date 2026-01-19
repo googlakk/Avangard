@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 import type { CardProps } from '@/types';
+import Image from 'next/image';
 
 export default function Card({ title, description, image, icon, badge, buttonText, className, style }: CardProps) {
     return (
@@ -12,10 +13,11 @@ export default function Card({ title, description, image, icon, badge, buttonTex
         >
             {image && (
                 <div className="relative h-48 overflow-hidden">
-                    <img
+                    <Image
                         src={image}
                         alt={title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     {badge && (
                         <div className="absolute top-4 left-4">

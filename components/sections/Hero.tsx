@@ -2,6 +2,7 @@
 
 import { useCountUp } from '@/hooks/useCountUp';
 import { useLanguage } from '@/contexts/LanguageContext';
+import Image from 'next/image';
 
 export default function Hero() {
     const { t } = useLanguage();
@@ -24,10 +25,11 @@ export default function Hero() {
                 >
                     <source src="/videos/Школа.mp4" type="video/mp4" />
                     {/* Fallback изображение если видео не загрузится */}
-                    <img
+                    <Image
                         src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2831"
                         alt="School background"
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
                     />
                 </video>
                 {/* Оверлей */}

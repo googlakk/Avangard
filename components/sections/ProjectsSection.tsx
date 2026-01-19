@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 // Грани образовательной экосистемы
 const programs = [
@@ -128,10 +129,11 @@ export default function ProgramsSection() {
 
                                     {/* Изображение */}
                                     <div className="absolute inset-0 transition-transform duration-500 ease-out group-hover:-translate-y-[40%]">
-                                        <img
+                                        <Image
                                             src={program.image}
                                             alt={program.title}
-                                            className="w-full h-full object-cover rounded-xl"
+                                            fill
+                                            className="object-cover rounded-xl"
                                         />
                                     </div>
 

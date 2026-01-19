@@ -5,6 +5,7 @@ export interface ButtonProps {
     onClick?: () => void;
     href?: string;
     className?: string;
+    type?: 'button' | 'submit' | 'reset';
 }
 
 export interface CardProps {

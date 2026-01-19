@@ -9,7 +9,9 @@ export default function Button({
     onClick,
     href,
     className,
+    type = 'button',
 }: ButtonProps) {
+    // ... (lines 13-37 unchanged)
     const baseStyles =
         'inline-flex items-center justify-center font-medium transition-all rounded-lg hover-lift';
 
@@ -36,7 +38,7 @@ export default function Button({
     }
 
     return (
-        <button onClick={onClick} className={buttonClasses}>
+        <button type={type} onClick={onClick} className={buttonClasses}>
             {children}
         </button>
     );

@@ -192,7 +192,7 @@ export default function ContactsPage() {
                             <Button
                                 size="lg"
                                 className="w-full"
-                                onClick={handleSubmit}
+                                type="submit"
                             >
                                 {isSubmitting ? 'Отправка...' : 'Отправить сообщение'}
                             </Button>

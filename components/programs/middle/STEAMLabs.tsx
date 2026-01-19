@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 interface Lab {
     title: string;
     description: string;
@@ -51,11 +53,12 @@ export default function STEAMLabs({
                             className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300"
                         >
                             {/* Image */}
-                            <div className="aspect-[4/3] overflow-hidden">
-                                <img
+                            <div className="aspect-[4/3] overflow-hidden relative">
+                                <Image
                                     src={lab.image}
                                     alt={lab.title}
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    fill
+                                    className="object-cover group-hover:scale-110 transition-transform duration-500"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                             </div>
