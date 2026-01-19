@@ -1,0 +1,9 @@
+{
+  "name": "Intellect Pro School",
+  "short_name": "Intellect Pro",
+  "description": "Школа Нового Поколения",
+  "theme_color": "#1e3a8a",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}
