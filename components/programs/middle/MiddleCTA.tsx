@@ -2,16 +2,17 @@
 
 import Link from 'next/link';
 
-interface CTAButton {
-    text: string;
-    link: string;
-}
-
-interface MiddleCTAProps {
+interface CTAProps {
     title: string;
     description: string;
-    primaryCTA: CTAButton;
-    secondaryCTA: CTAButton;
+    primaryCTA: {
+        text: string;
+        link: string;
+    };
+    secondaryCTA: {
+        text: string;
+        link: string;
+    };
 }
 
 export default function MiddleCTA({
@@ -19,38 +20,35 @@ export default function MiddleCTA({
     description,
     primaryCTA,
     secondaryCTA,
-}: MiddleCTAProps) {
+}: CTAProps) {
     return (
-        <section className="py-20 bg-gradient-to-br from-[#0f1419] to-[#1a1f26] text-white">
+        <section className="py-16 md:py-20 bg-white">
             <div className="container mx-auto px-4">
                 <div className="max-w-4xl mx-auto text-center">
                     {/* Title */}
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                    <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900 mb-6">
                         {title}
                     </h2>
 
                     {/* Description */}
-                    <p className="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed">
+                    <p className="text-lg text-gray-700 mb-10 leading-relaxed font-sans">
                         {description}
                     </p>
 
                     {/* CTA Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        {/* Primary CTA */}
-                        <Link
+                        <a
                             href={primaryCTA.link}
-                            className="inline-block px-8 py-4 bg-white text-[#0f1419] rounded-full text-lg font-bold hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
+                            className="px-8 py-4 bg-navy-900 text-white rounded-full text-lg font-semibold hover:bg-navy-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 font-sans"
                         >
                             {primaryCTA.text}
-                        </Link>
-
-                        {/* Secondary CTA */}
-                        <Link
+                        </a>
+                        <a
                             href={secondaryCTA.link}
-                            className="inline-block px-8 py-4 bg-transparent border-2 border-white text-white rounded-full text-lg font-bold hover:bg-white hover:text-[#0f1419] transition-all duration-300"
+                            className="px-8 py-4 bg-white text-navy-900 border-2 border-navy-900 rounded-full text-lg font-semibold hover:bg-gray-50 transition-all duration-300 font-sans"
                         >
                             {secondaryCTA.text}
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </div>

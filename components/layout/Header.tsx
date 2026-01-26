@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSwitch from '@/components/ui/LanguageSwitch';
 
@@ -24,9 +25,13 @@ export default function Header() {
                 <div className="flex items-center justify-between h-20">
                     {/* Логотип */}
                     <Link href="/" className="flex items-center">
-                        <div className="font-heading text-xl md:text-2xl font-bold text-white">
-                            INTELLECT PRO SCHOOL
-                        </div>
+                        <Image
+                            src="/logo.png"
+                            alt="INTELLECT INTERNATIONAL SCHOOL"
+                            width={1024}
+                            height={190}
+                            className="h-10 md:h-12 w-auto"
+                        />
                     </Link>
 
                     {/* Desktop Navigation */}

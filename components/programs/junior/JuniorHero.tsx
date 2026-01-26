@@ -8,6 +8,10 @@ interface JuniorHeroProps {
     ctaText: string;
     ctaLink: string;
     backgroundImage: string;
+    photoProof?: {
+        image: string;
+        caption: string;
+    };
 }
 
 export default function JuniorHero({
@@ -16,10 +20,11 @@ export default function JuniorHero({
     description,
     ctaText,
     ctaLink,
-    backgroundImage
+    backgroundImage,
+    photoProof
 }: JuniorHeroProps) {
     return (
-        <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-32">
             {/* Фоновое изображение */}
             <div className="absolute inset-0">
                 <Image
@@ -41,7 +46,7 @@ export default function JuniorHero({
                 </p>
 
                 {/* Главный заголовок */}
-                <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6 opacity-0 animate-[fadeIn_1s_ease-out_0.4s_forwards]">
+                <h1 className="text-4xl md:text-6xl font-ibm-plex-serif font-bold text-white mb-6 opacity-0 animate-[fadeIn_1s_ease-out_0.4s_forwards]">
                     {title}
                 </h1>
 
@@ -59,6 +64,27 @@ export default function JuniorHero({
                         {ctaText}
                     </Link>
                 </div>
+
+                {/* Photo Proof - если есть */}
+                {photoProof && (
+                    <div className="mt-12 max-w-4xl mx-auto opacity-0 animate-[fadeInUp_1s_ease-out_1s_forwards]">
+                        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl overflow-hidden">
+                            <div className="relative h-64 md:h-80">
+                                <Image
+                                    src={photoProof.image}
+                                    alt={photoProof.caption}
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
+                            <div className="p-4 bg-white/5">
+                                <p className="text-sm text-gray-200 text-center italic">
+                                    📸 {photoProof.caption}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
 
             {/* Декоративный элемент - волна снизу */}

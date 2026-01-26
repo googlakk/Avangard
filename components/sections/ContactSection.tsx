@@ -11,7 +11,6 @@ export default function ContactSection() {
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
-        console.log('Form submitted:', formData);
         // Здесь будет логика отправки формы
     };
 

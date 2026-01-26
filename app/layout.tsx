@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Montserrat, Cormorant_Garamond, IBM_Plex_Serif } from 'next/font/google';
+import { Inter, Montserrat, Cormorant_Garamond, IBM_Plex_Serif, Cinzel } from 'next/font/google';
 import './globals.css';
 import ClientProviders from '@/components/ClientProviders';
 
@@ -29,12 +29,19 @@ const ibmPlexSerif = IBM_Plex_Serif({
     weight: ['300', '400', '500', '600', '700'],
 });
 
+const cinzel = Cinzel({
+    subsets: ['latin'],
+    variable: '--font-cinzel',
+    display: 'swap',
+    weight: ['400', '500', '600', '700'],
+});
+
 export const metadata: Metadata = {
-    title: 'Intellect Pro School | Школа Нового Поколения',
+    title: 'INTELLECT INTERNATIONAL SCHOOL | Школа Нового Поколения',
     description:
-        'Intellect Pro School - элитная частная школа в Бишкеке. Кембриджская программа, STEAM-лаборатории, билингвальное обучение. С 2016 года воспитываем лидеров будущего.',
+        'INTELLECT INTERNATIONAL SCHOOL - элитная частная школа в Бишкеке. Кембриджская программа, STEAM-лаборатории, билингвальное обучение. С 2016 года воспитываем лидеров будущего.',
     keywords: [
-        'Intellect Pro School',
+        'INTELLECT INTERNATIONAL SCHOOL',
         'частная школа Бишкек',
         'Кембриджская школа',
         'Cambridge Assessment',
@@ -48,23 +55,23 @@ export const metadata: Metadata = {
         'средняя школа',
         'старшая школа'
     ],
-    authors: [{ name: 'Intellect Pro School' }],
-    creator: 'Intellect Pro School',
-    publisher: 'Intellect Pro School',
-    applicationName: 'Intellect Pro School',
+    authors: [{ name: 'INTELLECT INTERNATIONAL SCHOOL' }],
+    creator: 'INTELLECT INTERNATIONAL SCHOOL',
+    publisher: 'INTELLECT INTERNATIONAL SCHOOL',
+    applicationName: 'INTELLECT INTERNATIONAL SCHOOL',
 
     // Open Graph для социальных сетей
     openGraph: {
-        title: 'Intellect Pro School | Школа Нового Поколения',
+        title: 'INTELLECT INTERNATIONAL SCHOOL | Школа Нового Поколения',
         description: 'Элитная частная школа в Бишкеке. Кембриджская программа, STEAM-лаборатории, билингвальное обучение. С 2016 года воспитываем лидеров будущего.',
         url: 'https://intel.edu.kg',
-        siteName: 'Intellect Pro School',
+        siteName: 'INTELLECT INTERNATIONAL SCHOOL',
         images: [
             {
                 url: '/og-image.jpg', // Создадим это изображение
                 width: 1200,
                 height: 630,
-                alt: 'Intellect Pro School - Школа Нового Поколения',
+                alt: 'INTELLECT INTERNATIONAL SCHOOL - Школа Нового Поколения',
             }
         ],
         locale: 'ru_RU',
@@ -74,7 +81,7 @@ export const metadata: Metadata = {
     // Twitter Card
     twitter: {
         card: 'summary_large_image',
-        title: 'Intellect Pro School | Школа Нового Поколения',
+        title: 'INTELLECT INTERNATIONAL SCHOOL | Школа Нового Поколения',
         description: 'Элитная частная школа в Бишкеке. Кембриджская программа, STEAM-лаборатории, билингвальное обучение.',
         images: ['/og-image.jpg'],
         creator: '@IntellectProKG',
@@ -123,7 +130,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="ru" className={`${inter.variable} ${montserrat.variable} ${cormorantGaramond.variable} ${ibmPlexSerif.variable}`}>
+        <html lang="ru" className={`${inter.variable} ${montserrat.variable} ${cormorantGaramond.variable} ${ibmPlexSerif.variable} ${cinzel.variable}`}>
             <body>
                 <ClientProviders>{children}</ClientProviders>
             </body>

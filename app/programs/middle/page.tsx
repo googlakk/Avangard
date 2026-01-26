@@ -1,32 +1,27 @@
-import MiddleHero from '@/components/programs/middle/MiddleHero';
-import TransitionSupport from '@/components/programs/middle/TransitionSupport';
-import CambridgePathway from '@/components/programs/middle/CambridgePathway';
-import STEAMLabs from '@/components/programs/middle/STEAMLabs';
-import HouseSystem from '@/components/programs/middle/HouseSystem';
-import SkillsDevelopment from '@/components/programs/middle/SkillsDevelopment';
-import BeyondClassroom from '@/components/programs/middle/BeyondClassroom';
+import AcademicBreakthrough from '@/components/programs/middle/AcademicBreakthrough';
+import DisciplineEnvironment from '@/components/programs/middle/DisciplineEnvironment';
+import TwentyFirstSkills from '@/components/programs/middle/TwentyFirstSkills';
+import LeadershipGovernance from '@/components/programs/middle/LeadershipGovernance';
 import MiddleCTA from '@/components/programs/middle/MiddleCTA';
+import MiddleAdditionalInfoSection from '@/components/programs/middle/MiddleAdditionalInfoSection';
 import {
-    middleHeroData,
-    transitionSupportData,
-    cambridgePathwayData,
-    steamLabsData,
-    houseSystemData,
-    skillsDevelopmentData,
-    beyondClassroomData,
+    academicBreakthroughData,
+    disciplineEnvironmentData,
+    twentyFirstSkillsData,
+    leadershipGovernanceData,
     middleCTAData,
 } from '@/lib/data/middle-program';
 
 export const metadata = {
     title: 'Intellect Middle (5-9 классы) — Средняя школа | Intellect Pro',
     description:
-        'Средняя школа Intellect Middle: точные науки на английском по Cambridge Assessment, STEAM-лаборатории, система домов. Запишитесь на экскурсию!',
+        'Средняя школа Intellect Middle: точные науки на английском по Cambridge Assessment, Digital Detox, School Parliament. Амбиции, дисциплина, международный стандарт.',
     keywords:
-        'средняя школа, 5-9 классы, Cambridge Checkpoint, STEAM, английский язык, Бишкек, Intellect Pro',
+        'средняя школа, 5-9 классы, Cambridge Checkpoint, программирование, английский язык, Бишкек, Intellect Pro, дисциплина, лидерство',
     openGraph: {
-        title: 'Intellect Middle — Раскрытие потенциала',
+        title: 'Intellect Middle — Трансформация мышления',
         description:
-            'Cambridge Pathway, STEAM-лаборатории, система домов, проектная деятельность',
+            'Точные науки на английском, Digital Detox, School Parliament, подготовка к международному будущему',
         images: [
             {
                 url: '/images/middle/og-image.jpg',
@@ -41,29 +36,24 @@ export const metadata = {
 export default function MiddleProgramPage() {
     return (
         <main className="bg-white">
-            {/* Hero секция */}
-            <MiddleHero {...middleHeroData} />
+            {/* Блок 1: Академический прорыв (Оффер) */}
+            <AcademicBreakthrough {...academicBreakthroughData} />
 
-            {/* Переходный период и забота */}
-            <TransitionSupport {...transitionSupportData} />
+            {/* Блок 2: Дисциплина и Среда (Pain Killer) */}
+            <DisciplineEnvironment {...disciplineEnvironmentData} />
 
-            {/* Cambridge Pathway */}
-            <CambridgePathway {...cambridgePathwayData} />
+            {/* Блок 3: Навыки XXI века (Hard & Soft Skills) */}
+            <TwentyFirstSkills {...twentyFirstSkillsData} />
 
-            {/* STEAM & Tech */}
-            <STEAMLabs {...steamLabsData} />
+            {/* Блок 4: Лидерство и Самоуправление (Motivation) */}
+            <LeadershipGovernance {...leadershipGovernanceData} />
 
-            {/* Система домов */}
-            <HouseSystem {...houseSystemData} />
-
-            {/* Развитие навыков */}
-            <SkillsDevelopment {...skillsDevelopmentData} />
-
-            {/* За пределами класса */}
-            <BeyondClassroom {...beyondClassroomData} />
+            {/* Узнать больше - гибридная секция */}
+            <MiddleAdditionalInfoSection />
 
             {/* CTA секция */}
             <MiddleCTA {...middleCTAData} />
         </main>
     );
 }
+

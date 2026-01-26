@@ -33,7 +33,7 @@ export default function ParentTestimonials({ testimonials }: TestimonialsProps) 
                     {testimonials.map((testimonial, index) => (
                         <div
                             key={index}
-                            className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100"
+                            className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100"
                         >
                             {/* Кавычки */}
                             <svg

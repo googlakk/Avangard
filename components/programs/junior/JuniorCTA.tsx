@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function JuniorCTA() {
     return (
-        <section className="py-20 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 relative overflow-hidden">
+        <section className="py-20 bg-navy-900 relative overflow-hidden">
             {/* Декоративные элементы */}
             <div className="absolute inset-0 opacity-10">
                 <div className="absolute top-10 right-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>

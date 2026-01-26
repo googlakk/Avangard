@@ -49,7 +49,7 @@ export default function DayInLifeSchedule({ schedule }: DayScheduleProps) {
     const visibleSlides = getVisibleSlides();
 
     return (
-        <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+        <section className="py-20 bg-white">
             <div className="container mx-auto px-4">
                 {/* Заголовок */}
                 <div className="text-center mb-16">
@@ -131,8 +131,8 @@ export default function DayInLifeSchedule({ schedule }: DayScheduleProps) {
                                 key={index}
                                 onClick={() => goToSlide(index)}
                                 className={`transition-all duration-300 rounded-full ${index === currentIndex
-                                        ? 'w-8 h-2 bg-navy-900'
-                                        : 'w-2 h-2 bg-gray-400 hover:bg-gray-500'
+                                    ? 'w-8 h-2 bg-navy-900'
+                                    : 'w-2 h-2 bg-gray-400 hover:bg-gray-500'
                                     }`}
                                 aria-label={`Go to slide ${index + 1}`}
                             />
