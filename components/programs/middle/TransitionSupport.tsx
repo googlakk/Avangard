@@ -1,4 +1,6 @@
 'use client';
+import { IconWrapper } from '@/lib/icon-wrapper';
+import { Icon } from '@/lib/icons';
 
 interface Feature {
     icon: string;
@@ -45,7 +47,7 @@ export default function TransitionSupport({
                         >
                             {/* Icon */}
                             <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                                {feature.icon}
+                                <IconWrapper icon={feature.icon} variant="middle" size="md" />
                             </div>
 
                             {/* Highlight Badge */}

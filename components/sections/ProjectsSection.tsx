@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // Грани образовательной экосистемы
 const programs = [
@@ -60,6 +63,65 @@ const programs = [
 ];
 
 export default function ProgramsSection() {
+    const { t } = useLanguage();
+
+    const programs = [
+        {
+            id: 1,
+            title: t.programs.items.junior.title,
+            badge: t.programs.items.junior.badge,
+            description: t.programs.items.junior.description,
+            subtitle: t.programs.items.junior.subtitle,
+            image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1000',
+            url: '/programs/junior',
+        },
+        {
+            id: 2,
+            title: t.programs.items.middle.title,
+            badge: t.programs.items.middle.badge,
+            description: t.programs.items.middle.description,
+            subtitle: t.programs.items.middle.subtitle,
+            image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1000',
+            url: '/programs/middle',
+        },
+        {
+            id: 3,
+            title: t.programs.items.senior.title,
+            badge: t.programs.items.senior.badge,
+            description: t.programs.items.senior.description,
+            subtitle: t.programs.items.senior.subtitle,
+            image: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=1000',
+            url: '/programs/senior',
+        },
+        {
+            id: 4,
+            title: t.programs.items.global.title,
+            badge: t.programs.items.global.badge,
+            description: t.programs.items.global.description,
+            subtitle: t.programs.items.global.subtitle,
+            image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000',
+            url: '/programs/global-network',
+        },
+        {
+            id: 5,
+            title: t.programs.items.life.title,
+            badge: t.programs.items.life.badge,
+            description: t.programs.items.life.description,
+            subtitle: t.programs.items.life.subtitle,
+            image: 'https://images.unsplash.com/photo-1519315901367-f34ff9154487?q=80&w=1000',
+            url: '/programs/life-at-intellect',
+        },
+        {
+            id: 6,
+            title: t.programs.items.admissions.title,
+            badge: t.programs.items.admissions.badge,
+            description: t.programs.items.admissions.description,
+            subtitle: t.programs.items.admissions.subtitle,
+            image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1000',
+            url: '/admissions',
+        },
+    ];
+
     return (
         <section className="min-h-screen py-8 md:py-12 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden flex items-center">
             {/* Декоративный фоновый элемент */}
@@ -80,24 +142,24 @@ export default function ProgramsSection() {
 
                     {/* Заголовок с serif шрифтом - меньше */}
                     <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-3 tracking-tight opacity-0 animate-[fadeIn_1s_ease-out_0.4s_forwards]">
-                        Грани Образования
+                        {t.programs.title}
                     </h2>
 
                     {/* Подзаголовок */}
                     <p className="text-xs uppercase tracking-[0.3em] text-navy-900/60 mb-4 font-medium opacity-0 animate-[fadeIn_1s_ease-out_0.6s_forwards]">
-                        Экосистема развития
+                        {t.programs.subtitle}
                     </p>
 
                     {/* Описание - построчно, компактнее */}
                     <div className="text-sm md:text-base text-gray-700 max-w-3xl mx-auto leading-relaxed space-y-1">
                         <p className="opacity-0 animate-[fadeInUp_0.8s_ease-out_0.8s_forwards]">
-                            Образование в Intellect Pro — это не просто уроки. Это экосистема, где каждая грань дополняет другую, создавая целостную картину развития.
+                            {t.programs.description.p1}
                         </p>
                         <p className="opacity-0 animate-[fadeInUp_0.8s_ease-out_1s_forwards]">
-                            Академические программы от младших до старших классов, спорт и творчество, команда педагогов-новаторов, мировые достижения наших учеников, партнерство с университетами и IT-компаниями — все это части единого целого.
+                            {t.programs.description.p2}
                         </p>
                         <p className="opacity-0 animate-[fadeInUp_0.8s_ease-out_1.2s_forwards]">
-                            Исследуйте каждую грань и откройте для себя мир возможностей.
+                            {t.programs.description.p3}
                         </p>
                     </div>
 
@@ -110,12 +172,13 @@ export default function ProgramsSection() {
                 {/* Сетка программ - компактнее */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 max-w-6xl mx-auto">
                     {programs.map((program) => (
-                        <div
+                        <Link
+                            href={program.url}
                             key={program.id}
-                            className="group cursor-pointer relative mb-4"
+                            className="group relative mb-4 block"
                         >
                             {/* Карточка с светло-серым фоном - компактная */}
-                            <div className="bg-gray-100 rounded-2xl p-3 pb-6 shadow-sm">
+                            <div className="bg-gray-100 rounded-2xl p-3 pb-6 shadow-sm transition-shadow hover:shadow-md">
                                 {/* Контейнер изображения с overflow */}
                                 <div className="relative mb-4 overflow-hidden rounded-xl aspect-[5/3]">
                                     {/* Badge в левом верхнем углу */}
@@ -158,14 +221,13 @@ export default function ProgramsSection() {
 
                             {/* Кнопка \"О проекте\" на границе карточки - меньше */}
                             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-10">
-                                <Link
-                                    href={program.url}
-                                    className="inline-block bg-[#0f1419] text-white px-6 py-1.5 rounded-full text-xs font-medium hover:bg-[#1a1f26] transition-colors shadow-lg whitespace-nowrap"
+                                <span
+                                    className="inline-block bg-[#0f1419] text-white px-6 py-1.5 rounded-full text-xs font-medium group-hover:bg-[#1a1f26] transition-colors shadow-lg whitespace-nowrap"
                                 >
-                                    О проекте
-                                </Link>
+                                    {t.programs.moreDetails}
+                                </span>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>

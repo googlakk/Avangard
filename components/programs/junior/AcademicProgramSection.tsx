@@ -1,8 +1,10 @@
 'use client';
 
+import { IconWrapper } from '@/lib/icon-wrapper';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { AcademicBlock } from '@/lib/data/junior-program';
+import { Icon } from '@/lib/icons';
 
 interface AcademicProgramSectionProps {
     blocks: AcademicBlock[];
@@ -35,7 +37,9 @@ export default function AcademicProgramSection({ blocks }: AcademicProgramSectio
                                 : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
                                 }`}
                         >
-                            <span className="mr-2 text-2xl">{block.icon}</span>
+                            <span className="mr-2">
+                                <IconWrapper icon={block.icon} variant="junior" size="sm" />
+                            </span>
                             {block.title}
                         </button>
                     ))}
@@ -70,7 +74,9 @@ export default function AcademicProgramSection({ blocks }: AcademicProgramSectio
                                 className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                             >
                                 {subject.icon && (
-                                    <div className="text-4xl mb-3">{subject.icon}</div>
+                                    <div className="mb-3">
+                                        <IconWrapper icon={subject.icon} variant="junior" size="sm" />
+                                    </div>
                                 )}
                                 <h4 className="text-xl font-bold text-navy-900 mb-2">
                                     {subject.name}

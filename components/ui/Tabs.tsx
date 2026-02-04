@@ -1,6 +1,7 @@
 'use client';
-
+import { IconWrapper } from '@/lib/icon-wrapper';
 import { useState, ReactNode } from 'react';
+import { Icon } from '@/lib/icons';
 
 interface Tab {
     id: string;
@@ -39,8 +40,8 @@ export default function Tabs({ tabs, defaultTab }: TabsProps) {
                         >
                             {/* Icon */}
                             {tab.icon && (
-                                <span className="inline-block mr-2 text-xl">
-                                    {tab.icon}
+                                <span className="inline-block mr-2">
+                                    <IconWrapper icon={tab.icon} variant="achievement" size="sm" />
                                 </span>
                             )}
 

@@ -5,10 +5,31 @@ const config: Config = {
         "./pages/**/*.{js,ts,jsx,tsx,mdx}",
         "./components/**/*.{js,ts,jsx,tsx,mdx}",
         "./app/**/*.{js,ts,jsx,tsx,mdx}",
+        "./lib/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     theme: {
         extend: {
             colors: {
+                'oxford-blue': {
+                    DEFAULT: '#1A365D', // Primary
+                    50: '#f0f4f9',
+                    100: '#e0e9f3',
+                    200: '#c1d2e6',
+                    300: '#a2bbda',
+                    400: '#7396c4',
+                    500: '#4d76ab',
+                    600: '#345785',
+                    700: '#284366',
+                    800: '#1A365D',
+                    900: '#162d4d',
+                },
+                'electric-blue': {
+                    DEFAULT: '#2563EB', // Secondary
+                },
+                'education-amber': {
+                    DEFAULT: '#EAB308', // Accent
+                },
+                'slate-50': '#F8FAFC', // Background
                 navy: {
                     50: '#f0f4f8',
                     100: '#d9e2ec',
@@ -29,10 +50,15 @@ const config: Config = {
                 },
             },
             fontFamily: {
-                sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+                sans: ['var(--font-inter)', 'system-ui', 'sans-serif'], // Keeping Inter as default sans
                 heading: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
                 display: ['var(--font-cinzel)', 'serif'],
                 'ibm-plex-serif': ['var(--font-ibm-plex-serif)', 'serif'],
+                cormorant: ['var(--font-cormorant)', 'serif'],
+                serif: ['var(--font-cormorant)', 'serif'],
+                // New fonts
+                lora: ['var(--font-lora)', 'serif'],
+                manrope: ['var(--font-manrope)', 'sans-serif'],
             },
             backgroundImage: {
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

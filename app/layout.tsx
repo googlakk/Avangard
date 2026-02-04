@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Montserrat, Cormorant_Garamond, IBM_Plex_Serif, Cinzel } from 'next/font/google';
+import { Inter, Montserrat, Cormorant_Garamond, IBM_Plex_Serif, Cinzel, Lora, Manrope } from 'next/font/google';
 import './globals.css';
 import ClientProviders from '@/components/ClientProviders';
 
@@ -124,13 +124,25 @@ export const metadata: Metadata = {
     category: 'education',
 };
 
+const lora = Lora({
+    subsets: ['latin', 'cyrillic'],
+    variable: '--font-lora',
+    display: 'swap',
+});
+
+const manrope = Manrope({
+    subsets: ['latin', 'cyrillic'],
+    variable: '--font-manrope',
+    display: 'swap',
+});
+
 export default function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="ru" className={`${inter.variable} ${montserrat.variable} ${cormorantGaramond.variable} ${ibmPlexSerif.variable} ${cinzel.variable}`}>
+        <html lang="ru" className={`${inter.variable} ${montserrat.variable} ${cormorantGaramond.variable} ${ibmPlexSerif.variable} ${cinzel.variable} ${lora.variable} ${manrope.variable}`}>
             <body>
                 <ClientProviders>{children}</ClientProviders>
             </body>

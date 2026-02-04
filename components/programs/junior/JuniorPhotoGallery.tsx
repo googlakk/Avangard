@@ -3,6 +3,8 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
+import { useLanguage } from '@/contexts/LanguageContext';
+
 interface GalleryImage {
     src: string;
     alt: string;
@@ -13,51 +15,52 @@ interface PhotoGalleryProps {
     images: GalleryImage[];
 }
 
-const categories = {
-    classroom: 'Классы',
-    playzone: 'Игровые зоны',
-    cafeteria: 'Столовая',
-    sports: 'Спорт'
-};
-
 export default function JuniorPhotoGallery({ images }: PhotoGalleryProps) {
+    const { t } = useLanguage();
     const [activeCategory, setActiveCategory] = useState<string>('all');
+
+    const categories = {
+        classroom: t.junior.gallery.filters.classroom,
+        playzone: t.junior.gallery.filters.playzone,
+        cafeteria: t.junior.gallery.filters.cafeteria,
+        sports: t.junior.gallery.filters.sports
+    };
 
     const filteredImages = activeCategory === 'all'
         ? images
         : images.filter(img => img.category === activeCategory);
 
     return (
-        <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <section className="py-24 bg-white">
             <div className="container mx-auto px-4">
                 {/* Заголовок */}
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-                        Наша школа
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl md:text-5xl font-lora font-bold text-oxford-blue mb-4">
+                        {t.junior.gallery.title}
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Познакомьтесь с современными классами, игровыми зонами и комфортной инфраструктурой
+                    <p className="text-lg md:text-xl font-manrope text-slate-600 max-w-2xl mx-auto">
+                        {t.junior.gallery.subtitle}
                     </p>
                 </div>
 
                 {/* Фильтры */}
-                <div className="flex flex-wrap justify-center gap-3 mb-12">
+                <div className="flex flex-wrap justify-center gap-4 mb-16">
                     <button
                         onClick={() => setActiveCategory('all')}
-                        className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${activeCategory === 'all'
-                                ? 'bg-navy-900 text-white shadow-lg'
-                                : 'bg-white text-gray-700 hover:bg-gray-100'
+                        className={`px-8 py-3 rounded-full text-sm font-bold font-manrope transition-all duration-300 ${activeCategory === 'all'
+                            ? 'bg-oxford-blue text-white shadow-lg scale-105'
+                            : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                             }`}
                     >
-                        Все
+                        {t.junior.gallery.filters.all}
                     </button>
                     {Object.entries(categories).map(([key, label]) => (
                         <button
                             key={key}
                             onClick={() => setActiveCategory(key)}
-                            className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${activeCategory === key
-                                    ? 'bg-navy-900 text-white shadow-lg'
-                                    : 'bg-white text-gray-700 hover:bg-gray-100'
+                            className={`px-8 py-3 rounded-full text-sm font-bold font-manrope transition-all duration-300 ${activeCategory === key
+                                ? 'bg-oxford-blue text-white shadow-lg scale-105'
+                                : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                                 }`}
                         >
                             {label}
@@ -66,22 +69,22 @@ export default function JuniorPhotoGallery({ images }: PhotoGalleryProps) {
                 </div>
 
                 {/* Сетка изображений */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                     {filteredImages.map((image, index) => (
                         <div
                             key={index}
-                            className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
+                            className="group relative aspect-[4/3] rounded-[32px] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
                         >
                             <Image
                                 src={image.src}
                                 alt={image.alt}
                                 fill
-                                className="object-cover group-hover:scale-110 transition-transform duration-500"
+                                className="object-cover group-hover:scale-110 transition-transform duration-700"
                             />
                             {/* Overlay на hover */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div className="absolute bottom-0 left-0 right-0 p-4">
-                                    <p className="text-white text-sm font-medium">
+                            <div className="absolute inset-0 bg-gradient-to-t from-oxford-blue/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div className="absolute bottom-0 left-0 right-0 p-6">
+                                    <p className="text-white text-lg font-lora font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                                         {image.alt}
                                     </p>
                                 </div>
@@ -92,9 +95,9 @@ export default function JuniorPhotoGallery({ images }: PhotoGalleryProps) {
 
                 {/* Пустое состояние */}
                 {filteredImages.length === 0 && (
-                    <div className="text-center py-12">
-                        <p className="text-gray-500">
-                            Фотографии в этой категории скоро появятся
+                    <div className="text-center py-20">
+                        <p className="text-slate-400 font-manrope text-lg">
+                            {t.junior.gallery.empty}
                         </p>
                     </div>
                 )}

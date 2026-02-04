@@ -1,4 +1,6 @@
 'use client';
+import { IconWrapper } from '@/lib/icon-wrapper';
+import { Icon } from '@/lib/icons';
 
 interface Skill {
     icon: string;
@@ -45,7 +47,7 @@ export default function SkillsDevelopment({
                         >
                             {/* Icon */}
                             <div className="text-5xl mb-5 group-hover:scale-110 transition-transform duration-300">
-                                {skill.icon}
+                                <IconWrapper icon={skill.icon} variant="middle" size="md" />
                             </div>
 
                             {/* Title */}

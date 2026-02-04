@@ -8,11 +8,16 @@
 ## ❌ What NOT to Do (Brochure Syndrome)
 
 ### Symptoms of "Brochure Pages":
-1. **Endless vertical scroll** with 5+ identical sections stacked.
-2. **No clear hierarchy** - every section has equal visual weight.
-3. **No interactivity** - just read, read, read.
-4. **Missing CTAs** - no clear "next step" for the user.
-5. **Identical card grids** repeated over and over (3 cards, then 3 cards, then 3 cards...).
+10. **SaaS/Startup Metaphors**: 
+    - ❌ **No 3D Icons/Illustrations** (Memphis style, Claymorphism).
+    - ❌ **No "Start Trial" Buttons**.
+    - ❌ **No Cartoon Characters**.
+    - **Why?** We are a premium educational institution, not a software product.
+11. **Endless vertical scroll** with 5+ identical sections stacked.
+12. **No clear hierarchy** - every section has equal visual weight.
+13. **No interactivity** - just read, read, read.
+14. **Missing CTAs** - no clear "next step" for the user.
+15. **Identical card grids** repeated over and over (3 cards, then 3 cards, then 3 cards...).
 
 ---
 

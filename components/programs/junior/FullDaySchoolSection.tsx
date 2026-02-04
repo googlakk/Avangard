@@ -1,7 +1,9 @@
 'use client';
 
+import { IconWrapper } from '@/lib/icon-wrapper';
 import { motion } from 'framer-motion';
 import { FullDayFeature } from '@/lib/data/junior-program';
+import { Icon } from '@/lib/icons';
 
 interface FullDaySchoolSectionProps {
     features: FullDayFeature[];
@@ -34,7 +36,7 @@ export default function FullDaySchoolSection({ features }: FullDaySchoolSectionP
                         >
                             {/* Иконка */}
                             <div className="w-20 h-20 bg-navy-50 text-navy-900 rounded-2xl flex items-center justify-center mb-6 text-4xl shadow-sm border border-navy-100">
-                                {feature.icon}
+                                <IconWrapper icon={feature.icon} variant="junior" size="md" />
                             </div>
 
                             {/* Заголовок */}

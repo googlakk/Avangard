@@ -1,102 +1,5 @@
 // Данные для новой conversion-focused страницы Intellect Senior
 
-// Block 1: Offer (Main Promise)
-export const seniorOfferData = {
-    headline: "Ваш прямой путь в ТОП-вузы мира и грантовое обучение",
-    subheadline: "10 и 11 классы — это не просто окончание школы. Это двухлетний карьерный инкубатор. Мы готовим портфолио, с которым университеты США, Европы и Азии борются за абитуриента.",
-    ctaText: "Узнать требования к поступлению",
-    ctaLink: "/contacts",
-    backgroundImage: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2000"
-};
-
-// Block 2: Academic Results (Hard Skills)
-export const academicResultsData = {
-    headline: "Репетиторы больше не нужны. Всё включено в расписание.",
-    description: "Мы экономим бюджет семьи и время ребенка. Подготовка к ключевым экзаменам интегрирована в учебный день:",
-    timeframe: "08:00 – 17:00 ежедневно",
-    pillars: [
-        {
-            icon: "🇺🇸",
-            title: "SAT & IELTS/TOEFL",
-            description: "Математика и английский для поступления за рубеж",
-            details: [
-                "SAT Math и Verbal reasoning",
-                "IELTS/TOEFL: Reading, Writing, Speaking",
-                "Подготовка к Essay и мотивационным письмам"
-            ]
-        },
-        {
-            icon: "🇰🇬",
-            title: "ОРТ",
-            description: "Усиленная подготовка к Золотому сертификату",
-            details: [
-                "Целевая подготовка к госэкзаменам",
-                "Математика, Логика, Родной язык",
-                "Поступление в АУЦА, КРСУ, Манас без экзаменов"
-            ]
-        },
-        {
-            icon: "🔬",
-            title: "Cambridge Science",
-            description: "Изучение точных наук на английском языке",
-            details: [
-                "Physics, Chemistry, Biology на English",
-                "Научная терминология и академическое письмо",
-                "Подготовка к обучению в англоязычных вузах"
-            ]
-        }
-    ],
-    proofImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200"
-};
-
-// Block 3: Cognitive Superiority & AI
-export const cognitiveAIData = {
-    headline: "Мы даем несправедливое преимущество на экзаменах",
-    hook: "Пока другие зубрят, наши ученики используют технологии мозга и AI:",
-    advantages: [
-        {
-            title: "AI-Fluency",
-            tagline: "Искусственный интеллект как второй пилот",
-            description: "Используем ChatGPT и другие нейросети для ускорения учебы и работы. Ваш ребенок будет выполнять задачи в 10 раз быстрее сверстников.",
-            benefits: [
-                "Анализ текстов и генерация идей с помощью AI",
-                "Автоматизация рутинных задач (конспекты, планы)",
-                "Критическое мышление: проверка AI на ошибки"
-            ],
-            multiplier: "Ускорение ×10"
-        },
-        {
-            title: "Ментальные технологии",
-            tagline: "Тренировка мозга для экзаменов",
-            description: "Скорочтение для секции Reading (IELTS) и мнемотехника для запоминания сотен терминов без стресса.",
-            benefits: [
-                "Скорочтение: прочитать текст за 3 минуты вместо 10",
-                "Мнемотехника: запомнить 100 слов за час",
-                "Управление стрессом на экзаменах"
-            ],
-            multiplier: "Экономия времени в 4 раза"
-        }
-    ],
-    proofImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200"
-};
-
-// Block 4: Selective Admission (Filter & CTA)
-export const selectiveAdmissionData = {
-    headline: "Окружение определяет будущее",
-    filterMessage: "В 10-11 классы мы отбираем только мотивированных ребят. Это не для всех.",
-    communityPromise: "Здесь ваш ребенок окажется среди тех, кто хочет создавать стартапы, побеждать в олимпиадах и менять мир. Никакого буллинга, только партнерство и здоровые амбиции.",
-    ctaText: "Подать заявку на собеседование",
-    ctaLink: "/contacts",
-    communityValues: [
-        "Стартапы",
-        "Олимпиады",
-        "Лидерство",
-        "Партнерство",
-        "Здоровые амбиции"
-    ],
-    proofImage: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=1200"
-};
-
 // --- Interfaces for SeniorProgramTabs ---
 
 export interface UniversityPathwayBlock {
@@ -147,209 +50,225 @@ export interface CareerGuidanceItem {
     highlight?: string;
 }
 
-// --- Data for SeniorProgramTabs ---
+// Block 1: Offer (Main Promise)
+export const getSeniorOfferData = (t: any) => ({
+    headline: t.senior.hero.headline,
+    subheadline: t.senior.hero.subheadline,
+    ctaText: t.senior.hero.ctaText,
+    ctaLink: "/contacts",
+    // Using proofImage naming to match component update, but original had backgroundImage
+    // Component now expects backgroundImage AND scrollText?
+    // Let's check SeniorOffer.tsx again. It expects 'backgroundImage' and 'scrollText'.
+    // Wait, in my previous step I seemingly changed it to 'proofImage' in SeniorOffer?
+    // Step 236 showed: ctaLink, backgroundImage, scrollText.
+    // Step 230 showed: proofImage instead of backgroundImage.
+    // I need to be 100% sure what SeniorOffer expects.
+    // Let's assume I reverted to 'backgroundImage' + 'scrollText' based on Step 236.
+    backgroundImage: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2000",
+    scrollText: t.senior.hero.scrollText
+});
 
-export const universityPathwayBlocks: UniversityPathwayBlock[] = [
+// Block 2: Academic Results (Hard Skills)
+export const getAcademicResultsData = (t: any) => ({
+    headline: t.senior.academic.headline,
+    description: t.senior.academic.description,
+    timeframe: t.senior.academic.timeframe,
+    pillars: [
+        {
+            icon: "Globe",
+            title: t.senior.academic.pillars.sat.title,
+            description: t.senior.academic.pillars.sat.description,
+            details: t.senior.academic.pillars.sat.details
+        },
+        {
+            icon: "Languages",
+            title: t.senior.academic.pillars.ort.title,
+            description: t.senior.academic.pillars.ort.description,
+            details: t.senior.academic.pillars.ort.details
+        },
+        {
+            icon: "Microscope",
+            title: t.senior.academic.pillars.science.title,
+            description: t.senior.academic.pillars.science.description,
+            details: t.senior.academic.pillars.science.details
+        }
+    ],
+    proofImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200",
+    proofCaption: t.senior.academic.proofCaption,
+    bottomStrong: t.senior.academic.bottomStrong,
+    bottomText: t.senior.academic.bottomText
+});
+
+// Block 3: Cognitive Superiority & AI
+export const getCognitiveAIData = (t: any) => ({
+    headline: t.senior.cognitive.headline,
+    hook: t.senior.cognitive.hook,
+    advantages: [
+        {
+            title: t.senior.cognitive.advantages.ai.title,
+            tagline: t.senior.cognitive.advantages.ai.tagline,
+            description: t.senior.cognitive.advantages.ai.description,
+            benefits: t.senior.cognitive.advantages.ai.benefits,
+            multiplier: t.senior.cognitive.advantages.ai.multiplier
+        },
+        {
+            title: t.senior.cognitive.advantages.mental.title,
+            tagline: t.senior.cognitive.advantages.mental.tagline,
+            description: t.senior.cognitive.advantages.mental.description,
+            benefits: t.senior.cognitive.advantages.mental.benefits,
+            multiplier: t.senior.cognitive.advantages.mental.multiplier
+        }
+    ],
+    proofImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200",
+    proofCaption: t.senior.cognitive.proofCaption,
+    bottomTitle: t.senior.cognitive.bottomTitle,
+    bottomText: t.senior.cognitive.bottomText
+});
+
+// Block 4: Selective Admission (Filter & CTA)
+export const getSelectiveAdmissionData = (t: any) => ({
+    headline: t.senior.admission.headline,
+    filterMessage: t.senior.admission.filterMessage,
+    communityPromise: t.senior.admission.communityPromise,
+    ctaText: t.senior.admission.ctaText,
+    ctaLink: "/contacts",
+    communityValues: t.senior.admission.communityValues,
+    proofImage: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=1200",
+    subText: t.senior.admission.subText,
+    proofCaption: t.senior.admission.proofCaption,
+    bottomBoxTitle: t.senior.admission.bottomBoxTitle,
+    bottomBoxText: t.senior.admission.bottomBoxText
+});
+
+export const getUniversityPathwayBlocks = (t: any): UniversityPathwayBlock[] => [
     {
         id: 'sat',
-        icon: '🇺🇸',
-        title: 'SAT Preparation',
-        subtitle: 'Для поступления в США и Европу',
-        description: [
-            'Математика (Math) - углубленная подготовка',
-            'Verbal Reasoning - работа с текстами',
-            'Регулярные пробные тесты'
-        ]
+        icon: 'Globe',
+        title: t.senior.tabs.academic.pathways.sat.title,
+        subtitle: t.senior.tabs.academic.pathways.sat.subtitle,
+        description: t.senior.tabs.academic.pathways.sat.description
     },
     {
         id: 'ielts',
-        icon: '🇬🇧',
-        title: 'IELTS / TOEFL',
-        subtitle: 'Международный сертификат',
-        description: [
-            'Academic Module',
-            'Отработка всех 4-х навыков',
-            'Speaking Club с носителями'
-        ]
+        icon: 'Languages',
+        title: t.senior.tabs.academic.pathways.ielts.title,
+        subtitle: t.senior.tabs.academic.pathways.ielts.subtitle,
+        description: t.senior.tabs.academic.pathways.ielts.description
     },
     {
         id: 'ort',
-        icon: '🇰🇬',
-        title: 'ОРТ (Золотой сертификат)',
-        subtitle: 'Гранты в ВУЗы Кыргызстана',
-        description: [
-            'Усиленная подготовка по математике',
-            'Русский/Кыргызский язык',
-            'История и аналогии'
-        ]
+        icon: 'Flag',
+        title: t.senior.tabs.academic.pathways.ort.title,
+        subtitle: t.senior.tabs.academic.pathways.ort.subtitle,
+        description: t.senior.tabs.academic.pathways.ort.description
     }
 ];
 
-export const englishProficiencyBlocks: EnglishProficiencyBlock[] = [
+export const getEnglishProficiencyBlocks = (t: any): EnglishProficiencyBlock[] => [
     {
-        icon: '📚',
-        title: 'Academic English',
-        subtitle: 'Английский для науки',
-        description: [
-            'Изучение терминологии (Math, Science)',
-            'Написание эссе и академических работ',
-            'Чтение научной литературы'
-        ],
-        target: 'C1/C2 Level'
+        icon: 'BookOpen',
+        title: t.senior.tabs.academic.english.academic.title,
+        subtitle: t.senior.tabs.academic.english.academic.subtitle,
+        description: t.senior.tabs.academic.english.academic.description,
+        target: t.senior.tabs.academic.english.academic.target
     },
     {
-        icon: '🗣️',
-        title: 'Debate & Public Speaking',
-        subtitle: 'Навыки аргументации',
-        description: [
-            'Участие в дебатах (WSC формат)',
-            'Презентация проектов на английском',
-            'Преодоление языкового барьера'
-        ]
+        icon: 'MessageCircle',
+        title: t.senior.tabs.academic.english.debate.title,
+        subtitle: t.senior.tabs.academic.english.debate.subtitle,
+        description: t.senior.tabs.academic.english.debate.description
     },
     {
-        icon: '📝',
-        title: 'Writing Lab',
-        subtitle: 'Мастерство письма',
-        description: [
-            'Мотивационные письма для ВУЗов',
-            'Структурирование мыслей',
-            'Грамматика продвинутого уровня'
-        ]
+        icon: 'FileText',
+        title: t.senior.tabs.academic.english.writing.title,
+        subtitle: t.senior.tabs.academic.english.writing.subtitle,
+        description: t.senior.tabs.academic.english.writing.description
     }
 ];
 
-export const cognitiveAdvantages: CognitiveAdvantage[] = [
+export const getCognitiveAdvantages = (t: any): CognitiveAdvantage[] => [
     {
-        icon: '⚡',
-        title: 'Скорочтение',
-        subtitle: 'Работа с информацией',
-        description: [
-            'Увеличение скорости чтения в 3-4 раза',
-            'Быстрое выделение главного в тексте',
-            'Эффективно для подготовки к SAT/IELTS'
-        ],
-        benefit: 'Экономия времени'
+        icon: 'Zap',
+        title: t.senior.tabs.skills.cognitive.reading.title,
+        subtitle: t.senior.tabs.skills.cognitive.reading.subtitle,
+        description: t.senior.tabs.skills.cognitive.reading.description,
+        benefit: t.senior.tabs.skills.cognitive.reading.benefit
     },
     {
-        icon: '🧠',
-        title: 'Мнемотехника',
-        subtitle: 'Технологии памяти',
-        description: [
-            'Запоминание сложных терминов',
-            'Изучение иностранных слов (100+ в час)',
-            'Долгосрочное удержание информации'
-        ],
-        benefit: 'Супер-память'
+        icon: 'Brain',
+        title: t.senior.tabs.skills.cognitive.memory.title,
+        subtitle: t.senior.tabs.skills.cognitive.memory.subtitle,
+        description: t.senior.tabs.skills.cognitive.memory.description,
+        benefit: t.senior.tabs.skills.cognitive.memory.benefit
     },
     {
-        icon: '🎯',
-        title: 'Управление вниманием',
-        subtitle: 'Фокус и концентрация',
-        description: [
-            'Техники борьбы с прокрастинацией',
-            'Глубокая работа (Deep Work)',
-            'Ментальная арифметика'
-        ],
-        benefit: 'Высокая продуктивность'
+        icon: 'Target',
+        title: t.senior.tabs.skills.cognitive.focus.title,
+        subtitle: t.senior.tabs.skills.cognitive.focus.subtitle,
+        description: t.senior.tabs.skills.cognitive.focus.description,
+        benefit: t.senior.tabs.skills.cognitive.focus.benefit
     }
 ];
 
-export const xxiCenturySkills: XXICenturySkill[] = [
+export const getXXICenturySkills = (t: any): XXICenturySkill[] => [
     {
-        icon: '💻',
-        title: 'AI & Digital Fluency',
-        subtitle: 'Владение технологиями',
-        description: [
-            'Использование нейросетей в учебе',
-            'Основы программирования',
-            'Цифровая безопасность'
-        ],
-        keyPoints: ['ChatGPT', 'Python', 'Prompt Engineering']
+        icon: 'Code2',
+        title: t.senior.tabs.skills.xxi.ai.title,
+        subtitle: t.senior.tabs.skills.xxi.ai.subtitle,
+        description: t.senior.tabs.skills.xxi.ai.description,
+        keyPoints: t.senior.tabs.skills.xxi.ai.keyPoints
     },
     {
-        icon: '🤝',
-        title: 'Soft Skills',
-        subtitle: 'Гибкие навыки',
-        description: [
-            'Эмоциональный интеллект',
-            'Работа в команде',
-            'Лидерские качества'
-        ]
+        icon: 'Users',
+        title: t.senior.tabs.skills.xxi.soft.title,
+        subtitle: t.senior.tabs.skills.xxi.soft.subtitle,
+        description: t.senior.tabs.skills.xxi.soft.description
     },
     {
-        icon: '💰',
-        title: 'Финансовая грамотность',
-        subtitle: 'Управление ресурсами',
-        description: [
-            'Основы инвестирования',
-            'Планирование бюджета',
-            'Бизнес-проекты'
-        ]
+        icon: 'Wallet',
+        title: t.senior.tabs.skills.xxi.finance.title,
+        subtitle: t.senior.tabs.skills.xxi.finance.subtitle,
+        description: t.senior.tabs.skills.xxi.finance.description
     }
 ];
 
-export const studentLifeFeatures: StudentLifeFeature[] = [
+export const getStudentLifeFeatures = (t: any): StudentLifeFeature[] => [
     {
-        icon: '🏆',
-        title: 'Олимпиады',
-        subtitle: 'Соревнования',
-        description: [
-            'Международные олимпиады по предметам',
-            'World Scholar\'s Cup',
-            'Спортивные чемпионаты'
-        ],
-        benefit: 'Портфолио'
+        icon: 'Award',
+        title: t.senior.tabs.life.features.olympiads.title,
+        subtitle: t.senior.tabs.life.features.olympiads.subtitle,
+        description: t.senior.tabs.life.features.olympiads.description,
+        benefit: t.senior.tabs.life.features.olympiads.benefit
     },
     {
-        icon: '🎭',
-        title: 'Клубы и творчество',
-        subtitle: 'Самовыражение',
-        description: [
-            'Театральная студия',
-            'Музыкальная группа',
-            'Арт-студия'
-        ]
+        icon: 'Palette',
+        title: t.senior.tabs.life.features.clubs.title,
+        subtitle: t.senior.tabs.life.features.clubs.subtitle,
+        description: t.senior.tabs.life.features.clubs.description
     },
     {
-        icon: '🌍',
-        title: 'Волонтерство',
-        subtitle: 'Социальная ответственность',
-        description: [
-            'Благотворительные проекты',
-            'Экологические акции',
-            'Помощь младшим школьникам'
-        ]
+        icon: 'Globe',
+        title: t.senior.tabs.life.features.volunteering.title,
+        subtitle: t.senior.tabs.life.features.volunteering.subtitle,
+        description: t.senior.tabs.life.features.volunteering.description
     }
 ];
 
-export const careerGuidanceItems: CareerGuidanceItem[] = [
+export const getCareerGuidanceItems = (t: any): CareerGuidanceItem[] => [
     {
-        icon: '🧭',
-        title: 'Профориентация',
-        description: [
-            'Тестирование склонностей',
-            'Встречи с профессионалами',
-            'Экскурсии в компании'
-        ],
-        highlight: 'Индивидуальный план'
+        icon: 'Compass',
+        title: t.senior.tabs.life.career.guidance.title,
+        description: t.senior.tabs.life.career.guidance.description,
+        highlight: t.senior.tabs.life.career.guidance.highlight
     },
     {
-        icon: '🎓',
-        title: 'University Admission',
-        description: [
-            'Выбор университетов и программ',
-            'Сбор документов и подача заявок',
-            'Поиск стипендий и грантов'
-        ]
+        icon: 'GraduationCap',
+        title: t.senior.tabs.life.career.admission.title,
+        description: t.senior.tabs.life.career.admission.description
     },
     {
-        icon: '💼',
-        title: 'Стажировки',
-        description: [
-            'Практика в реальных проектах',
-            'Летние школы',
-            'Нетворкинг'
-        ]
+        icon: 'Briefcase',
+        title: t.senior.tabs.life.career.internships.title,
+        description: t.senior.tabs.life.career.internships.description
     }
 ];

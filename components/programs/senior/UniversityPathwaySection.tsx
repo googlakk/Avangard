@@ -1,4 +1,5 @@
 import { UniversityPathwayBlock } from '@/lib/data/senior-program';
+import { IconWrapper } from '@/lib/icon-wrapper';
 
 interface UniversityPathwaySectionProps {
     blocks: UniversityPathwayBlock[];
@@ -29,7 +30,9 @@ export default function UniversityPathwaySection({ blocks }: UniversityPathwaySe
                             }}
                         >
                             {/* Иконка */}
-                            <div className="text-5xl mb-4">{block.icon}</div>
+                            <div className="mb-4">
+                                <IconWrapper icon={block.icon} variant="white" size="md" />
+                            </div>
 
                             {/* Заголовок */}
                             <h3 className="text-xl md:text-2xl font-bold font-heading text-gray-900 mb-2">

@@ -9,6 +9,10 @@ interface SelectiveAdmissionProps {
     ctaLink: string;
     communityValues: string[];
     proofImage: string;
+    subText: string;
+    proofCaption: string;
+    bottomBoxTitle: string;
+    bottomBoxText: string;
 }
 
 export default function SelectiveAdmission({
@@ -18,7 +22,11 @@ export default function SelectiveAdmission({
     ctaText,
     ctaLink,
     communityValues,
-    proofImage
+    proofImage,
+    subText,
+    proofCaption,
+    bottomBoxTitle,
+    bottomBoxText
 }: SelectiveAdmissionProps) {
     return (
         <section className="py-20 md:py-28 bg-gradient-to-br from-gray-50 via-white to-gray-50">
@@ -67,7 +75,7 @@ export default function SelectiveAdmission({
 
                             {/* Subtext */}
                             <p className="mt-6 text-sm text-gray-500">
-                                Процесс отбора включает собеседование и оценку мотивации
+                                {subText}
                             </p>
                         </div>
 
@@ -84,7 +92,7 @@ export default function SelectiveAdmission({
                                 {/* Caption */}
                                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
                                     <p className="text-white text-sm md:text-base font-medium">
-                                        📸 Фото-доказательство: TEDx-формат, Школьный парламент — здесь лидеры, здесь уважают мнение
+                                        {proofCaption}
                                     </p>
                                 </div>
                             </div>
@@ -92,10 +100,10 @@ export default function SelectiveAdmission({
                             {/* Additional emphasis */}
                             <div className="mt-8 bg-navy-900 text-white p-6 rounded-2xl text-center">
                                 <p className="text-lg font-bold mb-2">
-                                    Никакого буллинга
+                                    {bottomBoxTitle}
                                 </p>
                                 <p className="text-gray-300">
-                                    Только партнерство и здоровые амбиции
+                                    {bottomBoxText}
                                 </p>
                             </div>
                         </div>

@@ -13,13 +13,19 @@ interface CognitiveSuperiorityAIProps {
     hook: string;
     advantages: CognitiveAdvantage[];
     proofImage: string;
+    proofCaption: string;
+    bottomTitle: string;
+    bottomText: string;
 }
 
 export default function CognitiveSuperiorityAI({
     headline,
     hook,
     advantages,
-    proofImage
+    proofImage,
+    proofCaption,
+    bottomTitle,
+    bottomText
 }: CognitiveSuperiorityAIProps) {
     return (
         <section className="py-20 md:py-28 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 text-white">
@@ -89,7 +95,7 @@ export default function CognitiveSuperiorityAI({
                         {/* Caption */}
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
                             <p className="text-white text-sm md:text-base font-medium">
-                                📸 Фото-доказательство: ChatGPT/Python на экране + Mind Map в тетради — современные инструменты, не устаревшие методы
+                                {proofCaption}
                             </p>
                         </div>
                     </div>
@@ -99,10 +105,10 @@ export default function CognitiveSuperiorityAI({
                 <div className="mt-16 text-center">
                     <div className="inline-block bg-white/10 backdrop-blur-xl border border-white/30 px-10 py-6 rounded-3xl">
                         <p className="text-xl md:text-2xl font-bold mb-2">
-                            Это современная школа XXI века
+                            {bottomTitle}
                         </p>
                         <p className="text-gray-300">
-                            Мы учим использовать AI как второго пилота, а не бояться его
+                            {bottomText}
                         </p>
                     </div>
                 </div>

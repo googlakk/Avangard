@@ -72,7 +72,7 @@ export default function Footer() {
                             />
                         </Link>
                         <p className="text-gray-400 mb-6 leading-relaxed">
-                            Элитная частная школа в Бишкеке. Воспитываем лидеров будущего с 2016 года, объединяя традиции и инновации.
+                            {t.footer.description}
                         </p>
                         <div className="flex flex-wrap gap-3">
                             {socialLinks.map((item) => (
@@ -97,7 +97,7 @@ export default function Footer() {
                     {/* Navigation */}
                     <div>
                         <h3 className="font-heading text-white text-lg font-semibold mb-6 relative inline-block">
-                            Навигация
+                            {t.footer.navigation}
                             <span className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600" />
                         </h3>
                         <ul className="space-y-4">
@@ -118,7 +118,7 @@ export default function Footer() {
                             </li>
                             <li>
                                 <Link href="/teachers" className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">
-                                    Преподаватели
+                                    {t.header.teachers}
                                 </Link>
                             </li>
                             <li>
@@ -132,28 +132,28 @@ export default function Footer() {
                     {/* Programs (Placeholder for now based on design) */}
                     <div>
                         <h3 className="font-heading text-white text-lg font-semibold mb-6 relative inline-block">
-                            Программы
+                            {t.footer.programs}
                             <span className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600" />
                         </h3>
                         <ul className="space-y-4">
                             <li>
                                 <Link href="/programs#memory" className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">
-                                    Память и Внимание
+                                    {t.philosophy.memory.title}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/programs#critical" className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">
-                                    Критическое мышление
+                                    {t.philosophy.criticalThinking.title}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/programs#languages" className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">
-                                    Иностранные языки
+                                    {t.philosophy.languages.title}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/programs#steam" className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">
-                                    STEAM Лаборатории
+                                    {t.philosophy.steam.title}
                                 </Link>
                             </li>
                         </ul>
@@ -172,9 +172,9 @@ export default function Footer() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
                                 <span className="text-gray-400">
-                                    г. Бишкек, ул. Джунусалиева, 177/1
+                                    {t.contact.addressList.main}
                                     <br />
-                                    ул. А. Бакаева, 119
+                                    {t.contact.addressList.branch}
                                 </span>
                             </li>
                             <li className="flex items-start space-x-3">

@@ -1,5 +1,7 @@
 'use client';
 
+import { IconWrapper } from '@/lib/icon-wrapper';
+
 import Image from 'next/image';
 
 interface Lab {
@@ -84,7 +86,9 @@ export default function STEAMLabs({
                                 className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200 hover:border-[#0f1419] hover:shadow-lg transition-all duration-300"
                             >
                                 {/* Icon */}
-                                <div className="text-5xl mb-4">{discipline.icon}</div>
+                                <div className="mb-4">
+                                    <IconWrapper icon={discipline.icon} variant="middle" size="md" />
+                                </div>
 
                                 {/* Name */}
                                 <h4 className="text-xl font-bold text-gray-900 mb-3">

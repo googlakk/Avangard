@@ -7,6 +7,7 @@ interface SeniorOfferProps {
     ctaText: string;
     ctaLink: string;
     backgroundImage: string;
+    scrollText: string;
 }
 
 export default function SeniorOffer({
@@ -14,7 +15,8 @@ export default function SeniorOffer({
     subheadline,
     ctaText,
     ctaLink,
-    backgroundImage
+    backgroundImage,
+    scrollText
 }: SeniorOfferProps) {
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -57,7 +59,7 @@ export default function SeniorOffer({
                     {/* Subtle indicator */}
                     <div className="mt-16 opacity-0 animate-[fadeIn_1.5s_ease-out_1s_forwards]">
                         <p className="text-sm text-gray-400 uppercase tracking-wider mb-2">
-                            Двухлетний карьерный инкубатор
+                            {scrollText}
                         </p>
                         <div className="flex justify-center">
                             <svg className="w-6 h-6 text-gray-400 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -1,5 +1,7 @@
 'use client';
 
+import { IconWrapper } from '@/lib/icon-wrapper';
+
 interface CurriculumBlock {
     icon: string;
     title: string;
@@ -35,7 +37,7 @@ export default function JuniorCurriculum({ blocks }: JuniorCurriculumProps) {
                         >
                             {/* Иконка */}
                             <div className="text-6xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                                {block.icon}
+                                <IconWrapper icon={block.icon} variant="white" size="md" />
                             </div>
 
                             {/* Заголовок */}

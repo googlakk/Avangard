@@ -1,4 +1,5 @@
 import { StudentLifeFeature } from '@/lib/data/senior-program';
+import { IconWrapper } from '@/lib/icon-wrapper';
 
 interface StudentLifeSectionProps {
     features: StudentLifeFeature[];
@@ -30,7 +31,9 @@ export default function StudentLifeSection({ features }: StudentLifeSectionProps
 
                             <div className="relative z-10">
                                 {/* Иконка */}
-                                <div className="text-5xl mb-4">{feature.icon}</div>
+                                <div className="mb-4">
+                                    <IconWrapper icon={feature.icon} variant="senior" size="md" />
+                                </div>
 
                                 {/* Заголовок */}
                                 <h3 className="text-xl md:text-2xl font-bold font-heading text-gray-900 mb-2">

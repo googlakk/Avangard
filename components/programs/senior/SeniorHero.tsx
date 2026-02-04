@@ -1,5 +1,7 @@
-import Link from 'next/link';
+import { IconWrapper } from '@/lib/icon-wrapper';
 import Image from 'next/image';
+import Link from 'next/link';
+import { Icon } from '@/lib/icons';
 
 interface SeniorHeroProps {
     title: string;
@@ -43,23 +45,23 @@ export default function SeniorHero({
                 </p>
 
                 {/* Главный заголовок */}
-                <h1 className="text-3xl md:text-5xl lg:text-6xl font-ibm-plex-serif font-bold text-white mb-6 max-w-5xl mx-auto leading-tight opacity-0 animate-[fadeIn_1s_ease-out_0.4s_forwards]">
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-ibm-plex-serif font-bold text-white mb-10 max-w-5xl mx-auto leading-tight opacity-0 animate-[fadeIn_1s_ease-out_0.4s_forwards]">
                     {title}
                 </h1>
 
                 {/* Описание */}
-                <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8 leading-relaxed opacity-0 animate-[fadeInUp_1s_ease-out_0.6s_forwards]">
+                <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-12 leading-relaxed opacity-0 animate-[fadeInUp_1s_ease-out_0.6s_forwards]">
                     {description}
                 </p>
 
                 {/* Trust Badges */}
-                <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-10 opacity-0 animate-[fadeInUp_1s_ease-out_0.7s_forwards]">
+                <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-12 opacity-0 animate-[fadeInUp_1s_ease-out_0.7s_forwards]">
                     {trustBadges.map((badge, index) => (
                         <div
                             key={index}
                             className="flex items-center gap-2 bg-white/10 backdrop-blur-xl border border-white/20 px-4 py-2 rounded-full"
                         >
-                            <span className="text-xl">{badge.icon}</span>
+                            <IconWrapper icon={badge.icon} variant="white" size="sm" />
                             <span className="text-sm md:text-base text-white font-medium">
                                 {badge.text}
                             </span>

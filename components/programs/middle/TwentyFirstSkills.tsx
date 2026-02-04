@@ -1,4 +1,6 @@
 'use client';
+import { IconWrapper } from '@/lib/icon-wrapper';
+import { Icon } from '@/lib/icons';
 
 import Image from 'next/image';
 
@@ -47,7 +49,7 @@ export default function TwentyFirstSkills({
                             >
                                 {/* Icon */}
                                 <div className="text-4xl flex-shrink-0 mt-1">
-                                    {skill.icon}
+                                    <IconWrapper icon={skill.icon} variant="middle" size="md" />
                                 </div>
 
                                 {/* Content */}

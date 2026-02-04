@@ -1,51 +1,1373 @@
 {
     "header": {
         "home": "Home",
-        "about": "About",
-        "programs": "Programs",
+        "about": "About Us",
         "news": "News",
-        "contacts": "Contacts"
+        "contacts": "Contact",
+        "teachers": "Faculty",
+        "admission": "Admissions",
+        "parentsMenu": {
+            "title": "For Parents",
+            "items": {
+                "academics": {
+                    "title": "Academics",
+                    "description": "Programs and subjects"
+                },
+                "values": {
+                    "title": "Why Us",
+                    "description": "Values and outcomes"
+                },
+                "care": {
+                    "title": "Care & Safety",
+                    "description": "Security, health, nutrition"
+                },
+                "admission": {
+                    "title": "Admissions",
+                    "description": "Steps and documents"
+                },
+                "faq": {
+                    "title": "FAQ",
+                    "description": "Frequently asked questions"
+                }
+            }
+        },
+        "teachersMenu": {
+            "title": "For Teachers",
+            "items": {
+                "culture": {
+                    "title": "Culture",
+                    "description": "Our mission"
+                },
+                "benefits": {
+                    "title": "Work Environment",
+                    "description": "Benefits and growth"
+                },
+                "careers": {
+                    "title": "Careers",
+                    "description": "Join our team"
+                }
+            }
+        },
+        "programs": "Academics"
     },
     "hero": {
-        "since": "SINCE",
-        "students": "STUDENTS",
-        "clubs": "CLUBS",
-        "experience": "Experience and traditions",
-        "experienceDesc": "Time-tested education",
-        "happyChildren": "Happy children",
-        "happyChildrenDesc": "We are trusted with the most precious",
-        "clubsAndSections": "Clubs and sections",
-        "clubsAndSectionsDesc": "Sports, creativity and IT in one place"
+        "since": "ESTABLISHED",
+        "students": "SCHOLARS",
+        "clubs": "CO-CURRICULARS",
+        "experience": "Heritage & Excellence",
+        "experienceDesc": "A legacy of educational distinction",
+        "happyChildren": "Thriving Students",
+        "happyChildrenDesc": "Entrusted with your most precious legacy",
+        "clubsAndSections": "Enrichment & Societies",
+        "clubsAndSectionsDesc": "Sports, Arts, and IT innovation hub"
     },
     "philosophy": {
-        "title": "Our Programs",
+        "title": "Curriculum Pillars",
         "memory": {
-            "title": "Memory and Attention",
-            "description": "Academic performance directly depends on memory. Your child will find it easy to stay focused and concentrated.",
-            "badge": "2 Teachers"
+            "title": "Cognitive Development",
+            "description": "Academic excellence is rooted in cognitive discipline. We foster focus and intellectual stamina.",
+            "badge": "Dual Mentorship"
         },
         "criticalThinking": {
-            "title": "Critical Thinking",
-            "description": "Your child will be able to look at things from different perspectives. We improve the ability to make creative decisions.",
-            "badge": "Cambridge System"
+            "title": "Critical Inquiry",
+            "description": "Cultivating the ability to analyze perspectives and engineer creative solutions.",
+            "badge": "Cambridge Pathway"
         },
         "gamification": {
-            "title": "Gamification",
-            "description": "Exciting storyline, motivational game mechanics and rewards. Your child will never get bored at our school.",
-            "badge": "15+ Directions"
+            "title": "Engagement Mechanics",
+            "description": "Immersive narratives and motivational systems ensure a vibrant learning journey.",
+            "badge": "15+disciplines"
         },
-        "learnMore": "Learn More"
+        "learnMore": "Discover More",
+        "languages": {
+            "title": "Foreign Languages"
+        },
+        "steam": {
+            "title": "STEAM Laboratories"
+        }
     },
     "features": {
         "title": "Why choose",
         "titleHighlight": "us",
-        "subtitle": "We offer comprehensive solutions for your business development"
+        "subtitle": "We offer comprehensive solutions for your development"
+    },
+    "contact": {
+        "title": "Schedule a Private Tour",
+        "subtitle": "We invite you to experience our school's atmosphere",
+        "form": {
+            "name": "Your Name",
+            "phone": "Phone Number",
+            "email": "Email (Optional)",
+            "submit": "Request a Call",
+            "placeholderName": "John Doe"
+        },
+        "contactsTitle": "Contact Information",
+        "phones": "Telephone:",
+        "addresses": "Locations:",
+        "socials": "Social Media:",
+        "addressList": {
+            "main": "Bishkek, 177/1 Junusalieva St.",
+            "branch": "119 A. Bakaeva St."
+        }
     },
     "footer": {
-        "rights": "All rights reserved"
+        "rights": "All rights reserved",
+        "description": "Elite private school in Bishkek. Raising future leaders since 2016, combining tradition and innovation.",
+        "navigation": "Navigation",
+        "programs": "Academics"
     },
     "common": {
         "readMore": "Read More",
         "contactUs": "Contact Us"
+    },
+    "junior": {
+        "hero": {
+            "title": "Happy Childhood with Future Intelligence",
+            "subtitle": "Grades 1–4 • Full Day School (08:00–17:00)",
+            "description": "Full-day primary school with Native Speaker teachers. Gentle adaptation, brain development, and 360° safety.",
+            "ctaText": "Book a Tour and Introduction",
+            "badge": "Grades 1-4"
+        },
+        "gallery": {
+            "title": "Our School",
+            "subtitle": "Discover modern classrooms, play zones, and comfortable infrastructure",
+            "filters": {
+                "all": "All",
+                "classroom": "Classrooms",
+                "playzone": "Play Zones",
+                "cafeteria": "Cafeteria",
+                "sports": "Sports"
+            },
+            "empty": "Photos in this category coming soon"
+        },
+        "philosophy": {
+            "title": "Philosophy: Foundation of a Future Genius",
+            "intro": {
+                "p1": "Primary school <bold>Intellect Junior</bold> is a space where we not only give knowledge but <bold>form the child's brain architecture</bold>.",
+                "p2": "At the age of <bold>6 to 10 years</bold>, the brain has maximum neuroplasticity, and our task is to use this period to develop cognitive abilities, critical thinking, and a love for learning.",
+                "box": "We have combined <bold>state educational standards</bold>, <bold>Cambridge International</bold> methods, and proprietary <bold>cognitive development</bold> courses into a single <bold>full-day ecosystem</bold>."
+            },
+            "stats": {
+                "neuroplasticity": {
+                    "title": "Neuroplasticity",
+                    "description": "Using maximum brain learning capacity at age 6-10"
+                },
+                "standards": {
+                    "title": "International Standards",
+                    "description": "Cambridge International + Ministry of Education in one program"
+                },
+                "love": {
+                    "title": "Love for Learning",
+                    "description": "Forming internal motivation and joy of discovery"
+                }
+            }
+        },
+        "lifestyle": {
+            "studyClub": {
+                "title": "Study Club",
+                "subtitle": "Homework at School",
+                "description": [
+                    "All homework is done at school with a teacher",
+                    "You pick up a child who has already finished everything",
+                    "Evenings are for family, not for homework"
+                ],
+                "benefit": "Parental Happiness"
+            },
+            "noBackpacks": {
+                "title": "No Heavy Backpacks",
+                "subtitle": "Personal Lockers",
+                "description": [
+                    "Textbooks are stored in personal lockers in the classroom",
+                    "Children don't need to carry heavy bags",
+                    "Healthy posture from first grade"
+                ]
+            },
+            "healthyFood": {
+                "title": "Healthy Nutrition",
+                "subtitle": "3-Course Hot Menu",
+                "description": [
+                    "Halal menu designed for growing brains",
+                    "Breakfast, lunch, and afternoon snack included",
+                    "In-house kitchen with professional chef"
+                ]
+            },
+            "security": {
+                "title": "360° Security",
+                "subtitle": "Gated Territory",
+                "description": [
+                    "Face ID entry — access control",
+                    "Closed guarded territory",
+                    "Nurse always on site"
+                ]
+            },
+            "photoProof": {
+                "locker": "Student putting books in their bright locker",
+                "teacher": "Teacher helping student with notebook in class (Study Club)",
+                "message": "We truly do this for you"
+            }
+        },
+        "cognitive": {
+            "intro": {
+                "title": "Accelerating the Brain While It's Plastic",
+                "subtitle": "At age 6–10, the brain develops faster than ever. We use this window of opportunity:"
+            },
+            "brainFitness": {
+                "title": "Brain Fitness",
+                "subtitle": "Brain Training",
+                "description": [
+                    "Mental arithmetic and memory training included in the schedule",
+                    "Increases memory capacity and concentration by 2x",
+                    "Using the window of maximum brain plasticity (6-10 years)"
+                ],
+                "stats": "2x",
+                "highlight": "Evidence-based"
+            },
+            "immersion": {
+                "title": "Language Immersion",
+                "subtitle": "8-10 hours of English per week",
+                "description": [
+                    "Science and Math in English (Cambridge Intro)",
+                    "Native speaker assistants during breaks and lunch",
+                    "Not just lessons — lively communication every day"
+                ],
+                "stats": "8-10 hours",
+                "highlight": "Cambridge"
+            },
+            "it": {
+                "title": "IT from Grade 1",
+                "subtitle": "Basics of Algorithms",
+                "description": [
+                    "Basics of algorithms and logical thinking",
+                    "Safe behavior in the digital world",
+                    "Interactive boards and modern technologies"
+                ]
+            },
+            "photoProof": {
+                "title": "📸 Photo-proof",
+                "caption": "Child solving a problem at an interactive board. Cambridge-certified program",
+                "cta": "We teach not only reading and writing, we train the brain"
+            }
+        },
+        "motivation": {
+            "intro": {
+                "title": "Learning as an Exciting Game",
+                "subtitle": "We don't force — we engage through gamification"
+            },
+            "currency": {
+                "title": "Intellect Currency",
+                "subtitle": "School Currency",
+                "description": [
+                    "Children earn school 'currency' for success and good behavior",
+                    "Buy goods at school fairs",
+                    "Practical financial literacy training"
+                ],
+                "example": "Solved a complex problem → earned 5 Intellect Coins → bought a toy at the fair"
+            },
+            "praise": {
+                "title": "Culture of Praise",
+                "subtitle": "Growth through Effort",
+                "description": [
+                    "We praise for effort, building self-confidence",
+                    "A mistake is a growth point, not a reason for punishment",
+                    "Growth Mindset from the first grade"
+                ]
+            },
+            "recognition": {
+                "title": "Recognition of Success",
+                "subtitle": "Certificates and Assemblies",
+                "description": [
+                    "Golden & Diamond certificates for achievements",
+                    "Monthly success assemblies",
+                    "The child runs to school with joy"
+                ]
+            },
+            "photoProof": {
+                "title": "📸 Photo-proof",
+                "caption": "Happy child holding an earned award, proud teacher nearby",
+                "cta": "The child runs to school with joy, they like winning here"
+            }
+        },
+        "additionalInfo": {
+            "title": "Learn More About the School",
+            "subtitle": "Click on a topic to see details",
+            "cards": {
+                "schedule": {
+                    "title": "One Day in Life",
+                    "description": "Typical student day from 08:30 to 16:00"
+                },
+                "language": {
+                    "title": "Language Environment",
+                    "description": "8-10 hours of English with native speakers"
+                },
+                "academic": {
+                    "title": "Academic Program",
+                    "description": "State Standard + Cognitive Block + IT"
+                },
+                "head": {
+                    "title": "Meet the Head",
+                    "description": "Anna Ivanova, Head of Junior School"
+                },
+                "extracurricular": {
+                    "title": "Extracurricular Life",
+                    "description": "Clubs, sports, motivation system"
+                },
+                "pastoral": {
+                    "title": "Student Care",
+                    "description": "Tutors, psychologists, safety"
+                }
+            },
+            "readMore": "Read More"
+        },
+        "modals": {
+            "schedule": {
+                "items": {
+                    "morning": {
+                        "activity": "Morning Circle & Exercise",
+                        "description": "Starting the day with activity and positive vibes"
+                    },
+                    "math": {
+                        "activity": "Mathematics",
+                        "description": "Math in English"
+                    },
+                    "english": {
+                        "activity": "English Language",
+                        "description": "Reading, writing, speaking practice"
+                    },
+                    "snack": {
+                        "activity": "Break & Snack",
+                        "description": "Healthy snack and rest"
+                    },
+                    "russian": {
+                        "activity": "Russian / Kyrgyz Language",
+                        "description": "Native language and literature"
+                    },
+                    "lunch": {
+                        "activity": "Lunch & Walk",
+                        "description": "Hot lunch and active outdoor break"
+                    },
+                    "creative": {
+                        "activity": "Creativity / Sports",
+                        "description": "Art, music, PE"
+                    },
+                    "clubs": {
+                        "activity": "Elective Clubs",
+                        "description": "Chess, robotics, dance, etc."
+                    },
+                    "afterschool": {
+                        "activity": "Afterschool",
+                        "description": "Homework and free play"
+                    }
+                }
+            },
+            "head": {
+                "name": "Anna Ivanova",
+                "position": "Head of Junior School",
+                "quote": "We teach not only reading and writing but also friendship. At Intellect Junior, every child finds their place and develops in a safe, supportive environment. Our goal is not just to give knowledge, but to instill a lifelong love for learning."
+            },
+            "pastoral": {
+                "tutors": {
+                    "title": "Tutors",
+                    "description": "Each class has a tutor who knows every child"
+                },
+                "psychologist": {
+                    "title": "Psychologists",
+                    "description": "School psychologist available for child and parent consultations"
+                },
+                "conflict": {
+                    "title": "Conflict Resolution",
+                    "description": "We teach children to resolve disagreements peacefully and develop emotional intelligence"
+                },
+                "safety": {
+                    "title": "Safety",
+                    "description": "Creating an atmosphere of trust, security, and psychological comfort"
+                }
+            },
+            "academic": {
+                "state": {
+                    "title": "State Standard",
+                    "subtitle": "Foundation",
+                    "result": "High results in exams and olympiads",
+                    "subjects": {
+                        "math": "Strong academic base in mathematics",
+                        "lang": "Russian and Kyrgyz languages",
+                        "world": "Understanding the world around us"
+                    }
+                },
+                "cognitive": {
+                    "title": "Cognitive Block",
+                    "subtitle": "Intellect Component",
+                    "result": "Evidence-based education — science-backed efficiency",
+                    "subjects": {
+                        "mental": "Developing thinking speed, concentration, and photographic memory",
+                        "mnemo": "Techniques for effective memorization of large info volumes",
+                        "stacking": "Training fine motor skills and interhemispheric brain connections",
+                        "logic": "Forming strategic thinking from Grade 1"
+                    }
+                },
+                "it": {
+                    "title": "IT & Technologies",
+                    "subtitle": "Digital Future",
+                    "subjects": {
+                        "coding": "Algorithmics and digital literacy in computer labs",
+                        "interactive": "Interactive boards and tablets for visualizing complex topics"
+                    }
+                }
+            },
+            "extracurricular": {
+                "sport": {
+                    "category": "Sports",
+                    "activities": [
+                        "Football",
+                        "Gymnastics",
+                        "Karate",
+                        "Dance"
+                    ]
+                },
+                "art": {
+                    "category": "Arts",
+                    "activities": [
+                        "Drawing",
+                        "Music",
+                        "Komuz",
+                        "Public Speaking"
+                    ]
+                },
+                "tech": {
+                    "category": "Technology",
+                    "activities": [
+                        "Robotics",
+                        "Programming",
+                        "3D Modeling"
+                    ]
+                }
+            }
+        }
+    },
+    "middle": {
+        "hero": {
+            "title": "Middle School Excellence",
+            "subtitle": "Grades 5-9 • Unlocking Potential",
+            "description": "A transformative journey for students in grades 5-9, combining Cambridge curriculum with project-based learning and personal growth.",
+            "ctaText": "Admissions Open"
+        },
+        "discipline": {
+            "title": "Discipline & Environment",
+            "subtitle": "Focused Learning",
+            "features": {
+                "detox": {
+                    "title": "Digital Detox",
+                    "description": "No phones allows for better focus and real social interaction.",
+                    "highlight": "Focus First"
+                },
+                "club": {
+                    "title": "Study Club",
+                    "description": "Homework is completed at school with teacher guidance.",
+                    "highlight": "No Homework Home"
+                },
+                "environment": {
+                    "title": "Inspiring Environment",
+                    "description": "Modern classrooms and labs designed for active learning.",
+                    "highlight": "Active Learning"
+                },
+                "photoProof": {
+                    "caption": "Students focused in a phone-free environment."
+                }
+            }
+        },
+        "skills": {
+            "title": "21st Century Skills",
+            "subtitle": "Future Ready",
+            "items": {
+                "coding": {
+                    "title": "Coding & IT",
+                    "description": "Programming and digital literacy from an early age."
+                },
+                "currency": {
+                    "title": "Financial Literacy",
+                    "description": "Learning the value of money through our internal economy."
+                },
+                "soft": {
+                    "title": "Soft Skills",
+                    "description": "Communication, teamwork, and critical thinking."
+                }
+            },
+            "photoProof": {
+                "caption": "Students collaborating on a tech project."
+            }
+        },
+        "leadership": {
+            "title": "Leadership & Governance",
+            "subtitle": "Taking Initiative",
+            "items": {
+                "clubs": {
+                    "title": "Student Clubs",
+                    "description": "Student-led clubs and organizations."
+                },
+                "projects": {
+                    "title": "Project Management",
+                    "description": "Real-world projects and community service."
+                },
+                "competition": {
+                    "title": "Competitions",
+                    "description": "Academic and sports competitions to foster excellence."
+                }
+            },
+            "ctaText": "Join Us",
+            "photoProof": {
+                "caption": "Student council presenting their initiative."
+            }
+        },
+        "cta": {
+            "title": "Ready to Join?",
+            "description": "Apply now for the upcoming academic year.",
+            "buttons": {
+                "primary": "Apply Now",
+                "secondary": "Download Brochure"
+            }
+        },
+        "modals": {
+            "cambridge": {
+                "title": "Cambridge Pathway",
+                "subtitle": "International Standard",
+                "description": "Our curriculum follows the Cambridge Pathway for developing learners.",
+                "subjects": {
+                    "math": {
+                        "description": "Mathematics focusing on problem solving."
+                    },
+                    "science": {
+                        "description": "Physics, Chemistry, and Biology fundamentals."
+                    },
+                    "cs": {
+                        "description": "Computer Science and computational thinking."
+                    }
+                },
+                "secondLang": {
+                    "title": "Second Foreign Language",
+                    "description": "Choice of German or Korean to broaden horizons."
+                },
+                "pathway": {
+                    "lower": {
+                        "description": "Cambridge Lower Secondary (Grades 6-7)"
+                    },
+                    "checkpoint": {
+                        "description": "Cambridge Checkpoint (Grades 8-9)"
+                    }
+                }
+            },
+            "steam": {
+                "title": "STEAM Education",
+                "subtitle": "Science & Tech",
+                "description": "Interdisciplinary approach to science, technology, engineering, arts, and math.",
+                "infrastructure": {
+                    "title": "Infrastructure",
+                    "items": [
+                        "Robotics Lab",
+                        "Science Lab",
+                        "Art Studio"
+                    ]
+                },
+                "projects": {
+                    "web": {
+                        "title": "Web Development",
+                        "description": "Building websites and apps."
+                    },
+                    "games": {
+                        "title": "Game Design",
+                        "description": "Creating interactive games."
+                    },
+                    "robots": {
+                        "title": "Robotics",
+                        "description": "Building and programming robots."
+                    }
+                }
+            },
+            "life": {
+                "title": "Student Life",
+                "subtitle": "Beyond Academics",
+                "clubs": {
+                    "title": "Clubs & Activities",
+                    "description": "A wide range of extracurricular activities."
+                },
+                "sections": {
+                    "football": "Football",
+                    "volleyball": "Volleyball",
+                    "chess": "Chess",
+                    "komuz": "Komuz",
+                    "dance": "Dance",
+                    "sport": "Sports",
+                    "intellect": "Intellect",
+                    "art": "Arts"
+                },
+                "schedule": {
+                    "threeTimes": "3 times a week",
+                    "twoTimes": "2 times a week",
+                    "oneTime": "1 time a week"
+                },
+                "currencyStories": [
+                    {
+                        "name": "Alina, Grade 8",
+                        "achievement": "Earned 500 IC (Intellect Currency) for Olympiad participation and bought a board game at the school fair"
+                    },
+                    {
+                        "name": "Maxim, Grade 9",
+                        "achievement": "Saved 1000 IC and 'invested' in a school business project, gaining entrepreneurship experience"
+                    }
+                ]
+            },
+            "house": {
+                "title": "House System",
+                "subtitle": "Community & Spirit",
+                "description": "Four houses competing and collaborating.",
+                "benefits": [
+                    "Team Spirit",
+                    "Leadership",
+                    "Mentorship"
+                ],
+                "values": {
+                    "phoenix": "Courage & Leadership",
+                    "dragon": "Wisdom & Knowledge",
+                    "eagle": "Ambition & Achievement",
+                    "lion": "Teamwork"
+                },
+                "competitions": [
+                    "Inter-house sports tournaments",
+                    "Academic quizzes",
+                    "Charity projects",
+                    "Creative contests"
+                ]
+            },
+            "beyondClassroom": {
+                "title": "Beyond the Classroom",
+                "subtitle": "Extracurricular Life & Traditions",
+                "description": "School is not just about lessons. We create a rich environment for developing interests and talents.",
+                "activities": {
+                    "sports": {
+                        "title": "Sports Sections",
+                        "description": "Football, volleyball, basketball, chess. 3-4 times a week."
+                    },
+                    "arts": {
+                        "title": "Creative Studios",
+                        "description": "Theater, music, dance, visual arts. 2 times a week."
+                    },
+                    "science": {
+                        "title": "Science Clubs",
+                        "description": "Robotics, programming, chemistry experiments. 2 times a week."
+                    },
+                    "traditions": {
+                        "title": "School Traditions",
+                        "description": "Fairs, charity events, international days. Monthly."
+                    }
+                }
+            },
+            "transition": {
+                "title": "Transition Support",
+                "subtitle": "Moving Up",
+                "description": "Supporting students as they move from Junior to Middle school.",
+                "features": {
+                    "buddy": {
+                        "title": "Buddy System",
+                        "description": "Older students mentoring younger ones."
+                    },
+                    "bridge": {
+                        "title": "Bridge Program",
+                        "description": "Academic bridging courses."
+                    },
+                    "psy": {
+                        "title": "Psychological Support",
+                        "description": "Counseling and emotional support."
+                    },
+                    "parents": {
+                        "title": "Parent Partnership",
+                        "description": "Regular communication with parents."
+                    }
+                }
+            },
+            "skills": {
+                "title": "Skills Development",
+                "subtitle": "Core Competencies",
+                "description": "Developing essential skills for the future.",
+                "items": {
+                    "critical": {
+                        "title": "Critical Thinking",
+                        "description": "Analyzing and evaluating information."
+                    },
+                    "comm": {
+                        "title": "Communication",
+                        "description": "Effective verbal and written expression."
+                    },
+                    "creative": {
+                        "title": "Creativity",
+                        "description": "Thinking outside the box."
+                    },
+                    "collab": {
+                        "title": "Collaboration",
+                        "description": "Working effectively in teams."
+                    }
+                }
+            }
+        },
+        "beyondClassroom": {
+            "title": "Beyond the Classroom",
+            "subtitle": "Extracurricular Activities",
+            "description": "Discover our vibrant school life outside of lessons.",
+            "activities": {
+                "sports": {
+                    "title": "Sports",
+                    "description": "Football, basketball, and more."
+                },
+                "arts": {
+                    "title": "Arts",
+                    "description": "Music, theater, and painting."
+                },
+                "science": {
+                    "title": "Science Club",
+                    "description": "Experiments and robotics."
+                },
+                "traditions": {
+                    "title": "Traditions",
+                    "description": "School events and celebrations."
+                }
+            }
+        },
+        "additionalInfo": {
+            "title": "Learn More",
+            "subtitle": "All facets of Intellect Middle",
+            "cards": {
+                "cambridge": {
+                    "title": "Cambridge Pathway",
+                    "description": "International Academic Program"
+                },
+                "steam": {
+                    "title": "IT & STEAM",
+                    "description": "Technology and Engineering Creativity"
+                },
+                "life": {
+                    "title": "School Life",
+                    "description": "Sports, Arts and Traditions"
+                },
+                "house": {
+                    "title": "House System",
+                    "description": "Competitions and Team Spirit"
+                },
+                "transition": {
+                    "title": "Support",
+                    "description": "Transition Adaptation"
+                },
+                "skills": {
+                    "title": "Soft Skills",
+                    "description": "Future Skills"
+                }
+            },
+            "readMore": "Read More"
+        }
+    },
+    "programs": {
+        "title": "Educational Facets",
+        "subtitle": "A Development Ecosystem",
+        "description": {
+            "p1": "Education at Intellect Pro transcends the classroom. It is a holistic ecosystem where every facet complements the next, crafting a complete developmental arc.",
+            "p2": "From Primary to Senior High, blending rigorous academics with arts and athletics, led by innovative educators. Our global partnerships and university pathways form a unified experience.",
+            "p3": "Explore every facet and unlock a world of potential."
+        },
+        "items": {
+            "junior": {
+                "title": "Intellect Junior",
+                "badge": "Grades 1-4",
+                "description": "Foundation of the future. Gentle adaptation, Soft Skills mastery, and an immersive bilingual environment.",
+                "subtitle": "Primary School"
+            },
+            "middle": {
+                "title": "Intellect Middle",
+                "badge": "Grades 5-9",
+                "description": "Unlocking potential. Cambridge System, STEAM laboratories, and project-based excellence.",
+                "subtitle": "Middle School"
+            },
+            "senior": {
+                "title": "Intellect Senior",
+                "badge": "Grades 10-11",
+                "description": "Pathway to University. IELTS/TOEFL/ORT preparation and strategic career counseling.",
+                "subtitle": "Senior School"
+            },
+            "global": {
+                "title": "Global Network",
+                "badge": "International Reach",
+                "description": "Education without borders. Partnerships with world-class schools, exchanges, and dual diplomas.",
+                "subtitle": "Partnerships"
+            },
+            "life": {
+                "title": "Life at Intellect",
+                "badge": "15+ Societies",
+                "description": "Arts & Athletics. Over 15 sections, leadership initiatives, and charitable endeavours.",
+                "subtitle": "Beyond the Classroom"
+            },
+            "admissions": {
+                "title": "Admissions",
+                "badge": "Scholarships & Grants",
+                "description": "Join our community. Transparent enrolment steps, merit-based scholarships, and grants.",
+                "subtitle": "Enrolment"
+            }
+        },
+        "moreDetails": "Explore Project"
+    },
+    "teachers": {
+        "careers": {
+            "hero": {
+                "subtitle": "We are always looking for talented educators."
+            },
+            "reserve": {
+                "title": "Didn't find a suitable vacancy?",
+                "text": "We are building a talent pool. Send us your CV, and we will contact you when a suitable position becomes available.",
+                "button": "Send CV (hr@avangard.school)"
+            },
+            "positions": {
+                "title": "Open Positions",
+                "applyButton": "Apply",
+                "items": {
+                    "math": {
+                        "title": "Math Teacher (Middle School)",
+                        "tags": [
+                            "Full time",
+                            "3+ years experience"
+                        ]
+                    },
+                    "english": {
+                        "title": "English Teacher (Native Speaker)",
+                        "tags": [
+                            "Full time",
+                            "CELTA/DELTA"
+                        ]
+                    },
+                    "tutor": {
+                        "title": "Primary School Tutor",
+                        "tags": [
+                            "Full time",
+                            "Psychology degree"
+                        ]
+                    }
+                }
+            }
+        },
+        "benefits": {
+            "hero": {
+                "title": "Conditions & Development"
+            },
+            "cards": {
+                "growth": {
+                    "title": "Professional Growth",
+                    "description": "Paid professional development courses, participation in international conferences and internal trainings."
+                },
+                "equipment": {
+                    "title": "Modern Equipment",
+                    "description": "Smart Boards in every class, personal MacBook for the teacher, access to the best educational platforms."
+                },
+                "health": {
+                    "title": "Health Care",
+                    "description": "Free three-course meals in the school cafeteria, corporate transport, voluntary medical insurance."
+                },
+                "balance": {
+                    "title": "Work-Life Balance",
+                    "description": "Adequate workload, methodological days, lack of unnecessary paper bureaucracy."
+                },
+                "pay": {
+                    "title": "Decent Pay",
+                    "description": "Competitive salary above market, bonus system for student achievements."
+                },
+                "mentorship": {
+                    "title": "Mentorship",
+                    "description": "Mentorship system for young specialists. We help adapt and become a master of your craft."
+                }
+            }
+        },
+        "culture": {
+            "hero": {
+                "title": "Teach Where You Are Valued",
+                "subtitle": "Join the Avangard Intellect team. We create conditions so you can create and inspire."
+            },
+            "manifesto": {
+                "text": "We believe that the teacher is the heart of the school. We invest in you because you invest in the future.",
+                "label": "Avangard Intellect Manifesto"
+            },
+            "slider": {
+                "community": {
+                    "title": "Strong Community",
+                    "description": "We support each other and share experience."
+                }
+            }
+        }
+    },
+    "about": {
+        "hero": {
+            "label": "DEVELOPMENT ECOSYSTEM",
+            "title": "ABOUT US",
+            "description": "Intellect School is a leading educational organization in Kazakhstan, providing quality educational services since 2016",
+            "stats": [
+                {
+                    "value": "2016",
+                    "label": "Founded"
+                },
+                {
+                    "value": "10 000+",
+                    "label": "Students"
+                },
+                {
+                    "value": "15+",
+                    "label": "Programs"
+                },
+                {
+                    "value": "20+",
+                    "label": "Cities"
+                }
+            ]
+        },
+        "philosophy": {
+            "title": "Our Philosophy",
+            "items": [
+                {
+                    "title": "Individual Approach",
+                    "description": "We take into account the characteristics of each student, creating personalized educational trajectories"
+                },
+                {
+                    "title": "Innovative Methods",
+                    "description": "We apply modern pedagogical technologies and teaching methods to achieve better results"
+                },
+                {
+                    "title": "Potential Development",
+                    "description": "We unlock the talents and abilities of every child through diverse educational programs"
+                }
+            ]
+        },
+        "school": {
+            "title": "INTELLECT SCHOOL",
+            "description": "Intellect School is a modern educational environment where every student receives quality education and comprehensive development",
+            "items": [
+                {
+                    "title": "Educational Process",
+                    "description": "Our educational process is built on a combination of academic knowledge and practical skills. We use interactive teaching methods, project work, and modern technologies."
+                },
+                {
+                    "title": "Qualified Teachers",
+                    "description": "Our teachers undergo regular training and professional development, possess modern teaching methods and an individual approach to each student."
+                },
+                {
+                    "title": "Modern Environment",
+                    "description": "Our classrooms are equipped with modern equipment, creating comfortable conditions for learning and developing creative abilities."
+                },
+                {
+                    "title": "Student Projects",
+                    "description": "Our students actively participate in project activities, developing critical thinking, creativity, and teamwork skills."
+                }
+            ]
+        },
+        "advantages": {
+            "title": "Why Choose Us",
+            "items": [
+                {
+                    "title": "Author's Programs",
+                    "description": "Programs developed by our methodologists, adapted to modern requirements"
+                },
+                {
+                    "title": "Small Groups",
+                    "description": "Up to 12 people per group for maximum learning efficiency"
+                },
+                {
+                    "title": "Proven Efficiency",
+                    "description": "95% of our graduates enter the country's leading universities"
+                }
+            ]
+        },
+        "founder": {
+            "title": "Founder and Director of Intellect School",
+            "name": "Name Surname",
+            "bio": "Founder and Director of Intellect School with over 20 years of experience in education. Under his leadership, the school has grown into the largest educational network in Kazakhstan.",
+            "credentials": [
+                "Master of Pedagogical Sciences, Lomonosov Moscow State University",
+                "Author of over 15 curriculums and teaching aids",
+                "Winner of the \"Best Teacher of the Year\" award (2018, 2020)",
+                "Member of the International Association of Educational Technologies"
+            ]
+        },
+        "mission": {
+            "title": "Mission and Vision",
+            "mission": {
+                "title": "Our Mission",
+                "description": "To provide quality and affordable education that develops critical thinking, creativity, and leadership qualities of students, preparing them for a successful life in the modern world."
+            },
+            "vision": {
+                "title": "Our Vision",
+                "description": "To become the leading educational organization in the region, recognized for its innovative approach, high quality of education, and creation of an environment where every student can unlock their potential."
+            }
+        },
+        "licenses": {
+            "title": "Our Licenses",
+            "items": [
+                {
+                    "title": "Educational License",
+                    "label": "License of the Ministry of Education and Science of the Republic of Kazakhstan",
+                    "sublabel": "# 123456789"
+                },
+                {
+                    "title": "International Accreditation",
+                    "label": "Quality Certificate",
+                    "sublabel": "ISO 9001:2015"
+                }
+            ]
+        },
+        "social": {
+            "title": "Opening Wells for Social Society",
+            "description": "We believe in the importance of giving back to society. Our school actively participates in social initiatives aimed at improving access to education and developing local communities.",
+            "items": [
+                "Free education for children from low-income families",
+                "Charitable educational programs",
+                "Volunteer projects of our students"
+            ],
+            "quote": "I chose Intellect Pro because I wanted a European-level school for my daughter. Here, the child's personality is respected."
+        },
+        "cta": {
+            "title": "Join Us",
+            "description": "Become part of our educational community and open new opportunities for development",
+            "contact": "Contact Us",
+            "programs": "Our Programs"
+        }
+    },
+    "contacts": {
+        "hero": {
+            "title": "Contact",
+            "titleSuffix": " Us",
+            "subtitle": "We are always ready to answer your questions and discuss cooperation opportunities"
+        },
+        "info": {
+            "title": "Contact Information",
+            "email": "Email",
+            "phone": "Phone",
+            "address": {
+                "title": "Address"
+            },
+            "hours": {
+                "title": "Working Hours",
+                "weekdays": "Monday - Friday: 9:00 - 18:00",
+                "weekend": "Saturday - Sunday: Closed"
+            }
+        },
+        "form": {
+            "title": "Write to Uses",
+            "labels": {
+                "name": "Name",
+                "email": "Email",
+                "phone": "Phone",
+                "message": "Message"
+            },
+            "placeholders": {
+                "name": "Your name",
+                "email": "your@email.com",
+                "phone": "+7 (XXX) XXX-XX-XX",
+                "message": "Tell us about your project..."
+            },
+            "submit": "Send Message",
+            "sending": "Sending...",
+            "success": "Thank you! Your message has been sent successfully.",
+            "error": "An error occurred. Please try again later."
+        }
+    },
+    "senior": {
+        "hero": {
+            "headline": "Your Direct Path to Global Top Universities and Grants",
+            "subheadline": "Grades 10 and 11 are not just finishing school. It is a two-year career incubator. We prepare a portfolio that makes universities in USA, Europe and Asia fight for the applicant.",
+            "ctaText": "Check Admission Requirements",
+            "scrollText": "Two-year Career Incubator"
+        },
+        "academic": {
+            "headline": "No Tutors Needed. Everything is Included.",
+            "description": "We save family budget and child's time. Preparation for key exams is integrated into the school day:",
+            "timeframe": "08:00 – 17:00 Daily",
+            "pillars": {
+                "sat": {
+                    "title": "SAT & IELTS/TOEFL",
+                    "description": "Math and English for study abroad",
+                    "details": [
+                        "SAT Math and Verbal reasoning",
+                        "IELTS/TOEFL: Reading, Writing, Speaking",
+                        "Essay and Motivation Letter Prep"
+                    ]
+                },
+                "ort": {
+                    "title": "ORT",
+                    "description": "Intensive preparation for Gold Certificate",
+                    "details": [
+                        "Targeted preparation for state exams",
+                        "Math, Logic, Native Language",
+                        "Admission to AUCA, KRSU, Manas without exams"
+                    ]
+                },
+                "science": {
+                    "title": "Cambridge Science",
+                    "description": "Learning exact sciences in English",
+                    "details": [
+                        "Physics, Chemistry, Biology in English",
+                        "Scientific terminology and academic writing",
+                        "Prep for English-speaking universities"
+                    ]
+                }
+            },
+            "proofCaption": "📸 Photo-proof: Schedule with blocks: IELTS Prep, SAT Math, Science (Eng) + Native Speaker",
+            "bottomStrong": "Built into our process.",
+            "bottomText": "Every day from 08:00 to 17:00 your child gets what other parents pay tutors separately for."
+        },
+        "cognitive": {
+            "headline": "We Give Unfair Advantage in Exams",
+            "hook": "While others cram, our students use brain tech and AI:",
+            "advantages": {
+                "ai": {
+                    "title": "AI-Fluency",
+                    "tagline": "Artificial Intelligence as a co-pilot",
+                    "description": "We use ChatGPT and other neural networks to speed up learning and work. Your child will complete tasks 10x faster than peers.",
+                    "benefits": [
+                        "Text analysis and idea generation with AI",
+                        "Automating routine tasks (summaries, plans)",
+                        "Critical thinking: checking AI for errors"
+                    ],
+                    "multiplier": "Acceleration ×10"
+                },
+                "mental": {
+                    "title": "Mental Technologies",
+                    "tagline": "Brain training for exams",
+                    "description": "Speed reading for Reading section (IELTS) and mnemonics for memorizing hundreds of terms without stress.",
+                    "benefits": [
+                        "Speed reading: read text in 3 mins instead of 10",
+                        "Mnemonics: memorize 100 words per hour",
+                        "Stress management in exams"
+                    ],
+                    "multiplier": "Time saving 4x"
+                }
+            },
+            "proofCaption": "📸 Photo-proof: ChatGPT/Python on screen + Mind Map in notebook — modern tools, not outdated methods",
+            "bottomTitle": "This is a modern XXI century school",
+            "bottomText": "We teach to use AI as a co-pilot, not to fear it"
+        },
+        "admission": {
+            "headline": "Environment Defines Future",
+            "filterMessage": "We select only motivated students for grades 10-11. It's not for everyone.",
+            "communityPromise": "Here your child will be among those who want to create startups, win olympiads and change the world. No bullying, only partnership and healthy ambitions.",
+            "ctaText": "Apply for Interview",
+            "communityValues": [
+                "Startups",
+                "Olympiads",
+                "Leadership",
+                "Partnership",
+                "Healthy Ambitions"
+            ],
+            "subText": "Selection process includes interview and motivation assessment",
+            "proofCaption": "📸 Photo-proof: TEDx-format, School Parliament — leaders are here, opinions are respected",
+            "bottomBoxTitle": "No Bullying",
+            "bottomBoxText": "Only partnership and healthy ambitions"
+        },
+        "tabs": {
+            "title": "Program Curriculum",
+            "subtitle": "Choose a track to learn more",
+            "tabNames": {
+                "academic": "Academic Track",
+                "skills": "Skills Development",
+                "life": "Student Life"
+            },
+            "academic": {
+                "strategyTitle": "Admission Strategy",
+                "strategyText": "In grades 10-11, the school works as a Career Center",
+                "englishTitle": "English for Academic Purposes",
+                "englishText": "English as a working tool",
+                "pathways": {
+                    "sat": {
+                        "title": "SAT Preparation",
+                        "subtitle": "For USA and Europe admission",
+                        "description": [
+                            "Math - advanced preparation",
+                            "Verbal Reasoning - text analysis",
+                            "Regular mock tests"
+                        ]
+                    },
+                    "ielts": {
+                        "title": "IELTS / TOEFL",
+                        "subtitle": "International Certificate",
+                        "description": [
+                            "Academic Module",
+                            "Practice of all 4 skills",
+                            "Speaking Club with native speakers"
+                        ]
+                    },
+                    "ort": {
+                        "title": "ORT (Gold Certificate)",
+                        "subtitle": "Grants to Universities in Kyrgyzstan",
+                        "description": [
+                            "Intensive Math preparation",
+                            "Russian/Kyrgyz language",
+                            "History and analogies"
+                        ]
+                    }
+                },
+                "english": {
+                    "academic": {
+                        "title": "Academic English",
+                        "subtitle": "English for Science",
+                        "description": [
+                            "Terminology study (Math, Science)",
+                            "Writing essays and academic papers",
+                            "Reading scientific literature"
+                        ],
+                        "target": "C1/C2 Level"
+                    },
+                    "debate": {
+                        "title": "Debate & Public Speaking",
+                        "subtitle": "Argumentation skills",
+                        "description": [
+                            "Participation in debates (WSC format)",
+                            "Project presentation in English",
+                            "Overcoming language barrier"
+                        ]
+                    },
+                    "writing": {
+                        "title": "Writing Lab",
+                        "subtitle": "Writing Mastery",
+                        "description": [
+                            "Motivation letters for universities",
+                            "Structuring thoughts",
+                            "Advanced grammar"
+                        ]
+                    }
+                }
+            },
+            "skills": {
+                "brainTitle": "Exam Hacking via Brain Tech",
+                "brainText": "An average student spends 4 hours preparing. Intellect student — 1 hour.",
+                "xxiTitle": "XXI Century Skills",
+                "xxiText": "Not just a student, but a creator",
+                "cognitive": {
+                    "reading": {
+                        "title": "Speed Reading",
+                        "subtitle": "Information processing",
+                        "description": [
+                            "Increase reading speed 3-4x",
+                            "Quickly finding main points in text",
+                            "Effective for SAT/IELTS prep"
+                        ],
+                        "benefit": "Time saving"
+                    },
+                    "memory": {
+                        "title": "Mnemonics",
+                        "subtitle": "Memory technologies",
+                        "description": [
+                            "Memorizing complex terms",
+                            "Learning foreign words (100+ per hour)",
+                            "Long-term information retention"
+                        ],
+                        "benefit": "Super-memory"
+                    },
+                    "focus": {
+                        "title": "Attention Management",
+                        "subtitle": "Focus and concentration",
+                        "description": [
+                            "Procrastination fighting techniques",
+                            "Deep Work",
+                            "Mental arithmetic"
+                        ],
+                        "benefit": "High productivity"
+                    }
+                },
+                "xxi": {
+                    "ai": {
+                        "title": "AI & Digital Fluency",
+                        "subtitle": "Tech mastery",
+                        "description": [
+                            "Using neural networks in studies",
+                            "Programming basics",
+                            "Digital security"
+                        ],
+                        "keyPoints": [
+                            "ChatGPT",
+                            "Python",
+                            "Prompt Engineering"
+                        ]
+                    },
+                    "soft": {
+                        "title": "Soft Skills",
+                        "subtitle": "Flexible skills",
+                        "description": [
+                            "Emotional intelligence",
+                            "Teamwork",
+                            "Leadership qualities"
+                        ]
+                    },
+                    "finance": {
+                        "title": "Financial Literacy",
+                        "subtitle": "Resource management",
+                        "description": [
+                            "Investment basics",
+                            "Budget planning",
+                            "Business projects"
+                        ]
+                    }
+                }
+            },
+            "life": {
+                "communityTitle": "Community of Leaders",
+                "communityText": "There are no 'kids' here. There are partners.",
+                "careerTitle": "Helping find 'YOUR' path",
+                "careerText": "Personalized path to successful career",
+                "features": {
+                    "olympiads": {
+                        "title": "Olympiads",
+                        "subtitle": "Competitions",
+                        "description": [
+                            "International subject olympiads",
+                            "World Scholar's Cup",
+                            "Sports championships"
+                        ],
+                        "benefit": "Portfolio"
+                    },
+                    "clubs": {
+                        "title": "Clubs and Creativity",
+                        "subtitle": "Self-expression",
+                        "description": [
+                            "Theater studio",
+                            "Music band",
+                            "Art studio"
+                        ]
+                    },
+                    "volunteering": {
+                        "title": "Volunteering",
+                        "subtitle": "Social responsibility",
+                        "description": [
+                            "Charity projects",
+                            "Ecological actions",
+                            "Helping younger students"
+                        ]
+                    }
+                },
+                "career": {
+                    "guidance": {
+                        "title": "Career Guidance",
+                        "description": [
+                            "Aptitude testing",
+                            "Meetings with professionals",
+                            "Company excursions"
+                        ],
+                        "highlight": "Individual plan"
+                    },
+                    "admission": {
+                        "title": "University Admission",
+                        "description": [
+                            "Choosing universities and programs",
+                            "Document collection and application",
+                            "Scholarship and grant search"
+                        ]
+                    },
+                    "internships": {
+                        "title": "Internships",
+                        "description": [
+                            "Practice in real projects",
+                            "Summer schools",
+                            "Networking"
+                        ]
+                    }
+                }
+            }
+        }
     }
 }

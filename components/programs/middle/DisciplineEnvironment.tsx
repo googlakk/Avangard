@@ -1,5 +1,7 @@
 'use client';
 
+import { IconWrapper } from '@/lib/icon-wrapper';
+
 import Image from 'next/image';
 
 interface Feature {
@@ -45,7 +47,9 @@ export default function DisciplineEnvironment({
                             className="bg-white rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-all duration-300 group"
                         >
                             {/* Icon */}
-                            <div className="text-5xl mb-4">{feature.icon}</div>
+                            <div className="mb-4">
+                                <IconWrapper icon={feature.icon} variant="middle" size="md" />
+                            </div>
 
                             {/* Title */}
                             <h3 className="text-xl font-bold font-heading text-gray-900 mb-3">

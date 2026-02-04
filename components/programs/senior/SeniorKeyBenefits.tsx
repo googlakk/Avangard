@@ -1,3 +1,5 @@
+import { IconWrapper } from '@/lib/icon-wrapper';
+import { Icon } from '@/lib/icons';
 import Link from 'next/link';
 
 interface KeyBenefit {
@@ -10,21 +12,21 @@ interface KeyBenefit {
 
 const keyBenefits: KeyBenefit[] = [
     {
-        icon: '🎓',
+        icon: 'GraduationCap',
         title: 'Поступление в ТОП-вузы',
         description: 'Комплексная подготовка к IELTS, TOEFL, SAT и ОРТ. Формируем портфолио абитуриента, за которым охотятся университеты.',
         highlight: 'Гранты за рубеж',
         link: '#academic-track'
     },
     {
-        icon: '🧠',
+        icon: 'Brain',
         title: 'Когнитивное преимущество',
         description: 'Мнемотехника, скорочтение и управление стрессом. Ученик Intellect тратит на подготовку к экзаменам в 4 раза меньше времени.',
         highlight: 'Взлом экзаменов',
         link: '#skills-development'
     },
     {
-        icon: '🚀',
+        icon: 'TrendingUp',
         title: 'Навыки будущего',
         description: 'Стартап-инкубатор, AI-fluency и лидерство. Превращаем учеников в создателей, а не потребителей знаний.',
         highlight: 'AI & Предпринимательство',
@@ -58,7 +60,9 @@ export default function SeniorKeyBenefits() {
 
                             <div className="relative z-10">
                                 {/* Icon */}
-                                <div className="text-6xl mb-6">{benefit.icon}</div>
+                                <div className="mb-6">
+                                    <IconWrapper icon={benefit.icon} variant="senior" size="md" />
+                                </div>
 
                                 {/* Title */}
                                 <h3 className="text-2xl font-bold font-heading text-gray-900 mb-3">

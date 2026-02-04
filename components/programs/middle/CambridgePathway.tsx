@@ -1,5 +1,7 @@
 'use client';
 
+import { IconWrapper } from '@/lib/icon-wrapper';
+
 interface Subject {
     name: string;
     icon: string;
@@ -59,7 +61,9 @@ export default function CambridgePathway({
                             key={index}
                             className="bg-white rounded-xl p-6 text-center border border-gray-200 hover:border-[#0f1419] hover:shadow-lg transition-all duration-300"
                         >
-                            <div className="text-4xl mb-3">{subject.icon}</div>
+                            <div className="mb-3">
+                                <IconWrapper icon={subject.icon} variant="middle" size="sm" />
+                            </div>
                             <h3 className="text-sm font-bold text-gray-900 mb-2">
                                 {subject.name}
                             </h3>

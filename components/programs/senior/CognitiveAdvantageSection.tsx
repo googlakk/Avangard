@@ -1,4 +1,5 @@
 import { CognitiveAdvantage } from '@/lib/data/senior-program';
+import { IconWrapper } from '@/lib/icon-wrapper';
 
 interface CognitiveAdvantageSectionProps {
     advantages: CognitiveAdvantage[];
@@ -28,7 +29,7 @@ export default function CognitiveAdvantageSection({ advantages }: CognitiveAdvan
                         >
                             {/* Иконка */}
                             <div className="w-16 h-16 bg-navy-900 rounded-2xl flex items-center justify-center text-3xl mb-5">
-                                {advantage.icon}
+                                <IconWrapper icon={advantage.icon} variant="senior" size="md" />
                             </div>
 
                             {/* Заголовок */}

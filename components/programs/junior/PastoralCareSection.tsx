@@ -1,5 +1,7 @@
 'use client';
 
+import { IconWrapper } from '@/lib/icon-wrapper';
+
 interface CareItem {
     icon: string;
     title: string;
@@ -33,7 +35,7 @@ export default function PastoralCareSection({ items }: PastoralCareProps) {
                         >
                             {/* Иконка */}
                             <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                                {item.icon}
+                                <IconWrapper icon={item.icon} variant="junior" size="md" />
                             </div>
 
                             {/* Заголовок */}

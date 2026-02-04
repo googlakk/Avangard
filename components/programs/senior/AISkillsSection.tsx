@@ -1,3 +1,5 @@
+import { Icon } from '@/lib/icons';
+import { IconWrapper } from '@/lib/icon-wrapper';
 interface XXICenturySkill {
     icon: string;
     title: string;
@@ -32,7 +34,9 @@ export default function AISkillsSection({ skills }: AISkillsSectionProps) {
                             className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 md:p-8 hover:bg-white/15 transition-all duration-300"
                         >
                             {/* Иконка */}
-                            <div className="text-5xl mb-4">{skill.icon}</div>
+                            <div className="mb-4">
+                                <IconWrapper icon={skill.icon} variant="senior" size="md" />
+                            </div>
 
                             {/* Заголовок */}
                             <h3 className="text-xl md:text-2xl font-bold font-heading mb-2">

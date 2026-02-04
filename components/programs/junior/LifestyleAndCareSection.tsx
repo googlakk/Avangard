@@ -1,5 +1,9 @@
+'use client';
+
 import Image from 'next/image';
 import { LifestyleCareFeature } from '@/lib/data/junior-program';
+import { IconWrapper } from '@/lib/icon-wrapper';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface LifestyleAndCareSectionProps {
     features: LifestyleCareFeature[];
@@ -9,91 +13,125 @@ interface LifestyleAndCareSectionProps {
     };
 }
 
+// Background images for each card
+const cardBackgrounds = [
+    'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200', // Study Club - teacher with student
+    'https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1200', // No Backpacks - school lockers
+    'https://images.unsplash.com/photo-1567521464027-f127ff144326?q=80&w=1200', // Healthy Food - kitchen/food prep
+    'https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1200'  // Security - monitoring/security
+];
+
 export default function LifestyleAndCareSection({ features, photoProof }: LifestyleAndCareSectionProps) {
+    const { t } = useLanguage();
+
+    // Custom positioning for asymmetric layout - 3 columns, 2 rows, all 4 cards visible
+    const cardPositions = [
+        'md:col-span-2 md:row-span-1', // Study Club - wide, top-left
+        'md:col-span-1 md:row-span-2', // No Backpacks - tall, right side  
+        'md:col-span-1 md:row-span-1', // Healthy Food - bottom-left
+        'md:col-span-1 md:row-span-1'  // Security - bottom-center
+    ];
+
     return (
-        <section className="py-16 bg-gray-50">
-            <div className="container mx-auto px-4">
+        <section className="py-12 bg-slate-50 min-h-screen flex items-center">
+            <div className="container mx-auto px-4 w-full">
                 {/* Заголовок секции */}
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900 mb-4">
+                <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-4xl font-bold font-lora text-oxford-blue mb-3">
                         Школа остается в школе. Вечер — для семьи.
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                    <p className="text-base md:text-lg font-manrope text-slate-600 max-w-3xl mx-auto">
                         Мы бережем ваше время и спины детей
                     </p>
                 </div>
 
-                {/* Сетка с фичами */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                {/* Asymmetric Grid Layout - 3 columns, 2 rows, all 4 cards fit */}
+                <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 max-w-7xl mx-auto h-[calc(100vh-280px)] max-h-[600px]">
                     {features.map((feature, index) => (
                         <div
                             key={index}
-                            className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 group"
+                            className={`group relative overflow-hidden rounded-[24px] shadow-lg hover:shadow-2xl transition-all duration-500 ${cardPositions[index]}`}
                         >
-                            {/* Иконка */}
-                            <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                                {feature.icon}
-                            </div>
+                            {/* Background Image */}
+                            <Image
+                                src={cardBackgrounds[index]}
+                                alt={feature.title}
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
 
-                            {/* Заголовок */}
-                            <h3 className="text-xl font-bold font-heading text-gray-900 mb-2">
-                                {feature.title}
-                            </h3>
+                            {/* Gradient Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-oxford-blue/95 via-oxford-blue/60 to-oxford-blue/20 group-hover:from-oxford-blue/98 group-hover:via-oxford-blue/80 transition-all duration-500"></div>
 
-                            {/* Подзаголовок */}
-                            <p className="text-sm text-navy-900/60 uppercase tracking-wider mb-3">
-                                {feature.subtitle}
-                            </p>
-
-                            {/* Описание */}
-                            <ul className="space-y-2">
-                                {feature.description.map((item, idx) => (
-                                    <li key={idx} className="text-sm text-gray-700 flex items-start">
-                                        <span className="text-navy-900 mr-2 flex-shrink-0">•</span>
-                                        <span>{item}</span>
-                                    </li>
-                                ))}
-                            </ul>
-
-                            {/* Бейдж бенефита если есть */}
-                            {feature.benefit && (
-                                <div className="mt-4 pt-4 border-t border-gray-100">
-                                    <span className="text-xs font-bold text-navy-900 bg-navy-900/10 px-3 py-1 rounded-full">
-                                        ✨ {feature.benefit}
-                                    </span>
+                            {/* Content */}
+                            <div className="absolute inset-0 p-6 flex flex-col justify-between">
+                                {/* Top: Icon & Title (Always Visible) */}
+                                <div>
+                                    <div className="w-12 h-12 mb-3 transform group-hover:scale-110 transition-transform duration-300">
+                                        <IconWrapper icon={feature.icon} variant="white" size="md" />
+                                    </div>
+                                    <h3 className="text-xl md:text-2xl font-bold font-lora text-white mb-1">
+                                        {feature.title}
+                                    </h3>
+                                    <p className="text-xs font-bold text-electric-blue uppercase tracking-widest font-manrope">
+                                        {feature.subtitle}
+                                    </p>
                                 </div>
-                            )}
+
+                                {/* Bottom: Description (Hover Only) */}
+                                <div className="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                                    <ul className="space-y-2">
+                                        {feature.description.map((item, idx) => (
+                                            <li key={idx} className="text-white font-manrope flex items-start leading-relaxed">
+                                                <span className="text-education-amber mr-2 flex-shrink-0">•</span>
+                                                <span className="text-xs md:text-sm">{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+
+                                    {/* Benefit Badge */}
+                                    {feature.benefit && (
+                                        <div className="mt-4 pt-3 border-t border-white/20">
+                                            <span className="inline-flex items-center gap-2 text-xs font-bold text-oxford-blue bg-education-amber px-3 py-1.5 rounded-full font-manrope">
+                                                ⭐ {feature.benefit}
+                                            </span>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
                         </div>
                     ))}
                 </div>
 
-                {/* Photo Proof - Две фотографии рядом */}
-                <div className="max-w-5xl mx-auto">
-                    <div className="bg-white rounded-3xl p-6 shadow-lg">
-                        <h3 className="text-xl font-bold font-heading text-center text-gray-900 mb-6">
-                            📸 Фото-доказательство
+                {/* Photo Proof Section */}
+                <div className="max-w-6xl mx-auto">
+                    <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-xl border border-slate-100">
+                        <h3 className="text-2xl font-bold font-lora text-center text-oxford-blue mb-10">
+                            Фото-доказательство
                         </h3>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
-                            {photoProof.images.map((photo, index) => (
-                                <div key={index} className="relative">
-                                    <div className="relative h-64 rounded-xl overflow-hidden">
-                                        <Image
-                                            src={photo.src}
-                                            alt={photo.caption}
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                    <p className="text-sm text-gray-600 text-center mt-3 italic">
-                                        {photo.caption}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                            {photoProof.images.map((image, index) => (
+                                <div
+                                    key={index}
+                                    className="relative h-[300px] rounded-[24px] overflow-hidden shadow-lg group"
+                                >
+                                    <Image
+                                        src={image.src}
+                                        alt={image.caption}
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-oxford-blue/80 to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+                                    <p className="absolute bottom-6 left-6 right-6 text-white font-manrope italic">
+                                        {image.caption}
                                     </p>
                                 </div>
                             ))}
                         </div>
 
-                        <p className="text-center text-lg font-semibold text-navy-900 mt-6">
-                            ➜ {photoProof.message}
+                        <p className="text-center text-xl font-bold font-lora text-oxford-blue flex items-center justify-center gap-2">
+                            <span className="text-education-amber">➜</span> {photoProof.message}
                         </p>
                     </div>
                 </div>

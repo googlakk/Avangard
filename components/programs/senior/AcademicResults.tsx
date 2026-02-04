@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { IconWrapper } from '@/lib/icon-wrapper';
 
 interface AcademicPillar {
     icon: string;
@@ -13,6 +14,9 @@ interface AcademicResultsProps {
     timeframe: string;
     pillars: AcademicPillar[];
     proofImage: string;
+    proofCaption: string;
+    bottomStrong: string;
+    bottomText: string;
 }
 
 export default function AcademicResults({
@@ -20,7 +24,10 @@ export default function AcademicResults({
     description,
     timeframe,
     pillars,
-    proofImage
+    proofImage,
+    proofCaption,
+    bottomStrong,
+    bottomText
 }: AcademicResultsProps) {
     return (
         <section className="py-20 md:py-28 bg-white">
@@ -46,7 +53,9 @@ export default function AcademicResults({
                             className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-3xl p-8 hover:shadow-xl transition-all duration-300 hover:border-navy-900/30"
                         >
                             {/* Icon */}
-                            <div className="text-6xl mb-6">{pillar.icon}</div>
+                            <div className="mb-6">
+                                <IconWrapper icon={pillar.icon} variant="senior" size="md" />
+                            </div>
 
                             {/* Title */}
                             <h3 className="text-2xl font-bold font-heading text-gray-900 mb-3">
@@ -84,7 +93,7 @@ export default function AcademicResults({
                         {/* Caption overlay */}
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
                             <p className="text-white text-sm md:text-base font-medium">
-                                📸 Фото-доказательство: Расписание с блоками IELTS Prep, SAT Math, Science (Eng) + Native Speaker
+                                {proofCaption}
                             </p>
                         </div>
                     </div>
@@ -93,8 +102,8 @@ export default function AcademicResults({
                 {/* Bottom emphasis */}
                 <div className="mt-12 text-center">
                     <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                        <strong className="text-navy-900">Зашито в наш процесс.</strong>{' '}
-                        Каждый день с 08:00 до 17:00 ваш ребенок получает то, за что другие родители платят репетиторам отдельно.
+                        <strong className="text-navy-900">{bottomStrong}</strong>{' '}
+                        {bottomText}
                     </p>
                 </div>
             </div>

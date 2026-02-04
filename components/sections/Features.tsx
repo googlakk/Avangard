@@ -2,6 +2,7 @@
 
 import Card from '@/components/ui/Card';
 import { FEATURES } from '@/lib/constants';
+import { Icon } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Features() {

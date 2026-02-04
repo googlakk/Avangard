@@ -44,17 +44,17 @@ export default function MiddleHero({
                 </div>
 
                 {/* Main Title */}
-                <h1 className="text-5xl md:text-7xl font-bold mb-4 opacity-0 animate-[fadeIn_1s_ease-out_0.4s_forwards]">
+                <h1 className="text-5xl md:text-7xl font-bold mb-8 opacity-0 animate-[fadeIn_1s_ease-out_0.4s_forwards]">
                     {title}
                 </h1>
 
                 {/* Subtitle */}
-                <p className="text-2xl md:text-3xl font-light mb-6 opacity-0 animate-[fadeIn_1s_ease-out_0.6s_forwards]">
+                <p className="text-2xl md:text-3xl font-light mb-10 opacity-0 animate-[fadeIn_1s_ease-out_0.6s_forwards]">
                     {subtitle}
                 </p>
 
                 {/* Description */}
-                <p className="text-lg md:text-xl max-w-3xl mx-auto mb-10 text-gray-200 opacity-0 animate-[fadeInUp_1s_ease-out_0.8s_forwards]">
+                <p className="text-lg md:text-xl max-w-3xl mx-auto mb-12 text-gray-200 opacity-0 animate-[fadeInUp_1s_ease-out_0.8s_forwards]">
                     {description}
                 </p>
 

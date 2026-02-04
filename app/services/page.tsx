@@ -12,37 +12,37 @@ const services = [
         title: 'Веб-разработка',
         description:
             'Создание современных, быстрых и адаптивных веб-сайтов и веб-приложений с использованием передовых технологий.',
-        icon: '💻',
+        icon: 'Code2',
     },
     {
         title: 'Мобильная разработка',
         description:
             'Разработка нативных и кроссплатформенных мобильных приложений для iOS и Android.',
-        icon: '📱',
+        icon: 'Smartphone',
     },
     {
         title: 'UI/UX Дизайн',
         description:
             'Создание привлекательных и интуитивно понятных пользовательских интерфейсов для любых платформ.',
-        icon: '🎨',
+        icon: 'Palette',
     },
     {
         title: 'Консалтинг',
         description:
             'Профессиональные консультации по цифровой трансформации и оптимизации бизнес-процессов.',
-        icon: '📊',
+        icon: 'BarChart3',
     },
     {
         title: 'SEO и Маркетинг',
         description:
             'Продвижение вашего бизнеса в интернете, увеличение видимости и привлечение клиентов.',
-        icon: '🚀',
+        icon: 'TrendingUp',
     },
     {
         title: 'Техническая поддержка',
         description:
             'Круглосуточная поддержка и обслуживание ваших цифровых продуктов и сервисов.',
-        icon: '🛠️',
+        icon: 'Settings',
     },
 ];
 
@@ -51,8 +51,8 @@ export default function ServicesPage() {
         <div className="pt-24 px-4">
             {/* Hero секция */}
             <section className="max-w-7xl mx-auto py-20 text-center">
-                <h1 className="font-heading font-bold text-5xl md:text-6xl mb-6">
-                    Наши <span className="gradient-text">услуги</span>
+                <h1 className="font-heading font-bold text-5xl md:text-6xl mb-6 text-gray-900">
+                    Наши <span className="text-navy-900">услуги</span>
                 </h1>
                 <p className="text-xl text-gray-300 max-w-3xl mx-auto">
                     Предлагаем полный спектр профессиональных услуг для развития вашего бизнеса в
@@ -71,8 +71,8 @@ export default function ServicesPage() {
 
             {/* Процесс работы */}
             <section className="max-w-7xl mx-auto py-20">
-                <h2 className="font-heading font-bold text-4xl text-center mb-12">
-                    Как мы <span className="gradient-text">работаем</span>
+                <h2 className="font-heading font-bold text-4xl text-center mb-12 text-gray-900">
+                    Как мы <span className="text-navy-900">работаем</span>
                 </h2>
                 <div className="grid md:grid-cols-4 gap-6">
                     {[
@@ -81,12 +81,12 @@ export default function ServicesPage() {
                         { step: '03', title: 'Реализация', desc: 'Воплощаем проект в жизнь' },
                         { step: '04', title: 'Поддержка', desc: 'Обеспечиваем сопровождение' },
                     ].map((item, index) => (
-                        <div key={index} className="glass rounded-xl p-6 text-center">
-                            <div className="font-heading font-bold text-4xl gradient-text mb-3">
+                        <div key={index} className="bg-white border border-gray-200 rounded-xl p-6 text-center hover:shadow-lg transition-shadow">
+                            <div className="font-heading font-bold text-4xl text-navy-900 mb-3">
                                 {item.step}
                             </div>
-                            <h3 className="font-heading font-bold text-xl mb-2">{item.title}</h3>
-                            <p className="text-gray-400">{item.desc}</p>
+                            <h3 className="font-heading font-bold text-xl mb-2 text-gray-900">{item.title}</h3>
+                            <p className="text-gray-600">{item.desc}</p>
                         </div>
                     ))}
                 </div>
@@ -94,11 +94,11 @@ export default function ServicesPage() {
 
             {/* CTA */}
             <section className="max-w-4xl mx-auto py-20">
-                <div className="glass rounded-3xl p-12 text-center">
+                <div className="bg-navy-900 text-white rounded-3xl p-12 text-center">
                     <h2 className="font-heading font-bold text-3xl md:text-4xl mb-4">
                         Готовы начать проект?
                     </h2>
-                    <p className="text-xl text-gray-300 mb-8">
+                    <p className="text-xl text-gray-200 mb-8">
                         Свяжитесь с нами, чтобы обсудить ваш проект и получить предложение
                     </p>
                     <Button size="lg" href="/contacts">

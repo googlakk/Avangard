@@ -1,21 +1,11 @@
-import SeniorOffer from '@/components/programs/senior/SeniorOffer';
-import AcademicResults from '@/components/programs/senior/AcademicResults';
-import CognitiveSuperiorityAI from '@/components/programs/senior/CognitiveSuperiorityAI';
-import SelectiveAdmission from '@/components/programs/senior/SelectiveAdmission';
-import {
-    seniorOfferData,
-    academicResultsData,
-    cognitiveAIData,
-    selectiveAdmissionData
-} from '@/lib/data/senior-program';
+import SeniorProgramClient from './SeniorProgramClient';
 
 export const metadata = {
-    title: 'Intellect Senior: Прямой путь в ТОП-вузы мира | 10-11 классы',
-    description: 'Двухлетний карьерный инкубатор для поступления в университеты США, Европы и Азии на грантовой основе. IELTS, TOEFL, SAT и ОРТ включены в расписание. AI-fluency и ментальные технологии для несправедливого преимущества.',
-    keywords: 'старшая школа, 10-11 классы, ТОП-вузы, гранты, IELTS, TOEFL, SAT, ОРТ, AI, когнитивные технологии, Бишкек',
+    title: 'Intellect Senior (10-11 классы) | Intellect Pro',
+    description: 'Ваш прямой путь в ТОП-вузы мира. Подготовка к SAT, IELTS, TOEFL и поступлению в университеты США, Европы и Азии. Грантовое обучение.',
     openGraph: {
-        title: 'Intellect Senior — Прямой путь в ТОП-вузы мира',
-        description: 'Карьерный инкубатор с подготовкой к международным экзаменам и AI-технологиями',
+        title: 'Intellect Senior — Путь в ТОП-вузы и гранты',
+        description: 'SAT, IELTS, Essay, карьерное планирование и развитие навыков XXI века',
         images: [{
             url: '/images/senior/og-image.jpg',
             width: 1200,
@@ -26,19 +16,5 @@ export const metadata = {
 };
 
 export default function SeniorProgramPage() {
-    return (
-        <main className="bg-white">
-            {/* Block 1: Offer - Main Promise */}
-            <SeniorOffer {...seniorOfferData} />
-
-            {/* Block 2: Academic Results - Hard Skills Proof */}
-            <AcademicResults {...academicResultsData} />
-
-            {/* Block 3: Cognitive Superiority & AI - Unique Differentiation */}
-            <CognitiveSuperiorityAI {...cognitiveAIData} />
-
-            {/* Block 4: Selective Admission - Filter & Final CTA */}
-            <SelectiveAdmission {...selectiveAdmissionData} />
-        </main>
-    );
+    return <SeniorProgramClient />;
 }

@@ -1,6 +1,16 @@
 import { cn } from '@/lib/utils';
-import type { CardProps } from '@/types';
+import { IconWrapper } from '@/lib/icon-wrapper';
 import Image from 'next/image';
+interface CardProps {
+    title: string;
+    description: string;
+    image?: string;
+    icon?: string;
+    badge?: string;
+    buttonText?: string;
+    className?: string;
+    style?: React.CSSProperties;
+}
 
 export default function Card({ title, description, image, icon, badge, buttonText, className, style }: CardProps) {
     return (
@@ -32,8 +42,8 @@ export default function Card({ title, description, image, icon, badge, buttonTex
             <div className="p-6">
                 {icon && (
                     <div className="mb-4">
-                        <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center text-3xl">
-                            {icon}
+                        <div className="w-14 h-14 rounded-xl bg-navy-900 flex items-center justify-center">
+                            <IconWrapper icon={icon} variant="navy" size="sm" />
                         </div>
                     </div>
                 )}

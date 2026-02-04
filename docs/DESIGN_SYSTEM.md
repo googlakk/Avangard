@@ -98,6 +98,18 @@ className="bg-navy-900 text-white hover:bg-navy-800 rounded-full px-8 py-3 font-
 - **Section Vertical:** `py-16` (standard) or `py-8 md:py-12` (compact).
 - **Grid:** `grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6`.
 
-## 5. Animation
+## 5. Iconography & Visual Style (Strict Premium)
+
+### ❌ FORBIDDEN:
+- **NO 3D Icons**: Keep the site grounded and serious. No "Cloud/SaaS" aesthetics.
+- **NO Cartoonish Illustrations**: Use photography or very minimal thin-line icons.
+- **NO Bright "Startup" Gradients**: Stick to the Navy/White/Silver/Gold palette.
+
+### ✅ APPROVED:
+- **Icons:** Minimalist, thin-stroke icons (e.g., Lucide React, Phosphor).
+- **Photography:** High-quality, real photos of the school, students, and teachers. Photos are the primary visual driver.
+- **Vibe:** "Ivy League", "Oxford", "Classic Heritage but Modern".
+
+## 6. Animation
 - **Fade In Up:** `animate-[fadeInUp_0.8s_ease-out_0.8s_forwards]` (Custom manual class usage seen in ProjectsSection).
 - **Standard Fade:** `animate-fade-in` (from config).

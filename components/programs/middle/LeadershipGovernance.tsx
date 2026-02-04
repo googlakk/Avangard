@@ -1,4 +1,6 @@
 'use client';
+import { IconWrapper } from '@/lib/icon-wrapper';
+import { Icon } from '@/lib/icons';
 
 import Image from 'next/image';
 
@@ -57,7 +59,7 @@ export default function LeadershipGovernance({
                         >
                             {/* Icon */}
                             <div className="text-5xl mb-4 transition-transform group-hover:scale-110 duration-300">
-                                {feature.icon}
+                                <IconWrapper icon={feature.icon} variant="white" size="md" />
                             </div>
 
                             {/* Title */}

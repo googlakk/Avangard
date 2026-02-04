@@ -1,7 +1,9 @@
 'use client';
 
+import { IconWrapper } from '@/lib/icon-wrapper';
 import { motion } from 'framer-motion';
 import { ExtracurricularActivity, MotivationSystem } from '@/lib/data/junior-program';
+import { Icon } from '@/lib/icons';
 
 interface ExtracurricularSectionProps {
     activities: ExtracurricularActivity[];
@@ -39,7 +41,7 @@ export default function ExtracurricularSection({ activities, motivationSystems }
                             >
                                 {/* Иконка категории */}
                                 <div className="text-6xl mb-6 text-center">
-                                    {activity.icon}
+                                    <IconWrapper icon={activity.icon} variant="junior" size="sm" />
                                 </div>
 
                                 {/* Категория */}
@@ -84,7 +86,9 @@ export default function ExtracurricularSection({ activities, motivationSystems }
                                 {/* Контент */}
                                 <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white">
                                     {/* Иконка */}
-                                    <div className="text-5xl mb-4">{system.icon}</div>
+                                    <div className="mb-4">
+                                        <IconWrapper icon={system.icon} variant="junior" size="md" />
+                                    </div>
 
                                     {/* Заголовок */}
                                     <h4 className="text-2xl font-bold text-navy-900 mb-4">

@@ -37,7 +37,7 @@ export default function AcademicBreakthrough({
                 {/* Badge */}
                 <div className="inline-block mb-6 opacity-0 animate-[fadeInDown_1s_ease-out_0.2s_forwards]">
                     <span className="inline-block px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/30 rounded-full text-sm font-medium tracking-wider uppercase">
-                        🚀 Академический прорыв
+                        Академический прорыв
                     </span>
                 </div>
 
@@ -51,10 +51,7 @@ export default function AcademicBreakthrough({
                     {subtitle}
                 </p>
 
-                {/* Description */}
-                <p className="text-base md:text-lg max-w-3xl mx-auto mb-10 text-gray-200 opacity-0 animate-[fadeInUp_1s_ease-out_0.8s_forwards] leading-relaxed">
-                    {description}
-                </p>
+
 
                 {/* CTA Button */}
                 <div className="opacity-0 animate-[fadeInUp_1s_ease-out_1s_forwards]">
@@ -66,12 +63,7 @@ export default function AcademicBreakthrough({
                     </a>
                 </div>
 
-                {/* Proof Caption */}
-                <div className="mt-16 opacity-0 animate-[fadeIn_1s_ease-out_1.5s_forwards]">
-                    <p className="text-sm text-gray-300 italic max-w-2xl mx-auto">
-                        📸 Урок химии или физики: подростки в белых халатах проводят опыт. На доске — формулы на английском языке. Это международный уровень.
-                    </p>
-                </div>
+
 
                 {/* Scroll Indicator */}
                 <div className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-0 animate-[fadeIn_1s_ease-out_1.5s_forwards]">

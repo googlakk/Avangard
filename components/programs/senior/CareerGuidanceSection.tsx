@@ -1,4 +1,5 @@
 import { CareerGuidanceItem } from '@/lib/data/senior-program';
+import { IconWrapper } from '@/lib/icon-wrapper';
 
 interface CareerGuidanceSectionProps {
     items: CareerGuidanceItem[];
@@ -26,7 +27,9 @@ export default function CareerGuidanceSection({ items }: CareerGuidanceSectionPr
                             className="bg-white rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-all duration-300 group"
                         >
                             {/* Иконка */}
-                            <div className="text-5xl mb-5">{item.icon}</div>
+                            <div className="mb-5">
+                                <IconWrapper icon={item.icon} variant="senior" size="md" />
+                            </div>
 
                             {/* Заголовок */}
                             <h3 className="text-xl md:text-2xl font-bold font-heading text-gray-900 mb-4">

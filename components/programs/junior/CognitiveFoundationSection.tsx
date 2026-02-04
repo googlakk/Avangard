@@ -1,67 +1,77 @@
-import Image from 'next/image';
 import { CognitiveFoundationFeature } from '@/lib/data/junior-program';
+import { IconWrapper } from '@/lib/icon-wrapper';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface CognitiveFoundationSectionProps {
     features: CognitiveFoundationFeature[];
-    photoProof: {
-        image: string;
-        caption: string;
-    };
 }
 
-export default function CognitiveFoundationSection({ features, photoProof }: CognitiveFoundationSectionProps) {
+export default function CognitiveFoundationSection({ features }: CognitiveFoundationSectionProps) {
+    const { t } = useLanguage();
+
     return (
-        <section className="py-16 bg-white">
-            <div className="container mx-auto px-4">
+        <section className="py-24 bg-oxford-blue relative overflow-hidden">
+            {/* Tech Background Grid */}
+            <div className="absolute inset-0 z-0 opacity-10" style={{
+                backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)',
+                backgroundSize: '40px 40px'
+            }}></div>
+
+            {/* Glowing Orbs */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-electric-blue/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-education-amber/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2"></div>
+
+            <div className="container mx-auto px-4 relative z-10">
                 {/* Заголовок секции */}
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900 mb-4">
-                        Разгоняем мозг, пока он пластичен
+                <div className="text-center mb-16">
+                    <span className="inline-block px-4 py-2 bg-electric-blue/20 border border-electric-blue/40 rounded-full text-electric-blue text-sm font-bold tracking-widest uppercase mb-6 backdrop-blur-sm">
+                        Hard Skills
+                    </span>
+                    <h2 className="text-4xl md:text-5xl font-bold font-lora text-white mb-6">
+                        {t.junior.cognitive.intro.title}
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                        В возрасте 6–10 лет мозг развивается быстрее всего. Мы используем это окно возможностей:
+                    <p className="text-lg md:text-xl font-manrope text-slate-300 max-w-3xl mx-auto">
+                        {t.junior.cognitive.intro.subtitle}
                     </p>
                 </div>
 
                 {/* Сетка с фичами - 3 колонки */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
                     {features.map((feature, index) => (
                         <div
                             key={index}
-                            className="relative bg-navy-900 text-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 group overflow-hidden"
+                            className="relative bg-white/5 backdrop-blur-md rounded-[32px] p-8 transition-all duration-300 group hover:bg-white/10 hover:-translate-y-2 border border-white/10 overflow-hidden"
                         >
-                            {/* Декоративный элемент */}
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16"></div>
+                            {/* Glow on hover */}
+                            <div className="absolute -inset-full bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-12 group-hover:animate-[shimmer_1s_infinite] opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
-                            {/* Иконка */}
-                            <div className="text-6xl mb-4 relative z-10 transform group-hover:scale-110 transition-transform duration-300">
-                                {feature.icon}
-                            </div>
-
-                            {/* Статистика если есть */}
-                            {feature.stats && (
-                                <div className="mb-2">
-                                    <span className="text-4xl font-ibm-plex-serif font-bold text-white">
+                            {/* Иконка и Статистика */}
+                            <div className="flex justify-between items-start mb-6">
+                                <div className="p-3 bg-white/10 rounded-2xl border border-white/10 group-hover:scale-110 transition-transform duration-300">
+                                    <IconWrapper icon={feature.icon} variant="white" size="md" />
+                                </div>
+                                {feature.stats && (
+                                    <span className="text-4xl font-manrope font-bold text-education-amber">
                                         {feature.stats}
                                     </span>
-                                </div>
-                            )}
+                                )}
+                            </div>
 
                             {/* Заголовок */}
-                            <h3 className="text-2xl font-bold font-heading mb-2">
+                            <h3 className="text-2xl font-bold font-lora text-white mb-2">
                                 {feature.title}
                             </h3>
 
                             {/* Подзаголовок */}
-                            <p className="text-sm text-gray-300 uppercase tracking-wider mb-4">
+                            <p className="text-xs font-bold text-electric-blue uppercase tracking-widest mb-6 font-manrope">
                                 {feature.subtitle}
                             </p>
 
                             {/* Описание */}
-                            <ul className="space-y-3 mb-4">
-                                {feature.description.map((item, idx) => (
-                                    <li key={idx} className="text-sm text-gray-200 flex items-start">
-                                        <span className="text-white mr-2 flex-shrink-0">•</span>
+                            <ul className="space-y-3 mb-8">
+                                {feature.description.map((item: string, idx: number) => (
+                                    <li key={idx} className="text-slate-300 font-manrope flex items-start text-sm leading-relaxed">
+                                        <span className="text-education-amber mr-2 flex-shrink-0">➜</span>
                                         <span>{item}</span>
                                     </li>
                                 ))}
@@ -69,40 +79,14 @@ export default function CognitiveFoundationSection({ features, photoProof }: Cog
 
                             {/* Хайлайт бейдж если есть */}
                             {feature.highlight && (
-                                <div className="mt-4">
-                                    <span className="text-xs font-bold text-navy-900 bg-white px-3 py-1 rounded-full">
+                                <div className="mt-auto pt-6 border-t border-white/10">
+                                    <span className="inline-flex items-center gap-2 text-xs font-bold text-oxford-blue bg-education-amber px-4 py-2 rounded-full font-manrope">
                                         ⭐ {feature.highlight}
                                     </span>
                                 </div>
                             )}
                         </div>
                     ))}
-                </div>
-
-                {/* Photo Proof */}
-                <div className="max-w-4xl mx-auto">
-                    <div className="bg-gray-50 rounded-3xl p-6 shadow-lg">
-                        <h3 className="text-xl font-bold font-heading text-center text-gray-900 mb-6">
-                            📸 Фото-доказательство
-                        </h3>
-
-                        <div className="relative h-96 rounded-2xl overflow-hidden mb-4">
-                            <Image
-                                src={photoProof.image}
-                                alt={photoProof.caption}
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-
-                        <p className="text-center text-gray-700 italic">
-                            {photoProof.caption}
-                        </p>
-
-                        <p className="text-center text-lg font-semibold text-navy-900 mt-6">
-                            ➜ Мы учим не только читать и писать, мы тренируем мозг
-                        </p>
-                    </div>
                 </div>
             </div>
         </section>

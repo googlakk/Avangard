@@ -5,19 +5,23 @@ import ru from '@/locales/ru.json';
 import en from '@/locales/en.json';
 
 type Language = 'ru' | 'en';
-type Translations = typeof ru;
+type Translations = typeof ru & {
+    senior: any;
+    teachers: any;
+    contacts: any;
+};
 
 interface LanguageContextType {
     language: Language;
     setLanguage: (lang: Language) => void;
-    t: Translations;
+    t: Translations; // Localization dictionary
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 const translations: Record<Language, Translations> = {
-    ru,
-    en,
+    ru: ru as Translations,
+    en: en as Translations,
 };
 
 export function LanguageProvider({ children }: { children: ReactNode }) {

@@ -1,8 +1,10 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function ContactSection() {
+    const { t } = useLanguage();
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
@@ -25,13 +27,13 @@ export default function ContactSection() {
                 <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
                     {/* Форма */}
                     <div>
-                        <h2 className="text-3xl font-bold font-heading text-gray-900 mb-2">Записаться на экскурсию</h2>
-                        <p className="text-gray-600 mb-8">Приглашаем вас познакомиться с нашей школой</p>
+                        <h2 className="text-3xl font-bold font-heading text-gray-900 mb-2">{t.contact.title}</h2>
+                        <p className="text-gray-600 mb-8">{t.contact.subtitle}</p>
 
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                                    Ваше имя
+                                    {t.contact.form.name}
                                 </label>
                                 <input
                                     type="text"
@@ -39,14 +41,14 @@ export default function ContactSection() {
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
-                                    placeholder="Иван Иванов"
+                                    placeholder={t.contact.form.placeholderName}
                                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-navy-900 focus:ring-2 focus:ring-navy-900/20 outline-none transition-all"
                                 />
                             </div>
 
                             <div>
                                 <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                                    Телефон
+                                    {t.contact.form.phone}
                                 </label>
                                 <input
                                     type="tel"
@@ -61,7 +63,7 @@ export default function ContactSection() {
 
                             <div>
                                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                                    Email (необязательно)
+                                    {t.contact.form.email}
                                 </label>
                                 <input
                                     type="email"
@@ -78,17 +80,17 @@ export default function ContactSection() {
                                 type="submit"
                                 className="w-full bg-navy-900 text-white py-4 rounded-full font-medium hover:bg-navy-800 transition-colors"
                             >
-                                Жду звонка
+                                {t.contact.form.submit}
                             </button>
                         </form>
                     </div>
 
                     {/* Контактная информация */}
                     <div>
-                        <h3 className="text-2xl font-bold font-heading text-gray-900 mb-6">Контакты</h3>
+                        <h3 className="text-2xl font-bold font-heading text-gray-900 mb-6">{t.contact.contactsTitle}</h3>
                         <div className="space-y-6">
                             <div>
-                                <h4 className="font-semibold text-gray-900 mb-2">Телефоны:</h4>
+                                <h4 className="font-semibold text-gray-900 mb-2">{t.contact.phones}</h4>
                                 <a
                                     href="tel:+996705889889"
                                     className="text-xl text-navy-900 hover:text-navy-700 transition-colors block mb-1"
@@ -104,17 +106,17 @@ export default function ContactSection() {
                             </div>
 
                             <div>
-                                <h4 className="font-semibold text-gray-900 mb-2">Адреса:</h4>
+                                <h4 className="font-semibold text-gray-900 mb-2">{t.contact.addresses}</h4>
                                 <p className="text-gray-700 mb-2">
-                                    г. Бишкек, ул. Джунусалиева, 177/1
+                                    {t.contact.addressList.main}
                                 </p>
                                 <p className="text-gray-700">
-                                    ул. А. Бакаева, 119
+                                    {t.contact.addressList.branch}
                                 </p>
                             </div>
 
                             <div>
-                                <h4 className="font-semibold text-gray-900 mb-2">Соцсети:</h4>
+                                <h4 className="font-semibold text-gray-900 mb-2">{t.contact.socials}</h4>
                                 <a
                                     href="https://www.instagram.com/intellect_pro_school"
                                     target="_blank"

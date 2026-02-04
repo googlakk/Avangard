@@ -1,4 +1,5 @@
 import { EnglishProficiencyBlock } from '@/lib/data/senior-program';
+import { IconWrapper } from '@/lib/icon-wrapper';
 
 interface EnglishProficiencySectionProps {
     blocks: EnglishProficiencyBlock[];
@@ -27,7 +28,7 @@ export default function EnglishProficiencySection({ blocks }: EnglishProficiency
                         >
                             {/* Иконка */}
                             <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-3xl mb-5">
-                                {block.icon}
+                                <IconWrapper icon={block.icon} variant="senior" size="md" />
                             </div>
 
                             {/* Заголовок */}

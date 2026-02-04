@@ -1,7 +1,9 @@
 'use client';
 
+import { IconWrapper } from '@/lib/icon-wrapper';
 import { motion } from 'framer-motion';
 import { LanguageFeature } from '@/lib/data/junior-program';
+import { Icon } from '@/lib/icons';
 
 interface LanguageEnvironmentSectionProps {
     features: LanguageFeature[];
@@ -34,7 +36,7 @@ export default function LanguageEnvironmentSection({ features }: LanguageEnviron
                         >
                             {/* Иконка */}
                             <div className="w-16 h-16 bg-navy-50 rounded-2xl flex items-center justify-center mb-6 text-4xl transform hover:rotate-12 transition-transform duration-300 text-navy-900 border border-navy-100">
-                                {feature.icon}
+                                <IconWrapper icon={feature.icon} variant="white" size="md" />
                             </div>
 
                             {/* Заголовок */}
