@@ -1,7 +1,5 @@
-import { IconWrapper } from '@/lib/icon-wrapper';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Icon } from '@/lib/icons';
 
 interface SeniorHeroProps {
     title: string;
@@ -10,7 +8,7 @@ interface SeniorHeroProps {
     ctaText: string;
     ctaLink: string;
     backgroundImage: string;
-    trustBadges: Array<{ icon: string; text: string }>;
+    trustBadges?: Array<{ icon: string; text: string }>;
 }
 
 export default function SeniorHero({
@@ -20,79 +18,157 @@ export default function SeniorHero({
     ctaText,
     ctaLink,
     backgroundImage,
-    trustBadges
 }: SeniorHeroProps) {
     return (
-        <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
-            {/* Фоновое изображение */}
-            <div className="absolute inset-0">
+        <section className="relative min-h-screen flex items-center overflow-hidden">
+            {/* Background Image — Right-positioned students */}
+            <div className="absolute inset-0 z-0">
                 <Image
                     src={backgroundImage}
                     alt={title}
                     fill
-                    className="object-cover"
+                    className="object-cover object-right-top"
                     priority
                 />
-                {/* Темный градиент для читаемости */}
-                <div className="absolute inset-0 bg-gradient-to-r from-navy-900/95 to-navy-900/80"></div>
+
+                {/* Layer 1: Vertical depth gradient — continues from header */}
+                <div
+                    className="absolute inset-0"
+                    style={{
+                        background: `linear-gradient(
+                            180deg,
+                            rgba(15,34,58,0.96) 0%,
+                            rgba(15,34,58,0.92) 15%,
+                            rgba(15,34,58,0.82) 30%,
+                            rgba(15,34,58,0.65) 45%,
+                            rgba(15,34,58,0.40) 60%,
+                            rgba(15,34,58,0.18) 75%,
+                            rgba(15,34,58,0.06) 90%,
+                            rgba(15,34,58,0.02) 100%
+                        )`
+                    }}
+                />
+
+                {/* Layer 2: Left readability gradient */}
+                <div
+                    className="absolute inset-0"
+                    style={{
+                        background: `linear-gradient(
+                            90deg,
+                            rgba(15,34,58,0.88) 0%,
+                            rgba(15,34,58,0.65) 35%,
+                            rgba(15,34,58,0.25) 65%,
+                            transparent 85%
+                        )`
+                    }}
+                />
+
+                {/* Layer 3: Warm academic gold glow */}
+                <div
+                    className="absolute inset-0"
+                    style={{
+                        background: `radial-gradient(
+                            circle at 75% 25%,
+                            rgba(198,169,107,0.16) 0%,
+                            rgba(198,169,107,0.06) 30%,
+                            transparent 60%
+                        )`,
+                        mixBlendMode: 'soft-light'
+                    }}
+                />
+
+                {/* Layer 4: Subtle noise texture */}
+                <div
+                    className="absolute inset-0 opacity-[0.015] pointer-events-none"
+                    style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+                    }}
+                />
             </div>
 
-            {/* Контент */}
-            <div className="relative z-10 container mx-auto px-4 text-center">
-                {/* Подзаголовок */}
-                <p className="text-sm md:text-base uppercase tracking-[0.3em] text-gray-300 mb-4 font-medium opacity-0 animate-[fadeInDown_1s_ease-out_0.2s_forwards]">
-                    {subtitle}
-                </p>
-
-                {/* Главный заголовок */}
-                <h1 className="text-3xl md:text-5xl lg:text-6xl font-ibm-plex-serif font-bold text-white mb-10 max-w-5xl mx-auto leading-tight opacity-0 animate-[fadeIn_1s_ease-out_0.4s_forwards]">
-                    {title}
-                </h1>
-
-                {/* Описание */}
-                <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-12 leading-relaxed opacity-0 animate-[fadeInUp_1s_ease-out_0.6s_forwards]">
-                    {description}
-                </p>
-
-                {/* Trust Badges */}
-                <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-12 opacity-0 animate-[fadeInUp_1s_ease-out_0.7s_forwards]">
-                    {trustBadges.map((badge, index) => (
-                        <div
-                            key={index}
-                            className="flex items-center gap-2 bg-white/10 backdrop-blur-xl border border-white/20 px-4 py-2 rounded-full"
-                        >
-                            <IconWrapper icon={badge.icon} variant="white" size="sm" />
-                            <span className="text-sm md:text-base text-white font-medium">
-                                {badge.text}
-                            </span>
-                        </div>
-                    ))}
-                </div>
-
-                {/* CTA кнопка */}
-                <div className="opacity-0 animate-[fadeInUp_1s_ease-out_0.8s_forwards]">
-                    <Link
-                        href={ctaLink}
-                        className="inline-block bg-white text-navy-900 px-10 py-4 rounded-full text-base font-bold hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
+            {/* Content Container — Left aligned with luxury spacing */}
+            <div className="container mx-auto relative z-10 pt-28 pb-20 pl-8 md:pl-16 lg:pl-24 xl:pl-32 pr-4">
+                <div className="max-w-[560px]">
+                    {/* Kicker Text */}
+                    <p
+                        className="mb-6 font-serif text-lg tracking-[0.03em] opacity-0 animate-[fadeInDown_0.8s_ease-out_0.2s_forwards]"
+                        style={{ color: 'rgba(198,169,107,0.9)' }}
                     >
-                        {ctaText}
-                    </Link>
-                </div>
-            </div>
+                        {subtitle}
+                    </p>
 
-            {/* Декоративная волна снизу */}
-            <div className="absolute bottom-0 left-0 right-0">
-                <svg
-                    viewBox="0 0 1440 120"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-full h-auto"
-                >
-                    <path
-                        d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-                        fill="white"
-                    />
-                </svg>
+                    {/* Main Headline */}
+                    <h1
+                        className="mb-8 font-display opacity-0 animate-[fadeIn_0.8s_ease-out_0.4s_forwards]"
+                        style={{
+                            fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                            fontWeight: 500,
+                            letterSpacing: '-0.02em',
+                            lineHeight: 1.1,
+                            color: 'rgba(255,255,255,0.98)'
+                        }}
+                    >
+                        {title}
+                    </h1>
+
+                    {/* Description */}
+                    <p
+                        className="mb-10 text-lg leading-relaxed max-w-md opacity-0 animate-[fadeInUp_0.8s_ease-out_0.6s_forwards]"
+                        style={{
+                            color: 'rgba(255,255,255,0.85)',
+                            letterSpacing: '0.01em'
+                        }}
+                    >
+                        {description}
+                    </p>
+
+                    {/* Buttons */}
+                    <div className="flex flex-wrap gap-4 mb-14 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.8s_forwards]">
+                        {/* Primary Button — Soft Gold */}
+                        <Link
+                            href={ctaLink}
+                            className="inline-flex items-center justify-center px-7 py-3.5 rounded-full text-[15px] font-semibold tracking-[0.01em] transition-all duration-300 transform hover:-translate-y-[1px]"
+                            style={{
+                                background: 'linear-gradient(135deg, #C6A96B 0%, #D4B87A 50%, #C6A96B 100%)',
+                                color: '#0F223A',
+                                boxShadow: '0 4px 16px rgba(198,169,107,0.3), 0 1px 4px rgba(0,0,0,0.1)',
+                            }}
+                        >
+                            {ctaText}
+                        </Link>
+
+                        {/* Secondary Button — Transparent Outline */}
+                        <Link
+                            href="#curriculum"
+                            className="inline-flex items-center justify-center px-7 py-3.5 rounded-full text-[15px] font-medium tracking-[0.01em] transition-all duration-300 hover:bg-white/[0.06]"
+                            style={{
+                                background: 'rgba(15,34,58,0.3)',
+                                backdropFilter: 'blur(4px)',
+                                border: '1px solid rgba(255,255,255,0.2)',
+                                color: 'rgba(255,255,255,0.95)',
+                            }}
+                        >
+                            Программа обучения
+                        </Link>
+                    </div>
+
+                    {/* Bottom Badges — IB SAT IELTS */}
+                    <div className="opacity-0 animate-[fadeInUp_0.8s_ease-out_1s_forwards]">
+                        {/* Thin Divider Line */}
+                        <div
+                            className="w-24 h-px mb-5"
+                            style={{ background: 'rgba(255,255,255,0.15)' }}
+                        />
+
+                        {/* Badge Text */}
+                        <p
+                            className="font-serif text-base tracking-[0.2em]"
+                            style={{ color: 'rgba(255,255,255,0.55)' }}
+                        >
+                            IB • SAT • IELTS
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
     );

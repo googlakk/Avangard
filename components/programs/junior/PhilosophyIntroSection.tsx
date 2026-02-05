@@ -38,7 +38,7 @@ export default function PhilosophyIntroSection() {
                         >
                             <div className="aspect-[4/5] relative">
                                 <Image
-                                    src="/images/junior/philosophy-main.jpg"
+                                    src="/images/цитата.jpg"
                                     alt="Intellect Junior Philosophy"
                                     fill
                                     className="object-cover"

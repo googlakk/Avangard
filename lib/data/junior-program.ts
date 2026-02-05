@@ -8,7 +8,7 @@ export const getJuniorHeroData = (t: any) => ({
     description: t.junior.hero.description,
     ctaText: t.junior.hero.ctaText,
     ctaLink: "/admissions",
-    backgroundImage: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2000",
+    backgroundImage: "/images/junior-morning-exercise.png",
     badge: t.junior.hero.badge,
     photoProof: {
         image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?q=80&w=1200",

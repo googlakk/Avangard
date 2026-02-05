@@ -12,7 +12,7 @@ const programs = [
         badge: '1-4 классы',
         description: 'Фундамент будущего. Мягкая адаптация, развитие Soft Skills и билингвальная среда.',
         subtitle: 'Начальная школа',
-        image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1000',
+        image: '/images/junior-morning-exercise.png',
         url: '/programs/junior',
     },
     {
@@ -21,7 +21,7 @@ const programs = [
         badge: '5-9 классы',
         description: 'Раскрытие потенциала. Cambridge System, STEAM-лаборатории и проектная деятельность.',
         subtitle: 'Средняя школа',
-        image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1000',
+        image: '/images/middle-entrance-group.png',
         url: '/programs/middle',
     },
     {
@@ -30,7 +30,7 @@ const programs = [
         badge: '10-11 классы',
         description: 'Путь в университеты. Подготовка к IELTS/TOEFL/ORT и карьерное консультирование.',
         subtitle: 'Старшая школа',
-        image: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=1000',
+        image: '/images/senior-medalists.png',
         url: '/programs/senior',
     },
     {
@@ -72,7 +72,7 @@ export default function ProgramsSection() {
             badge: t.programs.items.junior.badge,
             description: t.programs.items.junior.description,
             subtitle: t.programs.items.junior.subtitle,
-            image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1000',
+            image: '/images/junior-morning-exercise.png',
             url: '/programs/junior',
         },
         {
@@ -81,7 +81,7 @@ export default function ProgramsSection() {
             badge: t.programs.items.middle.badge,
             description: t.programs.items.middle.description,
             subtitle: t.programs.items.middle.subtitle,
-            image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1000',
+            image: '/images/middle-entrance-group.png',
             url: '/programs/middle',
         },
         {
@@ -90,7 +90,7 @@ export default function ProgramsSection() {
             badge: t.programs.items.senior.badge,
             description: t.programs.items.senior.description,
             subtitle: t.programs.items.senior.subtitle,
-            image: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=1000',
+            image: '/images/senior-medalists.png',
             url: '/programs/senior',
         },
         {
@@ -198,6 +198,7 @@ export default function ProgramsSection() {
                                             fill
                                             className="object-cover rounded-xl"
                                         />
+                                        <div className="absolute inset-0 bg-navy-900/30 z-10 rounded-xl"></div>
                                     </div>
 
                                     {/* Описание (появляется снизу при hover) */}

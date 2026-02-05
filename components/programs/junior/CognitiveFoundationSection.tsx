@@ -10,7 +10,7 @@ export default function CognitiveFoundationSection({ features }: CognitiveFounda
     const { t } = useLanguage();
 
     return (
-        <section className="py-24 bg-oxford-blue relative overflow-hidden">
+        <section className="py-10 bg-oxford-blue relative overflow-hidden min-h-screen flex flex-col justify-center">
             {/* Tech Background Grid */}
             <div className="absolute inset-0 z-0 opacity-10" style={{
                 backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)',
@@ -23,7 +23,7 @@ export default function CognitiveFoundationSection({ features }: CognitiveFounda
 
             <div className="container mx-auto px-4 relative z-10">
                 {/* Заголовок секции */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-8">
                     <span className="inline-block px-4 py-2 bg-electric-blue/20 border border-electric-blue/40 rounded-full text-electric-blue text-sm font-bold tracking-widest uppercase mb-6 backdrop-blur-sm">
                         Hard Skills
                     </span>
@@ -36,17 +36,17 @@ export default function CognitiveFoundationSection({ features }: CognitiveFounda
                 </div>
 
                 {/* Сетка с фичами - 3 колонки */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {features.map((feature, index) => (
                         <div
                             key={index}
-                            className="relative bg-white/5 backdrop-blur-md rounded-[32px] p-8 transition-all duration-300 group hover:bg-white/10 hover:-translate-y-2 border border-white/10 overflow-hidden"
+                            className="relative bg-white/5 backdrop-blur-md rounded-[24px] p-6 transition-all duration-300 group hover:bg-white/10 hover:-translate-y-2 border border-white/10 overflow-hidden"
                         >
                             {/* Glow on hover */}
                             <div className="absolute -inset-full bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-12 group-hover:animate-[shimmer_1s_infinite] opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
                             {/* Иконка и Статистика */}
-                            <div className="flex justify-between items-start mb-6">
+                            <div className="flex justify-between items-start mb-4">
                                 <div className="p-3 bg-white/10 rounded-2xl border border-white/10 group-hover:scale-110 transition-transform duration-300">
                                     <IconWrapper icon={feature.icon} variant="white" size="md" />
                                 </div>
@@ -63,12 +63,12 @@ export default function CognitiveFoundationSection({ features }: CognitiveFounda
                             </h3>
 
                             {/* Подзаголовок */}
-                            <p className="text-xs font-bold text-electric-blue uppercase tracking-widest mb-6 font-manrope">
+                            <p className="text-xs font-bold text-electric-blue uppercase tracking-widest mb-4 font-manrope">
                                 {feature.subtitle}
                             </p>
 
                             {/* Описание */}
-                            <ul className="space-y-3 mb-8">
+                            <ul className="space-y-2 mb-4">
                                 {feature.description.map((item: string, idx: number) => (
                                     <li key={idx} className="text-slate-300 font-manrope flex items-start text-sm leading-relaxed">
                                         <span className="text-education-amber mr-2 flex-shrink-0">➜</span>

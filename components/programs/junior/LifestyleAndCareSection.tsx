@@ -38,10 +38,10 @@ export default function LifestyleAndCareSection({ features, photoProof }: Lifest
                 {/* Заголовок секции */}
                 <div className="text-center mb-8">
                     <h2 className="text-3xl md:text-4xl font-bold font-lora text-oxford-blue mb-3">
-                        Школа остается в школе. Вечер — для семьи.
+                        Почему мы?
                     </h2>
                     <p className="text-base md:text-lg font-manrope text-slate-600 max-w-3xl mx-auto">
-                        Мы бережем ваше время и спины детей
+                        Школа остается в школе. Вечер — для семьи
                     </p>
                 </div>
 
@@ -103,38 +103,7 @@ export default function LifestyleAndCareSection({ features, photoProof }: Lifest
                     ))}
                 </div>
 
-                {/* Photo Proof Section */}
-                <div className="max-w-6xl mx-auto">
-                    <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-xl border border-slate-100">
-                        <h3 className="text-2xl font-bold font-lora text-center text-oxford-blue mb-10">
-                            Фото-доказательство
-                        </h3>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                            {photoProof.images.map((image, index) => (
-                                <div
-                                    key={index}
-                                    className="relative h-[300px] rounded-[24px] overflow-hidden shadow-lg group"
-                                >
-                                    <Image
-                                        src={image.src}
-                                        alt={image.caption}
-                                        fill
-                                        className="object-cover group-hover:scale-105 transition-transform duration-700"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-oxford-blue/80 to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
-                                    <p className="absolute bottom-6 left-6 right-6 text-white font-manrope italic">
-                                        {image.caption}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
-
-                        <p className="text-center text-xl font-bold font-lora text-oxford-blue flex items-center justify-center gap-2">
-                            <span className="text-education-amber">➜</span> {photoProof.message}
-                        </p>
-                    </div>
-                </div>
             </div>
         </section>
     );

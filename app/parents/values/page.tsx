@@ -3,8 +3,13 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Button from '@/components/ui/Button';
+import LifestyleAndCareSection from '@/components/programs/junior/LifestyleAndCareSection';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { getLifestyleCareFeatures, getLifestyleCarePhotoProof } from '@/lib/data/junior-program';
 
 export default function ValuesPage() {
+    const { t } = useLanguage();
+
     return (
         <main className="min-h-screen pt-20">
             {/* Hero Section */}
@@ -35,51 +40,12 @@ export default function ValuesPage() {
                 </div>
             </section>
 
-            {/* Values Grid */}
-            <section className="py-20 bg-white">
-                <div className="container mx-auto px-4">
-                    <div className="grid md:grid-cols-3 gap-12">
-                        {/* Card 1 */}
-                        <div className="text-center group">
-                            <div className="w-16 h-16 mx-auto bg-navy-900/5 rounded-full flex items-center justify-center mb-6 group-hover:bg-navy-900/10 transition-colors">
-                                <svg className="w-8 h-8 text-navy-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </div>
-                            <h3 className="font-heading font-bold text-2xl mb-4 text-navy-900">Безопасность</h3>
-                            <p className="text-gray-600 leading-relaxed">
-                                Закрытая территория 24/7, видеонаблюдение, собственная служба охраны. Мы создали крепость, где дети чувствуют себя свободно.
-                            </p>
-                        </div>
+            {/* Why Us Section - From Junior */}
+            <LifestyleAndCareSection
+                features={getLifestyleCareFeatures(t)}
+                photoProof={getLifestyleCarePhotoProof(t)}
+            />
 
-                        {/* Card 2 */}
-                        <div className="text-center group">
-                            <div className="w-16 h-16 mx-auto bg-navy-900/5 rounded-full flex items-center justify-center mb-6 group-hover:bg-navy-900/10 transition-colors">
-                                <svg className="w-8 h-8 text-navy-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                </svg>
-                            </div>
-                            <h3 className="font-heading font-bold text-2xl mb-4 text-navy-900">Забота и Здоровье</h3>
-                            <p className="text-gray-600 leading-relaxed">
-                                Сбалансированное 3-разовое питание от шеф-повара, кабинет врача и психолог в штате. Мы заботимся о физическом и ментальном благополучии.
-                            </p>
-                        </div>
-
-                        {/* Card 3 */}
-                        <div className="text-center group">
-                            <div className="w-16 h-16 mx-auto bg-navy-900/5 rounded-full flex items-center justify-center mb-6 group-hover:bg-navy-900/10 transition-colors">
-                                <svg className="w-8 h-8 text-navy-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                                </svg>
-                            </div>
-                            <h3 className="font-heading font-bold text-2xl mb-4 text-navy-900">Академический трамплин</h3>
-                            <p className="text-gray-600 leading-relaxed">
-                                Уникальные методики обучения, подготовка к международным экзаменам и победы в мировых олимпиадах.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             {/* Stats Section */}
             <section className="py-20 bg-gray-50">

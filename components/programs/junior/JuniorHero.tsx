@@ -48,19 +48,16 @@ export default function JuniorHero({
                 )}
 
                 {/* Main Title */}
-                <h1 className="font-lora text-5xl md:text-7xl lg:text-8xl font-bold mb-8 opacity-0 animate-[fadeIn_1s_ease-out_0.4s_forwards] leading-tight">
+                <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-medium mb-8 opacity-0 animate-[fadeIn_1s_ease-out_0.4s_forwards] leading-tight">
                     {title}
                 </h1>
 
                 {/* Subtitle */}
-                <p className="font-lora text-2xl md:text-3xl font-medium mb-10 opacity-0 animate-[fadeIn_1s_ease-out_0.6s_forwards] italic text-blue-100">
+                <p className="font-serif text-2xl md:text-3xl font-medium mb-10 opacity-0 animate-[fadeIn_1s_ease-out_0.6s_forwards] italic text-blue-100">
                     {subtitle}
                 </p>
 
-                {/* Description */}
-                <p className="font-manrope text-lg md:text-xl max-w-2xl mx-auto mb-12 text-slate-100 opacity-0 animate-[fadeInUp_1s_ease-out_0.8s_forwards] leading-relaxed">
-                    {description}
-                </p>
+
 
                 {/* CTA Button */}
                 <div className="opacity-0 animate-[fadeInUp_1s_ease-out_1s_forwards]">
@@ -87,7 +84,7 @@ export default function JuniorHero({
                             100%
                         </div>
                         <div>
-                            <p className="text-white font-lora font-bold text-lg leading-tight">Native Speakers</p>
+                            <p className="text-white font-display font-medium text-lg leading-tight">Native Speakers</p>
                             <p className="text-slate-300 text-sm font-manrope">from UK & USA</p>
                         </div>
                     </div>

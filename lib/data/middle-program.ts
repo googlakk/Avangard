@@ -8,7 +8,7 @@ export const getAcademicBreakthroughData = (t: any) => ({
     description: t.middle.hero.description,
     ctaText: t.middle.hero.ctaText,
     ctaLink: "/admissions",
-    backgroundImage: "/Users/intellectmac/.gemini/antigravity/brain/5dfee3b6-c7c1-4d72-8534-1c2033e049e3/middle_chemistry_lab_1769397365219.png",
+    backgroundImage: "/images/middle-entrance-group.png",
 });
 
 export const getDisciplineEnvironmentData = (t: any) => ({

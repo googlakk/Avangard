@@ -52,19 +52,11 @@ export interface CareerGuidanceItem {
 
 // Block 1: Offer (Main Promise)
 export const getSeniorOfferData = (t: any) => ({
-    headline: t.senior.hero.headline,
-    subheadline: t.senior.hero.subheadline,
-    ctaText: t.senior.hero.ctaText,
+    headline: "Путь в ведущие университеты мира",
+    subheadline: "International High School • Grades 10–11",
+    ctaText: "Поступить",
     ctaLink: "/contacts",
-    // Using proofImage naming to match component update, but original had backgroundImage
-    // Component now expects backgroundImage AND scrollText?
-    // Let's check SeniorOffer.tsx again. It expects 'backgroundImage' and 'scrollText'.
-    // Wait, in my previous step I seemingly changed it to 'proofImage' in SeniorOffer?
-    // Step 236 showed: ctaLink, backgroundImage, scrollText.
-    // Step 230 showed: proofImage instead of backgroundImage.
-    // I need to be 100% sure what SeniorOffer expects.
-    // Let's assume I reverted to 'backgroundImage' + 'scrollText' based on Step 236.
-    backgroundImage: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2000",
+    backgroundImage: "/images/sen-hero.png",
     scrollText: t.senior.hero.scrollText
 });
 
