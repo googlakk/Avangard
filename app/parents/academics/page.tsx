@@ -12,7 +12,7 @@ export default function AcademicsPage() {
             {/* Hero Section */}
             <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
                 <Image
-                    src="/api/placeholder/1920/1080"
+                    src="/images/класс.png"
                     alt="Учебный процесс"
                     fill
                     className="object-cover"
@@ -47,7 +47,7 @@ export default function AcademicsPage() {
                         <Link href="/programs/junior" className="group rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all flex flex-col h-full">
                             <div className="h-48 relative bg-blue-50 shrink-0">
                                 <Image
-                                    src="/api/placeholder/600/400"
+                                    src="/images/junior-morning-exercise.png"
                                     alt="Junior School"
                                     fill
                                     className="object-cover"
@@ -72,7 +72,7 @@ export default function AcademicsPage() {
                         <Link href="/programs/middle" className="group rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all flex flex-col h-full">
                             <div className="h-48 relative bg-blue-50 shrink-0">
                                 <Image
-                                    src="/api/placeholder/600/400"
+                                    src="/images/middle-entrance-group.png"
                                     alt="Middle School"
                                     fill
                                     className="object-cover"
@@ -97,7 +97,7 @@ export default function AcademicsPage() {
                         <Link href="/programs/senior" className="group rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all flex flex-col h-full">
                             <div className="h-48 relative bg-blue-50 shrink-0">
                                 <Image
-                                    src="/api/placeholder/600/400"
+                                    src="/images/senior-medalists.png"
                                     alt="Senior School"
                                     fill
                                     className="object-cover"

@@ -48,7 +48,7 @@ const programs = [
         badge: '15+ секций',
         description: 'Творчество и Спорт. 15+ секций, лидерские программы и волонтерство.',
         subtitle: 'Жизнь вне классов',
-        image: 'https://images.unsplash.com/photo-1519315901367-f34ff9154487?q=80&w=1000',
+        image: '/images/10а квиз.png',
         url: '/programs/life-at-intellect',
     },
     {
@@ -108,8 +108,8 @@ export default function ProgramsSection() {
             badge: t.programs.items.life.badge,
             description: t.programs.items.life.description,
             subtitle: t.programs.items.life.subtitle,
-            image: 'https://images.unsplash.com/photo-1519315901367-f34ff9154487?q=80&w=1000',
-            url: '/programs/life-at-intellect',
+            image: '/images/10а квиз.png',
+            url: '/images/10f',
         },
         {
             id: 6,
