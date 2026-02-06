@@ -27,64 +27,68 @@ export default function DisciplineEnvironment({
     proofCaption,
 }: DisciplineEnvironmentProps) {
     return (
-        <section className="py-16 md:py-24 bg-gray-50">
+        <section className="py-20 bg-gray-50">
             <div className="container mx-auto px-4">
                 {/* Header */}
-                <div className="text-center max-w-4xl mx-auto mb-12">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-gray-900 mb-4">
+                <div className="text-center max-w-4xl mx-auto mb-16">
+                    <h2 className="text-3xl md:text-5xl font-bold font-heading text-navy-900 mb-6">
                         {title}
                     </h2>
-                    <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+                    <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
                         {subtitle}
                     </p>
                 </div>
 
-                {/* Features Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-6xl mx-auto">
-                    {features.map((feature, index) => (
-                        <div
-                            key={index}
-                            className="bg-white rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-all duration-300 group"
-                        >
-                            {/* Icon */}
-                            <div className="mb-4">
-                                <IconWrapper icon={feature.icon} variant="middle" size="md" />
-                            </div>
-
-                            {/* Title */}
-                            <h3 className="text-xl font-bold font-heading text-gray-900 mb-3">
-                                {feature.title}
-                            </h3>
-
-                            {/* Description */}
-                            <p className="text-gray-700 leading-relaxed mb-4 font-sans">
-                                {feature.description}
-                            </p>
-
-                            {/* Highlight Badge */}
-                            <span className="inline-block text-sm font-semibold text-navy-900 bg-gray-100 px-3 py-1 rounded-full">
-                                {feature.highlight}
-                            </span>
+                <div className="max-w-7xl mx-auto bg-white rounded-[2.5rem] p-8 md:p-12 shadow-xl overflow-hidden">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                        {/* Left Column: Cards List */}
+                        <div className="lg:col-span-5 space-y-6">
+                            {features.map((feature, index) => (
+                                <div
+                                    key={index}
+                                    className="group p-6 rounded-2xl bg-gray-50 border border-transparent hover:border-gray-200 hover:bg-white hover:shadow-lg transition-all duration-300"
+                                >
+                                    <div className="flex items-start gap-5">
+                                        <div className="shrink-0 mt-1">
+                                            <IconWrapper icon={feature.icon} variant="middle" size="md" />
+                                        </div>
+                                        <div>
+                                            <div className="flex items-center gap-3 mb-2">
+                                                <h3 className="text-xl font-bold font-heading text-navy-900">
+                                                    {feature.title}
+                                                </h3>
+                                                <span className="text-[10px] uppercase font-bold tracking-wider text-white bg-navy-900 px-2 py-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                                                    {feature.highlight}
+                                                </span>
+                                            </div>
+                                            <p className="text-gray-600 text-sm leading-relaxed">
+                                                {feature.description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
 
-                {/* Proof Image Section */}
-                <div className="max-w-5xl mx-auto">
-                    <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                        <div className="relative aspect-[16/9]">
+                        {/* Right Column: Visual */}
+                        <div className="lg:col-span-7 h-full min-h-[400px] lg:min-h-[600px] relative rounded-3xl overflow-hidden">
                             <Image
                                 src={proofImage}
-                                alt="Digital Detox Zone"
+                                alt="Environment"
                                 fill
-                                className="object-cover"
+                                className="object-cover hover:scale-105 transition-transform duration-700"
                             />
+                            {/* Overlay Caption */}
+                            <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/50">
+                                <div className="flex items-center gap-3">
+                                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                                    <span className="text-navy-900 font-medium text-sm">
+                                        {proofCaption}
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    {/* Caption */}
-                    <p className="text-center text-sm text-gray-600 italic mt-4 font-sans">
-                        📸 {proofCaption}
-                    </p>
                 </div>
             </div>
         </section>

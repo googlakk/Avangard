@@ -34,7 +34,7 @@ export const getDisciplineEnvironmentData = (t: any) => ({
             highlight: t.middle.discipline.features.environment.highlight
         }
     ],
-    proofImage: "/Users/intellectmac/.gemini/antigravity/brain/5dfee3b6-c7c1-4d72-8534-1c2033e049e3/middle_no_phones_zone_1769397379877.png",
+    proofImage: "/images/Гимн абду.png",
     proofCaption: t.middle.discipline.features.photoProof.caption
 });
 

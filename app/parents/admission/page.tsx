@@ -39,7 +39,7 @@ export default function AdmissionPage() {
     ];
 
     return (
-        <main className="min-h-screen pt-20">
+        <main className="min-h-screen">
             {/* Hero Section */}
             <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
                 <Image

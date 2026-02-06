@@ -11,7 +11,7 @@ export default function CulturePage() {
     const data = getCultureData(t);
     const { hero, manifesto, slider } = data;
     return (
-        <main className="min-h-screen pt-20">
+        <main className="min-h-screen">
             {/* Hero Section */}
             <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
                 <Image

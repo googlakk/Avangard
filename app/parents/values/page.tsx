@@ -11,11 +11,11 @@ export default function ValuesPage() {
     const { t } = useLanguage();
 
     return (
-        <main className="min-h-screen pt-20">
+        <main className="min-h-screen">
             {/* Hero Section */}
             <section className="relative h-screen flex items-center justify-center overflow-hidden">
                 <Image
-                    src="/api/placeholder/1920/1080"
+                    src="/images/middle-entrance-group.png"
                     alt="Ученики в библиотеке"
                     fill
                     className="object-cover"
