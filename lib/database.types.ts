@@ -84,6 +84,121 @@ export type Database = {
         }
         Relationships: []
       }
+      cms_page_status_logs: {
+        Row: {
+          changed_at: string
+          changed_by: string | null
+          from_status: string | null
+          id: string
+          metadata: Json
+          page_id: string
+          to_status: string
+        }
+        Insert: {
+          changed_at?: string
+          changed_by?: string | null
+          from_status?: string | null
+          id?: string
+          metadata?: Json
+          page_id: string
+          to_status: string
+        }
+        Update: {
+          changed_at?: string
+          changed_by?: string | null
+          from_status?: string | null
+          id?: string
+          metadata?: Json
+          page_id?: string
+          to_status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "cms_page_status_logs_page_id_fkey"
+            columns: ["page_id"]
+            isOneToOne: false
+            referencedRelation: "cms_pages"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      cms_pages: {
+        Row: {
+          id: string
+          published_at: string | null
+          scheduled_at: string | null
+          slug: string
+          status: string
+          title_en: string
+          title_ru: string
+          updated_at: string | null
+          version: number
+        }
+        Insert: {
+          id?: string
+          published_at?: string | null
+          scheduled_at?: string | null
+          slug: string
+          status?: string
+          title_en: string
+          title_ru: string
+          updated_at?: string | null
+          version?: number
+        }
+        Update: {
+          id?: string
+          published_at?: string | null
+          scheduled_at?: string | null
+          slug?: string
+          status?: string
+          title_en?: string
+          title_ru?: string
+          updated_at?: string | null
+          version?: number
+        }
+        Relationships: []
+      }
+      cms_sections: {
+        Row: {
+          id: string
+          is_enabled: boolean
+          key: string
+          order_index: number
+          page_id: string
+          payload: Json
+          type: string
+          updated_at: string | null
+        }
+        Insert: {
+          id?: string
+          is_enabled?: boolean
+          key: string
+          order_index?: number
+          page_id: string
+          payload?: Json
+          type: string
+          updated_at?: string | null
+        }
+        Update: {
+          id?: string
+          is_enabled?: boolean
+          key?: string
+          order_index?: number
+          page_id?: string
+          payload?: Json
+          type?: string
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "cms_sections_page_id_fkey"
+            columns: ["page_id"]
+            isOneToOne: false
+            referencedRelation: "cms_pages"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       departments: {
         Row: {
           created_at: string | null

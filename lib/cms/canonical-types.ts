@@ -14,7 +14,7 @@ export type CmsStaffMember = Tables<'staff_members'>
 export type CmsGallery = Tables<'gallery'>
 export type CmsGalleryImage = Tables<'gallery_images'>
 
-export type CmsPageStatus = 'draft' | 'review' | 'published' | 'archived'
+export type CmsPageStatus = 'draft' | 'review' | 'scheduled' | 'published' | 'archived'
 export type CmsSectionType = 'hero' | 'content' | 'cards' | 'cta' | 'media' | 'custom'
 
 export interface CmsPage {
@@ -83,4 +83,3 @@ export const CMS_CANONICAL_PENDING_TABLES = [
     'settings',
     'media_assets',
 ] as const
-

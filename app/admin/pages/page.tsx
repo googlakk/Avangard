@@ -18,6 +18,7 @@ import {
     Search,
 } from 'lucide-react'
 import {
+    canTransitionPageStatus,
     createCmsPage,
     createCmsSection,
     deleteCmsPage,
@@ -39,6 +40,7 @@ interface PageForm {
     title_en: string
     status: CmsPageStatus
     version: number
+    scheduled_at: string
     published_at: string
 }
 
@@ -55,6 +57,7 @@ const emptyPageForm: PageForm = {
     title_en: '',
     status: 'draft',
     version: 1,
+    scheduled_at: '',
     published_at: '',
 }
 
@@ -85,6 +88,21 @@ function generateSlug(value: string) {
         .replace(/[^a-z0-9а-яё]+/gi, '-')
         .replace(/^-+|-+$/g, '')
         .replace(/-{2,}/g, '-')
+}
+
+function getStatusBadgeClass(status: CmsPageStatus) {
+    switch (status) {
+    case 'published':
+        return 'bg-green-50 text-green-700'
+    case 'scheduled':
+        return 'bg-blue-50 text-blue-700'
+    case 'review':
+        return 'bg-amber-50 text-amber-700'
+    case 'archived':
+        return 'bg-gray-100 text-gray-600'
+    default:
+        return 'bg-slate-100 text-slate-700'
+    }
 }
 
 export default function AdminPagesBuilderPage() {
@@ -165,6 +183,7 @@ export default function AdminPagesBuilderPage() {
                 title_en: page.title_en,
                 status: page.status,
                 version: page.version,
+                scheduled_at: toDateTimeLocal(page.scheduled_at),
                 published_at: toDateTimeLocal(page.published_at),
             })
         } else {
@@ -182,6 +201,17 @@ export default function AdminPagesBuilderPage() {
 
     const savePage = async () => {
         if (!pageForm.slug || !pageForm.title_ru || !pageForm.title_en) return
+
+        if (editingPage && !canTransitionPageStatus(editingPage.status, pageForm.status)) {
+            setError(`Недопустимый переход статуса: ${editingPage.status} → ${pageForm.status}`)
+            return
+        }
+
+        if (pageForm.status === 'scheduled' && !pageForm.scheduled_at) {
+            setError('Для scheduled необходимо указать дату и время публикации')
+            return
+        }
+
         try {
             setSaving(true)
             const payload = {
@@ -190,6 +220,9 @@ export default function AdminPagesBuilderPage() {
                 title_en: pageForm.title_en,
                 status: pageForm.status,
                 version: Math.max(1, Math.trunc(pageForm.version || 1)),
+                scheduled_at: pageForm.status === 'scheduled'
+                    ? new Date(pageForm.scheduled_at).toISOString()
+                    : null,
                 published_at: pageForm.status === 'published'
                     ? (pageForm.published_at ? new Date(pageForm.published_at).toISOString() : new Date().toISOString())
                     : null,
@@ -227,8 +260,13 @@ export default function AdminPagesBuilderPage() {
     const togglePagePublish = async (page: CmsPageRecord) => {
         try {
             const nextStatus: CmsPageStatus = page.status === 'published' ? 'draft' : 'published'
+            if (!canTransitionPageStatus(page.status, nextStatus)) {
+                setError(`Недопустимый переход статуса: ${page.status} → ${nextStatus}`)
+                return
+            }
             await updateCmsPage(page.id, {
                 status: nextStatus,
+                scheduled_at: null,
                 published_at: nextStatus === 'published' ? (page.published_at || new Date().toISOString()) : null,
             })
             await fetchPages()
@@ -410,12 +448,17 @@ export default function AdminPagesBuilderPage() {
                                                 <h3 className="font-semibold text-sm text-gray-900 truncate">
                                                     {page.title_ru}
                                                 </h3>
-                                                <span className={`text-xs px-2 py-0.5 rounded-full ${page.status === 'published' ? 'bg-green-50 text-green-700' : 'bg-amber-50 text-amber-700'}`}>
+                                                <span className={`text-xs px-2 py-0.5 rounded-full ${getStatusBadgeClass(page.status)}`}>
                                                     {page.status}
                                                 </span>
                                             </div>
                                             <p className="text-xs text-gray-500 truncate mt-1">{page.title_en}</p>
-                                            <p className="text-xs text-gray-400 truncate">/{page.slug} · v{page.version}</p>
+                                            <p className="text-xs text-gray-400 truncate">
+                                                /{page.slug} · v{page.version}
+                                                {page.status === 'scheduled' && page.scheduled_at
+                                                    ? ` · scheduled ${new Date(page.scheduled_at).toLocaleString()}`
+                                                    : ''}
+                                            </p>
                                         </button>
 
                                         <div className="mt-2 flex items-center gap-1.5">
@@ -616,6 +659,7 @@ export default function AdminPagesBuilderPage() {
                                     >
                                         <option value="draft">draft</option>
                                         <option value="review">review</option>
+                                        <option value="scheduled">scheduled</option>
                                         <option value="published">published</option>
                                         <option value="archived">archived</option>
                                     </select>
@@ -630,6 +674,16 @@ export default function AdminPagesBuilderPage() {
                                         className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-navy-500 focus:border-navy-500"
                                     />
                                 </div>
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Scheduled at</label>
+                                <input
+                                    type="datetime-local"
+                                    value={pageForm.scheduled_at}
+                                    onChange={e => setPageForm(prev => ({ ...prev, scheduled_at: e.target.value }))}
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-navy-500 focus:border-navy-500"
+                                />
                             </div>
 
                             <div>
