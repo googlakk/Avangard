@@ -20,8 +20,13 @@ import {
     Search,
 } from 'lucide-react'
 import { galleryImagesService, galleryService } from '@/lib/services/api'
+import {
+    buildOptimizedImageVariants,
+    normalizeFocalPoint,
+    validateAltTextPolicy,
+} from '@/lib/services/media-optimization'
 import { uploadGalleryImage } from '@/lib/services/storage'
-import type { Tables, TablesInsert, TablesUpdate } from '@/lib/database.types'
+import type { Json, Tables, TablesInsert, TablesUpdate } from '@/lib/database.types'
 
 type GalleryAlbum = Tables<'gallery'>
 type GalleryImage = Tables<'gallery_images'>
@@ -40,6 +45,10 @@ interface AlbumForm {
 interface ImageForm {
     caption_ru: string
     caption_en: string
+    alt_ru: string
+    alt_en: string
+    focal_x: number
+    focal_y: number
     image_url: string
 }
 
@@ -57,6 +66,10 @@ const emptyAlbumForm: AlbumForm = {
 const emptyImageForm: ImageForm = {
     caption_ru: '',
     caption_en: '',
+    alt_ru: '',
+    alt_en: '',
+    focal_x: 0.5,
+    focal_y: 0.5,
     image_url: '',
 }
 
@@ -231,6 +244,10 @@ export default function AdminGalleryPage() {
             setImageForm({
                 caption_ru: image.caption_ru || '',
                 caption_en: image.caption_en || '',
+                alt_ru: image.alt_ru || '',
+                alt_en: image.alt_en || '',
+                focal_x: image.focal_x ?? 0.5,
+                focal_y: image.focal_y ?? 0.5,
                 image_url: image.image_url,
             })
         } else {
@@ -264,10 +281,22 @@ export default function AdminGalleryPage() {
                 nextImageUrl = uploaded.publicUrl
             }
 
+            validateAltTextPolicy(imageForm.alt_ru, imageForm.alt_en)
+            const focal = normalizeFocalPoint({
+                x: imageForm.focal_x,
+                y: imageForm.focal_y,
+            })
+            const optimizationVariants = buildOptimizedImageVariants(nextImageUrl)
+
             const payload = {
                 gallery_id: selectedAlbumId,
                 caption_ru: imageForm.caption_ru || null,
                 caption_en: imageForm.caption_en || null,
+                alt_ru: imageForm.alt_ru,
+                alt_en: imageForm.alt_en,
+                focal_x: focal.x,
+                focal_y: focal.y,
+                optimization_variants: optimizationVariants as unknown as Json,
                 image_url: nextImageUrl,
             }
 
@@ -497,6 +526,12 @@ export default function AdminGalleryPage() {
                                                     )}
                                                 </div>
                                                 <p className="text-xs text-gray-500 truncate mt-0.5">{image.caption_en || 'No caption EN'}</p>
+                                                <p className="text-xs text-gray-500 truncate">
+                                                    alt: {image.alt_ru || '—'} / {image.alt_en || '—'}
+                                                </p>
+                                                <p className="text-xs text-gray-400 truncate">
+                                                    focal: {Number(image.focal_x ?? 0.5).toFixed(2)} x {Number(image.focal_y ?? 0.5).toFixed(2)}
+                                                </p>
                                                 <p className="text-xs text-gray-400 truncate">{image.image_url}</p>
                                             </div>
 
@@ -713,7 +748,7 @@ export default function AdminGalleryPage() {
                                     Загрузить файл
                                     <input
                                         type="file"
-                                        accept="image/jpeg,image/png,image/webp"
+                                        accept="image/jpeg,image/png,image/webp,image/avif"
                                         className="hidden"
                                         onChange={e => setImageFile(e.target.files?.[0] || null)}
                                     />
@@ -723,6 +758,53 @@ export default function AdminGalleryPage() {
                                         Выбран файл: {imageFile.name}
                                     </p>
                                 )}
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">Alt text (RU) *</label>
+                                    <input
+                                        type="text"
+                                        value={imageForm.alt_ru}
+                                        onChange={e => setImageForm(prev => ({ ...prev, alt_ru: e.target.value }))}
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-navy-500 focus:border-navy-500"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">Alt text (EN) *</label>
+                                    <input
+                                        type="text"
+                                        value={imageForm.alt_en}
+                                        onChange={e => setImageForm(prev => ({ ...prev, alt_en: e.target.value }))}
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-navy-500 focus:border-navy-500"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">Focal X (0..1)</label>
+                                    <input
+                                        type="number"
+                                        min={0}
+                                        max={1}
+                                        step={0.01}
+                                        value={imageForm.focal_x}
+                                        onChange={e => setImageForm(prev => ({ ...prev, focal_x: Number(e.target.value) }))}
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-navy-500 focus:border-navy-500"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">Focal Y (0..1)</label>
+                                    <input
+                                        type="number"
+                                        min={0}
+                                        max={1}
+                                        step={0.01}
+                                        value={imageForm.focal_y}
+                                        onChange={e => setImageForm(prev => ({ ...prev, focal_y: Number(e.target.value) }))}
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-navy-500 focus:border-navy-500"
+                                    />
+                                </div>
                             </div>
                         </div>
 

@@ -96,6 +96,7 @@ export default function AdminNewsPage() {
     const [loading, setLoading] = useState(true)
     const [saving, setSaving] = useState(false)
     const [uploadingImage, setUploadingImage] = useState(false)
+    const [creatingPreviewId, setCreatingPreviewId] = useState<string | null>(null)
     const [error, setError] = useState<string | null>(null)
 
     const [showForm, setShowForm] = useState(false)
@@ -335,6 +336,39 @@ export default function AdminNewsPage() {
         }
     }
 
+    const openSecurePreview = async (article: NewsArticle) => {
+        try {
+            setCreatingPreviewId(article.id)
+            const response = await fetch('/api/cms/preview-links', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    entityType: 'news',
+                    entityId: article.id,
+                    slug: article.slug,
+                    expiresInMinutes: 120,
+                    maxUses: 5,
+                }),
+            })
+
+            if (!response.ok) {
+                throw new Error('Failed to generate preview link')
+            }
+
+            const data = await response.json()
+            if (!data?.url) {
+                throw new Error('Preview URL was not generated')
+            }
+
+            window.open(data.url, '_blank', 'noopener,noreferrer')
+        } catch (err) {
+            console.error('Failed to open secure preview:', err)
+            setError('Ошибка генерации preview-ссылки')
+        } finally {
+            setCreatingPreviewId(null)
+        }
+    }
+
     return (
         <div className="min-h-screen bg-gray-50">
             <header className="bg-white border-b border-gray-200">
@@ -478,12 +512,13 @@ export default function AdminNewsPage() {
                                             - Priority
                                         </button>
                                         <button
-                                            onClick={() => window.open(`/news/${article.slug}?preview=1`, '_blank', 'noopener,noreferrer')}
+                                            onClick={() => openSecurePreview(article)}
                                             className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
                                             title="Preview"
+                                            disabled={creatingPreviewId === article.id}
                                         >
                                             <ExternalLink className="w-4 h-4" />
-                                            Preview
+                                            {creatingPreviewId === article.id ? 'Generating...' : 'Preview'}
                                         </button>
                                         <button
                                             onClick={() => togglePublish(article)}

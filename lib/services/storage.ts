@@ -116,9 +116,9 @@ export async function uploadDocument(file: File, category: string, version = 1) 
  */
 export async function uploadAdministrationPhoto(file: File, adminId: string) {
     // Validate file type
-    const validTypes = ['image/jpeg', 'image/png', 'image/webp']
+    const validTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/avif']
     if (!validTypes.includes(file.type)) {
-        throw new Error('Only JPEG, PNG, and WebP images are allowed')
+        throw new Error('Only JPEG, PNG, WebP, and AVIF images are allowed')
     }
 
     // Validate file size (5MB)
@@ -139,9 +139,9 @@ export async function uploadAdministrationPhoto(file: File, adminId: string) {
  */
 export async function uploadNewsImage(file: File, slug: string) {
     // Validate file type
-    const validTypes = ['image/jpeg', 'image/png', 'image/webp']
+    const validTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/avif']
     if (!validTypes.includes(file.type)) {
-        throw new Error('Only JPEG, PNG, and WebP images are allowed')
+        throw new Error('Only JPEG, PNG, WebP, and AVIF images are allowed')
     }
 
     // Validate file size (5MB)
@@ -162,9 +162,9 @@ export async function uploadNewsImage(file: File, slug: string) {
  */
 export async function uploadGalleryImage(file: File, galleryId: string) {
     // Validate file type
-    const validTypes = ['image/jpeg', 'image/png', 'image/webp']
+    const validTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/avif']
     if (!validTypes.includes(file.type)) {
-        throw new Error('Only JPEG, PNG, and WebP images are allowed')
+        throw new Error('Only JPEG, PNG, WebP, and AVIF images are allowed')
     }
 
     // Validate file size (10MB)
@@ -198,17 +198,17 @@ export const STORAGE_CONFIG = {
     },
     'administration-photos': {
         maxSize: 5242880, // 5MB
-        allowedTypes: ['image/jpeg', 'image/png', 'image/webp'],
+        allowedTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/avif'],
         bucket: 'administration-photos' as StorageBucket,
     },
     'news-images': {
         maxSize: 5242880, // 5MB
-        allowedTypes: ['image/jpeg', 'image/png', 'image/webp'],
+        allowedTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/avif'],
         bucket: 'news-images' as StorageBucket,
     },
     'gallery-images': {
         maxSize: 10485760, // 10MB
-        allowedTypes: ['image/jpeg', 'image/png', 'image/webp'],
+        allowedTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/avif'],
         bucket: 'gallery-images' as StorageBucket,
     },
 } as const

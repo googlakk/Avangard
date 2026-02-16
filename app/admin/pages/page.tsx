@@ -130,6 +130,7 @@ export default function AdminPagesBuilderPage() {
 
     const [loading, setLoading] = useState(true)
     const [saving, setSaving] = useState(false)
+    const [creatingPreviewId, setCreatingPreviewId] = useState<string | null>(null)
     const [error, setError] = useState<string | null>(null)
 
     const [showPageForm, setShowPageForm] = useState(false)
@@ -431,6 +432,39 @@ export default function AdminPagesBuilderPage() {
         }
     }
 
+    const openSecurePreview = async (page: CmsPageRecord) => {
+        try {
+            setCreatingPreviewId(page.id)
+            const response = await fetch('/api/cms/preview-links', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    entityType: 'page',
+                    entityId: page.id,
+                    slug: page.slug,
+                    expiresInMinutes: 120,
+                    maxUses: 5,
+                }),
+            })
+
+            if (!response.ok) {
+                throw new Error('Failed to generate preview link')
+            }
+
+            const data = await response.json()
+            if (!data?.url) {
+                throw new Error('Preview URL was not generated')
+            }
+
+            window.open(data.url, '_blank', 'noopener,noreferrer')
+        } catch (err) {
+            console.error('Failed to open secure page preview:', err)
+            setError('Ошибка генерации preview-ссылки')
+        } finally {
+            setCreatingPreviewId(null)
+        }
+    }
+
     return (
         <div className="min-h-screen bg-gray-50">
             <header className="bg-white border-b border-gray-200">
@@ -521,9 +555,10 @@ export default function AdminPagesBuilderPage() {
                                                 {page.status === 'published' ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
                                             </button>
                                             <button
-                                                onClick={() => window.open(`/pages/${page.slug}`, '_blank', 'noopener,noreferrer')}
+                                                onClick={() => openSecurePreview(page)}
                                                 className="p-1.5 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded transition-colors"
                                                 title="Preview"
+                                                disabled={creatingPreviewId === page.id}
                                             >
                                                 <ExternalLink className="w-4 h-4" />
                                             </button>

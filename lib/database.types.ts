@@ -158,6 +158,48 @@ export type Database = {
         }
         Relationships: []
       }
+      cms_preview_links: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          entity_id: string
+          entity_type: string
+          expires_at: string
+          id: string
+          max_uses: number
+          revoked_at: string | null
+          slug: string
+          token_hash: string
+          used_count: number
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          entity_id: string
+          entity_type: string
+          expires_at: string
+          id?: string
+          max_uses?: number
+          revoked_at?: string | null
+          slug: string
+          token_hash: string
+          used_count?: number
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          entity_id?: string
+          entity_type?: string
+          expires_at?: string
+          id?: string
+          max_uses?: number
+          revoked_at?: string | null
+          slug?: string
+          token_hash?: string
+          used_count?: number
+        }
+        Relationships: []
+      }
       cms_sections: {
         Row: {
           id: string
@@ -378,30 +420,45 @@ export type Database = {
       }
       gallery_images: {
         Row: {
+          alt_en: string
+          alt_ru: string
           caption_en: string | null
           caption_ru: string | null
           created_at: string | null
+          focal_x: number
+          focal_y: number
           gallery_id: string
           id: string
           image_url: string
+          optimization_variants: Json
           order_index: number | null
         }
         Insert: {
+          alt_en?: string
+          alt_ru?: string
           caption_en?: string | null
           caption_ru?: string | null
           created_at?: string | null
+          focal_x?: number
+          focal_y?: number
           gallery_id: string
           id?: string
           image_url: string
+          optimization_variants?: Json
           order_index?: number | null
         }
         Update: {
+          alt_en?: string
+          alt_ru?: string
           caption_en?: string | null
           caption_ru?: string | null
           created_at?: string | null
+          focal_x?: number
+          focal_y?: number
           gallery_id?: string
           id?: string
           image_url?: string
+          optimization_variants?: Json
           order_index?: number | null
         }
         Relationships: [
