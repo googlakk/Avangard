@@ -33,6 +33,7 @@ import {
     type CmsSectionRecord,
     type CmsSectionType,
 } from '@/lib/services/page-builder'
+import { DEFAULT_SEO_META, getSeoMeta, upsertSeoMeta } from '@/lib/services/seo'
 
 interface PageForm {
     slug: string
@@ -42,6 +43,14 @@ interface PageForm {
     version: number
     scheduled_at: string
     published_at: string
+    seo_title: string
+    seo_description: string
+    canonical_url: string
+    og_image_url: string
+    robots_index: boolean
+    robots_follow: boolean
+    structured_data_enabled: boolean
+    structured_data_type: string
 }
 
 interface SectionForm {
@@ -59,6 +68,14 @@ const emptyPageForm: PageForm = {
     version: 1,
     scheduled_at: '',
     published_at: '',
+    seo_title: DEFAULT_SEO_META.seo_title,
+    seo_description: DEFAULT_SEO_META.seo_description,
+    canonical_url: DEFAULT_SEO_META.canonical_url,
+    og_image_url: DEFAULT_SEO_META.og_image_url,
+    robots_index: DEFAULT_SEO_META.robots_index,
+    robots_follow: DEFAULT_SEO_META.robots_follow,
+    structured_data_enabled: DEFAULT_SEO_META.structured_data_enabled,
+    structured_data_type: DEFAULT_SEO_META.structured_data_type,
 }
 
 const emptySectionForm: SectionForm = {
@@ -174,9 +191,15 @@ export default function AdminPagesBuilderPage() {
         }
     }, [selectedPageId, fetchSections])
 
-    const openPageForm = (page?: CmsPageRecord) => {
+    const openPageForm = async (page?: CmsPageRecord) => {
         if (page) {
             setEditingPage(page)
+            let seoMeta = null
+            try {
+                seoMeta = await getSeoMeta('page', page.id)
+            } catch (err) {
+                console.error('Failed to fetch page SEO metadata:', err)
+            }
             setPageForm({
                 slug: page.slug,
                 title_ru: page.title_ru,
@@ -185,6 +208,14 @@ export default function AdminPagesBuilderPage() {
                 version: page.version,
                 scheduled_at: toDateTimeLocal(page.scheduled_at),
                 published_at: toDateTimeLocal(page.published_at),
+                seo_title: seoMeta?.seo_title || '',
+                seo_description: seoMeta?.seo_description || '',
+                canonical_url: seoMeta?.canonical_url || '',
+                og_image_url: seoMeta?.og_image_url || '',
+                robots_index: seoMeta?.robots_index ?? true,
+                robots_follow: seoMeta?.robots_follow ?? true,
+                structured_data_enabled: seoMeta?.structured_data_enabled ?? false,
+                structured_data_type: seoMeta?.structured_data_type || '',
             })
         } else {
             setEditingPage(null)
@@ -230,8 +261,28 @@ export default function AdminPagesBuilderPage() {
 
             if (editingPage) {
                 await updateCmsPage(editingPage.id, payload)
+                await upsertSeoMeta('page', editingPage.id, {
+                    seo_title: pageForm.seo_title,
+                    seo_description: pageForm.seo_description,
+                    canonical_url: pageForm.canonical_url,
+                    og_image_url: pageForm.og_image_url,
+                    robots_index: pageForm.robots_index,
+                    robots_follow: pageForm.robots_follow,
+                    structured_data_enabled: pageForm.structured_data_enabled,
+                    structured_data_type: pageForm.structured_data_type,
+                })
             } else {
                 const created = await createCmsPage(payload)
+                await upsertSeoMeta('page', created.id, {
+                    seo_title: pageForm.seo_title,
+                    seo_description: pageForm.seo_description,
+                    canonical_url: pageForm.canonical_url,
+                    og_image_url: pageForm.og_image_url,
+                    robots_index: pageForm.robots_index,
+                    robots_follow: pageForm.robots_follow,
+                    structured_data_enabled: pageForm.structured_data_enabled,
+                    structured_data_type: pageForm.structured_data_type,
+                })
                 setSelectedPageId(created.id)
             }
 
@@ -470,7 +521,7 @@ export default function AdminPagesBuilderPage() {
                                                 {page.status === 'published' ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
                                             </button>
                                             <button
-                                                onClick={() => window.open(`/${page.slug}?preview=1`, '_blank', 'noopener,noreferrer')}
+                                                onClick={() => window.open(`/pages/${page.slug}`, '_blank', 'noopener,noreferrer')}
                                                 className="p-1.5 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded transition-colors"
                                                 title="Preview"
                                             >
@@ -694,6 +745,87 @@ export default function AdminPagesBuilderPage() {
                                     onChange={e => setPageForm(prev => ({ ...prev, published_at: e.target.value }))}
                                     className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-navy-500 focus:border-navy-500"
                                 />
+                            </div>
+
+                            <div className="border border-gray-200 rounded-xl p-4 space-y-4">
+                                <h3 className="text-sm font-semibold text-gray-900">SEO Metadata</h3>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">SEO title</label>
+                                    <input
+                                        type="text"
+                                        value={pageForm.seo_title}
+                                        onChange={e => setPageForm(prev => ({ ...prev, seo_title: e.target.value }))}
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-navy-500 focus:border-navy-500"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">SEO description</label>
+                                    <textarea
+                                        rows={3}
+                                        value={pageForm.seo_description}
+                                        onChange={e => setPageForm(prev => ({ ...prev, seo_description: e.target.value }))}
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-navy-500 focus:border-navy-500"
+                                    />
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-700 mb-1">Canonical URL</label>
+                                        <input
+                                            type="url"
+                                            value={pageForm.canonical_url}
+                                            onChange={e => setPageForm(prev => ({ ...prev, canonical_url: e.target.value }))}
+                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-navy-500 focus:border-navy-500"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-700 mb-1">OG image URL</label>
+                                        <input
+                                            type="url"
+                                            value={pageForm.og_image_url}
+                                            onChange={e => setPageForm(prev => ({ ...prev, og_image_url: e.target.value }))}
+                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-navy-500 focus:border-navy-500"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <label className="inline-flex items-center gap-2 text-sm text-gray-700">
+                                        <input
+                                            type="checkbox"
+                                            checked={pageForm.robots_index}
+                                            onChange={e => setPageForm(prev => ({ ...prev, robots_index: e.target.checked }))}
+                                            className="rounded border-gray-300"
+                                        />
+                                        Robots index
+                                    </label>
+                                    <label className="inline-flex items-center gap-2 text-sm text-gray-700">
+                                        <input
+                                            type="checkbox"
+                                            checked={pageForm.robots_follow}
+                                            onChange={e => setPageForm(prev => ({ ...prev, robots_follow: e.target.checked }))}
+                                            className="rounded border-gray-300"
+                                        />
+                                        Robots follow
+                                    </label>
+                                    <label className="inline-flex items-center gap-2 text-sm text-gray-700">
+                                        <input
+                                            type="checkbox"
+                                            checked={pageForm.structured_data_enabled}
+                                            onChange={e => setPageForm(prev => ({ ...prev, structured_data_enabled: e.target.checked }))}
+                                            className="rounded border-gray-300"
+                                        />
+                                        Structured data
+                                    </label>
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">Structured data type</label>
+                                    <input
+                                        type="text"
+                                        value={pageForm.structured_data_type}
+                                        onChange={e => setPageForm(prev => ({ ...prev, structured_data_type: e.target.value }))}
+                                        placeholder="WebPage, Article..."
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-navy-500 focus:border-navy-500"
+                                    />
+                                </div>
                             </div>
                         </div>
 

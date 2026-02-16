@@ -19,6 +19,7 @@ import {
 } from 'lucide-react'
 import { newsService } from '@/lib/services/api'
 import { uploadNewsImage } from '@/lib/services/storage'
+import { DEFAULT_SEO_META, getSeoMeta, upsertSeoMeta } from '@/lib/services/seo'
 import type { Tables, TablesInsert, TablesUpdate } from '@/lib/database.types'
 
 type NewsArticle = Tables<'news'>
@@ -36,6 +37,14 @@ interface NewsForm {
     image_url: string
     priority: number
     is_published: boolean
+    seo_title: string
+    seo_description: string
+    canonical_url: string
+    og_image_url: string
+    robots_index: boolean
+    robots_follow: boolean
+    structured_data_enabled: boolean
+    structured_data_type: string
 }
 
 const NEWS_CATEGORIES = ['news', 'achievement', 'event', 'announcement'] as const
@@ -52,6 +61,14 @@ const emptyForm: NewsForm = {
     image_url: '',
     priority: 0,
     is_published: false,
+    seo_title: DEFAULT_SEO_META.seo_title,
+    seo_description: DEFAULT_SEO_META.seo_description,
+    canonical_url: DEFAULT_SEO_META.canonical_url,
+    og_image_url: DEFAULT_SEO_META.og_image_url,
+    robots_index: DEFAULT_SEO_META.robots_index,
+    robots_follow: DEFAULT_SEO_META.robots_follow,
+    structured_data_enabled: DEFAULT_SEO_META.structured_data_enabled,
+    structured_data_type: DEFAULT_SEO_META.structured_data_type,
 }
 
 const ruToLatin: Record<string, string> = {
@@ -132,9 +149,15 @@ export default function AdminNewsPage() {
         })
     }, [articles, searchQuery, statusFilter, categoryFilter])
 
-    const openForm = (article?: NewsArticle) => {
+    const openForm = async (article?: NewsArticle) => {
         if (article) {
             setEditingArticle(article)
+            let seoMeta = null
+            try {
+                seoMeta = await getSeoMeta('news', article.id)
+            } catch (err) {
+                console.error('Failed to fetch news SEO metadata:', err)
+            }
             setForm({
                 title_ru: article.title_ru,
                 title_en: article.title_en,
@@ -147,6 +170,14 @@ export default function AdminNewsPage() {
                 image_url: article.image_url || '',
                 priority: article.priority || 0,
                 is_published: !!article.is_published,
+                seo_title: seoMeta?.seo_title || '',
+                seo_description: seoMeta?.seo_description || '',
+                canonical_url: seoMeta?.canonical_url || '',
+                og_image_url: seoMeta?.og_image_url || '',
+                robots_index: seoMeta?.robots_index ?? true,
+                robots_follow: seoMeta?.robots_follow ?? true,
+                structured_data_enabled: seoMeta?.structured_data_enabled ?? false,
+                structured_data_type: seoMeta?.structured_data_type || '',
             })
             setSlugTouched(true)
         } else {
@@ -213,6 +244,16 @@ export default function AdminNewsPage() {
                     ...payload,
                     published_at: nextPublishedAt,
                 } as TablesUpdate<'news'>)
+                await upsertSeoMeta('news', editingArticle.id, {
+                    seo_title: form.seo_title,
+                    seo_description: form.seo_description,
+                    canonical_url: form.canonical_url,
+                    og_image_url: form.og_image_url,
+                    robots_index: form.robots_index,
+                    robots_follow: form.robots_follow,
+                    structured_data_enabled: form.structured_data_enabled,
+                    structured_data_type: form.structured_data_type,
+                })
 
                 if (imageFile) {
                     setUploadingImage(true)
@@ -226,6 +267,16 @@ export default function AdminNewsPage() {
                     ...payload,
                     published_at: payload.is_published ? new Date().toISOString() : null,
                 } as TablesInsert<'news'>)
+                await upsertSeoMeta('news', created.id, {
+                    seo_title: form.seo_title,
+                    seo_description: form.seo_description,
+                    canonical_url: form.canonical_url,
+                    og_image_url: form.og_image_url,
+                    robots_index: form.robots_index,
+                    robots_follow: form.robots_follow,
+                    structured_data_enabled: form.structured_data_enabled,
+                    structured_data_type: form.structured_data_type,
+                })
 
                 if (imageFile) {
                     setUploadingImage(true)
@@ -623,6 +674,87 @@ export default function AdminNewsPage() {
                                         />
                                         Опубликовано
                                     </label>
+                                </div>
+                            </div>
+
+                            <div className="border border-gray-200 rounded-xl p-4 space-y-4">
+                                <h3 className="text-sm font-semibold text-gray-900">SEO Metadata</h3>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">SEO title</label>
+                                    <input
+                                        type="text"
+                                        value={form.seo_title}
+                                        onChange={e => setForm(prev => ({ ...prev, seo_title: e.target.value }))}
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-navy-500 focus:border-navy-500"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">SEO description</label>
+                                    <textarea
+                                        rows={3}
+                                        value={form.seo_description}
+                                        onChange={e => setForm(prev => ({ ...prev, seo_description: e.target.value }))}
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-navy-500 focus:border-navy-500"
+                                    />
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-700 mb-1">Canonical URL</label>
+                                        <input
+                                            type="url"
+                                            value={form.canonical_url}
+                                            onChange={e => setForm(prev => ({ ...prev, canonical_url: e.target.value }))}
+                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-navy-500 focus:border-navy-500"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-700 mb-1">OG image URL</label>
+                                        <input
+                                            type="url"
+                                            value={form.og_image_url}
+                                            onChange={e => setForm(prev => ({ ...prev, og_image_url: e.target.value }))}
+                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-navy-500 focus:border-navy-500"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <label className="inline-flex items-center gap-2 text-sm text-gray-700">
+                                        <input
+                                            type="checkbox"
+                                            checked={form.robots_index}
+                                            onChange={e => setForm(prev => ({ ...prev, robots_index: e.target.checked }))}
+                                            className="rounded border-gray-300"
+                                        />
+                                        Robots index
+                                    </label>
+                                    <label className="inline-flex items-center gap-2 text-sm text-gray-700">
+                                        <input
+                                            type="checkbox"
+                                            checked={form.robots_follow}
+                                            onChange={e => setForm(prev => ({ ...prev, robots_follow: e.target.checked }))}
+                                            className="rounded border-gray-300"
+                                        />
+                                        Robots follow
+                                    </label>
+                                    <label className="inline-flex items-center gap-2 text-sm text-gray-700">
+                                        <input
+                                            type="checkbox"
+                                            checked={form.structured_data_enabled}
+                                            onChange={e => setForm(prev => ({ ...prev, structured_data_enabled: e.target.checked }))}
+                                            className="rounded border-gray-300"
+                                        />
+                                        Structured data
+                                    </label>
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">Structured data type</label>
+                                    <input
+                                        type="text"
+                                        value={form.structured_data_type}
+                                        onChange={e => setForm(prev => ({ ...prev, structured_data_type: e.target.value }))}
+                                        placeholder="NewsArticle, Article..."
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-navy-500 focus:border-navy-500"
+                                    />
                                 </div>
                             </div>
                         </div>

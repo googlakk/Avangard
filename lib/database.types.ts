@@ -199,6 +199,57 @@ export type Database = {
           },
         ]
       }
+      cms_seo_metadata: {
+        Row: {
+          canonical_url: string | null
+          created_at: string
+          entity_id: string
+          entity_type: string
+          id: string
+          locale: string
+          og_image_url: string | null
+          robots_follow: boolean
+          robots_index: boolean
+          seo_description: string | null
+          seo_title: string | null
+          structured_data_enabled: boolean
+          structured_data_type: string | null
+          updated_at: string
+        }
+        Insert: {
+          canonical_url?: string | null
+          created_at?: string
+          entity_id: string
+          entity_type: string
+          id?: string
+          locale?: string
+          og_image_url?: string | null
+          robots_follow?: boolean
+          robots_index?: boolean
+          seo_description?: string | null
+          seo_title?: string | null
+          structured_data_enabled?: boolean
+          structured_data_type?: string | null
+          updated_at?: string
+        }
+        Update: {
+          canonical_url?: string | null
+          created_at?: string
+          entity_id?: string
+          entity_type?: string
+          id?: string
+          locale?: string
+          og_image_url?: string | null
+          robots_follow?: boolean
+          robots_index?: boolean
+          seo_description?: string | null
+          seo_title?: string | null
+          structured_data_enabled?: boolean
+          structured_data_type?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       departments: {
         Row: {
           created_at: string | null
