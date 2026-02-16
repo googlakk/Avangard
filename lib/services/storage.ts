@@ -92,7 +92,7 @@ export async function listFiles(bucket: StorageBucket, path?: string) {
  * Upload document (PDF)
  * Max size: 50MB
  */
-export async function uploadDocument(file: File, category: string) {
+export async function uploadDocument(file: File, category: string, version = 1) {
     // Validate file type
     if (file.type !== 'application/pdf') {
         throw new Error('Only PDF files are allowed for documents')
@@ -104,7 +104,8 @@ export async function uploadDocument(file: File, category: string) {
     }
 
     const timestamp = Date.now()
-    const fileName = `${category}/${timestamp}-${file.name}`
+    const sanitizedVersion = Math.max(1, Math.trunc(version || 1))
+    const fileName = `${category}/v${sanitizedVersion}/${timestamp}-${file.name}`
 
     return uploadFile('documents', fileName, file)
 }

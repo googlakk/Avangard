@@ -1,0 +1,85 @@
+- generic [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - link [ref=e8] [cursor=pointer]:
+            - /url: /admin/dashboard
+            - img [ref=e9]
+          - generic [ref=e11]:
+            - heading "News CMS" [level=1] [ref=e12]
+            - paragraph [ref=e13]: Список, фильтры, draft/published и управление приоритетами
+        - button "Добавить новость" [active] [ref=e14] [cursor=pointer]:
+          - img [ref=e15]
+          - text: Добавить новость
+      - main [ref=e16]:
+        - generic [ref=e18]:
+          - generic [ref=e19]:
+            - img [ref=e20]
+            - textbox [ref=e23]:
+              - /placeholder: Поиск по заголовку / slug
+          - combobox [ref=e24]:
+            - option "Все статусы" [selected]
+            - option "Draft"
+            - option "Published"
+          - combobox [ref=e25]:
+            - option "Все категории" [selected]
+        - generic [ref=e30]:
+          - paragraph [ref=e31]: Новостей по выбранным фильтрам нет
+          - button "Создать первую новость" [ref=e32] [cursor=pointer]:
+            - img [ref=e33]
+            - text: Создать первую новость
+      - generic [ref=e35]:
+        - generic [ref=e36]:
+          - heading "Новая новость" [level=2] [ref=e37]
+          - button [ref=e38] [cursor=pointer]:
+            - img [ref=e39]
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - generic [ref=e44]:
+              - generic [ref=e45]: Заголовок (RU) *
+              - textbox [ref=e46]
+            - generic [ref=e47]:
+              - generic [ref=e48]: Title (EN) *
+              - textbox [ref=e49]
+          - generic [ref=e50]:
+            - generic [ref=e51]:
+              - generic [ref=e52]: Описание (RU) *
+              - textbox [ref=e53]
+            - generic [ref=e54]:
+              - generic [ref=e55]: Description (EN) *
+              - textbox [ref=e56]
+          - generic [ref=e57]:
+            - generic [ref=e58]:
+              - generic [ref=e59]: Контент (RU) *
+              - textbox [ref=e60]
+            - generic [ref=e61]:
+              - generic [ref=e62]: Content (EN) *
+              - textbox [ref=e63]
+          - generic [ref=e64]:
+            - generic [ref=e65]:
+              - generic [ref=e66]: Category *
+              - textbox "school-life" [ref=e67]: general
+            - generic [ref=e68]:
+              - generic [ref=e69]: Slug *
+              - textbox "open-day-2026" [ref=e70]
+          - generic [ref=e71]:
+            - generic [ref=e72]:
+              - generic [ref=e73]: Image URL
+              - textbox "https://..." [ref=e74]
+              - generic [ref=e75] [cursor=pointer]:
+                - img [ref=e76]
+                - text: Загрузить изображение
+            - generic [ref=e79]:
+              - generic [ref=e80]:
+                - generic [ref=e81]: Priority (pin)
+                - spinbutton [ref=e82]: "0"
+              - generic [ref=e83]:
+                - checkbox "Опубликовано" [ref=e84]
+                - text: Опубликовано
+        - generic [ref=e85]:
+          - button "Отмена" [ref=e86] [cursor=pointer]
+          - button "Сохранить" [ref=e87] [cursor=pointer]:
+            - img [ref=e88]
+            - text: Сохранить
+  - alert [ref=e29]

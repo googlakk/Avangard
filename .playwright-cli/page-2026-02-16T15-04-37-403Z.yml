@@ -1,0 +1,17 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - link [ref=e8] [cursor=pointer]:
+            - /url: /admin/dashboard
+            - img [ref=e9]
+          - generic [ref=e11]:
+            - heading "Управление персоналом" [level=1] [ref=e12]
+            - paragraph [ref=e13]: Кафедры и сотрудники школы
+        - button "Добавить кафедру" [ref=e14] [cursor=pointer]:
+          - img [ref=e15]
+          - text: Добавить кафедру
+      - main [ref=e16]:
+        - img [ref=e18]
+  - alert [ref=e20]

@@ -1,0 +1,32 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - link [ref=e8] [cursor=pointer]:
+            - /url: /admin/dashboard
+            - img [ref=e9]
+          - generic [ref=e11]:
+            - heading "News CMS" [level=1] [ref=e12]
+            - paragraph [ref=e13]: Список, фильтры, draft/published и управление приоритетами
+        - button "Добавить новость" [ref=e14] [cursor=pointer]:
+          - img [ref=e15]
+          - text: Добавить новость
+      - main [ref=e16]:
+        - generic [ref=e18]:
+          - generic [ref=e19]:
+            - img [ref=e20]
+            - textbox [ref=e23]:
+              - /placeholder: Поиск по заголовку / slug
+          - combobox [ref=e24]:
+            - option "Все статусы" [selected]
+            - option "Draft"
+            - option "Published"
+          - combobox [ref=e25]:
+            - option "Все категории" [selected]
+        - generic [ref=e30]:
+          - paragraph [ref=e31]: Новостей по выбранным фильтрам нет
+          - button "Создать первую новость" [ref=e32] [cursor=pointer]:
+            - img [ref=e33]
+            - text: Создать первую новость
+  - alert [ref=e29]

@@ -1,11 +1,13 @@
 'use client'
 
 import { useEffect, useState, useCallback } from 'react'
-import { useParams, useRouter } from 'next/navigation'
+import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
     ArrowLeft,
+    ArrowUp,
+    ArrowDown,
     Plus,
     Edit2,
     Trash2,
@@ -13,11 +15,12 @@ import {
     X,
     Loader2,
     User,
-    GripVertical,
     Eye,
     EyeOff,
+    Upload,
 } from 'lucide-react'
 import { departmentsService, staffService } from '@/lib/services/api'
+import { uploadAdministrationPhoto } from '@/lib/services/storage'
 import type { Tables, TablesInsert, TablesUpdate } from '@/lib/database.types'
 
 type Department = Tables<'departments'>
@@ -53,7 +56,6 @@ const emptyStaffForm: StaffForm = {
 
 export default function DepartmentStaffPage() {
     const params = useParams()
-    const router = useRouter()
     const departmentId = params.id as string
 
     const [department, setDepartment] = useState<Department | null>(null)
@@ -61,6 +63,8 @@ export default function DepartmentStaffPage() {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
     const [saving, setSaving] = useState(false)
+    const [uploadingPhoto, setUploadingPhoto] = useState(false)
+    const [photoFile, setPhotoFile] = useState<File | null>(null)
 
     // Staff form
     const [showForm, setShowForm] = useState(false)
@@ -109,6 +113,7 @@ export default function DepartmentStaffPage() {
             setEditingStaff(null)
             setForm(emptyStaffForm)
         }
+        setPhotoFile(null)
         setShowForm(true)
     }
 
@@ -133,22 +138,36 @@ export default function DepartmentStaffPage() {
             }
 
             if (editingStaff) {
+                if (photoFile) {
+                    setUploadingPhoto(true)
+                    const uploaded = await uploadAdministrationPhoto(photoFile, editingStaff.id)
+                    payload.photo_url = uploaded.publicUrl
+                }
                 await staffService.update(editingStaff.id, payload as TablesUpdate<'staff_members'>)
             } else {
-                await staffService.create({
+                const created = await staffService.create({
                     ...payload,
                     order_index: staff.length,
                 } as TablesInsert<'staff_members'>)
+                if (photoFile) {
+                    setUploadingPhoto(true)
+                    const uploaded = await uploadAdministrationPhoto(photoFile, created.id)
+                    await staffService.update(created.id, {
+                        photo_url: uploaded.publicUrl,
+                    } as TablesUpdate<'staff_members'>)
+                }
             }
 
             setShowForm(false)
             setEditingStaff(null)
+            setPhotoFile(null)
             await fetchData()
         } catch (err) {
             console.error('Failed to save staff member:', err)
             setError('Ошибка сохранения')
         } finally {
             setSaving(false)
+            setUploadingPhoto(false)
         }
     }
 
@@ -171,6 +190,33 @@ export default function DepartmentStaffPage() {
             await fetchData()
         } catch (err) {
             console.error('Failed to toggle staff active:', err)
+        }
+    }
+
+    const reorderStaff = async (items: StaffMember[]) => {
+        const payload = items.map((member, idx) => ({
+            id: member.id,
+            order_index: idx,
+        }))
+        await staffService.reorder(payload)
+    }
+
+    const moveStaff = async (index: number, direction: 'up' | 'down') => {
+        const targetIndex = direction === 'up' ? index - 1 : index + 1
+        if (targetIndex < 0 || targetIndex >= staff.length) return
+
+        const nextStaff = [...staff]
+        const [moved] = nextStaff.splice(index, 1)
+        nextStaff.splice(targetIndex, 0, moved)
+
+        setStaff(nextStaff)
+        try {
+            await reorderStaff(nextStaff)
+            await fetchData()
+        } catch (err) {
+            console.error('Failed to reorder staff:', err)
+            setError('Ошибка сортировки сотрудников')
+            await fetchData()
         }
     }
 
@@ -362,6 +408,27 @@ export default function DepartmentStaffPage() {
                                             className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-navy-500 focus:border-navy-500"
                                             placeholder="https://..."
                                         />
+                                        <label className="mt-2 inline-flex items-center gap-2 text-xs text-gray-500 cursor-pointer">
+                                            <Upload className="w-3.5 h-3.5" />
+                                            Загрузить файл
+                                            <input
+                                                type="file"
+                                                accept="image/jpeg,image/png,image/webp"
+                                                className="hidden"
+                                                onChange={e => {
+                                                    const file = e.target.files?.[0] || null
+                                                    setPhotoFile(file)
+                                                    if (file) {
+                                                        setForm(prev => ({ ...prev, photo_url: '' }))
+                                                    }
+                                                }}
+                                            />
+                                        </label>
+                                        {photoFile && (
+                                            <p className="mt-1 text-xs text-green-600 truncate">
+                                                Выбран файл: {photoFile.name}
+                                            </p>
+                                        )}
                                     </div>
                                     <div>
                                         <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -401,15 +468,15 @@ export default function DepartmentStaffPage() {
                                 </button>
                                 <button
                                     onClick={saveStaff}
-                                    disabled={saving || !form.name_ru || !form.name_en || !form.position_ru || !form.position_en}
+                                    disabled={saving || uploadingPhoto || !form.name_ru || !form.name_en || !form.position_ru || !form.position_en}
                                     className="inline-flex items-center gap-2 px-4 py-2 bg-navy-900 text-white text-sm font-medium rounded-lg hover:bg-navy-800 transition-colors disabled:opacity-50"
                                 >
-                                    {saving ? (
+                                    {saving || uploadingPhoto ? (
                                         <Loader2 className="w-4 h-4 animate-spin" />
                                     ) : (
                                         <Save className="w-4 h-4" />
                                     )}
-                                    Сохранить
+                                    {uploadingPhoto ? 'Загрузка фото...' : 'Сохранить'}
                                 </button>
                             </div>
                         </div>
@@ -434,15 +501,30 @@ export default function DepartmentStaffPage() {
                 {/* Staff list */}
                 {staff.length > 0 && (
                     <div className="space-y-2">
-                        {staff.map(member => (
+                        {staff.map((member, index) => (
                             <div
                                 key={member.id}
                                 className={`bg-white rounded-xl border transition-colors ${member.is_active ? 'border-gray-200 hover:border-gray-300' : 'border-gray-100 opacity-60'
                                     }`}
                             >
                                 <div className="flex items-center gap-4 p-4">
-                                    <div className="text-gray-300 cursor-grab">
-                                        <GripVertical className="w-5 h-5" />
+                                    <div className="flex flex-col gap-1">
+                                        <button
+                                            onClick={() => moveStaff(index, 'up')}
+                                            disabled={index === 0}
+                                            className="p-1.5 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded disabled:opacity-30 disabled:cursor-not-allowed"
+                                            title="Переместить вверх"
+                                        >
+                                            <ArrowUp className="w-4 h-4" />
+                                        </button>
+                                        <button
+                                            onClick={() => moveStaff(index, 'down')}
+                                            disabled={index === staff.length - 1}
+                                            className="p-1.5 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded disabled:opacity-30 disabled:cursor-not-allowed"
+                                            title="Переместить вниз"
+                                        >
+                                            <ArrowDown className="w-4 h-4" />
+                                        </button>
                                     </div>
 
                                     {/* Avatar */}

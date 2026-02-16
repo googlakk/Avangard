@@ -1,0 +1,4 @@
+[  125213ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://dfiucurqvrvklxwauora.supabase.co/rest/v1/news?select=*:0
+[  125214ms] [ERROR] Failed to save news article: {code: 23514, details: null, hint: null, message: new row for relation "news" violates check constraint "news_category_check"} @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  348324ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://dfiucurqvrvklxwauora.supabase.co/rest/v1/news?select=*:0
+[  348325ms] [ERROR] Failed to save news article: {code: 23514, details: null, hint: null, message: new row for relation "news" violates check constraint "news_category_check"} @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32

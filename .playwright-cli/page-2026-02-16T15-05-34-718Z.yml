@@ -1,0 +1,316 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - link [ref=e8] [cursor=pointer]:
+            - /url: /admin/dashboard
+            - img [ref=e9]
+          - generic [ref=e11]:
+            - heading "Управление персоналом" [level=1] [ref=e12]
+            - paragraph [ref=e13]: Кафедры и сотрудники школы
+        - button "Добавить кафедру" [ref=e14] [cursor=pointer]:
+          - img [ref=e15]
+          - text: Добавить кафедру
+      - main [ref=e16]:
+        - generic [ref=e467]:
+          - generic [ref=e469]:
+            - generic [ref=e470]:
+              - button "Переместить вверх" [disabled] [ref=e471]:
+                - img [ref=e472]
+              - button "Переместить вниз" [ref=e474] [cursor=pointer]:
+                - img [ref=e475]
+            - generic [ref=e477]:
+              - generic [ref=e478]:
+                - heading "Руководство" [level=3] [ref=e479]
+                - generic [ref=e480]: 🏛 Руководство
+              - paragraph [ref=e481]: Leadership
+            - generic [ref=e482]:
+              - button "Активна" [ref=e483] [cursor=pointer]:
+                - img [ref=e484]
+              - button "Редактировать" [ref=e487] [cursor=pointer]:
+                - img [ref=e488]
+              - button "Удалить" [ref=e490] [cursor=pointer]:
+                - img [ref=e491]
+              - link "Сотрудники" [ref=e494] [cursor=pointer]:
+                - /url: /admin/staff/69aaf992-c241-44c0-844e-498436a0225b
+                - img [ref=e495]
+                - text: Сотрудники
+                - img [ref=e500]
+          - generic [ref=e503]:
+            - generic [ref=e504]:
+              - button "Переместить вверх" [ref=e505] [cursor=pointer]:
+                - img [ref=e506]
+              - button "Переместить вниз" [ref=e508] [cursor=pointer]:
+                - img [ref=e509]
+            - generic [ref=e511]:
+              - generic [ref=e512]:
+                - heading "Руководство школы" [level=3] [ref=e513]
+                - generic [ref=e514]: 🏛 Руководство
+              - paragraph [ref=e515]: School Leadership
+            - generic [ref=e516]:
+              - button "Активна" [ref=e517] [cursor=pointer]:
+                - img [ref=e518]
+              - button "Редактировать" [ref=e521] [cursor=pointer]:
+                - img [ref=e522]
+              - button "Удалить" [ref=e524] [cursor=pointer]:
+                - img [ref=e525]
+              - link "Сотрудники" [ref=e528] [cursor=pointer]:
+                - /url: /admin/staff/5ad24ea0-4c4f-40c1-8caa-65aa2e63151f
+                - img [ref=e529]
+                - text: Сотрудники
+                - img [ref=e534]
+          - generic [ref=e537]:
+            - generic [ref=e538]:
+              - button "Переместить вверх" [ref=e539] [cursor=pointer]:
+                - img [ref=e540]
+              - button "Переместить вниз" [ref=e542] [cursor=pointer]:
+                - img [ref=e543]
+            - generic [ref=e545]:
+              - generic [ref=e546]:
+                - heading "Академические кафедры" [level=3] [ref=e547]
+                - generic [ref=e548]: 📚 Учебная
+              - paragraph [ref=e549]: Academic Departments
+            - generic [ref=e550]:
+              - button "Активна" [ref=e551] [cursor=pointer]:
+                - img [ref=e552]
+              - button "Редактировать" [ref=e555] [cursor=pointer]:
+                - img [ref=e556]
+              - button "Удалить" [ref=e558] [cursor=pointer]:
+                - img [ref=e559]
+              - link "Сотрудники" [ref=e562] [cursor=pointer]:
+                - /url: /admin/staff/e161c106-41b0-472b-8090-888d3c23c79a
+                - img [ref=e563]
+                - text: Сотрудники
+                - img [ref=e568]
+          - generic [ref=e571]:
+            - generic [ref=e572]:
+              - button "Переместить вверх" [ref=e573] [cursor=pointer]:
+                - img [ref=e574]
+              - button "Переместить вниз" [ref=e576] [cursor=pointer]:
+                - img [ref=e577]
+            - generic [ref=e579]:
+              - generic [ref=e580]:
+                - heading "Кафедра математики и естественных наук" [level=3] [ref=e581]
+                - generic [ref=e582]: 📚 Учебная
+              - paragraph [ref=e583]: Mathematics & Sciences Department
+            - generic [ref=e584]:
+              - button "Активна" [ref=e585] [cursor=pointer]:
+                - img [ref=e586]
+              - button "Редактировать" [ref=e589] [cursor=pointer]:
+                - img [ref=e590]
+              - button "Удалить" [ref=e592] [cursor=pointer]:
+                - img [ref=e593]
+              - link "Сотрудники" [ref=e596] [cursor=pointer]:
+                - /url: /admin/staff/8e7c397c-29b8-4156-b3e1-035ceaee6497
+                - img [ref=e597]
+                - text: Сотрудники
+                - img [ref=e602]
+          - generic [ref=e605]:
+            - generic [ref=e606]:
+              - button "Переместить вверх" [ref=e607] [cursor=pointer]:
+                - img [ref=e608]
+              - button "Переместить вниз" [ref=e610] [cursor=pointer]:
+                - img [ref=e611]
+            - generic [ref=e613]:
+              - generic [ref=e614]:
+                - heading "Поддержка и сервис" [level=3] [ref=e615]
+                - generic [ref=e616]: 🔧 Обслуживающая
+              - paragraph [ref=e617]: Support Services
+            - generic [ref=e618]:
+              - button "Активна" [ref=e619] [cursor=pointer]:
+                - img [ref=e620]
+              - button "Редактировать" [ref=e623] [cursor=pointer]:
+                - img [ref=e624]
+              - button "Удалить" [ref=e626] [cursor=pointer]:
+                - img [ref=e627]
+              - link "Сотрудники" [ref=e630] [cursor=pointer]:
+                - /url: /admin/staff/abdb918f-130a-4c67-b1a2-e212e8de04ed
+                - img [ref=e631]
+                - text: Сотрудники
+                - img [ref=e636]
+          - generic [ref=e639]:
+            - generic [ref=e640]:
+              - button "Переместить вверх" [ref=e641] [cursor=pointer]:
+                - img [ref=e642]
+              - button "Переместить вниз" [ref=e644] [cursor=pointer]:
+                - img [ref=e645]
+            - generic [ref=e647]:
+              - generic [ref=e648]:
+                - heading "Кафедра английского языка" [level=3] [ref=e649]
+                - generic [ref=e650]: 📚 Учебная
+              - paragraph [ref=e651]: English Language Department
+            - generic [ref=e652]:
+              - button "Активна" [ref=e653] [cursor=pointer]:
+                - img [ref=e654]
+              - button "Редактировать" [ref=e657] [cursor=pointer]:
+                - img [ref=e658]
+              - button "Удалить" [ref=e660] [cursor=pointer]:
+                - img [ref=e661]
+              - link "Сотрудники" [ref=e664] [cursor=pointer]:
+                - /url: /admin/staff/d66ff6aa-ea81-4b83-8df2-f9ccc4d2eec1
+                - img [ref=e665]
+                - text: Сотрудники
+                - img [ref=e670]
+          - generic [ref=e673]:
+            - generic [ref=e674]:
+              - button "Переместить вверх" [ref=e675] [cursor=pointer]:
+                - img [ref=e676]
+              - button "Переместить вниз" [ref=e678] [cursor=pointer]:
+                - img [ref=e679]
+            - generic [ref=e681]:
+              - generic [ref=e682]:
+                - heading "Кафедра IT и STEAM" [level=3] [ref=e683]
+                - generic [ref=e684]: 📚 Учебная
+              - paragraph [ref=e685]: IT & STEAM Department
+            - generic [ref=e686]:
+              - button "Активна" [ref=e687] [cursor=pointer]:
+                - img [ref=e688]
+              - button "Редактировать" [ref=e691] [cursor=pointer]:
+                - img [ref=e692]
+              - button "Удалить" [ref=e694] [cursor=pointer]:
+                - img [ref=e695]
+              - link "Сотрудники" [ref=e698] [cursor=pointer]:
+                - /url: /admin/staff/c5221a31-af8d-40b3-8b24-664d7d3bb188
+                - img [ref=e699]
+                - text: Сотрудники
+                - img [ref=e704]
+          - generic [ref=e707]:
+            - generic [ref=e708]:
+              - button "Переместить вверх" [ref=e709] [cursor=pointer]:
+                - img [ref=e710]
+              - button "Переместить вниз" [ref=e712] [cursor=pointer]:
+                - img [ref=e713]
+            - generic [ref=e715]:
+              - generic [ref=e716]:
+                - heading "Кафедра гуманитарных наук" [level=3] [ref=e717]
+                - generic [ref=e718]: 📚 Учебная
+              - paragraph [ref=e719]: Humanities Department
+            - generic [ref=e720]:
+              - button "Активна" [ref=e721] [cursor=pointer]:
+                - img [ref=e722]
+              - button "Редактировать" [ref=e725] [cursor=pointer]:
+                - img [ref=e726]
+              - button "Удалить" [ref=e728] [cursor=pointer]:
+                - img [ref=e729]
+              - link "Сотрудники" [ref=e732] [cursor=pointer]:
+                - /url: /admin/staff/ba908fc1-8e8a-4b1a-a2c2-d4f7407e6458
+                - img [ref=e733]
+                - text: Сотрудники
+                - img [ref=e738]
+          - generic [ref=e741]:
+            - generic [ref=e742]:
+              - button "Переместить вверх" [ref=e743] [cursor=pointer]:
+                - img [ref=e744]
+              - button "Переместить вниз" [ref=e746] [cursor=pointer]:
+                - img [ref=e747]
+            - generic [ref=e749]:
+              - generic [ref=e750]:
+                - heading "Начальная школа" [level=3] [ref=e751]
+                - generic [ref=e752]: 📚 Учебная
+              - paragraph [ref=e753]: Primary School
+            - generic [ref=e754]:
+              - button "Активна" [ref=e755] [cursor=pointer]:
+                - img [ref=e756]
+              - button "Редактировать" [ref=e759] [cursor=pointer]:
+                - img [ref=e760]
+              - button "Удалить" [ref=e762] [cursor=pointer]:
+                - img [ref=e763]
+              - link "Сотрудники" [ref=e766] [cursor=pointer]:
+                - /url: /admin/staff/b8ba39b5-7cad-409f-98ea-cec8d8df8718
+                - img [ref=e767]
+                - text: Сотрудники
+                - img [ref=e772]
+          - generic [ref=e775]:
+            - generic [ref=e776]:
+              - button "Переместить вверх" [ref=e777] [cursor=pointer]:
+                - img [ref=e778]
+              - button "Переместить вниз" [ref=e780] [cursor=pointer]:
+                - img [ref=e781]
+            - generic [ref=e783]:
+              - generic [ref=e784]:
+                - heading "Служба безопасности" [level=3] [ref=e785]
+                - generic [ref=e786]: 🔧 Обслуживающая
+              - paragraph [ref=e787]: Security Services
+            - generic [ref=e788]:
+              - button "Активна" [ref=e789] [cursor=pointer]:
+                - img [ref=e790]
+              - button "Редактировать" [ref=e793] [cursor=pointer]:
+                - img [ref=e794]
+              - button "Удалить" [ref=e796] [cursor=pointer]:
+                - img [ref=e797]
+              - link "Сотрудники" [ref=e800] [cursor=pointer]:
+                - /url: /admin/staff/64b8db3a-6c37-4342-aa22-3902562bfb21
+                - img [ref=e801]
+                - text: Сотрудники
+                - img [ref=e806]
+          - generic [ref=e809]:
+            - generic [ref=e810]:
+              - button "Переместить вверх" [ref=e811] [cursor=pointer]:
+                - img [ref=e812]
+              - button "Переместить вниз" [ref=e814] [cursor=pointer]:
+                - img [ref=e815]
+            - generic [ref=e817]:
+              - generic [ref=e818]:
+                - heading "Служба питания" [level=3] [ref=e819]
+                - generic [ref=e820]: 🔧 Обслуживающая
+              - paragraph [ref=e821]: Cafeteria Services
+            - generic [ref=e822]:
+              - button "Активна" [ref=e823] [cursor=pointer]:
+                - img [ref=e824]
+              - button "Редактировать" [ref=e827] [cursor=pointer]:
+                - img [ref=e828]
+              - button "Удалить" [ref=e830] [cursor=pointer]:
+                - img [ref=e831]
+              - link "Сотрудники" [ref=e834] [cursor=pointer]:
+                - /url: /admin/staff/3b8ae9f4-57d0-4896-92f6-5707eac6a9d3
+                - img [ref=e835]
+                - text: Сотрудники
+                - img [ref=e840]
+          - generic [ref=e843]:
+            - generic [ref=e844]:
+              - button "Переместить вверх" [ref=e845] [cursor=pointer]:
+                - img [ref=e846]
+              - button "Переместить вниз" [ref=e848] [cursor=pointer]:
+                - img [ref=e849]
+            - generic [ref=e851]:
+              - generic [ref=e852]:
+                - heading "sasd" [level=3] [ref=e853]
+                - generic [ref=e854]: 📚 Учебная
+              - paragraph [ref=e855]: фыв
+            - generic [ref=e856]:
+              - button "Активна" [ref=e857] [cursor=pointer]:
+                - img [ref=e858]
+              - button "Редактировать" [ref=e861] [cursor=pointer]:
+                - img [ref=e862]
+              - button "Удалить" [ref=e864] [cursor=pointer]:
+                - img [ref=e865]
+              - link "Сотрудники" [ref=e868] [cursor=pointer]:
+                - /url: /admin/staff/eb181469-7f03-4a15-a086-38b058ea6c05
+                - img [ref=e869]
+                - text: Сотрудники
+                - img [ref=e874]
+          - generic [ref=e877]:
+            - generic [ref=e878]:
+              - button "Переместить вверх" [ref=e879] [cursor=pointer]:
+                - img [ref=e880]
+              - button "Переместить вниз" [disabled] [ref=e882]:
+                - img [ref=e883]
+            - generic [ref=e885]:
+              - generic [ref=e886]:
+                - heading "DeptRU" [level=3] [ref=e887]
+                - generic [ref=e888]: 📚 Учебная
+              - paragraph [ref=e889]: DeptEN
+            - generic [ref=e890]:
+              - button "Активна" [ref=e891] [cursor=pointer]:
+                - img [ref=e892]
+              - button "Редактировать" [ref=e895] [cursor=pointer]:
+                - img [ref=e896]
+              - button "Удалить" [ref=e898] [cursor=pointer]:
+                - img [ref=e899]
+              - link "Сотрудники" [ref=e902] [cursor=pointer]:
+                - /url: /admin/staff/41e26986-f13a-4c57-b43f-b6b16ccfc244
+                - img [ref=e903]
+                - text: Сотрудники
+                - img [ref=e908]
+  - alert [ref=e20]

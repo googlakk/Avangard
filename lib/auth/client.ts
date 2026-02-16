@@ -9,6 +9,8 @@
 import { createClient } from '@/lib/supabase/client'
 import { useState, useEffect } from 'react'
 import type { User, Session } from '@supabase/supabase-js'
+import type { CmsAction, CmsResource } from '@/lib/auth/rbac'
+import { hasPermission, isAdminRole, normalizeRole } from '@/lib/auth/rbac'
 
 /**
  * Sign in with email and password
@@ -134,8 +136,21 @@ export function useSession() {
  */
 export function useIsAdmin() {
     const { user, loading } = useUser()
-
-    const isAdmin = user?.user_metadata?.role === 'admin'
+    const role = normalizeRole(user?.user_metadata?.role ?? user?.app_metadata?.role)
+    const isAdmin = isAdminRole(role)
 
     return { isAdmin, loading }
+}
+
+/**
+ * Hook to check role permission against RBAC matrix
+ */
+export function useHasPermission(resource: CmsResource, action: CmsAction) {
+    const { user, loading } = useUser()
+    const role = normalizeRole(user?.user_metadata?.role ?? user?.app_metadata?.role)
+
+    return {
+        allowed: hasPermission(role, resource, action),
+        loading,
+    }
 }

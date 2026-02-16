@@ -1,0 +1,33 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - link [ref=e8] [cursor=pointer]:
+            - /url: /admin/dashboard
+            - img [ref=e9]
+          - generic [ref=e11]:
+            - heading "Documents CMS" [level=1] [ref=e12]
+            - paragraph [ref=e13]: Загрузка PDF, категории, метаданные, версии и архив
+        - button "Добавить документ" [ref=e14] [cursor=pointer]:
+          - img [ref=e15]
+          - text: Добавить документ
+      - main [ref=e16]:
+        - generic [ref=e18]:
+          - generic [ref=e19]:
+            - img [ref=e20]
+            - textbox [ref=e23]:
+              - /placeholder: Поиск по названию / URL
+          - combobox [ref=e24]:
+            - option "Все категории" [selected]
+            - option "academic"
+            - option "administrative"
+            - option "regulatory"
+            - option "reports"
+            - option "other"
+          - combobox [ref=e25]:
+            - option "Только активные" [selected]
+            - option "Только архив"
+            - option "Все документы"
+        - img [ref=e27]
+  - alert [ref=e29]

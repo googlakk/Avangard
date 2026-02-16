@@ -1,0 +1,280 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "INTELLECT INTERNATIONAL SCHOOL" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "INTELLECT INTERNATIONAL SCHOOL" [ref=e6]
+      - navigation [ref=e7]:
+        - link "Главная" [ref=e8] [cursor=pointer]:
+          - /url: /
+          - text: Главная
+        - link "О нас" [ref=e9] [cursor=pointer]:
+          - /url: /about
+          - text: О нас
+        - link "Коллектив" [ref=e10] [cursor=pointer]:
+          - /url: /about/team
+          - text: Коллектив
+        - link "Программы" [ref=e11] [cursor=pointer]:
+          - /url: /programs
+          - text: Программы
+        - button "Правила и Безопасность" [ref=e13] [cursor=pointer]:
+          - text: Правила и Безопасность
+          - img [ref=e14]
+        - button "Для Родителей" [ref=e17] [cursor=pointer]:
+          - text: Для Родителей
+          - img [ref=e18]
+        - button "Для Учителей" [ref=e21] [cursor=pointer]:
+          - text: Для Учителей
+          - img [ref=e22]
+      - generic [ref=e24]:
+        - generic [ref=e25]:
+          - button "RU" [ref=e26] [cursor=pointer]
+          - button "EN" [ref=e27] [cursor=pointer]
+        - link "Связаться с нами" [ref=e28] [cursor=pointer]:
+          - /url: /contacts
+  - main [ref=e29]:
+    - main [ref=e30]:
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - generic [ref=e40]:
+            - generic [ref=e41]: "0"
+            - generic [ref=e42]: С
+          - generic [ref=e43]: Опыт и традиции
+          - generic [ref=e44]: Образование проверенное временем
+        - generic [ref=e45]:
+          - generic [ref=e46]:
+            - generic [ref=e47]: 0+
+            - generic [ref=e48]: СТУДЕНТОВ
+          - generic [ref=e49]: Счастливых детей
+          - generic [ref=e50]: Нам доверяют самое ценное
+        - generic [ref=e51]:
+          - generic [ref=e52]:
+            - generic [ref=e53]: 0+
+            - generic [ref=e54]: КРУЖКОВ
+          - generic [ref=e55]: Кружков и секций
+          - generic [ref=e56]: Спорт, творчество и IT в одном месте
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - paragraph [ref=e60]: Intellect Pro School
+          - heading "Премиальный подход к школьному образованию" [level=2] [ref=e61]
+        - generic [ref=e62]:
+          - article [ref=e63]:
+            - img [ref=e65]
+            - heading "Безопасная среда" [level=3] [ref=e68]
+            - paragraph [ref=e69]: Охрана, видеонаблюдение и контролируемый доступ на территории школы.
+          - article [ref=e70]:
+            - img [ref=e72]
+            - heading "Сильная академическая база" [level=3] [ref=e80]
+            - paragraph [ref=e81]: Углубленные программы, английский язык и развитие критического мышления.
+          - article [ref=e82]:
+            - img [ref=e84]
+            - heading "Международный вектор" [level=3] [ref=e89]
+            - paragraph [ref=e90]: Подготовка к глобальному образованию и уверенная коммуникация на английском.
+          - article [ref=e91]:
+            - img [ref=e93]
+            - heading "Измеримый результат" [level=3] [ref=e99]
+            - paragraph [ref=e100]: Олимпиады, конкурсы и персональные траектории развития каждого ученика.
+      - generic [ref=e105]:
+        - generic [ref=e106]:
+          - heading "Грани Образования" [level=2] [ref=e111]
+          - paragraph [ref=e112]: Экосистема развития
+          - generic [ref=e113]:
+            - paragraph [ref=e114]: Образование в Intellect Pro — это не просто уроки. Это экосистема, где каждая грань дополняет другую, создавая целостную картину развития.
+            - paragraph [ref=e115]: Академические программы от младших до старших классов, спорт и творчество, команда педагогов-новаторов, мировые достижения наших учеников, партнерство с университетами и IT-компаниями — все это части единого целого.
+            - paragraph [ref=e116]: Исследуйте каждую грань и откройте для себя мир возможностей.
+        - generic [ref=e119]:
+          - link "1-4 классы Intellect Primary Фундамент будущего. Мягкая адаптация, развитие Soft Skills и билингвальная среда. Intellect Primary Начальная школа О проекте" [ref=e120] [cursor=pointer]:
+            - /url: /programs/primary
+            - generic [ref=e121]:
+              - generic [ref=e122]:
+                - generic [ref=e123]: 1-4 классы
+                - img "Intellect Primary" [ref=e125]
+                - paragraph [ref=e128]: Фундамент будущего. Мягкая адаптация, развитие Soft Skills и билингвальная среда.
+              - generic [ref=e129]:
+                - heading "Intellect Primary" [level=3] [ref=e130]
+                - paragraph [ref=e131]: Начальная школа
+            - generic [ref=e133]: О проекте
+          - link "5-9 классы Intellect Middle Раскрытие потенциала. Cambridge System, STEAM-лаборатории и проектная деятельность. Intellect Middle Средняя школа О проекте" [ref=e134] [cursor=pointer]:
+            - /url: /programs/middle
+            - generic [ref=e135]:
+              - generic [ref=e136]:
+                - generic [ref=e137]: 5-9 классы
+                - img "Intellect Middle" [ref=e139]
+                - paragraph [ref=e142]: Раскрытие потенциала. Cambridge System, STEAM-лаборатории и проектная деятельность.
+              - generic [ref=e143]:
+                - heading "Intellect Middle" [level=3] [ref=e144]
+                - paragraph [ref=e145]: Средняя школа
+            - generic [ref=e147]: О проекте
+          - link "10-11 классы Intellect Senior Путь в университеты. Подготовка к IELTS/TOEFL/ORT и карьерное консультирование. Intellect Senior Старшая школа О проекте" [ref=e148] [cursor=pointer]:
+            - /url: /programs/senior
+            - generic [ref=e149]:
+              - generic [ref=e150]:
+                - generic [ref=e151]: 10-11 классы
+                - img "Intellect Senior" [ref=e153]
+                - paragraph [ref=e156]: Путь в университеты. Подготовка к IELTS/TOEFL/ORT и карьерное консультирование.
+              - generic [ref=e157]:
+                - heading "Intellect Senior" [level=3] [ref=e158]
+                - paragraph [ref=e159]: Старшая школа
+            - generic [ref=e161]: О проекте
+          - link "Гранты и Победы Результаты наших учеников Наши выпускники поступают в ТОП-университеты мира и выигрывают медали на международных олимпиадах. Результаты наших учеников Гордость Школы О проекте" [ref=e162] [cursor=pointer]:
+            - /url: /programs
+            - generic [ref=e163]:
+              - generic [ref=e164]:
+                - generic [ref=e165]: Гранты и Победы
+                - img "Результаты наших учеников" [ref=e167]
+                - paragraph [ref=e170]: Наши выпускники поступают в ТОП-университеты мира и выигрывают медали на международных олимпиадах.
+              - generic [ref=e171]:
+                - heading "Результаты наших учеников" [level=3] [ref=e172]
+                - paragraph [ref=e173]: Гордость Школы
+            - generic [ref=e175]: О проекте
+          - link "15+ секций Life at Intellect Творчество и Спорт. 15+ секций, лидерские программы и волонтерство. Life at Intellect Жизнь вне классов О проекте" [ref=e176] [cursor=pointer]:
+            - /url: /parents/values
+            - generic [ref=e177]:
+              - generic [ref=e178]:
+                - generic [ref=e179]: 15+ секций
+                - img "Life at Intellect" [ref=e181]
+                - paragraph [ref=e184]: Творчество и Спорт. 15+ секций, лидерские программы и волонтерство.
+              - generic [ref=e185]:
+                - heading "Life at Intellect" [level=3] [ref=e186]
+                - paragraph [ref=e187]: Жизнь вне классов
+            - generic [ref=e189]: О проекте
+          - link "Стипендии и гранты Admissions Станьте частью сообщества. Прозрачные шаги зачисления, стипендии и гранты. Admissions Поступление О проекте" [ref=e190] [cursor=pointer]:
+            - /url: /parents/admission
+            - generic [ref=e191]:
+              - generic [ref=e192]:
+                - generic [ref=e193]: Стипендии и гранты
+                - img "Admissions" [ref=e195]
+                - paragraph [ref=e198]: Станьте частью сообщества. Прозрачные шаги зачисления, стипендии и гранты.
+              - generic [ref=e199]:
+                - heading "Admissions" [level=3] [ref=e200]
+                - paragraph [ref=e201]: Поступление
+            - generic [ref=e203]: О проекте
+      - generic [ref=e206]:
+        - generic [ref=e207]:
+          - heading "Записаться на экскурсию" [level=2] [ref=e208]
+          - paragraph [ref=e209]: Приглашаем вас познакомиться с нашей школой
+          - generic [ref=e210]:
+            - generic [ref=e211]:
+              - generic [ref=e212]: Ваше имя
+              - textbox "Ваше имя" [ref=e213]:
+                - /placeholder: Иван Иванов
+            - generic [ref=e214]:
+              - generic [ref=e215]: Телефон
+              - textbox "Телефон" [ref=e216]:
+                - /placeholder: +996 XXX XXX XXX
+            - generic [ref=e217]:
+              - generic [ref=e218]: Email (необязательно)
+              - textbox "Email (необязательно)" [ref=e219]:
+                - /placeholder: example@email.com
+            - button "Жду звонка" [ref=e220] [cursor=pointer]
+        - generic [ref=e221]:
+          - heading "Контакты" [level=3] [ref=e222]
+          - generic [ref=e223]:
+            - generic [ref=e224]:
+              - heading "Телефоны:" [level=4] [ref=e225]
+              - link "+996 705 889 889" [ref=e226] [cursor=pointer]:
+                - /url: tel:+996705889889
+              - link "+996 778 889 889" [ref=e227] [cursor=pointer]:
+                - /url: tel:+996778889889
+            - generic [ref=e228]:
+              - heading "Адреса:" [level=4] [ref=e229]
+              - paragraph [ref=e230]: г. Бишкек, ул. Джунусалиева, 177/1
+              - paragraph [ref=e231]: ул. А. Бакаева, 119
+            - generic [ref=e232]:
+              - heading "Соцсети:" [level=4] [ref=e233]
+              - link "@intellect_pro_school" [ref=e234] [cursor=pointer]:
+                - /url: https://www.instagram.com/intellect_pro_school
+                - img [ref=e235]
+                - text: "@intellect_pro_school"
+  - contentinfo [ref=e237]:
+    - generic [ref=e238]:
+      - generic [ref=e239]:
+        - generic [ref=e240]:
+          - link "INTELLECT INTERNATIONAL SCHOOL" [ref=e241] [cursor=pointer]:
+            - /url: /
+            - img "INTELLECT INTERNATIONAL SCHOOL" [ref=e242]
+          - paragraph [ref=e243]: Элитная частная школа в Бишкеке. Воспитываем лидеров будущего с 2016 года, объединяя традиции и инновации.
+          - generic [ref=e244]:
+            - link "Следите за нами в Instagram" [ref=e245] [cursor=pointer]:
+              - /url: https://instagram.com/intellect_pro_school
+              - img [ref=e246]
+            - link "Следите за нами в Facebook" [ref=e248] [cursor=pointer]:
+              - /url: https://facebook.com/intellectproschool
+              - img [ref=e249]
+            - link "Следите за нами в WhatsApp" [ref=e251] [cursor=pointer]:
+              - /url: https://wa.me/996555123456
+              - img [ref=e252]
+            - link "Следите за нами в Telegram" [ref=e254] [cursor=pointer]:
+              - /url: https://t.me/intellectproschool
+              - img [ref=e255]
+            - link "Следите за нами в YouTube" [ref=e257] [cursor=pointer]:
+              - /url: https://youtube.com/@intellectproschool
+              - img [ref=e258]
+        - generic [ref=e261]:
+          - heading "Навигация" [level=3] [ref=e262]: Навигация
+          - list [ref=e264]:
+            - listitem [ref=e265]:
+              - link "Главная" [ref=e266] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e267]:
+              - link "О нас" [ref=e268] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e269]:
+              - link "Программы" [ref=e270] [cursor=pointer]:
+                - /url: /programs
+            - listitem [ref=e271]:
+              - link "Преподаватели" [ref=e272] [cursor=pointer]:
+                - /url: /teachers
+            - listitem [ref=e273]:
+              - link "Контакты" [ref=e274] [cursor=pointer]:
+                - /url: /contacts
+        - generic [ref=e275]:
+          - heading "Правила и Безопасность" [level=3] [ref=e276]: Правила и Безопасность
+          - list [ref=e278]:
+            - listitem [ref=e279]:
+              - link "Для Учителей" [ref=e280] [cursor=pointer]:
+                - /url: /rules/teachers
+            - listitem [ref=e281]:
+              - link "Для Учеников" [ref=e282] [cursor=pointer]:
+                - /url: /rules/students
+            - listitem [ref=e283]:
+              - link "Для Родителей" [ref=e284] [cursor=pointer]:
+                - /url: /rules/parents
+            - listitem [ref=e285]:
+              - link "Протоколы Безопасности" [ref=e286] [cursor=pointer]:
+                - /url: /safety
+        - generic [ref=e287]:
+          - heading "Программы" [level=3] [ref=e288]: Программы
+          - list [ref=e290]:
+            - listitem [ref=e291]:
+              - link "Память и Внимание" [ref=e292] [cursor=pointer]:
+                - /url: /programs#memory
+            - listitem [ref=e293]:
+              - link "Критическое мышление" [ref=e294] [cursor=pointer]:
+                - /url: /programs#critical
+            - listitem [ref=e295]:
+              - link "Иностранные языки" [ref=e296] [cursor=pointer]:
+                - /url: /programs#languages
+            - listitem [ref=e297]:
+              - link "STEAM Лаборатории" [ref=e298] [cursor=pointer]:
+                - /url: /programs#steam
+        - generic [ref=e299]:
+          - heading "Контакты" [level=3] [ref=e300]: Контакты
+          - list [ref=e302]:
+            - listitem [ref=e303]:
+              - img [ref=e304]
+              - generic [ref=e307]:
+                - text: г. Бишкек, ул. Джунусалиева, 177/1
+                - text: ул. А. Бакаева, 119
+            - listitem [ref=e308]:
+              - img [ref=e309]
+              - generic [ref=e311]:
+                - link "+996 705 889 889" [ref=e312] [cursor=pointer]:
+                  - /url: tel:+996705889889
+                - link "+996 778 889 889" [ref=e313] [cursor=pointer]:
+                  - /url: tel:+996778889889
+            - listitem [ref=e314]:
+              - img [ref=e315]
+              - link "info@intellect.kg" [ref=e317] [cursor=pointer]:
+                - /url: mailto:info@intellect.kg
+      - paragraph [ref=e320]: © 2026 Intellect Pro School. Все права защищены.

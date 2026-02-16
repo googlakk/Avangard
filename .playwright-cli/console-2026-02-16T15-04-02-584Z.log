@@ -1,0 +1,4 @@
+[    4597ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://dfiucurqvrvklxwauora.supabase.co/rest/v1/cms_pages?select=*&order=updated_at.desc:0
+[    4597ms] [ERROR] Failed to fetch cms pages: {code: PGRST205, details: null, hint: Perhaps you meant the table 'public.gallery_images', message: Could not find the table 'public.cms_pages' in the schema cache} @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[    4939ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://dfiucurqvrvklxwauora.supabase.co/rest/v1/cms_pages?select=*&order=updated_at.desc:0
+[    4940ms] [ERROR] Failed to fetch cms pages: {code: PGRST205, details: null, hint: Perhaps you meant the table 'public.gallery_images', message: Could not find the table 'public.cms_pages' in the schema cache} @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32

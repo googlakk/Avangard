@@ -1,0 +1,47 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e22]:
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - heading "Admin Dashboard" [level=1] [ref=e27]
+          - paragraph [ref=e28]: Welcome back, admin@intellect.edu.kg
+        - button "Sign Out" [ref=e29] [cursor=pointer]
+      - main [ref=e30]:
+        - generic [ref=e31]:
+          - heading "CMS Content Health" [level=2] [ref=e32]
+          - button "Refresh" [ref=e33] [cursor=pointer]
+        - generic [ref=e34]:
+          - generic [ref=e35]:
+            - heading "Draft Count" [level=3] [ref=e36]
+            - paragraph [ref=e37]: "0"
+            - paragraph [ref=e38]: News + Gallery + Pages
+          - generic [ref=e39]:
+            - heading "Outdated Content" [level=3] [ref=e40]
+            - paragraph [ref=e41]: "0"
+            - paragraph [ref=e42]: Older than 90 days
+          - generic [ref=e43]:
+            - heading "Broken Links" [level=3] [ref=e44]
+            - paragraph [ref=e45]: "0"
+            - paragraph [ref=e46]: Invalid URL metadata in CMS
+          - generic [ref=e47]:
+            - heading "Publish Queue" [level=3] [ref=e48]
+            - paragraph [ref=e49]: "0"
+            - paragraph [ref=e50]: Items waiting to publish
+        - generic [ref=e51]:
+          - generic [ref=e52]:
+            - heading "Publish Queue Preview" [level=3] [ref=e53]
+            - paragraph [ref=e54]: Очередь публикации пуста
+          - generic [ref=e55]:
+            - heading "Module Shortcuts" [level=3] [ref=e56]
+            - generic [ref=e57]:
+              - link "Staff" [ref=e58] [cursor=pointer]:
+                - /url: /admin/staff
+              - link "News" [ref=e59] [cursor=pointer]:
+                - /url: /admin/news
+              - link "Documents" [ref=e60] [cursor=pointer]:
+                - /url: /admin/documents
+              - link "Gallery" [ref=e61] [cursor=pointer]:
+                - /url: /admin/gallery
+              - link "Pages Builder" [ref=e62] [cursor=pointer]:
+                - /url: /admin/pages
+  - alert [ref=e21]

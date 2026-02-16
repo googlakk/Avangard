@@ -1,0 +1,67 @@
+- generic [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - link [ref=e8] [cursor=pointer]:
+            - /url: /admin/dashboard
+            - img [ref=e9]
+          - generic [ref=e11]:
+            - heading "Static Pages Builder" [level=1] [ref=e12]
+            - paragraph [ref=e13]: Конфигурируемые секции публичных страниц
+        - button "Добавить страницу" [active] [ref=e14] [cursor=pointer]:
+          - img [ref=e15]
+          - text: Добавить страницу
+      - main [ref=e16]:
+        - generic [ref=e21]:
+          - generic [ref=e22]:
+            - generic [ref=e23]:
+              - img [ref=e24]
+              - textbox [ref=e27]:
+                - /placeholder: Поиск страниц
+            - generic [ref=e29]: Страницы не найдены
+          - generic [ref=e30]:
+            - generic [ref=e31]:
+              - generic [ref=e32]:
+                - heading "Выберите страницу" [level=2] [ref=e33]
+                - paragraph [ref=e34]: Управление секциями
+              - button "Добавить секцию" [disabled] [ref=e35]:
+                - img [ref=e36]
+                - text: Добавить секцию
+            - generic [ref=e37]: Выберите страницу слева
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - heading "Новая страница" [level=2] [ref=e41]
+          - button [ref=e42] [cursor=pointer]:
+            - img [ref=e43]
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - generic [ref=e48]:
+              - generic [ref=e49]: Title (RU) *
+              - textbox [ref=e50]
+            - generic [ref=e51]:
+              - generic [ref=e52]: Title (EN) *
+              - textbox [ref=e53]
+          - generic [ref=e54]:
+            - generic [ref=e55]:
+              - generic [ref=e56]: Slug *
+              - textbox "about-team" [ref=e57]
+            - generic [ref=e58]:
+              - generic [ref=e59]: Status
+              - combobox [ref=e60]:
+                - option "draft" [selected]
+                - option "review"
+                - option "published"
+                - option "archived"
+            - generic [ref=e61]:
+              - generic [ref=e62]: Version
+              - spinbutton [ref=e63]: "1"
+          - generic [ref=e64]:
+            - generic [ref=e65]: Published at
+            - textbox [ref=e66]
+        - generic [ref=e67]:
+          - button "Отмена" [ref=e68] [cursor=pointer]
+          - button "Сохранить" [ref=e69] [cursor=pointer]:
+            - img [ref=e70]
+            - text: Сохранить
+  - alert [ref=e20]

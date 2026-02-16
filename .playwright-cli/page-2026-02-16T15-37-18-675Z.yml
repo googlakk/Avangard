@@ -1,0 +1,111 @@
+- generic [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - link [ref=e8] [cursor=pointer]:
+            - /url: /admin/dashboard
+            - img [ref=e9]
+          - generic [ref=e11]:
+            - heading "News CMS" [level=1] [ref=e12]
+            - paragraph [ref=e13]: Список, фильтры, draft/published и управление приоритетами
+        - button "Добавить новость" [active] [ref=e14] [cursor=pointer]:
+          - img [ref=e15]
+          - text: Добавить новость
+      - main [ref=e16]:
+        - generic [ref=e18]:
+          - generic [ref=e19]:
+            - img [ref=e20]
+            - textbox [ref=e23]:
+              - /placeholder: Поиск по заголовку / slug
+          - combobox [ref=e24]:
+            - option "Все статусы" [selected]
+            - option "Draft"
+            - option "Published"
+          - combobox [ref=e25]:
+            - option "Все категории" [selected]
+            - option "news"
+            - option "achievement"
+            - option "event"
+            - option "announcement"
+        - generic [ref=e32]:
+          - generic [ref=e33]:
+            - generic [ref=e34]:
+              - heading "Stage2NewsRU" [level=3] [ref=e35]
+              - generic [ref=e36]: news
+              - generic [ref=e37]: Draft
+              - generic [ref=e38]:
+                - img [ref=e39]
+                - text: "0"
+            - paragraph [ref=e41]: Stage2NewsEN
+            - paragraph [ref=e42]: "slug: stage2newsen"
+          - generic [ref=e43]:
+            - button "+ Priority" [ref=e44] [cursor=pointer]
+            - button "- Priority" [ref=e45] [cursor=pointer]
+            - button "Preview" [ref=e46] [cursor=pointer]:
+              - img [ref=e47]
+              - text: Preview
+            - button "Опубликовать" [ref=e51] [cursor=pointer]:
+              - img [ref=e52]
+            - button "Редактировать" [ref=e57] [cursor=pointer]:
+              - img [ref=e58]
+            - button "Удалить" [ref=e60] [cursor=pointer]:
+              - img [ref=e61]
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - heading "Новая новость" [level=2] [ref=e67]
+          - button [ref=e68] [cursor=pointer]:
+            - img [ref=e69]
+        - generic [ref=e72]:
+          - generic [ref=e73]:
+            - generic [ref=e74]:
+              - generic [ref=e75]: Заголовок (RU) *
+              - textbox [ref=e76]
+            - generic [ref=e77]:
+              - generic [ref=e78]: Title (EN) *
+              - textbox [ref=e79]
+          - generic [ref=e80]:
+            - generic [ref=e81]:
+              - generic [ref=e82]: Описание (RU) *
+              - textbox [ref=e83]
+            - generic [ref=e84]:
+              - generic [ref=e85]: Description (EN) *
+              - textbox [ref=e86]
+          - generic [ref=e87]:
+            - generic [ref=e88]:
+              - generic [ref=e89]: Контент (RU) *
+              - textbox [ref=e90]
+            - generic [ref=e91]:
+              - generic [ref=e92]: Content (EN) *
+              - textbox [ref=e93]
+          - generic [ref=e94]:
+            - generic [ref=e95]:
+              - generic [ref=e96]: Category *
+              - combobox [ref=e97]:
+                - option "news" [selected]
+                - option "achievement"
+                - option "event"
+                - option "announcement"
+            - generic [ref=e98]:
+              - generic [ref=e99]: Slug *
+              - textbox "open-day-2026" [ref=e100]
+          - generic [ref=e101]:
+            - generic [ref=e102]:
+              - generic [ref=e103]: Image URL
+              - textbox "https://..." [ref=e104]
+              - generic [ref=e105] [cursor=pointer]:
+                - img [ref=e106]
+                - text: Загрузить изображение
+            - generic [ref=e109]:
+              - generic [ref=e110]:
+                - generic [ref=e111]: Priority (pin)
+                - spinbutton [ref=e112]: "0"
+              - generic [ref=e113]:
+                - checkbox "Опубликовано" [ref=e114]
+                - text: Опубликовано
+        - generic [ref=e115]:
+          - button "Отмена" [ref=e116] [cursor=pointer]
+          - button "Сохранить" [ref=e117] [cursor=pointer]:
+            - img [ref=e118]
+            - text: Сохранить
+  - alert [ref=e29]

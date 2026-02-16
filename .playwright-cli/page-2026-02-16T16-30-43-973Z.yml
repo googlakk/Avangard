@@ -1,0 +1,78 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - link [ref=e8] [cursor=pointer]:
+            - /url: /admin/dashboard
+            - img [ref=e9]
+          - generic [ref=e11]:
+            - heading "News CMS" [level=1] [ref=e12]
+            - paragraph [ref=e13]: Список, фильтры, draft/published и управление приоритетами
+        - button "Добавить новость" [ref=e14] [cursor=pointer]:
+          - img [ref=e15]
+          - text: Добавить новость
+      - main [ref=e16]:
+        - generic [ref=e18]:
+          - generic [ref=e19]:
+            - img [ref=e20]
+            - textbox [ref=e23]:
+              - /placeholder: Поиск по заголовку / slug
+          - combobox [ref=e24]:
+            - option "Все статусы" [selected]
+            - option "Draft"
+            - option "Published"
+          - combobox [ref=e25]:
+            - option "Все категории" [selected]
+            - option "news"
+            - option "achievement"
+            - option "event"
+            - option "announcement"
+        - generic [ref=e30]:
+          - generic [ref=e32]:
+            - generic [ref=e33]:
+              - generic [ref=e34]:
+                - heading "Stage2News2RU" [level=3] [ref=e35]
+                - generic [ref=e36]: news
+                - generic [ref=e37]: Draft
+                - generic [ref=e38]:
+                  - img [ref=e39]
+                  - text: "0"
+              - paragraph [ref=e41]: Stage2News2EN
+              - paragraph [ref=e42]: "slug: stage2news2en"
+            - generic [ref=e43]:
+              - button "+ Priority" [ref=e44] [cursor=pointer]
+              - button "- Priority" [ref=e45] [cursor=pointer]
+              - button "Preview" [ref=e46] [cursor=pointer]:
+                - img [ref=e47]
+                - text: Preview
+              - button "Опубликовать" [ref=e51] [cursor=pointer]:
+                - img [ref=e52]
+              - button "Редактировать" [ref=e57] [cursor=pointer]:
+                - img [ref=e58]
+              - button "Удалить" [ref=e60] [cursor=pointer]:
+                - img [ref=e61]
+          - generic [ref=e65]:
+            - generic [ref=e66]:
+              - generic [ref=e67]:
+                - heading "Stage2NewsRU" [level=3] [ref=e68]
+                - generic [ref=e69]: news
+                - generic [ref=e70]: Draft
+                - generic [ref=e71]:
+                  - img [ref=e72]
+                  - text: "0"
+              - paragraph [ref=e74]: Stage2NewsEN
+              - paragraph [ref=e75]: "slug: stage2newsen"
+            - generic [ref=e76]:
+              - button "+ Priority" [ref=e77] [cursor=pointer]
+              - button "- Priority" [ref=e78] [cursor=pointer]
+              - button "Preview" [ref=e79] [cursor=pointer]:
+                - img [ref=e80]
+                - text: Preview
+              - button "Опубликовать" [ref=e84] [cursor=pointer]:
+                - img [ref=e85]
+              - button "Редактировать" [ref=e90] [cursor=pointer]:
+                - img [ref=e91]
+              - button "Удалить" [ref=e93] [cursor=pointer]:
+                - img [ref=e94]
+  - alert [ref=e29]

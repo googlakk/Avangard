@@ -1,0 +1,47 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - link [ref=e8] [cursor=pointer]:
+            - /url: /admin/dashboard
+            - img [ref=e9]
+          - generic [ref=e11]:
+            - heading "Static Pages Builder" [level=1] [ref=e12]
+            - paragraph [ref=e13]: Конфигурируемые секции публичных страниц
+        - button "Добавить страницу" [ref=e14] [cursor=pointer]:
+          - img [ref=e15]
+          - text: Добавить страницу
+      - main [ref=e16]:
+        - generic [ref=e21]:
+          - generic [ref=e22]:
+            - generic [ref=e23]:
+              - img [ref=e24]
+              - textbox [ref=e27]:
+                - /placeholder: Поиск страниц
+            - generic [ref=e29]:
+              - button "Stage2PageRU draft Stage2PageEN /stage2-page-en · v1" [ref=e30] [cursor=pointer]:
+                - generic [ref=e31]:
+                  - heading "Stage2PageRU" [level=3] [ref=e32]
+                  - generic [ref=e33]: draft
+                - paragraph [ref=e34]: Stage2PageEN
+                - paragraph [ref=e35]: /stage2-page-en · v1
+              - generic [ref=e36]:
+                - button "Опубликовать" [ref=e37] [cursor=pointer]:
+                  - img [ref=e38]
+                - button "Preview" [ref=e43] [cursor=pointer]:
+                  - img [ref=e44]
+                - button [ref=e48] [cursor=pointer]:
+                  - img [ref=e49]
+                - button [ref=e51] [cursor=pointer]:
+                  - img [ref=e52]
+          - generic [ref=e55]:
+            - generic [ref=e56]:
+              - generic [ref=e57]:
+                - heading "Stage2PageRU" [level=2] [ref=e58]
+                - paragraph [ref=e59]: 0 секций
+              - button "Добавить секцию" [ref=e60] [cursor=pointer]:
+                - img [ref=e61]
+                - text: Добавить секцию
+            - generic [ref=e62]: Секций пока нет
+  - alert [ref=e20]

@@ -1,0 +1,19 @@
+- main [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - heading "Intellect School" [level=1] [ref=e6]
+      - paragraph [ref=e7]: Admin Panel Login
+    - generic [ref=e8]:
+      - generic [ref=e9]:
+        - generic [ref=e10]:
+          - generic [ref=e11]: Email Address
+          - textbox "Email Address" [ref=e12]:
+            - /placeholder: admin@intellectschool.kg
+        - generic [ref=e13]:
+          - generic [ref=e14]: Password
+          - textbox "Password" [ref=e15]:
+            - /placeholder: ••••••••
+        - button "Sign In" [ref=e16] [cursor=pointer]
+      - paragraph [ref=e18]: Authorized personnel only
+    - link "← Back to Website" [ref=e20] [cursor=pointer]:
+      - /url: /

@@ -1,0 +1,83 @@
+[    1350ms] [ERROR] Failed to fetch RSC payload for http://127.0.0.1:4174/admin/pages. Falling back to browser navigation. TypeError: Failed to fetch
+    at fetchServerResponse (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/router-reducer/fetch-server-response.js:59:27)
+    at fastRefreshReducerImpl (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/router-reducer/reducers/fast-refresh-reducer.js:33:67)
+    at clientReducer (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/router-reducer/router-reducer.js:41:67)
+    at Object.action (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/shared/lib/router/action-queue.js:150:55)
+    at runAction (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/shared/lib/router/action-queue.js:56:38)
+    at dispatchAction (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/shared/lib/router/action-queue.js:113:9)
+    at Object.dispatch (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/shared/lib/router/action-queue.js:145:40)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/use-reducer-with-devtools.js:130:21)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/app-router.js:304:25)
+    at startTransition (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react/cjs/react.development.js:2597:25)
+    at Object.fastRefresh (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/app-router.js:303:48)
+    at processMessage (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:297:31)
+    at WebSocket.handler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:395:17) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[    1352ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:4174/admin/news:0
+[    1661ms] Error: Cannot find module './9227.js'
+Require stack:
+- /Users/intellectmac/Personal/avangardIntellect/.next/server/webpack-runtime.js
+- /Users/intellectmac/Personal/avangardIntellect/.next/server/app/_not-found/page.js
+- /Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/require.js
+- /Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/load-components.js
+- /Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/build/utils.js
+- /Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/dev/hot-middleware.js
+- /Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/lib/router-server.js
+- /Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/lib/start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1421:15)
+    at <unknown> (file:///Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/require-hook.js:55:36)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1227:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1504:12)
+    at mod.require (file:///Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at __webpack_require__.f.require (file:///Users/intellectmac/Personal/avangardIntellect/.next/server/webpack-runtime.js:198:28)
+    at <unknown> (file:///Users/intellectmac/Personal/avangardIntellect/.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (file:///Users/intellectmac/Personal/avangardIntellect/.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (file:///Users/intellectmac/Personal/avangardIntellect/.next/server/webpack-runtime.js:162:22)
+    at <unknown> (file:///Users/intellectmac/Personal/avangardIntellect/.next/server/app/admin/news/page.js:1:19122)
+    at Object.<anonymous> (file:///Users/intellectmac/Personal/avangardIntellect/.next/server/app/admin/news/page.js:1:19178)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1504:12)
+    at mod.require (file:///Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at requirePage (file:///Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/require.js:109:84)
+    at <unknown> (file:///Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/load-components.js:103:84)
+    at async loadComponentsImpl (file:///Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (file:///Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/next-server.js:714:36)
+    at async DevServer.findPageComponents (file:///Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/dev/next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (file:///Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (file:///Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/base-server.js:1962:32)
+    at async DevServer.pipeImpl (file:///Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (file:///Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (file:///Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/base-server.js:818:17)
+    at async (file:///Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/dev/next-dev-server.js:339:20)
+    at async Span.traceAsyncFn (file:///Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (file:///Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (file:///Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/lib/router-server.js:179:21)
+    at async handleRequest (file:///Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/lib/router-server.js:359:24)
+    at async requestHandlerImpl (file:///Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/lib/router-server.js:383:13)
+    at async Server.requestListener (file:///Users/intellectmac/Personal/avangardIntellect/node_modules/next/dist/server/lib/start-server.js:141:13)
+[   19790ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:4174/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:63
+[   20794ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:4174/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:63
+[   21797ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:4174/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:63
+[   22799ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:4174/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:63
+[   23802ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:4174/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:63
+[   28806ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:4174/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:63
+[   35308ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:4174/_next/static/webpack/d5debfdfc94e9e7c.webpack.hot-update.json:0
+[   35308ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:349
+[   35600ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:4174/_next/static/webpack/d5debfdfc94e9e7c.webpack.hot-update.json:0
+[   35600ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:349
+[   36299ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:4174/_next/static/webpack/d5debfdfc94e9e7c.webpack.hot-update.json:0
+[   36299ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:349

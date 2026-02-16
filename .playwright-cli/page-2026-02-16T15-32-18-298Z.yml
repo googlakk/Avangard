@@ -1,0 +1,78 @@
+- generic [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - link [ref=e8] [cursor=pointer]:
+            - /url: /admin/dashboard
+            - img [ref=e9]
+          - generic [ref=e11]:
+            - heading "Documents CMS" [level=1] [ref=e12]
+            - paragraph [ref=e13]: Загрузка PDF, категории, метаданные, версии и архив
+        - button "Добавить документ" [active] [ref=e14] [cursor=pointer]:
+          - img [ref=e15]
+          - text: Добавить документ
+      - main [ref=e16]:
+        - generic [ref=e18]:
+          - generic [ref=e19]:
+            - img [ref=e20]
+            - textbox [ref=e23]:
+              - /placeholder: Поиск по названию / URL
+          - combobox [ref=e24]:
+            - option "Все категории" [selected]
+            - option "academic"
+            - option "administrative"
+            - option "regulatory"
+            - option "reports"
+            - option "other"
+          - combobox [ref=e25]:
+            - option "Только активные" [selected]
+            - option "Только архив"
+            - option "Все документы"
+        - generic [ref=e30]:
+          - paragraph [ref=e31]: Документов по фильтрам нет
+          - button "Создать первый документ" [ref=e32] [cursor=pointer]:
+            - img [ref=e33]
+            - text: Создать первый документ
+      - generic [ref=e35]:
+        - generic [ref=e36]:
+          - heading "Новый документ" [level=2] [ref=e37]
+          - button [ref=e38] [cursor=pointer]:
+            - img [ref=e39]
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - generic [ref=e44]:
+              - generic [ref=e45]: Название (RU) *
+              - textbox [ref=e46]
+            - generic [ref=e47]:
+              - generic [ref=e48]: Title (EN) *
+              - textbox [ref=e49]
+          - generic [ref=e50]:
+            - generic [ref=e51]:
+              - generic [ref=e52]: Категория *
+              - combobox [ref=e53]:
+                - option "academic" [selected]
+                - option "administrative"
+                - option "regulatory"
+                - option "reports"
+                - option "other"
+            - generic [ref=e54]:
+              - generic [ref=e55]: Version *
+              - spinbutton [ref=e56]: "1"
+            - generic [ref=e57]:
+              - generic [ref=e58]: Published At (metadata)
+              - textbox [ref=e59]
+          - generic [ref=e60]:
+            - generic [ref=e61]: PDF File
+            - generic [ref=e62] [cursor=pointer]:
+              - img [ref=e63]
+              - text: Загрузить PDF
+          - generic [ref=e66]:
+            - generic [ref=e67]: File URL
+            - textbox "https://... (если не загружаете файл)" [ref=e68]
+        - generic [ref=e69]:
+          - button "Отмена" [ref=e70] [cursor=pointer]
+          - button "Сохранить" [ref=e71] [cursor=pointer]:
+            - img [ref=e72]
+            - text: Сохранить
+  - alert [ref=e29]

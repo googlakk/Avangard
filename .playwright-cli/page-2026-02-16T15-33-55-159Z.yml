@@ -1,0 +1,45 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - link [ref=e8] [cursor=pointer]:
+            - /url: /admin/dashboard
+            - img [ref=e9]
+          - generic [ref=e11]:
+            - heading "Gallery CMS" [level=1] [ref=e12]
+            - paragraph [ref=e13]: Альбомы, изображения, сортировка, cover image, publish controls
+        - button "Добавить альбом" [ref=e14] [cursor=pointer]:
+          - img [ref=e15]
+          - text: Добавить альбом
+      - main [ref=e16]:
+        - generic [ref=e80]:
+          - generic [ref=e81]:
+            - generic [ref=e82]:
+              - img [ref=e83]
+              - textbox [ref=e86]:
+                - /placeholder: Поиск альбомов
+            - generic [ref=e88]:
+              - button "Stage2AlbumRU Draft Stage2AlbumEN events · no date" [ref=e89] [cursor=pointer]:
+                - generic [ref=e90]:
+                  - heading "Stage2AlbumRU" [level=3] [ref=e91]
+                  - generic [ref=e92]: Draft
+                - paragraph [ref=e93]: Stage2AlbumEN
+                - paragraph [ref=e94]: events · no date
+              - generic [ref=e95]:
+                - button "Опубликовать" [ref=e96] [cursor=pointer]:
+                  - img [ref=e97]
+                - button [ref=e102] [cursor=pointer]:
+                  - img [ref=e103]
+                - button [ref=e105] [cursor=pointer]:
+                  - img [ref=e106]
+          - generic [ref=e109]:
+            - generic [ref=e110]:
+              - generic [ref=e111]:
+                - heading "Stage2AlbumRU" [level=2] [ref=e112]
+                - paragraph [ref=e113]: 0 изображений
+              - button "Добавить изображение" [ref=e114] [cursor=pointer]:
+                - img [ref=e115]
+                - text: Добавить изображение
+            - generic [ref=e116]: В альбоме пока нет изображений
+  - alert [ref=e20]

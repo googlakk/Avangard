@@ -416,6 +416,16 @@ export class GalleryImagesService extends BaseService<'gallery_images'> {
         if (error) throw error
         return data
     }
+
+    async reorder(items: { id: string; order_index: number }[]) {
+        const promises = items.map(item =>
+            this.supabase
+                .from('gallery_images')
+                .update({ order_index: item.order_index })
+                .eq('id', item.id)
+        )
+        await Promise.all(promises)
+    }
 }
 
 /**

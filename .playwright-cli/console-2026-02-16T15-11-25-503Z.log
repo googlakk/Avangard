@@ -1,0 +1,4 @@
+[   91879ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://dfiucurqvrvklxwauora.supabase.co/rest/v1/news?select=*:0
+[   91881ms] [ERROR] Failed to save news article: {code: 42501, details: null, hint: null, message: new row violates row-level security policy for table "news"} @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  161751ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://dfiucurqvrvklxwauora.supabase.co/rest/v1/news?select=*:0
+[  161754ms] [ERROR] Failed to save news article: {code: 42501, details: null, hint: null, message: new row violates row-level security policy for table "news"} @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32

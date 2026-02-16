@@ -1,10 +1,11 @@
 'use client'
 
 import { useEffect, useState, useCallback } from 'react'
-import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import {
     ArrowLeft,
+    ArrowUp,
+    ArrowDown,
     Plus,
     Edit2,
     Trash2,
@@ -14,7 +15,8 @@ import {
     X,
     Loader2,
     ChevronRight,
-    GripVertical,
+    Eye,
+    EyeOff,
 } from 'lucide-react'
 import { departmentsService, staffService } from '@/lib/services/api'
 import type { Tables, TablesInsert, TablesUpdate } from '@/lib/database.types'
@@ -42,8 +44,6 @@ const emptyDeptForm: DepartmentForm = {
 }
 
 export default function AdminStaffPage() {
-    const router = useRouter()
-
     // State
     const [departments, setDepartments] = useState<Department[]>([])
     const [loading, setLoading] = useState(true)
@@ -127,6 +127,45 @@ export default function AdminStaffPage() {
         } catch (err) {
             console.error('Failed to delete department:', err)
             setError('Ошибка удаления')
+        }
+    }
+
+    const reorderDepartments = async (items: Department[]) => {
+        const payload = items.map((dept, idx) => ({
+            id: dept.id,
+            order_index: idx,
+        }))
+        await departmentsService.reorder(payload)
+    }
+
+    const moveDepartment = async (index: number, direction: 'up' | 'down') => {
+        const targetIndex = direction === 'up' ? index - 1 : index + 1
+        if (targetIndex < 0 || targetIndex >= departments.length) return
+
+        const nextDepartments = [...departments]
+        const [moved] = nextDepartments.splice(index, 1)
+        nextDepartments.splice(targetIndex, 0, moved)
+
+        setDepartments(nextDepartments)
+        try {
+            await reorderDepartments(nextDepartments)
+            await fetchDepartments()
+        } catch (err) {
+            console.error('Failed to reorder departments:', err)
+            setError('Ошибка сортировки кафедр')
+            await fetchDepartments()
+        }
+    }
+
+    const toggleDepartmentActive = async (dept: Department) => {
+        try {
+            await departmentsService.update(dept.id, {
+                is_active: !dept.is_active,
+            } as TablesUpdate<'departments'>)
+            await fetchDepartments()
+        } catch (err) {
+            console.error('Failed to toggle department active:', err)
+            setError('Ошибка изменения статуса кафедры')
         }
     }
 
@@ -325,14 +364,29 @@ export default function AdminStaffPage() {
 
                 {!loading && departments.length > 0 && (
                     <div className="space-y-3">
-                        {departments.map(dept => (
+                        {departments.map((dept, index) => (
                             <div
                                 key={dept.id}
                                 className="bg-white rounded-xl border border-gray-200 hover:border-gray-300 transition-colors"
                             >
                                 <div className="flex items-center gap-4 p-4 md:p-5">
-                                    <div className="text-gray-300 cursor-grab">
-                                        <GripVertical className="w-5 h-5" />
+                                    <div className="flex flex-col gap-1">
+                                        <button
+                                            onClick={() => moveDepartment(index, 'up')}
+                                            disabled={index === 0}
+                                            className="p-1.5 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded disabled:opacity-30 disabled:cursor-not-allowed"
+                                            title="Переместить вверх"
+                                        >
+                                            <ArrowUp className="w-4 h-4" />
+                                        </button>
+                                        <button
+                                            onClick={() => moveDepartment(index, 'down')}
+                                            disabled={index === departments.length - 1}
+                                            className="p-1.5 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded disabled:opacity-30 disabled:cursor-not-allowed"
+                                            title="Переместить вниз"
+                                        >
+                                            <ArrowDown className="w-4 h-4" />
+                                        </button>
                                     </div>
 
                                     <div className="flex-1 min-w-0">
@@ -355,6 +409,20 @@ export default function AdminStaffPage() {
                                     </div>
 
                                     <div className="flex items-center gap-2 flex-shrink-0">
+                                        <button
+                                            onClick={() => toggleDepartmentActive(dept)}
+                                            className={`p-2 rounded-lg transition-colors ${dept.is_active
+                                                ? 'text-green-500 hover:bg-green-50'
+                                                : 'text-gray-300 hover:bg-gray-100'
+                                                }`}
+                                            title={dept.is_active ? 'Активна' : 'Неактивна'}
+                                        >
+                                            {dept.is_active ? (
+                                                <Eye className="w-4 h-4" />
+                                            ) : (
+                                                <EyeOff className="w-4 h-4" />
+                                            )}
+                                        </button>
                                         <button
                                             onClick={() => openDeptForm(dept)}
                                             className="p-2 text-gray-400 hover:text-navy-700 hover:bg-gray-100 rounded-lg transition-colors"

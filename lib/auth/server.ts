@@ -6,6 +6,8 @@
 
 import { createClient } from '@/lib/supabase/server'
 import { cache } from 'react'
+import type { CmsAction, CmsResource } from '@/lib/auth/rbac'
+import { hasPermission, isAdminRole, normalizeRole } from '@/lib/auth/rbac'
 
 /**
  * Get current user session (cached)
@@ -45,9 +47,8 @@ export async function isAdmin() {
 
     if (!user) return false
 
-    // Check if user has admin role in metadata
-    const role = user.user_metadata?.role
-    return role === 'admin'
+    const role = normalizeRole(user.user_metadata?.role ?? user.app_metadata?.role)
+    return isAdminRole(role)
 }
 
 /**
@@ -72,5 +73,27 @@ export async function getUserRole() {
 
     if (!user) return null
 
-    return user.user_metadata?.role || 'user'
+    return normalizeRole(user.user_metadata?.role ?? user.app_metadata?.role)
+}
+
+/**
+ * Check permission against RBAC matrix
+ */
+export async function can(resource: CmsResource, action: CmsAction) {
+    const role = await getUserRole()
+    return hasPermission(role, resource, action)
+}
+
+/**
+ * Require permission and throw when access is denied
+ */
+export async function requirePermission(resource: CmsResource, action: CmsAction) {
+    const role = await getUserRole()
+    const allowed = hasPermission(role, resource, action)
+
+    if (!allowed) {
+        throw new Error(`Unauthorized: ${String(role ?? 'guest')} cannot ${action} ${resource}`)
+    }
+
+    return true
 }

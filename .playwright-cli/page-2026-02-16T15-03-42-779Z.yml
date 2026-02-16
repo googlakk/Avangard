@@ -1,0 +1,73 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - link [ref=e8] [cursor=pointer]:
+            - /url: /admin/dashboard
+            - img [ref=e9]
+          - generic [ref=e11]:
+            - heading "Gallery CMS" [level=1] [ref=e12]
+            - paragraph [ref=e13]: Альбомы, изображения, сортировка, cover image, publish controls
+        - button "Добавить альбом" [ref=e14] [cursor=pointer]:
+          - img [ref=e15]
+          - text: Добавить альбом
+      - main [ref=e16]:
+        - generic [ref=e80]:
+          - text: Ошибка сохранения альбома
+          - button "✕" [ref=e81] [cursor=pointer]
+        - generic [ref=e21]:
+          - generic [ref=e22]:
+            - generic [ref=e23]:
+              - img [ref=e24]
+              - textbox [ref=e27]:
+                - /placeholder: Поиск альбомов
+            - generic [ref=e29]: Альбомы не найдены
+          - generic [ref=e30]:
+            - generic [ref=e31]:
+              - generic [ref=e32]:
+                - heading "Выберите альбом" [level=2] [ref=e33]
+                - paragraph [ref=e34]: Управление изображениями
+              - button "Добавить изображение" [disabled] [ref=e35]:
+                - img [ref=e36]
+                - text: Добавить изображение
+            - generic [ref=e37]: Выберите альбом слева
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - heading "Новый альбом" [level=2] [ref=e41]
+          - button [ref=e42] [cursor=pointer]:
+            - img [ref=e43]
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - generic [ref=e48]:
+              - generic [ref=e49]: Название (RU) *
+              - textbox [ref=e50]: AlbumRU
+            - generic [ref=e51]:
+              - generic [ref=e52]: Name (EN) *
+              - textbox [ref=e53]: AlbumEN
+          - generic [ref=e54]:
+            - generic [ref=e55]:
+              - generic [ref=e56]: Описание (RU)
+              - textbox [ref=e57]
+            - generic [ref=e58]:
+              - generic [ref=e59]: Description (EN)
+              - textbox [ref=e60]
+          - generic [ref=e61]:
+            - generic [ref=e62]:
+              - generic [ref=e63]: Category
+              - textbox [ref=e64]: events
+            - generic [ref=e65]:
+              - generic [ref=e66]: Event date
+              - textbox [ref=e67]
+            - generic [ref=e68]:
+              - checkbox "Published" [ref=e69]
+              - text: Published
+          - generic [ref=e70]:
+            - generic [ref=e71]: Cover image URL
+            - textbox "https://..." [ref=e72]
+        - generic [ref=e73]:
+          - button "Отмена" [ref=e74] [cursor=pointer]
+          - button "Сохранить" [ref=e75] [cursor=pointer]:
+            - img [ref=e82]
+            - text: Сохранить
+  - alert [ref=e20]
