@@ -2,6 +2,7 @@
     "header": {
         "home": "Home",
         "about": "About Us",
+        "team": "Team",
         "news": "News",
         "contacts": "Contact",
         "teachers": "Faculty",
@@ -45,6 +46,27 @@
                 "careers": {
                     "title": "Careers",
                     "description": "Join our team"
+                }
+            }
+        },
+        "rulesMenu": {
+            "title": "Rules & Safety",
+            "items": {
+                "teachers": {
+                    "title": "For Teachers",
+                    "description": "Professional standards"
+                },
+                "students": {
+                    "title": "For Students",
+                    "description": "Code of conduct"
+                },
+                "parents": {
+                    "title": "For Parents",
+                    "description": "Partnership guidelines"
+                },
+                "safety": {
+                    "title": "Safety Protocols",
+                    "description": "Emergency procedures"
                 }
             }
         },
@@ -143,7 +165,7 @@
         "philosophy": {
             "title": "Philosophy: Foundation of a Future Genius",
             "intro": {
-                "p1": "Primary school <bold>Intellect Junior</bold> is a space where we not only give knowledge but <bold>form the child's brain architecture</bold>.",
+                "p1": "Primary school <bold>Intellect Primary</bold> is a space where we not only give knowledge but <bold>form the child's brain architecture</bold>.",
                 "p2": "At the age of <bold>6 to 10 years</bold>, the brain has maximum neuroplasticity, and our task is to use this period to develop cognitive abilities, critical thinking, and a love for learning.",
                 "box": "We have combined <bold>state educational standards</bold>, <bold>Cambridge International</bold> methods, and proprietary <bold>cognitive development</bold> courses into a single <bold>full-day ecosystem</bold>."
             },
@@ -362,7 +384,7 @@
             "head": {
                 "name": "Anna Ivanova",
                 "position": "Head of Junior School",
-                "quote": "We teach not only reading and writing but also friendship. At Intellect Junior, every child finds their place and develops in a safe, supportive environment. Our goal is not just to give knowledge, but to instill a lifelong love for learning."
+                "quote": "We teach not only reading and writing but also friendship. At Intellect Primary, every child finds their place and develops in a safe, supportive environment. Our goal is not just to give knowledge, but to instill a lifelong love for learning."
             },
             "pastoral": {
                 "tutors": {
@@ -771,7 +793,7 @@
         },
         "items": {
             "junior": {
-                "title": "Intellect Junior",
+                "title": "Intellect Primary",
                 "badge": "Grades 1-4",
                 "description": "Foundation of the future. Gentle adaptation, Soft Skills mastery, and an immersive bilingual environment.",
                 "subtitle": "Primary School"
@@ -1367,6 +1389,497 @@
                         ]
                     }
                 }
+            }
+        },
+        "rules": {
+            "meta": {
+                "effectiveDate": "Effective from",
+                "lastUpdated": "Last updated"
+            },
+            "teachers": {
+                "title": "Rules for Teachers",
+                "description": "Professional code of conduct and teaching standards at Intellect School",
+                "hero": {
+                    "title": "Rules for Teachers",
+                    "subtitle": "Professional standards and code of conduct"
+                },
+                "sections": {
+                    "professional": {
+                        "title": "Professional Conduct",
+                        "items": [
+                            {
+                                "title": "Punctuality",
+                                "description": "Arrive at school at least 15 minutes before classes begin. Start and end lessons on time."
+                            },
+                            {
+                                "title": "Appearance",
+                                "description": "Maintain business dress code. Professional and neat appearance is mandatory."
+                            },
+                            {
+                                "title": "Confidentiality",
+                                "description": "Maintain confidentiality of student and family personal information."
+                            },
+                            {
+                                "title": "Continuous Development",
+                                "description": "Participate in training programs and professional workshops."
+                            }
+                        ]
+                    },
+                    "classroom": {
+                        "title": "Classroom Management",
+                        "items": [
+                            {
+                                "title": "Lesson Planning",
+                                "description": "Prepare detailed lesson plans in advance. Use varied teaching methods."
+                            },
+                            {
+                                "title": "Discipline",
+                                "description": "Maintain a positive classroom atmosphere. Apply consistent and fair disciplinary measures."
+                            },
+                            {
+                                "title": "Differentiation",
+                                "description": "Adapt teaching for students with diverse needs and abilities."
+                            }
+                        ]
+                    },
+                    "students": {
+                        "title": "Student Interaction",
+                        "items": [
+                            {
+                                "title": "Respect",
+                                "description": "Treat all students with respect and dignity. No form of discrimination is acceptable."
+                            },
+                            {
+                                "title": "Safe Environment",
+                                "description": "Create a safe and inclusive learning environment for all students."
+                            },
+                            {
+                                "title": "Support",
+                                "description": "Provide additional help to students experiencing academic difficulties."
+                            }
+                        ]
+                    },
+                    "assessment": {
+                        "title": "Assessment",
+                        "items": [
+                            {
+                                "title": "Fair Grading",
+                                "description": "Assess student work objectively and consistently."
+                            },
+                            {
+                                "title": "Feedback",
+                                "description": "Provide timely and constructive feedback."
+                            },
+                            {
+                                "title": "Record Keeping",
+                                "description": "Maintain accurate records of student performance and attendance."
+                            }
+                        ]
+                    },
+                    "communication": {
+                        "title": "Communication",
+                        "items": [
+                            {
+                                "title": "Parent Engagement",
+                                "description": "Maintain regular communication with parents about student progress."
+                            },
+                            {
+                                "title": "Colleague Collaboration",
+                                "description": "Work collaboratively with other teachers and staff."
+                            },
+                            {
+                                "title": "Reporting",
+                                "description": "Immediately report any safety or behavioral concerns to administration."
+                            }
+                        ]
+                    }
+                },
+                "effectiveDate": "September 1, 2026",
+                "contact": "For questions, contact school administration"
+            },
+            "students": {
+                "title": "Rules for Students",
+                "description": "Code of conduct and expectations for Intellect School students",
+                "hero": {
+                    "title": "Rules for Students",
+                    "subtitle": "Code of conduct and academic integrity"
+                },
+                "sections": {
+                    "conduct": {
+                        "title": "Code of Conduct",
+                        "items": [
+                            {
+                                "title": "Respect",
+                                "description": "Treat all teachers, staff, and classmates with respect."
+                            },
+                            {
+                                "title": "Safety",
+                                "description": "Follow all safety rules. Report any hazards to a teacher or staff member."
+                            },
+                            {
+                                "title": "Honesty",
+                                "description": "Always tell the truth. Academic dishonesty is not acceptable."
+                            },
+                            {
+                                "title": "Responsibility",
+                                "description": "Take responsibility for your actions and behavior."
+                            }
+                        ]
+                    },
+                    "academic": {
+                        "title": "Academic Integrity",
+                        "items": [
+                            {
+                                "title": "Original Work",
+                                "description": "All submitted assignments must be your own work."
+                            },
+                            {
+                                "title": "Citations",
+                                "description": "Properly cite all sources used."
+                            },
+                            {
+                                "title": "No Cheating",
+                                "description": "Cheating on exams or tests is strictly prohibited."
+                            },
+                            {
+                                "title": "Collaboration",
+                                "description": "Work collaboratively only when permitted by the teacher."
+                            }
+                        ]
+                    },
+                    "dress": {
+                        "title": "Dress Code",
+                        "items": [
+                            {
+                                "title": "School Uniform",
+                                "description": "Wear the official school uniform daily."
+                            },
+                            {
+                                "title": "Neatness",
+                                "description": "Uniforms must be clean, pressed, and in good condition."
+                            },
+                            {
+                                "title": "Sports Attire",
+                                "description": "Sports uniform is worn only during PE classes."
+                            }
+                        ]
+                    },
+                    "technology": {
+                        "title": "Technology Use",
+                        "items": [
+                            {
+                                "title": "No Phones",
+                                "description": "Mobile phones must be turned off and submitted at the start of the day."
+                            },
+                            {
+                                "title": "Responsible Use",
+                                "description": "Use school computers and tablets for educational purposes only."
+                            },
+                            {
+                                "title": "Internet Safety",
+                                "description": "Follow internet safety rules. Do not share personal information."
+                            }
+                        ]
+                    },
+                    "behavior": {
+                        "title": "Behavioral Expectations",
+                        "items": [
+                            {
+                                "title": "Attendance",
+                                "description": "Attend all classes regularly and arrive on time."
+                            },
+                            {
+                                "title": "Participation",
+                                "description": "Actively participate in lessons and school activities."
+                            },
+                            {
+                                "title": "School Grounds",
+                                "description": "Remain on school premises during the school day."
+                            },
+                            {
+                                "title": "Bullying",
+                                "description": "Bullying, harassment, or intimidation is strictly prohibited."
+                            }
+                        ]
+                    }
+                },
+                "consequences": {
+                    "title": "Consequences of Violations",
+                    "description": "Violating school rules may result in:",
+                    "items": [
+                        "Warning",
+                        "Parent meeting",
+                        "Temporary suspension",
+                        "In serious cases — expulsion"
+                    ]
+                },
+                "effectiveDate": "September 1, 2026"
+            },
+            "parents": {
+                "title": "Rules for Parents",
+                "description": "Parent guide for school engagement and communication",
+                "hero": {
+                    "title": "Rules for Parents",
+                    "subtitle": "Partnership in your child's education"
+                },
+                "sections": {
+                    "communication": {
+                        "title": "Communication",
+                        "items": [
+                            {
+                                "title": "Regular Contact",
+                                "description": "Check school messages and email daily."
+                            },
+                            {
+                                "title": "Parent Meetings",
+                                "description": "Attend all scheduled parent meetings and conferences."
+                            },
+                            {
+                                "title": "Inquiries",
+                                "description": "Contact the class teacher first for any questions."
+                            },
+                            {
+                                "title": "Notifications",
+                                "description": "Inform the school of any changes in contact details or family circumstances."
+                            }
+                        ]
+                    },
+                    "visits": {
+                        "title": "School Visits",
+                        "items": [
+                            {
+                                "title": "Registration",
+                                "description": "All visitors must register at reception."
+                            },
+                            {
+                                "title": "Advance Scheduling",
+                                "description": "Schedule meetings with teachers in advance."
+                            },
+                            {
+                                "title": "Class Visits",
+                                "description": "Parents may visit classes with prior permission."
+                            }
+                        ]
+                    },
+                    "pickup": {
+                        "title": "Pick-up and Drop-off",
+                        "items": [
+                            {
+                                "title": "Timing",
+                                "description": "Pick up children on time at the end of the school day."
+                            },
+                            {
+                                "title": "Authorization",
+                                "description": "Only authorized individuals may pick up children."
+                            },
+                            {
+                                "title": "Absence Notification",
+                                "description": "Notify the school if your child is absent or late."
+                            },
+                            {
+                                "title": "Early Departure",
+                                "description": "Early departure requires written notification."
+                            }
+                        ]
+                    },
+                    "volunteer": {
+                        "title": "Volunteering",
+                        "items": [
+                            {
+                                "title": "Opportunities",
+                                "description": "Parents are invited to participate in school events."
+                            },
+                            {
+                                "title": "Screening",
+                                "description": "All volunteers must undergo background checks."
+                            },
+                            {
+                                "title": "Confidentiality",
+                                "description": "Respect the confidentiality of all students."
+                            }
+                        ]
+                    },
+                    "complaints": {
+                        "title": "Complaints and Concerns",
+                        "items": [
+                            {
+                                "title": "Procedure",
+                                "description": "Follow the official complaint procedure."
+                            },
+                            {
+                                "title": "First Step",
+                                "description": "Begin with the class teacher."
+                            },
+                            {
+                                "title": "Escalation",
+                                "description": "If unresolved, contact administration."
+                            },
+                            {
+                                "title": "Documentation",
+                                "description": "All complaints must be submitted in writing."
+                            }
+                        ]
+                    },
+                    "support": {
+                        "title": "Learning Support",
+                        "items": [
+                            {
+                                "title": "Homework",
+                                "description": "Provide a quiet space for homework completion."
+                            },
+                            {
+                                "title": "Reading",
+                                "description": "Encourage daily reading at home."
+                            },
+                            {
+                                "title": "Screen Time Limits",
+                                "description": "Monitor device usage time."
+                            },
+                            {
+                                "title": "Positive Attitude",
+                                "description": "Maintain a positive attitude toward school and learning."
+                            }
+                        ]
+                    }
+                },
+                "effectiveDate": "September 1, 2026"
+            }
+        },
+        "safety": {
+            "title": "Child Safety",
+            "description": "Comprehensive safety protocols at Intellect School",
+            "hero": {
+                "title": "Child Safety is Our Priority",
+                "subtitle": "Comprehensive protection and care for every student"
+            },
+            "sections": {
+                "evacuation": {
+                    "title": "Evacuation Protocols",
+                    "description": "Clear procedures for emergencies",
+                    "items": [
+                        "Regular fire drills (twice a year)",
+                        "Clearly marked evacuation routes",
+                        "Specially trained staff",
+                        "Assembly points for each class",
+                        "Student counting system"
+                    ]
+                },
+                "medical": {
+                    "title": "Medical Assistance",
+                    "description": "Fully equipped medical office",
+                    "items": [
+                        "Qualified nurse present at all times",
+                        "Medical office with essential equipment",
+                        "Emergency protocols",
+                        "Medical records for all students",
+                        "Partnership with nearby clinic"
+                    ],
+                    "emergency": {
+                        "title": "Emergency Contacts",
+                        "items": [
+                            "Ambulance: 103",
+                            "School Nurse: +996 555 123 456",
+                            "Administration: +996 770 123 456"
+                        ]
+                    }
+                },
+                "access": {
+                    "title": "Access Control",
+                    "description": "Controlled access to premises",
+                    "items": [
+                        "Face ID system for students and staff",
+                        "All visitors register at reception",
+                        "Temporary passes issued",
+                        "Unauthorized entry prohibited",
+                        "Authorized persons for child pickup"
+                    ]
+                },
+                "security": {
+                    "title": "Territory Security",
+                    "description": "Professional security 24/7",
+                    "items": [
+                        "Closed guarded territory",
+                        "Security on duty 24/7",
+                        "Regular territory patrols",
+                        "Emergency button system",
+                        "Secure perimeter fencing"
+                    ]
+                },
+                "surveillance": {
+                    "title": "Video Surveillance",
+                    "description": "Modern CCTV system",
+                    "items": [
+                        "Cameras in corridors, entrances, and grounds",
+                        "Recordings stored for 30 days",
+                        "Real-time monitoring",
+                        "Student privacy protection",
+                        "Access limited to authorized personnel"
+                    ]
+                },
+                "food": {
+                    "title": "Food Safety",
+                    "description": "Healthy and safe nutrition",
+                    "items": [
+                        "In-house kitchen with professional chef",
+                        "Halal menu",
+                        "Regular sanitation inspections",
+                        "Allergy and dietary restriction accommodation",
+                        "Fresh products daily"
+                    ]
+                },
+                "emergency": {
+                    "title": "Emergency Procedures",
+                    "description": "Emergency preparedness",
+                    "items": [
+                        "Fire action plan",
+                        "Earthquake action plan",
+                        "First aid kits on every floor",
+                        "First aid trained personnel",
+                        "Regular safety briefings"
+                    ]
+                }
+            },
+            "contact": {
+                "title": "Safety Contacts",
+                "description": "Contact us with any safety concerns",
+                "items": [
+                    {
+                        "label": "Administration",
+                        "value": "+996 770 123 456"
+                    },
+                    {
+                        "label": "Nurse",
+                        "value": "+996 555 123 456"
+                    },
+                    {
+                        "label": "Security",
+                        "value": "+996 777 123 456"
+                    },
+                    {
+                        "label": "Email",
+                        "value": "safety@intellectschool.kg"
+                    }
+                ]
+            },
+            "downloads": {
+                "title": "Downloadable Documents",
+                "items": [
+                    {
+                        "title": "Complete safety handbook",
+                        "size": "2.5 MB",
+                        "format": "PDF"
+                    },
+                    {
+                        "title": "Evacuation plan",
+                        "size": "1.2 MB",
+                        "format": "PDF"
+                    },
+                    {
+                        "title": "Medical protocols",
+                        "size": "800 KB",
+                        "format": "PDF"
+                    }
+                ]
             }
         }
     }

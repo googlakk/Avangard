@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, Montserrat, Cormorant_Garamond, IBM_Plex_Serif, Cinzel, Lora, Manrope } from 'next/font/google';
 import './globals.css';
 import ClientProviders from '@/components/ClientProviders';
@@ -36,7 +36,15 @@ const cinzel = Cinzel({
     weight: ['400', '500', '600', '700'],
 });
 
+export const viewport: Viewport = {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+    themeColor: '#1e3a8a',
+};
+
 export const metadata: Metadata = {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://intel.edu.kg'),
     title: 'INTELLECT INTERNATIONAL SCHOOL | Школа Нового Поколения',
     description:
         'INTELLECT INTERNATIONAL SCHOOL - элитная частная школа в Бишкеке. Кембриджская программа, STEAM-лаборатории, билингвальное обучение. С 2016 года воспитываем лидеров будущего.',
@@ -100,13 +108,6 @@ export const metadata: Metadata = {
         },
     },
 
-    // Для мобильных устройств
-    viewport: {
-        width: 'device-width',
-        initialScale: 1,
-        maximumScale: 5,
-    },
-
     // Иконки
     icons: {
         icon: '/favicon.ico',
@@ -116,9 +117,6 @@ export const metadata: Metadata = {
 
     // Манифест для PWA
     manifest: '/site.webmanifest',
-
-    // Тема для браузера
-    themeColor: '#1e3a8a', // Темно-синий цвет школы
 
     // Категория
     category: 'education',

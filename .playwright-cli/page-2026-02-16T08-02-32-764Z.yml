@@ -1,0 +1,146 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "INTELLECT INTERNATIONAL SCHOOL" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "INTELLECT INTERNATIONAL SCHOOL" [ref=e6]
+      - navigation [ref=e7]:
+        - link "Главная" [ref=e8] [cursor=pointer]:
+          - /url: /
+          - text: Главная
+        - link "О нас" [ref=e9] [cursor=pointer]:
+          - /url: /about
+          - text: О нас
+        - link "Коллектив" [ref=e10] [cursor=pointer]:
+          - /url: /about/team
+          - text: Коллектив
+        - link "Программы" [ref=e11] [cursor=pointer]:
+          - /url: /programs
+          - text: Программы
+        - button "Правила и Безопасность" [ref=e13] [cursor=pointer]:
+          - text: Правила и Безопасность
+          - img [ref=e14]
+        - button "Для Родителей" [ref=e17] [cursor=pointer]:
+          - text: Для Родителей
+          - img [ref=e18]
+        - button "Для Учителей" [ref=e21] [cursor=pointer]:
+          - text: Для Учителей
+          - img [ref=e22]
+      - generic [ref=e24]:
+        - generic [ref=e25]:
+          - button "RU" [ref=e26] [cursor=pointer]
+          - button "EN" [ref=e27] [cursor=pointer]
+        - link "Связаться с нами" [ref=e28] [cursor=pointer]:
+          - /url: /contacts
+  - main [ref=e29]:
+    - generic [ref=e31]:
+      - generic [ref=e32]:
+        - heading "Intellect School" [level=1] [ref=e33]
+        - paragraph [ref=e34]: Admin Panel Login
+      - generic [ref=e35]:
+        - generic [ref=e36]:
+          - generic [ref=e37]:
+            - generic [ref=e38]: Email Address
+            - textbox "Email Address" [ref=e39]:
+              - /placeholder: admin@intellectschool.kg
+          - generic [ref=e40]:
+            - generic [ref=e41]: Password
+            - textbox "Password" [ref=e42]:
+              - /placeholder: ••••••••
+          - button "Sign In" [ref=e43] [cursor=pointer]
+        - paragraph [ref=e45]: Authorized personnel only
+      - link "← Back to Website" [ref=e47] [cursor=pointer]:
+        - /url: /
+  - contentinfo [ref=e48]:
+    - generic [ref=e49]:
+      - generic [ref=e50]:
+        - generic [ref=e51]:
+          - link "INTELLECT INTERNATIONAL SCHOOL" [ref=e52] [cursor=pointer]:
+            - /url: /
+            - img "INTELLECT INTERNATIONAL SCHOOL" [ref=e53]
+          - paragraph [ref=e54]: Элитная частная школа в Бишкеке. Воспитываем лидеров будущего с 2016 года, объединяя традиции и инновации.
+          - generic [ref=e55]:
+            - link "Следите за нами в Instagram" [ref=e56] [cursor=pointer]:
+              - /url: https://instagram.com/intellect_pro_school
+              - img [ref=e57]
+            - link "Следите за нами в Facebook" [ref=e59] [cursor=pointer]:
+              - /url: https://facebook.com/intellectproschool
+              - img [ref=e60]
+            - link "Следите за нами в WhatsApp" [ref=e62] [cursor=pointer]:
+              - /url: https://wa.me/996555123456
+              - img [ref=e63]
+            - link "Следите за нами в Telegram" [ref=e65] [cursor=pointer]:
+              - /url: https://t.me/intellectproschool
+              - img [ref=e66]
+            - link "Следите за нами в YouTube" [ref=e68] [cursor=pointer]:
+              - /url: https://youtube.com/@intellectproschool
+              - img [ref=e69]
+        - generic [ref=e72]:
+          - heading "Навигация" [level=3] [ref=e73]: Навигация
+          - list [ref=e75]:
+            - listitem [ref=e76]:
+              - link "Главная" [ref=e77] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e78]:
+              - link "О нас" [ref=e79] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e80]:
+              - link "Программы" [ref=e81] [cursor=pointer]:
+                - /url: /programs
+            - listitem [ref=e82]:
+              - link "Преподаватели" [ref=e83] [cursor=pointer]:
+                - /url: /teachers
+            - listitem [ref=e84]:
+              - link "Контакты" [ref=e85] [cursor=pointer]:
+                - /url: /contacts
+        - generic [ref=e86]:
+          - heading "Правила и Безопасность" [level=3] [ref=e87]: Правила и Безопасность
+          - list [ref=e89]:
+            - listitem [ref=e90]:
+              - link "Для Учителей" [ref=e91] [cursor=pointer]:
+                - /url: /rules/teachers
+            - listitem [ref=e92]:
+              - link "Для Учеников" [ref=e93] [cursor=pointer]:
+                - /url: /rules/students
+            - listitem [ref=e94]:
+              - link "Для Родителей" [ref=e95] [cursor=pointer]:
+                - /url: /rules/parents
+            - listitem [ref=e96]:
+              - link "Протоколы Безопасности" [ref=e97] [cursor=pointer]:
+                - /url: /rules/safety
+        - generic [ref=e98]:
+          - heading "Программы" [level=3] [ref=e99]: Программы
+          - list [ref=e101]:
+            - listitem [ref=e102]:
+              - link "Память и Внимание" [ref=e103] [cursor=pointer]:
+                - /url: /programs#memory
+            - listitem [ref=e104]:
+              - link "Критическое мышление" [ref=e105] [cursor=pointer]:
+                - /url: /programs#critical
+            - listitem [ref=e106]:
+              - link "Иностранные языки" [ref=e107] [cursor=pointer]:
+                - /url: /programs#languages
+            - listitem [ref=e108]:
+              - link "STEAM Лаборатории" [ref=e109] [cursor=pointer]:
+                - /url: /programs#steam
+        - generic [ref=e110]:
+          - heading "Контакты" [level=3] [ref=e111]: Контакты
+          - list [ref=e113]:
+            - listitem [ref=e114]:
+              - img [ref=e115]
+              - generic [ref=e118]:
+                - text: г. Бишкек, ул. Джунусалиева, 177/1
+                - text: ул. А. Бакаева, 119
+            - listitem [ref=e119]:
+              - img [ref=e120]
+              - generic [ref=e122]:
+                - link "+996 705 889 889" [ref=e123] [cursor=pointer]:
+                  - /url: tel:+996705889889
+                - link "+996 778 889 889" [ref=e124] [cursor=pointer]:
+                  - /url: tel:+996778889889
+            - listitem [ref=e125]:
+              - img [ref=e126]
+              - link "info@intellect.kg" [ref=e128] [cursor=pointer]:
+                - /url: mailto:info@intellect.kg
+      - paragraph [ref=e131]: © 2026 Intellect Pro School. Все права защищены.
+  - alert [ref=e132]

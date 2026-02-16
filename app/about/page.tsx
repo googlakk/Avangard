@@ -262,7 +262,7 @@ export default function AboutPage() {
                                     Английский язык
                                 </li>
                             </ul>
-                            <Link href="/programs/junior" className="inline-flex items-center text-blue-600 font-bold hover:gap-2 transition-all">
+                            <Link href="/programs/primary" className="inline-flex items-center text-blue-600 font-bold hover:gap-2 transition-all">
                                 Подробнее <Icon name="ArrowRight" className="w-4 h-4 ml-2" />
                             </Link>
                         </div>

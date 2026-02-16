@@ -13,7 +13,7 @@ const programs = [
         description: 'Фундамент будущего. Мягкая адаптация, развитие Soft Skills и билингвальная среда.',
         subtitle: 'Начальная школа',
         image: '/images/junior-morning-exercise.png',
-        url: '/programs/junior',
+        url: '/programs/primary',
     },
     {
         id: 2,
@@ -73,7 +73,7 @@ export default function ProgramsSection() {
             description: t.programs.items.junior.description,
             subtitle: t.programs.items.junior.subtitle,
             image: '/images/junior-morning-exercise.png',
-            url: '/programs/junior',
+            url: '/programs/primary',
         },
         {
             id: 2,
@@ -100,7 +100,7 @@ export default function ProgramsSection() {
             description: t.programs.items.global.description,
             subtitle: t.programs.items.global.subtitle,
             image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000',
-            url: '/programs/global-network',
+            url: '/programs',
         },
         {
             id: 5,
@@ -109,7 +109,7 @@ export default function ProgramsSection() {
             description: t.programs.items.life.description,
             subtitle: t.programs.items.life.subtitle,
             image: '/images/10а квиз.png',
-            url: '/images/10f',
+            url: '/parents/values',
         },
         {
             id: 6,
@@ -118,7 +118,7 @@ export default function ProgramsSection() {
             description: t.programs.items.admissions.description,
             subtitle: t.programs.items.admissions.subtitle,
             image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1000',
-            url: '/admissions',
+            url: '/parents/admission',
         },
     ];
 
@@ -196,6 +196,7 @@ export default function ProgramsSection() {
                                             src={program.image}
                                             alt={program.title}
                                             fill
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                             className="object-cover rounded-xl"
                                         />
                                         <div className="absolute inset-0 bg-navy-900/30 z-10 rounded-xl"></div>

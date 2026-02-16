@@ -43,9 +43,11 @@ export default function AdmissionPage() {
             {/* Hero Section */}
             <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
                 <Image
-                    src="/api/placeholder/1920/1080"
+                    src="/images/senior-medalists.png"
                     alt="Процесс поступления"
                     fill
+                    sizes="100vw"
+                    priority
                     className="object-cover"
                 />
                 <div className="absolute inset-0 bg-navy-900/80" />

@@ -1,0 +1,177 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "INTELLECT INTERNATIONAL SCHOOL" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "INTELLECT INTERNATIONAL SCHOOL" [ref=e6]
+      - navigation [ref=e7]:
+        - link "Главная" [ref=e8] [cursor=pointer]:
+          - /url: /
+          - text: Главная
+        - link "О нас" [ref=e9] [cursor=pointer]:
+          - /url: /about
+          - text: О нас
+        - link "Коллектив" [ref=e10] [cursor=pointer]:
+          - /url: /about/team
+          - text: Коллектив
+        - link "Программы" [ref=e11] [cursor=pointer]:
+          - /url: /programs
+          - text: Программы
+        - button "Правила и Безопасность" [ref=e13] [cursor=pointer]:
+          - text: Правила и Безопасность
+          - img [ref=e14]
+        - button "Для Родителей" [ref=e17] [cursor=pointer]:
+          - text: Для Родителей
+          - img [ref=e18]
+        - button "Для Учителей" [ref=e21] [cursor=pointer]:
+          - text: Для Учителей
+          - img [ref=e22]
+      - generic [ref=e24]:
+        - generic [ref=e25]:
+          - button "RU" [ref=e26] [cursor=pointer]
+          - button "EN" [ref=e27] [cursor=pointer]
+        - link "Связаться с нами" [ref=e28] [cursor=pointer]:
+          - /url: /contacts
+  - main [ref=e29]:
+    - main [ref=e30]:
+      - link "← Вернуться к Intellect Middle" [ref=e33] [cursor=pointer]:
+        - /url: /programs/middle
+      - generic [ref=e36]:
+        - paragraph [ref=e37]: Технологии будущего
+        - heading "IT & STEAM" [level=1] [ref=e38]
+        - paragraph [ref=e39]: Развитие инженерного мышления и навыков программирования.
+      - generic [ref=e42]:
+        - heading "Оборудование" [level=2] [ref=e43]
+        - list [ref=e45]:
+          - listitem [ref=e46]:
+            - generic [ref=e47]: ✓
+            - generic [ref=e48]: 3D принтеры
+          - listitem [ref=e49]:
+            - generic [ref=e50]: ✓
+            - generic [ref=e51]: Робототехнические наборы
+          - listitem [ref=e52]:
+            - generic [ref=e53]: ✓
+            - generic [ref=e54]: Компьютерный класс
+      - generic [ref=e57]:
+        - heading "Проекты учеников" [level=2] [ref=e58]
+        - generic [ref=e59]:
+          - generic [ref=e60]:
+            - heading "Web Development" [level=3] [ref=e61]
+            - paragraph [ref=e62]: Создание сайтов
+          - generic [ref=e63]:
+            - heading "Game Dev" [level=3] [ref=e64]
+            - paragraph [ref=e65]: Разработка игр
+        - paragraph [ref=e67]:
+          - strong [ref=e68]: Каждый ученик
+          - text: создает как минимум
+          - strong [ref=e69]: 3 проекта в год
+          - text: ", которые презентуются на школьной конференции и добавляются в портфолио."
+      - generic [ref=e73]:
+        - heading "💡 Почему IT — это обязательная часть программы?" [level=2] [ref=e74]
+        - generic [ref=e75]:
+          - paragraph [ref=e76]:
+            - text: В XXI веке цифровая грамотность — не опция, а базовый навык. Мы не просто учим детей «пользоваться компьютером», мы учим их
+            - strong [ref=e77]: создавать технологии
+            - text: .
+          - paragraph [ref=e78]: Программирование развивает логическое мышление, умение решать комплексные задачи и работать с абстрактными концепциями — те же навыки, что необходимы и в математике, и в науках.
+          - paragraph [ref=e79]:
+            - strong [ref=e80]: Искусственный интеллект
+            - text: мы рассматриваем как инструмент усиления интеллекта, а не замену мышлению. Ученики учатся работать с AI-ассистентами для ускорения обучения и творчества.
+      - generic [ref=e83]:
+        - heading "Запишитесь на экскурсию в IT-лабораторию" [level=2] [ref=e84]
+        - paragraph [ref=e85]: Приходите и посмотрите, как работают наши ученики
+        - link "Записаться на экскурсию" [ref=e86] [cursor=pointer]:
+          - /url: /admissions
+  - contentinfo [ref=e87]:
+    - generic [ref=e88]:
+      - generic [ref=e89]:
+        - generic [ref=e90]:
+          - link "INTELLECT INTERNATIONAL SCHOOL" [ref=e91] [cursor=pointer]:
+            - /url: /
+            - img "INTELLECT INTERNATIONAL SCHOOL" [ref=e92]
+          - paragraph [ref=e93]: Элитная частная школа в Бишкеке. Воспитываем лидеров будущего с 2016 года, объединяя традиции и инновации.
+          - generic [ref=e94]:
+            - link "Следите за нами в Instagram" [ref=e95] [cursor=pointer]:
+              - /url: https://instagram.com/intellect_pro_school
+              - img [ref=e96]
+            - link "Следите за нами в Facebook" [ref=e98] [cursor=pointer]:
+              - /url: https://facebook.com/intellectproschool
+              - img [ref=e99]
+            - link "Следите за нами в WhatsApp" [ref=e101] [cursor=pointer]:
+              - /url: https://wa.me/996555123456
+              - img [ref=e102]
+            - link "Следите за нами в Telegram" [ref=e104] [cursor=pointer]:
+              - /url: https://t.me/intellectproschool
+              - img [ref=e105]
+            - link "Следите за нами в YouTube" [ref=e107] [cursor=pointer]:
+              - /url: https://youtube.com/@intellectproschool
+              - img [ref=e108]
+        - generic [ref=e111]:
+          - heading "Навигация" [level=3] [ref=e112]: Навигация
+          - list [ref=e114]:
+            - listitem [ref=e115]:
+              - link "Главная" [ref=e116] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e117]:
+              - link "О нас" [ref=e118] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e119]:
+              - link "Программы" [ref=e120] [cursor=pointer]:
+                - /url: /programs
+            - listitem [ref=e121]:
+              - link "Преподаватели" [ref=e122] [cursor=pointer]:
+                - /url: /teachers
+            - listitem [ref=e123]:
+              - link "Контакты" [ref=e124] [cursor=pointer]:
+                - /url: /contacts
+        - generic [ref=e125]:
+          - heading "Правила и Безопасность" [level=3] [ref=e126]: Правила и Безопасность
+          - list [ref=e128]:
+            - listitem [ref=e129]:
+              - link "Для Учителей" [ref=e130] [cursor=pointer]:
+                - /url: /rules/teachers
+            - listitem [ref=e131]:
+              - link "Для Учеников" [ref=e132] [cursor=pointer]:
+                - /url: /rules/students
+            - listitem [ref=e133]:
+              - link "Для Родителей" [ref=e134] [cursor=pointer]:
+                - /url: /rules/parents
+            - listitem [ref=e135]:
+              - link "Протоколы Безопасности" [ref=e136] [cursor=pointer]:
+                - /url: /safety
+        - generic [ref=e137]:
+          - heading "Программы" [level=3] [ref=e138]: Программы
+          - list [ref=e140]:
+            - listitem [ref=e141]:
+              - link "Память и Внимание" [ref=e142] [cursor=pointer]:
+                - /url: /programs#memory
+            - listitem [ref=e143]:
+              - link "Критическое мышление" [ref=e144] [cursor=pointer]:
+                - /url: /programs#critical
+            - listitem [ref=e145]:
+              - link "Иностранные языки" [ref=e146] [cursor=pointer]:
+                - /url: /programs#languages
+            - listitem [ref=e147]:
+              - link "STEAM Лаборатории" [ref=e148] [cursor=pointer]:
+                - /url: /programs#steam
+        - generic [ref=e149]:
+          - heading "Контакты" [level=3] [ref=e150]: Контакты
+          - list [ref=e152]:
+            - listitem [ref=e153]:
+              - img [ref=e154]
+              - generic [ref=e157]:
+                - text: г. Бишкек, ул. Джунусалиева, 177/1
+                - text: ул. А. Бакаева, 119
+            - listitem [ref=e158]:
+              - img [ref=e159]
+              - generic [ref=e161]:
+                - link "+996 705 889 889" [ref=e162] [cursor=pointer]:
+                  - /url: tel:+996705889889
+                - link "+996 778 889 889" [ref=e163] [cursor=pointer]:
+                  - /url: tel:+996778889889
+            - listitem [ref=e164]:
+              - img [ref=e165]
+              - link "info@intellect.kg" [ref=e167] [cursor=pointer]:
+                - /url: mailto:info@intellect.kg
+      - paragraph [ref=e170]: © 2026 Intellect Pro School. Все права защищены.
+  - alert [ref=e171]

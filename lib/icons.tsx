@@ -5,6 +5,7 @@ export type IconName = keyof typeof iconMap;
 
 export const iconMap = {
     // General
+    ArrowLeft: LucideIcons.ArrowLeft,
     TrendingUp: LucideIcons.TrendingUp,
     Users: LucideIcons.Users,
     Target: LucideIcons.Target,
@@ -41,6 +42,21 @@ export const iconMap = {
     Backpack: LucideIcons.Backpack,
     Ban: LucideIcons.Ban,
     Salad: LucideIcons.Salad,
+    CheckCircle: LucideIcons.CheckCircle,
+    XCircle: LucideIcons.XCircle,
+    Smartphone: LucideIcons.Smartphone,
+    ArrowRight: LucideIcons.ArrowRight,
+    Code: LucideIcons.Code,
+    Medal: LucideIcons.Medal,
+    Coffee: LucideIcons.Coffee,
+    Bus: LucideIcons.Bus,
+    Smile: LucideIcons.Smile,
+    Calendar: LucideIcons.Calendar,
+    DollarSign: LucideIcons.DollarSign,
+    Info: LucideIcons.Info,
+    AlertTriangle: LucideIcons.AlertTriangle,
+    BarChart3: LucideIcons.BarChart3,
+    Settings: LucideIcons.Settings,
 
     // Middle School
     PhoneOff: LucideIcons.PhoneOff,
@@ -57,6 +73,11 @@ export const iconMap = {
     Zap: LucideIcons.Zap,
     Compass: LucideIcons.Compass,
     Briefcase: LucideIcons.Briefcase,
+
+    // Contacts
+    Mail: LucideIcons.Mail,
+    Phone: LucideIcons.Phone,
+    MapPin: LucideIcons.MapPin,
 };
 
 interface IconProps {
@@ -75,8 +96,10 @@ export function Icon({ name, className = '', size = 24 }: IconProps) {
     const IconComponent = iconMap[name as IconName];
 
     if (!IconComponent) {
-        console.warn(`Icon "${name}" not found in iconMap`);
-        return null;
+        if (process.env.NODE_ENV !== 'production') {
+            console.warn(`Icon "${name}" not found in iconMap`);
+        }
+        return <LucideIcons.Circle className={className} size={size} />;
     }
 
     return <IconComponent className={className} size={size} />;

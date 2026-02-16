@@ -44,7 +44,7 @@ export default function AcademicsPage() {
 
                     <div className="grid md:grid-cols-3 gap-8">
                         {/* Junior */}
-                        <Link href="/programs/junior" className="group rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all flex flex-col h-full">
+                        <Link href="/programs/primary" className="group rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all flex flex-col h-full">
                             <div className="h-48 relative bg-blue-50 shrink-0">
                                 <Image
                                     src="/images/junior-morning-exercise.png"

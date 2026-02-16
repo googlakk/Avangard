@@ -36,6 +36,7 @@ export default function Header() {
                             alt="INTELLECT INTERNATIONAL SCHOOL"
                             width={1024}
                             height={190}
+                            priority
                             className="h-9 md:h-11 w-auto transition-opacity duration-300 group-hover:opacity-90"
                         />
                     </Link>
@@ -57,6 +58,13 @@ export default function Header() {
                             <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gradient-to-r from-[#C6A96B] to-[#D8C08A] group-hover:w-full transition-all duration-300" />
                         </Link>
                         <Link
+                            href="/about/team"
+                            className="relative text-white/90 hover:text-white text-[15px] font-medium tracking-[0.01em] transition-all duration-300 py-2 group"
+                        >
+                            {t.header.team}
+                            <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gradient-to-r from-[#C6A96B] to-[#D8C08A] group-hover:w-full transition-all duration-300" />
+                        </Link>
+                        <Link
                             href="/programs"
                             className="relative text-white/90 hover:text-white text-[15px] font-medium tracking-[0.01em] transition-all duration-300 py-2 group"
                         >
@@ -65,13 +73,24 @@ export default function Header() {
                         </Link>
 
                         <DropdownMenu
+                            label={t.header.rulesMenu.title}
+                            basePath="/rules"
+                            items={[
+                                { label: t.header.rulesMenu.items.teachers.title, href: '/teachers', description: t.header.rulesMenu.items.teachers.description },
+                                { label: t.header.rulesMenu.items.students.title, href: '/students', description: t.header.rulesMenu.items.students.description },
+                                { label: t.header.rulesMenu.items.parents.title, href: '/parents', description: t.header.rulesMenu.items.parents.description },
+                                { label: t.header.rulesMenu.items.safety.title, href: '/safety', description: t.header.rulesMenu.items.safety.description },
+                            ]}
+                        />
+
+                        <DropdownMenu
                             label={t.header.parentsMenu.title}
                             basePath="/parents"
                             items={[
                                 { label: t.header.parentsMenu.items.academics.title, href: '/academics', description: t.header.parentsMenu.items.academics.description },
                                 { label: t.header.parentsMenu.items.values.title, href: '/values', description: t.header.parentsMenu.items.values.description },
                                 { label: t.header.parentsMenu.items.care.title, href: '/care', description: t.header.parentsMenu.items.care.description },
-                                { label: t.header.parentsMenu.items.admission.title, href: '/admission', description: t.header.parentsMenu.items.admission.description },
+                                { label: t.header.parentsMenu.items.admission.title, href: '/parents/admission', description: t.header.parentsMenu.items.admission.description },
                                 { label: t.header.parentsMenu.items.faq.title, href: '/faq', description: t.header.parentsMenu.items.faq.description },
                             ]}
                         />
@@ -148,12 +167,30 @@ export default function Header() {
                                     {t.header.about}
                                 </Link>
                                 <Link
+                                    href="/about/team"
+                                    className="text-white/90 hover:text-white hover:bg-white/[0.05] px-4 py-3 rounded-lg transition-all duration-300"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    {t.header.team}
+                                </Link>
+                                <Link
                                     href="/programs"
                                     className="text-white/90 hover:text-white hover:bg-white/[0.05] px-4 py-3 rounded-lg transition-all duration-300"
                                     onClick={() => setIsMenuOpen(false)}
                                 >
                                     {t.header.programs}
                                 </Link>
+
+                                {/* Rules & Safety Mobile Section */}
+                                <div className="py-3 px-4">
+                                    <div className="text-[#C6A96B] text-xs font-semibold uppercase tracking-[0.15em] mb-3">{t.header.rulesMenu.title}</div>
+                                    <div className="pl-3 space-y-1 border-l border-[#C6A96B]/30">
+                                        <Link href="/rules/teachers" className="block text-white/80 hover:text-white py-2 px-3 rounded transition-all duration-300" onClick={() => setIsMenuOpen(false)}>{t.header.rulesMenu.items.teachers.title}</Link>
+                                        <Link href="/rules/students" className="block text-white/80 hover:text-white py-2 px-3 rounded transition-all duration-300" onClick={() => setIsMenuOpen(false)}>{t.header.rulesMenu.items.students.title}</Link>
+                                        <Link href="/rules/parents" className="block text-white/80 hover:text-white py-2 px-3 rounded transition-all duration-300" onClick={() => setIsMenuOpen(false)}>{t.header.rulesMenu.items.parents.title}</Link>
+                                        <Link href="/safety" className="block text-white/80 hover:text-white py-2 px-3 rounded transition-all duration-300" onClick={() => setIsMenuOpen(false)}>{t.header.rulesMenu.items.safety.title}</Link>
+                                    </div>
+                                </div>
 
                                 {/* Parents Mobile Section */}
                                 <div className="py-3 px-4">

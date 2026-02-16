@@ -1,0 +1,354 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "INTELLECT INTERNATIONAL SCHOOL" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "INTELLECT INTERNATIONAL SCHOOL" [ref=e6]
+      - navigation [ref=e7]:
+        - link "Главная" [ref=e8] [cursor=pointer]:
+          - /url: /
+          - text: Главная
+        - link "О нас" [ref=e9] [cursor=pointer]:
+          - /url: /about
+          - text: О нас
+        - link "Коллектив" [ref=e10] [cursor=pointer]:
+          - /url: /about/team
+          - text: Коллектив
+        - link "Программы" [ref=e11] [cursor=pointer]:
+          - /url: /programs
+          - text: Программы
+        - button "Правила и Безопасность" [ref=e13] [cursor=pointer]:
+          - text: Правила и Безопасность
+          - img [ref=e14]
+        - button "Для Родителей" [ref=e17] [cursor=pointer]:
+          - text: Для Родителей
+          - img [ref=e18]
+        - button "Для Учителей" [ref=e21] [cursor=pointer]:
+          - text: Для Учителей
+          - img [ref=e22]
+      - generic [ref=e24]:
+        - generic [ref=e25]:
+          - button "RU" [ref=e26] [cursor=pointer]
+          - button "EN" [ref=e27] [cursor=pointer]
+        - link "Связаться с нами" [ref=e28] [cursor=pointer]:
+          - /url: /contacts
+  - main [ref=e29]:
+    - generic [ref=e30]:
+      - generic [ref=e36]:
+        - link "На главную" [ref=e37] [cursor=pointer]:
+          - /url: /
+          - img [ref=e38]
+          - text: На главную
+        - img [ref=e42]
+        - heading "Безопасность Детей — Наш Приоритет" [level=1] [ref=e45]
+        - paragraph [ref=e46]: Комплексная система защиты и заботы о каждом ученике
+        - generic [ref=e47]:
+          - generic [ref=e48]:
+            - generic [ref=e49]: 24/7
+            - generic [ref=e50]: Охрана
+          - generic [ref=e51]:
+            - generic [ref=e52]: "7"
+            - generic [ref=e53]: Протоколов
+          - generic [ref=e54]:
+            - generic [ref=e55]: CCTV
+            - generic [ref=e56]: Мониторинг
+          - generic [ref=e57]:
+            - generic [ref=e58]: Face ID
+            - generic [ref=e59]: Пропускная система
+      - generic [ref=e61]:
+        - generic [ref=e62]:
+          - generic [ref=e63]:
+            - img [ref=e65]
+            - generic [ref=e69]:
+              - heading "Протоколы Эвакуации" [level=2] [ref=e70]
+              - paragraph [ref=e71]: Четкие процедуры для чрезвычайных ситуаций
+          - list [ref=e72]:
+            - listitem [ref=e73]:
+              - img [ref=e75]
+              - generic [ref=e78]: Регулярные учебные тревоги (2 раза в год)
+            - listitem [ref=e79]:
+              - img [ref=e81]
+              - generic [ref=e84]: Четко обозначенные пути эвакуации
+            - listitem [ref=e85]:
+              - img [ref=e87]
+              - generic [ref=e90]: Специально обученный персонал
+            - listitem [ref=e91]:
+              - img [ref=e93]
+              - generic [ref=e96]: Точки сбора для каждого класса
+            - listitem [ref=e97]:
+              - img [ref=e99]
+              - generic [ref=e102]: Система подсчета учеников
+        - generic [ref=e103]:
+          - generic [ref=e104]:
+            - img [ref=e106]
+            - generic [ref=e109]:
+              - heading "Медицинская Помощь" [level=2] [ref=e110]
+              - paragraph [ref=e111]: Полностью оборудованный медицинский кабинет
+          - list [ref=e112]:
+            - listitem [ref=e113]:
+              - img [ref=e115]
+              - generic [ref=e118]: Квалифицированная медсестра присутствует постоянно
+            - listitem [ref=e119]:
+              - img [ref=e121]
+              - generic [ref=e124]: Медицинский кабинет с основным оборудованием
+            - listitem [ref=e125]:
+              - img [ref=e127]
+              - generic [ref=e130]: Протоколы для неотложных состояний
+            - listitem [ref=e131]:
+              - img [ref=e133]
+              - generic [ref=e136]: Медицинские карты всех учащихся
+            - listitem [ref=e137]:
+              - img [ref=e139]
+              - generic [ref=e142]: Партнерство с ближайшей клиникой
+        - generic [ref=e143]:
+          - generic [ref=e144]:
+            - img [ref=e146]
+            - generic [ref=e149]:
+              - heading "Пропускной Режим" [level=2] [ref=e150]
+              - paragraph [ref=e151]: Контроль доступа на территорию
+          - list [ref=e152]:
+            - listitem [ref=e153]:
+              - img [ref=e155]
+              - generic [ref=e158]: Система Face ID для учеников и персонала
+            - listitem [ref=e159]:
+              - img [ref=e161]
+              - generic [ref=e164]: Все посетители регистрируются на ресепшене
+            - listitem [ref=e165]:
+              - img [ref=e167]
+              - generic [ref=e170]: Выдача временных пропусков
+            - listitem [ref=e171]:
+              - img [ref=e173]
+              - generic [ref=e176]: Запрещен вход посторонним лицам
+            - listitem [ref=e177]:
+              - img [ref=e179]
+              - generic [ref=e182]: Авторизованные лица для забора детей
+        - generic [ref=e183]:
+          - generic [ref=e184]:
+            - img [ref=e186]
+            - generic [ref=e189]:
+              - heading "Охрана Территории" [level=2] [ref=e190]
+              - paragraph [ref=e191]: Профессиональная охрана 24/7
+          - list [ref=e192]:
+            - listitem [ref=e193]:
+              - img [ref=e195]
+              - generic [ref=e198]: Закрытая охраняемая территория
+            - listitem [ref=e199]:
+              - img [ref=e201]
+              - generic [ref=e204]: Дежурство охраны круглосуточно
+            - listitem [ref=e205]:
+              - img [ref=e207]
+              - generic [ref=e210]: Регулярный обход территории
+            - listitem [ref=e211]:
+              - img [ref=e213]
+              - generic [ref=e216]: Система тревожной кнопки
+            - listitem [ref=e217]:
+              - img [ref=e219]
+              - generic [ref=e222]: Безопасное ограждение периметра
+        - generic [ref=e223]:
+          - generic [ref=e224]:
+            - img [ref=e226]
+            - generic [ref=e230]:
+              - heading "Видеонаблюдение" [level=2] [ref=e231]
+              - paragraph [ref=e232]: Современная система CCTV
+          - list [ref=e233]:
+            - listitem [ref=e234]:
+              - img [ref=e236]
+              - generic [ref=e239]: Камеры в коридорах, на входах и территории
+            - listitem [ref=e240]:
+              - img [ref=e242]
+              - generic [ref=e245]: Запись хранится 30 дней
+            - listitem [ref=e246]:
+              - img [ref=e248]
+              - generic [ref=e251]: Мониторинг в режиме реального времени
+            - listitem [ref=e252]:
+              - img [ref=e254]
+              - generic [ref=e257]: Соблюдение приватности учащихся
+            - listitem [ref=e258]:
+              - img [ref=e260]
+              - generic [ref=e263]: Доступ только у авторизованного персонала
+        - generic [ref=e264]:
+          - generic [ref=e265]:
+            - img [ref=e267]
+            - generic [ref=e271]:
+              - heading "Безопасность Питания" [level=2] [ref=e272]
+              - paragraph [ref=e273]: Здоровое и безопасное питание
+          - list [ref=e274]:
+            - listitem [ref=e275]:
+              - img [ref=e277]
+              - generic [ref=e280]: Собственная кухня с профессиональным поваром
+            - listitem [ref=e281]:
+              - img [ref=e283]
+              - generic [ref=e286]: Халяльное меню
+            - listitem [ref=e287]:
+              - img [ref=e289]
+              - generic [ref=e292]: Регулярные проверки санитарных норм
+            - listitem [ref=e293]:
+              - img [ref=e295]
+              - generic [ref=e298]: Учет аллергий и диетических ограничений
+            - listitem [ref=e299]:
+              - img [ref=e301]
+              - generic [ref=e304]: Свежие продукты каждый день
+        - generic [ref=e305]:
+          - generic [ref=e306]:
+            - img [ref=e308]
+            - generic [ref=e310]:
+              - heading "Процедуры ЧП" [level=2] [ref=e311]
+              - paragraph [ref=e312]: Готовность к чрезвычайным ситуациям
+          - list [ref=e313]:
+            - listitem [ref=e314]:
+              - img [ref=e316]
+              - generic [ref=e319]: План действий при пожаре
+            - listitem [ref=e320]:
+              - img [ref=e322]
+              - generic [ref=e325]: План действий при землетрясении
+            - listitem [ref=e326]:
+              - img [ref=e328]
+              - generic [ref=e331]: Аптечки первой помощи в каждом этаже
+            - listitem [ref=e332]:
+              - img [ref=e334]
+              - generic [ref=e337]: Обученный персонал по оказанию первой помощи
+            - listitem [ref=e338]:
+              - img [ref=e340]
+              - generic [ref=e343]: Регулярные инструктажи по безопасности
+      - generic [ref=e346]:
+        - generic [ref=e347]:
+          - img [ref=e349]
+          - generic [ref=e351]:
+            - heading "Контакты Безопасности" [level=2] [ref=e352]
+            - paragraph [ref=e353]: Свяжитесь с нами по любым вопросам безопасности
+        - generic [ref=e354]:
+          - link "Администрация +996 770 123 456" [ref=e355] [cursor=pointer]:
+            - /url: tel:+996770123456
+            - generic [ref=e356]: Администрация
+            - generic [ref=e357]: +996 770 123 456
+          - link "Медсестра +996 555 123 456" [ref=e358] [cursor=pointer]:
+            - /url: tel:+996555123456
+            - generic [ref=e359]: Медсестра
+            - generic [ref=e360]: +996 555 123 456
+          - link "Охрана +996 777 123 456" [ref=e361] [cursor=pointer]:
+            - /url: tel:+996777123456
+            - generic [ref=e362]: Охрана
+            - generic [ref=e363]: +996 777 123 456
+          - link "Email safety@intellectschool.kg" [ref=e364] [cursor=pointer]:
+            - /url: mailto:safety@intellectschool.kg
+            - generic [ref=e365]: Email
+            - generic [ref=e366]: safety@intellectschool.kg
+      - generic [ref=e368]:
+        - generic [ref=e369]:
+          - img [ref=e371]
+          - heading "Документы для Скачивания" [level=2] [ref=e375]
+        - generic [ref=e376]:
+          - generic [ref=e378] [cursor=pointer]:
+            - generic [ref=e379]:
+              - heading "Полное руководство по безопасности" [level=3] [ref=e380]
+              - generic [ref=e381]:
+                - generic [ref=e382]: PDF
+                - generic [ref=e383]: 2.5 MB
+            - img [ref=e385]
+          - generic [ref=e390] [cursor=pointer]:
+            - generic [ref=e391]:
+              - heading "План эвакуации" [level=3] [ref=e392]
+              - generic [ref=e393]:
+                - generic [ref=e394]: PDF
+                - generic [ref=e395]: 1.2 MB
+            - img [ref=e397]
+          - generic [ref=e402] [cursor=pointer]:
+            - generic [ref=e403]:
+              - heading "Медицинские протоколы" [level=3] [ref=e404]
+              - generic [ref=e405]:
+                - generic [ref=e406]: PDF
+                - generic [ref=e407]: 800 KB
+            - img [ref=e409]
+  - contentinfo [ref=e413]:
+    - generic [ref=e414]:
+      - generic [ref=e415]:
+        - generic [ref=e416]:
+          - link "INTELLECT INTERNATIONAL SCHOOL" [ref=e417] [cursor=pointer]:
+            - /url: /
+            - img "INTELLECT INTERNATIONAL SCHOOL" [ref=e418]
+          - paragraph [ref=e419]: Элитная частная школа в Бишкеке. Воспитываем лидеров будущего с 2016 года, объединяя традиции и инновации.
+          - generic [ref=e420]:
+            - link "Следите за нами в Instagram" [ref=e421] [cursor=pointer]:
+              - /url: https://instagram.com/intellect_pro_school
+              - img [ref=e422]
+            - link "Следите за нами в Facebook" [ref=e424] [cursor=pointer]:
+              - /url: https://facebook.com/intellectproschool
+              - img [ref=e425]
+            - link "Следите за нами в WhatsApp" [ref=e427] [cursor=pointer]:
+              - /url: https://wa.me/996555123456
+              - img [ref=e428]
+            - link "Следите за нами в Telegram" [ref=e430] [cursor=pointer]:
+              - /url: https://t.me/intellectproschool
+              - img [ref=e431]
+            - link "Следите за нами в YouTube" [ref=e433] [cursor=pointer]:
+              - /url: https://youtube.com/@intellectproschool
+              - img [ref=e434]
+        - generic [ref=e437]:
+          - heading "Навигация" [level=3] [ref=e438]: Навигация
+          - list [ref=e440]:
+            - listitem [ref=e441]:
+              - link "Главная" [ref=e442] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e443]:
+              - link "О нас" [ref=e444] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e445]:
+              - link "Программы" [ref=e446] [cursor=pointer]:
+                - /url: /programs
+            - listitem [ref=e447]:
+              - link "Преподаватели" [ref=e448] [cursor=pointer]:
+                - /url: /teachers
+            - listitem [ref=e449]:
+              - link "Контакты" [ref=e450] [cursor=pointer]:
+                - /url: /contacts
+        - generic [ref=e451]:
+          - heading "Правила и Безопасность" [level=3] [ref=e452]: Правила и Безопасность
+          - list [ref=e454]:
+            - listitem [ref=e455]:
+              - link "Для Учителей" [ref=e456] [cursor=pointer]:
+                - /url: /rules/teachers
+            - listitem [ref=e457]:
+              - link "Для Учеников" [ref=e458] [cursor=pointer]:
+                - /url: /rules/students
+            - listitem [ref=e459]:
+              - link "Для Родителей" [ref=e460] [cursor=pointer]:
+                - /url: /rules/parents
+            - listitem [ref=e461]:
+              - link "Протоколы Безопасности" [ref=e462] [cursor=pointer]:
+                - /url: /safety
+        - generic [ref=e463]:
+          - heading "Программы" [level=3] [ref=e464]: Программы
+          - list [ref=e466]:
+            - listitem [ref=e467]:
+              - link "Память и Внимание" [ref=e468] [cursor=pointer]:
+                - /url: /programs#memory
+            - listitem [ref=e469]:
+              - link "Критическое мышление" [ref=e470] [cursor=pointer]:
+                - /url: /programs#critical
+            - listitem [ref=e471]:
+              - link "Иностранные языки" [ref=e472] [cursor=pointer]:
+                - /url: /programs#languages
+            - listitem [ref=e473]:
+              - link "STEAM Лаборатории" [ref=e474] [cursor=pointer]:
+                - /url: /programs#steam
+        - generic [ref=e475]:
+          - heading "Контакты" [level=3] [ref=e476]: Контакты
+          - list [ref=e478]:
+            - listitem [ref=e479]:
+              - img [ref=e480]
+              - generic [ref=e483]:
+                - text: г. Бишкек, ул. Джунусалиева, 177/1
+                - text: ул. А. Бакаева, 119
+            - listitem [ref=e484]:
+              - img [ref=e485]
+              - generic [ref=e487]:
+                - link "+996 705 889 889" [ref=e488] [cursor=pointer]:
+                  - /url: tel:+996705889889
+                - link "+996 778 889 889" [ref=e489] [cursor=pointer]:
+                  - /url: tel:+996778889889
+            - listitem [ref=e490]:
+              - img [ref=e491]
+              - link "info@intellect.kg" [ref=e493] [cursor=pointer]:
+                - /url: mailto:info@intellect.kg
+      - paragraph [ref=e496]: © 2026 Intellect Pro School. Все права защищены.
+  - alert [ref=e497]

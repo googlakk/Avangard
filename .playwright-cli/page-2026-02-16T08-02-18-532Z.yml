@@ -1,0 +1,131 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "INTELLECT INTERNATIONAL SCHOOL" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "INTELLECT INTERNATIONAL SCHOOL" [ref=e6]
+      - navigation [ref=e7]:
+        - link "Главная" [ref=e8] [cursor=pointer]:
+          - /url: /
+          - text: Главная
+        - link "О нас" [ref=e9] [cursor=pointer]:
+          - /url: /about
+          - text: О нас
+        - link "Коллектив" [ref=e10] [cursor=pointer]:
+          - /url: /about/team
+          - text: Коллектив
+        - link "Программы" [ref=e11] [cursor=pointer]:
+          - /url: /programs
+          - text: Программы
+        - button "Правила и Безопасность" [ref=e13] [cursor=pointer]:
+          - text: Правила и Безопасность
+          - img [ref=e14]
+        - button "Для Родителей" [ref=e17] [cursor=pointer]:
+          - text: Для Родителей
+          - img [ref=e18]
+        - button "Для Учителей" [ref=e21] [cursor=pointer]:
+          - text: Для Учителей
+          - img [ref=e22]
+      - generic [ref=e24]:
+        - generic [ref=e25]:
+          - button "RU" [ref=e26] [cursor=pointer]
+          - button "EN" [ref=e27] [cursor=pointer]
+        - link "Связаться с нами" [ref=e28] [cursor=pointer]:
+          - /url: /contacts
+  - main [ref=e29]:
+    - generic [ref=e31]:
+      - heading "404" [level=1] [ref=e32]
+      - heading "This page could not be found." [level=2] [ref=e34]
+  - contentinfo [ref=e35]:
+    - generic [ref=e36]:
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - link "INTELLECT INTERNATIONAL SCHOOL" [ref=e39] [cursor=pointer]:
+            - /url: /
+            - img "INTELLECT INTERNATIONAL SCHOOL" [ref=e40]
+          - paragraph [ref=e41]: Элитная частная школа в Бишкеке. Воспитываем лидеров будущего с 2016 года, объединяя традиции и инновации.
+          - generic [ref=e42]:
+            - link "Следите за нами в Instagram" [ref=e43] [cursor=pointer]:
+              - /url: https://instagram.com/intellect_pro_school
+              - img [ref=e44]
+            - link "Следите за нами в Facebook" [ref=e46] [cursor=pointer]:
+              - /url: https://facebook.com/intellectproschool
+              - img [ref=e47]
+            - link "Следите за нами в WhatsApp" [ref=e49] [cursor=pointer]:
+              - /url: https://wa.me/996555123456
+              - img [ref=e50]
+            - link "Следите за нами в Telegram" [ref=e52] [cursor=pointer]:
+              - /url: https://t.me/intellectproschool
+              - img [ref=e53]
+            - link "Следите за нами в YouTube" [ref=e55] [cursor=pointer]:
+              - /url: https://youtube.com/@intellectproschool
+              - img [ref=e56]
+        - generic [ref=e59]:
+          - heading "Навигация" [level=3] [ref=e60]: Навигация
+          - list [ref=e62]:
+            - listitem [ref=e63]:
+              - link "Главная" [ref=e64] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e65]:
+              - link "О нас" [ref=e66] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e67]:
+              - link "Программы" [ref=e68] [cursor=pointer]:
+                - /url: /programs
+            - listitem [ref=e69]:
+              - link "Преподаватели" [ref=e70] [cursor=pointer]:
+                - /url: /teachers
+            - listitem [ref=e71]:
+              - link "Контакты" [ref=e72] [cursor=pointer]:
+                - /url: /contacts
+        - generic [ref=e73]:
+          - heading "Правила и Безопасность" [level=3] [ref=e74]: Правила и Безопасность
+          - list [ref=e76]:
+            - listitem [ref=e77]:
+              - link "Для Учителей" [ref=e78] [cursor=pointer]:
+                - /url: /rules/teachers
+            - listitem [ref=e79]:
+              - link "Для Учеников" [ref=e80] [cursor=pointer]:
+                - /url: /rules/students
+            - listitem [ref=e81]:
+              - link "Для Родителей" [ref=e82] [cursor=pointer]:
+                - /url: /rules/parents
+            - listitem [ref=e83]:
+              - link "Протоколы Безопасности" [ref=e84] [cursor=pointer]:
+                - /url: /rules/safety
+        - generic [ref=e85]:
+          - heading "Программы" [level=3] [ref=e86]: Программы
+          - list [ref=e88]:
+            - listitem [ref=e89]:
+              - link "Память и Внимание" [ref=e90] [cursor=pointer]:
+                - /url: /programs#memory
+            - listitem [ref=e91]:
+              - link "Критическое мышление" [ref=e92] [cursor=pointer]:
+                - /url: /programs#critical
+            - listitem [ref=e93]:
+              - link "Иностранные языки" [ref=e94] [cursor=pointer]:
+                - /url: /programs#languages
+            - listitem [ref=e95]:
+              - link "STEAM Лаборатории" [ref=e96] [cursor=pointer]:
+                - /url: /programs#steam
+        - generic [ref=e97]:
+          - heading "Контакты" [level=3] [ref=e98]: Контакты
+          - list [ref=e100]:
+            - listitem [ref=e101]:
+              - img [ref=e102]
+              - generic [ref=e105]:
+                - text: г. Бишкек, ул. Джунусалиева, 177/1
+                - text: ул. А. Бакаева, 119
+            - listitem [ref=e106]:
+              - img [ref=e107]
+              - generic [ref=e109]:
+                - link "+996 705 889 889" [ref=e110] [cursor=pointer]:
+                  - /url: tel:+996705889889
+                - link "+996 778 889 889" [ref=e111] [cursor=pointer]:
+                  - /url: tel:+996778889889
+            - listitem [ref=e112]:
+              - img [ref=e113]
+              - link "info@intellect.kg" [ref=e115] [cursor=pointer]:
+                - /url: mailto:info@intellect.kg
+      - paragraph [ref=e118]: © 2026 Intellect Pro School. Все права защищены.
+  - alert [ref=e119]

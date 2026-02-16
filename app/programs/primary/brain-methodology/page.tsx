@@ -14,7 +14,7 @@ export default function BrainMethodologyPage() {
             <section className="py-16 bg-navy-900 text-white">
                 <div className="container mx-auto px-4">
                     <Link
-                        href="/programs/junior"
+                        href="/programs/primary"
                         className="inline-flex items-center text-gray-300 hover:text-white mb-6 transition-colors"
                     >
                         ← Назад к Junior Programs
