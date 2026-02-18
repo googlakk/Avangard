@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:wght@100..900&family=IBM+Plex+Serif:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Lora:wght@400..700&family=Manrope:wght@200..800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,6 +7,13 @@
 :root {
   --foreground-rgb: 26, 32, 44;
   --background-rgb: 255, 255, 255;
+  --font-inter: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-montserrat: "Montserrat", "Arial", "Helvetica Neue", Helvetica, sans-serif;
+  --font-cormorant: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-ibm-plex-serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --font-cinzel: "Cinzel", Georgia, "Times New Roman", serif;
+  --font-lora: "Lora", Georgia, "Times New Roman", serif;
+  --font-manrope: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
 }
 
 * {

@@ -1,40 +1,6 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, Montserrat, Cormorant_Garamond, IBM_Plex_Serif, Cinzel, Lora, Manrope } from 'next/font/google';
 import './globals.css';
 import ClientProviders from '@/components/ClientProviders';
-
-const inter = Inter({
-    subsets: ['latin', 'cyrillic'],
-    variable: '--font-inter',
-    display: 'swap',
-});
-
-const montserrat = Montserrat({
-    subsets: ['latin', 'cyrillic'],
-    variable: '--font-montserrat',
-    display: 'swap',
-});
-
-const cormorantGaramond = Cormorant_Garamond({
-    subsets: ['latin', 'cyrillic'],
-    variable: '--font-cormorant',
-    display: 'swap',
-    weight: ['300', '400', '500', '600', '700'],
-});
-
-const ibmPlexSerif = IBM_Plex_Serif({
-    subsets: ['latin', 'cyrillic'],
-    variable: '--font-ibm-plex-serif',
-    display: 'swap',
-    weight: ['300', '400', '500', '600', '700'],
-});
-
-const cinzel = Cinzel({
-    subsets: ['latin'],
-    variable: '--font-cinzel',
-    display: 'swap',
-    weight: ['400', '500', '600', '700'],
-});
 
 export const viewport: Viewport = {
     width: 'device-width',
@@ -122,25 +88,13 @@ export const metadata: Metadata = {
     category: 'education',
 };
 
-const lora = Lora({
-    subsets: ['latin', 'cyrillic'],
-    variable: '--font-lora',
-    display: 'swap',
-});
-
-const manrope = Manrope({
-    subsets: ['latin', 'cyrillic'],
-    variable: '--font-manrope',
-    display: 'swap',
-});
-
 export default function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="ru" className={`${inter.variable} ${montserrat.variable} ${cormorantGaramond.variable} ${ibmPlexSerif.variable} ${cinzel.variable} ${lora.variable} ${manrope.variable}`}>
+        <html lang="ru">
             <body>
                 <ClientProviders>{children}</ClientProviders>
             </body>
