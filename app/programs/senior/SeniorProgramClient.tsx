@@ -12,17 +12,39 @@ import {
     getCognitiveAIData,
     getSelectiveAdmissionData
 } from '@/lib/data/senior-program';
+import { deepMerge, pickOverride, resolveLocalizedContent, type CmsOverrideMap } from '@/lib/cms/program-content';
 
-export default function SeniorProgramClient() {
-    const { t } = useLanguage();
+interface SeniorProgramClientProps {
+    cmsOverrides?: CmsOverrideMap;
+}
+
+export default function SeniorProgramClient({ cmsOverrides }: SeniorProgramClientProps) {
+    const { t, language } = useLanguage();
+
+    const seniorOfferData = resolveLocalizedContent(
+        deepMerge(getSeniorOfferData(t), pickOverride(cmsOverrides, 'senior-offer')),
+        language
+    );
+    const academicResultsData = resolveLocalizedContent(
+        deepMerge(getAcademicResultsData(t), pickOverride(cmsOverrides, 'senior-academic-results')),
+        language
+    );
+    const cognitiveAiData = resolveLocalizedContent(
+        deepMerge(getCognitiveAIData(t), pickOverride(cmsOverrides, 'senior-cognitive-ai')),
+        language
+    );
+    const selectiveAdmissionData = resolveLocalizedContent(
+        deepMerge(getSelectiveAdmissionData(t), pickOverride(cmsOverrides, 'senior-selective-admission')),
+        language
+    );
 
     return (
         <main className="bg-white">
-            <SeniorOffer {...getSeniorOfferData(t)} />
-            <AcademicResults {...getAcademicResultsData(t)} />
-            <CognitiveSuperiorityAI {...getCognitiveAIData(t)} />
+            <SeniorOffer {...seniorOfferData} />
+            <AcademicResults {...academicResultsData} />
+            <CognitiveSuperiorityAI {...cognitiveAiData} />
             <SeniorProgramTabs />
-            <SelectiveAdmission {...getSelectiveAdmissionData(t)} />
+            <SelectiveAdmission {...selectiveAdmissionData} />
         </main>
     );
 }

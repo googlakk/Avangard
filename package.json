@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
+    "e2e:critical": "node ./scripts/e2e-critical-flows.mjs",
     "check:migration-types": "bash ./scripts/check-migration-types-sync.sh",
     "prepare": "husky"
   },

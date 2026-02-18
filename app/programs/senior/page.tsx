@@ -1,4 +1,5 @@
 import SeniorProgramClient from './SeniorProgramClient';
+import { getPublishedCmsSectionPayloadsBySlug } from '@/lib/services/cms-public';
 
 export const metadata = {
     title: 'Intellect Senior (10-11 классы) | Intellect Pro',
@@ -15,6 +16,7 @@ export const metadata = {
     }
 };
 
-export default function SeniorProgramPage() {
-    return <SeniorProgramClient />;
+export default async function SeniorProgramPage() {
+    const cmsOverrides = await getPublishedCmsSectionPayloadsBySlug('program-senior');
+    return <SeniorProgramClient cmsOverrides={cmsOverrides || undefined} />;
 }

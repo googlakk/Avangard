@@ -271,7 +271,7 @@ export default function AdminDashboardPage() {
                             <Link href="/admin/news" className="px-3 py-2 text-sm text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50">News</Link>
                             <Link href="/admin/documents" className="px-3 py-2 text-sm text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50">Documents</Link>
                             <Link href="/admin/gallery" className="px-3 py-2 text-sm text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50">Gallery</Link>
-                            <Link href="/admin/pages" className="px-3 py-2 text-sm text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50">Pages Builder</Link>
+                            <Link href="/admin/pages" className="px-3 py-2 text-sm text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50">Program & Pages Builder</Link>
                         </div>
                     </div>
                 </div>

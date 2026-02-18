@@ -1,4 +1,5 @@
 import JuniorProgramClient from './JuniorProgramClient';
+import { getPublishedCmsSectionPayloadsBySlug } from '@/lib/services/cms-public';
 
 export const metadata = {
     title: 'Начальная школа Intellect Junior (1-4 классы) | Intellect Pro',
@@ -16,6 +17,7 @@ export const metadata = {
     }
 };
 
-export default function JuniorProgramPage() {
-    return <JuniorProgramClient />;
+export default async function JuniorProgramPage() {
+    const cmsOverrides = await getPublishedCmsSectionPayloadsBySlug('program-primary');
+    return <JuniorProgramClient cmsOverrides={cmsOverrides || undefined} />;
 }

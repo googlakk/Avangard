@@ -23,7 +23,15 @@ export interface LifestyleCareFeature {
     subtitle: string;
     description: string[];
     benefit?: string;
+    backgroundImage?: string;
 }
+
+export const JUNIOR_LIFESTYLE_CARD_BACKGROUNDS = [
+    'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200',
+    'https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1200',
+    'https://images.unsplash.com/photo-1567521464027-f127ff144326?q=80&w=1200',
+    'https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1200',
+]
 
 export const getLifestyleCareFeatures = (t: any): LifestyleCareFeature[] => [
     {
@@ -31,25 +39,29 @@ export const getLifestyleCareFeatures = (t: any): LifestyleCareFeature[] => [
         title: t.junior.lifestyle.studyClub.title,
         subtitle: t.junior.lifestyle.studyClub.subtitle,
         description: t.junior.lifestyle.studyClub.description,
-        benefit: t.junior.lifestyle.studyClub.benefit
+        benefit: t.junior.lifestyle.studyClub.benefit,
+        backgroundImage: JUNIOR_LIFESTYLE_CARD_BACKGROUNDS[0],
     },
     {
         icon: "Ban",
         title: t.junior.lifestyle.noBackpacks.title,
         subtitle: t.junior.lifestyle.noBackpacks.subtitle,
-        description: t.junior.lifestyle.noBackpacks.description
+        description: t.junior.lifestyle.noBackpacks.description,
+        backgroundImage: JUNIOR_LIFESTYLE_CARD_BACKGROUNDS[1],
     },
     {
         icon: "Salad",
         title: t.junior.lifestyle.healthyFood.title,
         subtitle: t.junior.lifestyle.healthyFood.subtitle,
-        description: t.junior.lifestyle.healthyFood.description
+        description: t.junior.lifestyle.healthyFood.description,
+        backgroundImage: JUNIOR_LIFESTYLE_CARD_BACKGROUNDS[2],
     },
     {
         icon: "Shield",
         title: t.junior.lifestyle.security.title,
         subtitle: t.junior.lifestyle.security.subtitle,
-        description: t.junior.lifestyle.security.description
+        description: t.junior.lifestyle.security.description,
+        backgroundImage: JUNIOR_LIFESTYLE_CARD_BACKGROUNDS[3],
     }
 ];
 

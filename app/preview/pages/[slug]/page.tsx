@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation'
 import { createClient } from '@supabase/supabase-js'
 import { validateAndConsumePreviewLink } from '@/lib/services/preview-links'
+import CmsProgramPageRenderer from '@/components/cms/CmsProgramPageRenderer'
+import type { PublicCmsPage, PublicCmsSection } from '@/lib/services/cms-public'
 
 export const dynamic = 'force-dynamic'
 
@@ -52,30 +54,16 @@ export default async function PreviewCmsPage({
         .order('order_index', { ascending: true })
 
     return (
-        <main className="max-w-5xl mx-auto px-4 py-12">
-            <header className="mb-8">
+        <div>
+            <div className="max-w-7xl mx-auto px-4 pt-6">
                 <div className="mb-4 text-xs font-semibold uppercase tracking-wide text-amber-700 bg-amber-50 border border-amber-100 inline-flex px-2.5 py-1 rounded-full">
-                    Preview Mode
+                    Preview Mode · {page.status}
                 </div>
-                <h1 className="text-3xl font-bold text-gray-900">{page.title_ru}</h1>
-                <p className="text-gray-500 mt-2">
-                    {page.title_en} · status: {page.status}
-                </p>
-            </header>
-
-            <div className="space-y-4">
-                {(sections || []).map(section => (
-                    <section key={section.id} className="border border-gray-200 rounded-xl p-4 bg-white">
-                        <div className="flex items-center gap-2 mb-2">
-                            <span className="text-xs text-gray-500 uppercase">{section.type}</span>
-                            <span className="text-xs text-gray-400">{section.key}</span>
-                        </div>
-                        <pre className="text-sm text-gray-700 whitespace-pre-wrap break-words">
-                            {JSON.stringify(section.payload, null, 2)}
-                        </pre>
-                    </section>
-                ))}
             </div>
-        </main>
+            <CmsProgramPageRenderer
+                page={page as PublicCmsPage}
+                sections={(sections || []) as unknown as PublicCmsSection[]}
+            />
+        </div>
     )
 }

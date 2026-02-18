@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { LifestyleCareFeature } from '@/lib/data/junior-program';
+import { JUNIOR_LIFESTYLE_CARD_BACKGROUNDS, LifestyleCareFeature } from '@/lib/data/junior-program';
 import { IconWrapper } from '@/lib/icon-wrapper';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -12,14 +12,6 @@ interface LifestyleAndCareSectionProps {
         message: string;
     };
 }
-
-// Background images for each card
-const cardBackgrounds = [
-    'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200', // Study Club - teacher with student
-    'https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1200', // No Backpacks - school lockers
-    'https://images.unsplash.com/photo-1567521464027-f127ff144326?q=80&w=1200', // Healthy Food - kitchen/food prep
-    'https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1200'  // Security - monitoring/security
-];
 
 export default function LifestyleAndCareSection({ features, photoProof }: LifestyleAndCareSectionProps) {
     const { t } = useLanguage();
@@ -54,7 +46,7 @@ export default function LifestyleAndCareSection({ features, photoProof }: Lifest
                         >
                             {/* Background Image */}
                             <Image
-                                src={cardBackgrounds[index]}
+                                src={feature.backgroundImage || JUNIOR_LIFESTYLE_CARD_BACKGROUNDS[index] || JUNIOR_LIFESTYLE_CARD_BACKGROUNDS[0]}
                                 alt={feature.title}
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -103,6 +95,34 @@ export default function LifestyleAndCareSection({ features, photoProof }: Lifest
                     ))}
                 </div>
 
+                {/* CMS proof block (editable from admin: junior-lifestyle-care-proof) */}
+                {(photoProof?.images?.length > 0 || photoProof?.message) && (
+                    <div className="max-w-7xl mx-auto mt-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {photoProof.images?.slice(0, 2).map((item, idx) => (
+                                <div key={`lifestyle-proof-${idx}`} className="relative h-48 rounded-2xl overflow-hidden border border-slate-200">
+                                    <Image
+                                        src={item.src}
+                                        alt={item.caption || `Proof image ${idx + 1}`}
+                                        fill
+                                        className="object-cover"
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                    />
+                                    {item.caption && (
+                                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                                            <p className="text-xs md:text-sm text-white font-manrope">{item.caption}</p>
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                        {photoProof.message && (
+                            <div className="mt-3 rounded-xl bg-white border border-slate-200 px-4 py-3">
+                                <p className="text-sm md:text-base font-manrope text-slate-700">{photoProof.message}</p>
+                            </div>
+                        )}
+                    </div>
+                )}
 
             </div>
         </section>

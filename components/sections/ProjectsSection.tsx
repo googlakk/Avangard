@@ -3,69 +3,19 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
-
-// Грани образовательной экосистемы
-const programs = [
-    {
-        id: 1,
-        title: 'Intellect Junior',
-        badge: '1-4 классы',
-        description: 'Фундамент будущего. Мягкая адаптация, развитие Soft Skills и билингвальная среда.',
-        subtitle: 'Начальная школа',
-        image: '/images/junior-morning-exercise.png',
-        url: '/programs/primary',
-    },
-    {
-        id: 2,
-        title: 'Intellect Middle',
-        badge: '5-9 классы',
-        description: 'Раскрытие потенциала. Cambridge System, STEAM-лаборатории и проектная деятельность.',
-        subtitle: 'Средняя школа',
-        image: '/images/middle-entrance-group.png',
-        url: '/programs/middle',
-    },
-    {
-        id: 3,
-        title: 'Intellect Senior',
-        badge: '10-11 классы',
-        description: 'Путь в университеты. Подготовка к IELTS/TOEFL/ORT и карьерное консультирование.',
-        subtitle: 'Старшая школа',
-        image: '/images/senior-medalists.png',
-        url: '/programs/senior',
-    },
-    {
-        id: 4,
-        title: 'Global Network',
-        badge: 'Международные возможности',
-        description: 'Обучение без границ. Партнерство с мировыми школами, программы обмена и двойные дипломы.',
-        subtitle: 'Партнерства',
-        image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000',
-        url: '/programs/global-network',
-    },
-    {
-        id: 5,
-        title: 'Life at Intellect',
-        badge: '15+ секций',
-        description: 'Творчество и Спорт. 15+ секций, лидерские программы и волонтерство.',
-        subtitle: 'Жизнь вне классов',
-        image: '/images/10а квиз.png',
-        url: '/programs/life-at-intellect',
-    },
-    {
-        id: 6,
-        title: 'Admissions',
-        badge: 'Стипендии и гранты',
-        description: 'Станьте частью сообщества. Прозрачные шаги зачисления, стипендии и гранты.',
-        subtitle: 'Поступление',
-        image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1000',
-        url: '/admissions',
-    },
-];
+import { useEffect, useMemo, useState } from 'react';
+import { createClient } from '@/lib/supabase/client';
 
 export default function ProgramsSection() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
+    const [cmsProgramCards, setCmsProgramCards] = useState<Record<string, {
+        title: string;
+        subtitle: string;
+        description: string;
+        image: string;
+    }>>({});
 
-    const programs = [
+    const programs = useMemo(() => [
         {
             id: 1,
             title: t.programs.items.junior.title,
@@ -120,7 +70,97 @@ export default function ProgramsSection() {
             image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1000',
             url: '/parents/admission',
         },
-    ];
+    ], [t]);
+
+    useEffect(() => {
+        let mounted = true;
+        const supabase = createClient();
+
+        (async () => {
+            const { data: pages } = await supabase
+                .from('cms_pages')
+                .select('id, slug, title_ru, title_en')
+                .in('slug', ['program-primary', 'program-middle', 'program-senior'])
+                .eq('status', 'published');
+
+            if (!mounted || !pages?.length) return;
+
+            const pageIds = pages.map(page => page.id);
+            const { data: sections } = await supabase
+                .from('cms_sections')
+                .select('page_id, type, payload, order_index')
+                .in('page_id', pageIds)
+                .eq('is_enabled', true)
+                .order('order_index', { ascending: true });
+
+            if (!mounted) return;
+
+            const sectionByPage = new Map<string, Array<{ type: string; payload: Record<string, unknown> }>>();
+            (sections || []).forEach(section => {
+                const list = sectionByPage.get(section.page_id) || [];
+                list.push({
+                    type: section.type,
+                    payload: (section.payload || {}) as Record<string, unknown>,
+                });
+                sectionByPage.set(section.page_id, list);
+            });
+
+            const localized = (value: unknown) => {
+                if (typeof value === 'string') return value;
+                if (value && typeof value === 'object') {
+                    const maybeLocalized = value as { ru?: string; en?: string };
+                    return maybeLocalized[language] || maybeLocalized.ru || maybeLocalized.en || '';
+                }
+                return '';
+            };
+
+            const nextMap: Record<string, { title: string; subtitle: string; description: string; image: string }> = {};
+            pages.forEach(page => {
+                const records = sectionByPage.get(page.id) || [];
+                const hero = records.find(record => record.type === 'hero');
+                const content = records.find(record => record.type === 'content');
+
+                const title = language === 'en' ? page.title_en : page.title_ru;
+                const subtitle = localized(hero?.payload?.subtitle);
+                const description = localized(content?.payload?.text) || localized(hero?.payload?.description);
+                const image = typeof hero?.payload?.imageUrl === 'string' ? hero.payload.imageUrl : '';
+
+                nextMap[page.slug] = {
+                    title,
+                    subtitle,
+                    description,
+                    image,
+                };
+            });
+
+            setCmsProgramCards(nextMap);
+        })();
+
+        return () => {
+            mounted = false;
+        };
+    }, [language]);
+
+    const dynamicPrograms = useMemo(() => {
+        const overrides: Record<string, string> = {
+            '/programs/primary': 'program-primary',
+            '/programs/middle': 'program-middle',
+            '/programs/senior': 'program-senior',
+        };
+
+        return programs.map(program => {
+            const slug = overrides[program.url];
+            const cms = slug ? cmsProgramCards[slug] : null;
+            if (!cms) return program;
+            return {
+                ...program,
+                title: cms.title || program.title,
+                subtitle: cms.subtitle || program.subtitle,
+                description: cms.description || program.description,
+                image: cms.image || program.image,
+            };
+        });
+    }, [programs, cmsProgramCards]);
 
     return (
         <section className="min-h-screen py-8 md:py-12 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden flex items-center">
@@ -171,7 +211,7 @@ export default function ProgramsSection() {
 
                 {/* Сетка программ - компактнее */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 max-w-6xl mx-auto">
-                    {programs.map((program) => (
+                    {dynamicPrograms.map((program) => (
                         <Link
                             href={program.url}
                             key={program.id}

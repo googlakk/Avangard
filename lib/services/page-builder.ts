@@ -54,6 +54,11 @@ function getSupabase() {
     }
 }
 
+function isMissingColumnError(error: unknown, column: string, table: string) {
+    const message = (error as { message?: string })?.message || ''
+    return message.includes(`'${column}'`) && message.includes(`'${table}'`)
+}
+
 export async function listCmsPages() {
     const supabase = getSupabase()
     const { data, error } = await supabase
@@ -65,21 +70,49 @@ export async function listCmsPages() {
     return (data || []) as CmsPageRecord[]
 }
 
-export async function createCmsPage(input: Partial<CmsPageRecord>) {
+export async function getCmsPageBySlug(slug: string) {
     const supabase = getSupabase()
     const { data, error } = await supabase
         .from('cms_pages')
-        .insert({
-            slug: input.slug,
-            title_ru: input.title_ru,
-            title_en: input.title_en,
-            status: input.status || 'draft',
-            version: input.version || 1,
-            scheduled_at: input.scheduled_at || null,
-            published_at: input.published_at || null,
-        })
         .select('*')
-        .single()
+        .eq('slug', slug)
+        .maybeSingle()
+
+    if (error) throw error
+    return (data || null) as CmsPageRecord | null
+}
+
+export async function createCmsPage(input: Partial<CmsPageRecord>) {
+    const supabase = getSupabase()
+    const basePayload: Record<string, unknown> = {
+        slug: input.slug,
+        title_ru: input.title_ru,
+        title_en: input.title_en,
+        status: input.status || 'draft',
+        version: input.version || 1,
+        published_at: input.published_at || null,
+    }
+
+    if (Object.prototype.hasOwnProperty.call(input, 'scheduled_at')) {
+        basePayload.scheduled_at = input.scheduled_at || null
+    }
+
+    const insertWithPayload = async (payload: Record<string, unknown>) =>
+        supabase
+            .from('cms_pages')
+            .insert(payload)
+            .select('*')
+            .single()
+
+    let { data, error } = await insertWithPayload(basePayload)
+
+    if (error && isMissingColumnError(error, 'scheduled_at', 'cms_pages')) {
+        const fallbackPayload = { ...basePayload }
+        delete fallbackPayload.scheduled_at
+        const retried = await insertWithPayload(fallbackPayload)
+        data = retried.data
+        error = retried.error
+    }
 
     if (error) throw error
     return data as CmsPageRecord
@@ -135,12 +168,23 @@ export async function updateCmsPage(pageId: string, input: Partial<CmsPageRecord
 
     const payload = preparePageLifecyclePayload(current as CmsPageRecord, input)
 
-    const { data, error } = await supabase
-        .from('cms_pages')
-        .update(payload)
-        .eq('id', pageId)
-        .select('*')
-        .single()
+    const updateWithPayload = async (nextPayload: Partial<CmsPageRecord>) =>
+        supabase
+            .from('cms_pages')
+            .update(nextPayload)
+            .eq('id', pageId)
+            .select('*')
+            .single()
+
+    let { data, error } = await updateWithPayload(payload)
+
+    if (error && isMissingColumnError(error, 'scheduled_at', 'cms_pages')) {
+        const fallbackPayload = { ...payload }
+        delete fallbackPayload.scheduled_at
+        const retried = await updateWithPayload(fallbackPayload)
+        data = retried.data
+        error = retried.error
+    }
 
     if (error) throw error
     return data as CmsPageRecord
