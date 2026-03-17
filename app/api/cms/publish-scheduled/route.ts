@@ -6,9 +6,10 @@ export const dynamic = 'force-dynamic'
 function getServiceClient() {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
     const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+    const workflowToken = process.env.CMS_WORKFLOW_TOKEN
 
-    if (!supabaseUrl || !serviceRoleKey) {
-        throw new Error('Missing Supabase service role configuration')
+    if (!supabaseUrl || !serviceRoleKey || !workflowToken) {
+        throw new Error('Missing production workflow configuration')
     }
 
     return createClient(supabaseUrl, serviceRoleKey)
@@ -16,7 +17,7 @@ function getServiceClient() {
 
 function isAuthorized(request: NextRequest) {
     const workflowToken = process.env.CMS_WORKFLOW_TOKEN
-    if (!workflowToken) return true
+    if (!workflowToken) return false
     return request.headers.get('x-workflow-token') === workflowToken
 }
 

@@ -11,6 +11,7 @@ export type StorageBucket =
     | 'administration-photos'
     | 'news-images'
     | 'gallery-images'
+    | 'portal-images'
 
 /**
  * Upload file to Supabase Storage
@@ -188,6 +189,27 @@ export async function uploadGalleryImages(files: File[], galleryId: string) {
 }
 
 /**
+ * Upload portal post image
+ * Max size: 5MB
+ */
+export async function uploadPortalImage(file: File, slug: string) {
+    const validTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/avif']
+    if (!validTypes.includes(file.type)) {
+        throw new Error('Only JPEG, PNG, WebP, and AVIF images are allowed')
+    }
+
+    if (file.size > 5242880) {
+        throw new Error('Image size must be less than 5MB')
+    }
+
+    const timestamp = Date.now()
+    const extension = file.name.split('.').pop()
+    const fileName = `${slug}/${timestamp}.${extension}`
+
+    return uploadFile('portal-images', fileName, file)
+}
+
+/**
  * Storage bucket configuration
  */
 export const STORAGE_CONFIG = {
@@ -210,5 +232,10 @@ export const STORAGE_CONFIG = {
         maxSize: 10485760, // 10MB
         allowedTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/avif'],
         bucket: 'gallery-images' as StorageBucket,
+    },
+    'portal-images': {
+        maxSize: 5242880, // 5MB
+        allowedTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/avif'],
+        bucket: 'portal-images' as StorageBucket,
     },
 } as const

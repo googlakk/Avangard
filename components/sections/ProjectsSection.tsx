@@ -50,7 +50,7 @@ export default function ProgramsSection() {
             description: t.programs.items.global.description,
             subtitle: t.programs.items.global.subtitle,
             image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000',
-            url: '/programs',
+            url: '/students/results',
         },
         {
             id: 5,

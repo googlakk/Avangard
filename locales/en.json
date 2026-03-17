@@ -7,6 +7,23 @@
         "contacts": "Contact",
         "teachers": "Faculty",
         "admission": "Admissions",
+        "aboutMenu": {
+            "title": "About School",
+            "items": {
+                "about": {
+                    "title": "About Us",
+                    "description": "History and philosophy"
+                },
+                "team": {
+                    "title": "Team",
+                    "description": "Our professional team"
+                },
+                "programs": {
+                    "title": "Programs",
+                    "description": "Educational opportunities"
+                }
+            }
+        },
         "parentsMenu": {
             "title": "For Parents",
             "items": {
@@ -29,6 +46,14 @@
                 "faq": {
                     "title": "FAQ",
                     "description": "Frequently asked questions"
+                },
+                "parentsSchool": {
+                    "title": "Parents School",
+                    "description": "Events and courses"
+                },
+                "platforms": {
+                    "title": "Useful Platforms",
+                    "description": "Resources and tools"
                 }
             }
         },
@@ -46,6 +71,14 @@
                 "careers": {
                     "title": "Careers",
                     "description": "Join our team"
+                },
+                "teachersSchool": {
+                    "title": "Teachers School",
+                    "description": "Professional development"
+                },
+                "teachersPlatforms": {
+                    "title": "Useful Platforms",
+                    "description": "Tools for educators"
                 }
             }
         },
@@ -829,7 +862,7 @@
                 "subtitle": "Enrolment"
             }
         },
-        "moreDetails": "Explore Project"
+        "moreDetails": "Learn more"
     },
     "teachers": {
         "careers": {
@@ -1494,6 +1527,27 @@
                         ]
                     }
                 },
+                "highlights": {
+                    "professional": {
+                        "title": "Professional Conduct",
+                        "description": "High standards of ethics and professionalism"
+                    },
+                    "classroom": {
+                        "title": "Classroom Management",
+                        "description": "Effective teaching and discipline practices"
+                    },
+                    "students": {
+                        "title": "Student Interaction",
+                        "description": "A safe and inclusive environment for every learner"
+                    }
+                },
+                "mainTitle": "Professional Standards",
+                "mainSubtitle": "Review our professional standards and expectations",
+                "cta": "Download PDF",
+                "footer": {
+                    "effectiveDate": "Effective from: September 1, 2026",
+                    "contact": "For questions, contact school administration"
+                },
                 "effectiveDate": "September 1, 2026",
                 "contact": "For questions, contact school administration"
             },
@@ -1527,6 +1581,27 @@
                         ]
                     },
                     "academic": {
+                        "title": "Academic Integrity",
+                        "items": [
+                            {
+                                "title": "Original Work",
+                                "description": "All submitted assignments must be your own work."
+                            },
+                            {
+                                "title": "Citations",
+                                "description": "Properly cite all sources used."
+                            },
+                            {
+                                "title": "No Cheating",
+                                "description": "Cheating on exams or tests is strictly prohibited."
+                            },
+                            {
+                                "title": "Collaboration",
+                                "description": "Work collaboratively only when permitted by the teacher."
+                            }
+                        ]
+                    },
+                    "integrity": {
                         "title": "Academic Integrity",
                         "items": [
                             {
@@ -1603,6 +1678,23 @@
                         ]
                     }
                 },
+                "highlights": {
+                    "conduct": {
+                        "title": "Code of Conduct",
+                        "description": "Respect, safety, and honesty"
+                    },
+                    "integrity": {
+                        "title": "Academic Integrity",
+                        "description": "Original work and proper citation"
+                    },
+                    "dress": {
+                        "title": "Dress Code",
+                        "description": "School uniform and a neat appearance"
+                    }
+                },
+                "mainTitle": "Code of Conduct",
+                "mainSubtitle": "Rules and expectations for all Intellect School students",
+                "cta": "Download Student Guide",
                 "consequences": {
                     "title": "Consequences of Violations",
                     "description": "Violating school rules may result in:",
@@ -1611,7 +1703,17 @@
                         "Parent meeting",
                         "Temporary suspension",
                         "In serious cases — expulsion"
+                    ],
+                    "steps": [
+                        "Warning",
+                        "Parent meeting",
+                        "Temporary suspension",
+                        "In serious cases — expulsion"
                     ]
+                },
+                "footer": {
+                    "effectiveDate": "Effective from: September 1, 2026",
+                    "contact": "For questions, contact your class teacher"
                 },
                 "effectiveDate": "September 1, 2026"
             },
@@ -1699,6 +1801,23 @@
                             }
                         ]
                     },
+                    "volunteering": {
+                        "title": "Volunteering",
+                        "items": [
+                            {
+                                "title": "Opportunities",
+                                "description": "Parents are invited to participate in school events."
+                            },
+                            {
+                                "title": "Screening",
+                                "description": "All volunteers must undergo background checks."
+                            },
+                            {
+                                "title": "Confidentiality",
+                                "description": "Respect the confidentiality of all students."
+                            }
+                        ]
+                    },
                     "complaints": {
                         "title": "Complaints and Concerns",
                         "items": [
@@ -1741,6 +1860,27 @@
                             }
                         ]
                     }
+                },
+                "highlights": {
+                    "communication": {
+                        "title": "Regular Communication",
+                        "description": "Stay in touch with the school and teachers"
+                    },
+                    "visits": {
+                        "title": "School Visits",
+                        "description": "Guidelines for visiting the school"
+                    },
+                    "partnership": {
+                        "title": "Partnership in Learning",
+                        "description": "Shared responsibility for each child's success"
+                    }
+                },
+                "mainTitle": "Parent Guide",
+                "mainSubtitle": "Rules for communication and partnership in your child's education",
+                "cta": "Download PDF",
+                "footer": {
+                    "effectiveDate": "Effective from: September 1, 2026",
+                    "contact": "For questions, contact reception@intellectschool.kg"
                 },
                 "effectiveDate": "September 1, 2026"
             }

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit",
+    "type-check": "tsc -p tsconfig.typecheck.json --noEmit",
+    "preflight:env": "node ./scripts/preflight-env.mjs",
     "e2e:critical": "node ./scripts/e2e-critical-flows.mjs",
     "check:migration-types": "bash ./scripts/check-migration-types-sync.sh",
     "prepare": "husky"

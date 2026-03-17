@@ -1,112 +1,66 @@
-# Корпоративный Сайт на Next.js
+# INTELLECT INTERNATIONAL SCHOOL
 
-Современная базовая архитектура корпоративного сайта на Next.js 14 с TypeScript и Tailwind CSS.
+Next.js 14 + Supabase проект публичного сайта и CMS Intellect International School. Production target: `Vercel + Supabase`.
 
-## 🚀 Быстрый Старт
+## Быстрый старт
 
 ```bash
-# Установка зависимостей
 npm install
-
-# Запуск dev-сервера
+cp .env.example .env.local
+npm run preflight:env
 npm run dev
-
-# Открыть http://localhost:3000
 ```
 
-## 📁 Структура Проекта
+Публичные страницы работают через locale-aware routing:
+- `http://localhost:3000/ru`
+- `http://localhost:3000/en`
 
-```
-├── app/                    # Next.js App Router
-│   ├── layout.tsx         # Корневой layout
-│   ├── page.tsx           # Главная страница
-│   ├── about/             # Страница "О компании"
-│   ├── services/          # Страница "Услуги"
-│   └── contacts/          # Страница "Контакты"
-├── components/
-│   ├── ui/                # UI компоненты (Button, Card)
-│   ├── layout/            # Layout (Header, Footer)
-│   └── sections/          # Секции (Hero, Features, CTA)
-├── lib/                   # Утилиты и константы
-├── types/                 # TypeScript типы
-└── public/                # Статические файлы
-```
+Не-локализованные public URL автоматически редиректятся на locale из cookie или на `ru` по умолчанию.
 
-## 🛠️ Технологии
+## Обязательные env
 
-- **Next.js 14** - React фреймворк с App Router
-- **TypeScript** - Типобезопасность
-- **Tailwind CSS** - Utility-first CSS
-- **ESLint** - Линтинг кода
-- **Prettier** - Форматирование кода
+См. [.env.example](/Users/intellectmac/Personal/avangardIntellect/.env.example).
 
-## 📄 Страницы
+Критичные production переменные:
+- `NEXT_PUBLIC_SITE_URL`
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `SUPABASE_SERVICE_ROLE_KEY`
+- `CMS_WORKFLOW_TOKEN`
 
-- **/** - Главная страница (Hero, Features, CTA)
-- **/about** - О компании (Миссия, Видение, Ценности)
-- **/services** - Услуги (6 услуг, процесс работы)
-- **/contacts** - Контакты (Форма обратной связи)
-
-## 🎨 Особенности
-
-- ✅ Премиум темный дизайн с градиентами
-- ✅ Glassmorphism эффекты
-- ✅ Адаптивная навигация
-- ✅ Анимации и transitions
-- ✅ SEO-оптимизация
-- ✅ TypeScript типизация
-
-## 📝 Команды
+## Основные команды
 
 ```bash
-npm run dev      # Запуск dev-сервера
-npm run build    # Production сборка
-npm run start    # Запуск production сервера
-npm run lint     # Проверка кода ESLint
+npm run preflight:env
+npm run lint
+npm run type-check
+npm run build
+npm run start
+npm run e2e:critical
+npm run check:migration-types
 ```
 
-## 📖 Документация
-
-Полная документация доступна в `walkthrough.md`.
-
-## 🔧 Настройка
-
-### Изменение данных компании
-
-Отредактируйте файл `lib/constants.ts`:
-
-```typescript
-export const SITE_CONFIG = {
-  name: 'Ваша Компания',
-  email: 'info@yourcompany.com',
-  phone: '+7 (XXX) XXX-XX-XX',
-  address: 'г. Москва, ул. Примерная, д. 1',
-};
-```
-
-### Добавление новых страниц
-
-Создайте директорию в `app/`:
+## Release pipeline
 
 ```bash
-mkdir app/new-page
-touch app/new-page/page.tsx
+npm ci
+npm run preflight:env
+npm run check:migration-types
+npm run lint
+npm run type-check
+npm run build
+npm run start
+npm run e2e:critical
 ```
 
-## 📊 Производительность
+## Release checklist
 
-- ⚡ Dev-сервер: ~1.7s запуск
-- ⚡ Hot Reload: мгновенный
-- ⚡ Production Build: оптимизирован
-
-## 🎯 Следующие Шаги
-
-1. Интеграция с CMS (Sanity.io, Strapi)
-2. Добавление мультиязычности (next-intl)
-3. Настройка Email API для формы
-4. Добавление реальных изображений
-5. Настройка аналитики
-
----
-
-**Разработано с ❤️ на Next.js**
+- env проверены через `preflight:env`
+- migrations применены
+- `lib/database.types.ts` синхронизирован
+- `lint`, `type-check`, `build`, smoke E2E проходят
+- `sitemap.xml` содержит RU и EN URL
+- `robots.txt` и localized routes доступны
+- admin routes без сессии редиректят на `/admin/login`
+- scheduled publish и upload routes защищены
+- debug/test routes отсутствуют в production

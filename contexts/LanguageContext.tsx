@@ -1,10 +1,11 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode } from 'react';
 import ru from '@/locales/ru.json';
 import en from '@/locales/en.json';
+import { DEFAULT_LOCALE, LOCALE_COOKIE_NAME, type PublicLocale } from '@/lib/i18n';
 
-type Language = 'ru' | 'en';
+type Language = PublicLocale;
 type Translations = typeof ru & {
     senior: any;
     teachers: any;
@@ -24,22 +25,18 @@ const translations: Record<Language, Translations> = {
     en: en as Translations,
 };
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-    const [language, setLanguageState] = useState<Language>('ru');
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        // Load language from localStorage on mount
-        const savedLanguage = localStorage.getItem('language') as Language;
-        if (savedLanguage && (savedLanguage === 'ru' || savedLanguage === 'en')) {
-            setLanguageState(savedLanguage);
-        }
-        setMounted(true);
-    }, []);
+export function LanguageProvider({
+    children,
+    initialLanguage = DEFAULT_LOCALE,
+}: {
+    children: ReactNode
+    initialLanguage?: Language
+}) {
+    const [language, setLanguageState] = useState<Language>(initialLanguage);
 
     const setLanguage = (lang: Language) => {
         setLanguageState(lang);
-        localStorage.setItem('language', lang);
+        document.cookie = `${LOCALE_COOKIE_NAME}=${lang}; Path=/; Max-Age=31536000; SameSite=Lax`;
     };
 
     const value: LanguageContextType = {

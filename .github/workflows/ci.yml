@@ -9,6 +9,12 @@ on:
 jobs:
   quality:
     runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      CMS_WORKFLOW_TOKEN: ${{ secrets.CMS_WORKFLOW_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,14 +28,32 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Preflight environment
+        run: npm run preflight:env
+
       - name: Check migration/types sync
         run: npm run check:migration-types
 
       - name: Lint
         run: npm run lint
 
+      - name: Type Check
+        run: npm run type-check
+
       - name: Build
         run: npm run build
 
-      - name: Type Check
-        run: npm run type-check
+      - name: Start production server
+        run: |
+          npm run start > /tmp/intellect-next.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:3000/ru > /dev/null; then
+              exit 0
+            fi
+            sleep 2
+          done
+          cat /tmp/intellect-next.log
+          exit 1
+
+      - name: Critical smoke E2E
+        run: npm run e2e:critical

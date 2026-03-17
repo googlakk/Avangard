@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { localizePathname } from '@/lib/i18n';
 
 interface DropdownItem {
     label: string;
@@ -18,6 +20,7 @@ interface DropdownMenuProps {
 
 export default function DropdownMenu({ label, items, basePath }: DropdownMenuProps) {
     const [isOpen, setIsOpen] = useState(false);
+    const { language } = useLanguage();
 
     return (
         <div
@@ -26,7 +29,7 @@ export default function DropdownMenu({ label, items, basePath }: DropdownMenuPro
             onMouseLeave={() => setIsOpen(false)}
         >
             <button
-                className={`py-2 text-sm font-medium transition-colors flex items-center gap-1 ${isOpen ? 'text-white' : 'text-white/80 hover:text-white'
+                className={`py-2 text-sm font-medium transition-colors flex items-center gap-1 whitespace-nowrap ${isOpen ? 'text-white' : 'text-white/80 hover:text-white'
                     }`}
             >
                 {label}
@@ -51,9 +54,15 @@ export default function DropdownMenu({ label, items, basePath }: DropdownMenuPro
                     >
                         <div className="bg-white rounded-xl shadow-xl overflow-hidden py-2 border border-blue-100/50">
                             {items.map((item) => (
+                                (() => {
+                                    const targetHref = `${basePath}${item.href}`;
+                                    const localizedHref = targetHref.startsWith('/')
+                                        ? localizePathname(targetHref, language)
+                                        : targetHref;
+                                    return (
                                 <Link
                                     key={item.href}
-                                    href={`${basePath}${item.href}`}
+                                    href={localizedHref}
                                     className="block px-4 py-3 hover:bg-gray-50 transition-colors group"
                                 >
                                     <div className="text-sm font-semibold text-navy-900 group-hover:text-amber-600 transition-colors">
@@ -65,6 +74,8 @@ export default function DropdownMenu({ label, items, basePath }: DropdownMenuPro
                                         </div>
                                     )}
                                 </Link>
+                                    )
+                                })()
                             ))}
                         </div>
                     </motion.div>

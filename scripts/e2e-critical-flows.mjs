@@ -67,7 +67,7 @@ async function checkAdminRedirect() {
 }
 
 async function checkPublicRoutes() {
-    const criticalRoutes = ['/', '/contacts', '/parents/admission', '/programs', '/about']
+    const criticalRoutes = ['/ru', '/ru/contacts', '/ru/parents/admission', '/ru/programs', '/ru/about']
 
     for (const route of criticalRoutes) {
         const { response } = await getHtml(route)
@@ -80,7 +80,7 @@ async function checkPublicRoutes() {
 }
 
 async function checkLanguageSwitch() {
-    const { response, html } = await getHtml('/')
+    const { response, html } = await getHtml('/ru')
     assert.equal(response.status, 200, `Expected / to return 200, got ${response.status}`)
     assert(html.includes('>RU<'), 'Expected language switch to render RU option')
     assert(html.includes('>EN<'), 'Expected language switch to render EN option')
@@ -88,8 +88,8 @@ async function checkLanguageSwitch() {
 }
 
 async function checkContactFlow() {
-    const { response, html } = await getHtml('/contacts')
-    assert.equal(response.status, 200, `Expected /contacts to return 200, got ${response.status}`)
+    const { response, html } = await getHtml('/ru/contacts')
+    assert.equal(response.status, 200, `Expected /ru/contacts to return 200, got ${response.status}`)
     assert(html.includes('<form'), 'Expected contact page to render form')
     assert(html.includes('id="name"'), 'Expected contact form name field')
     assert(html.includes('id="email"'), 'Expected contact form email field')
@@ -98,15 +98,27 @@ async function checkContactFlow() {
 }
 
 async function checkAdmissionFlow() {
-    const { response, html } = await getHtml('/parents/admission')
+    const { response, html } = await getHtml('/ru/parents/admission')
     assert.equal(
         response.status,
         200,
-        `Expected /parents/admission to return 200, got ${response.status}`
+        `Expected /ru/parents/admission to return 200, got ${response.status}`
     )
     assert(html.includes('Процесс поступления'), 'Expected admission hero title to be present')
-    assert(html.includes('href="/contacts"'), 'Expected admission CTA link to contacts page')
+    assert(html.includes('/ru/contacts'), 'Expected admission CTA link to localized contacts page')
     logPass('admission page renders process and CTA to contacts')
+}
+
+async function checkWorkflowProtection() {
+    const response = await withTimeout(`${baseUrl}/api/cms/publish-scheduled`, {
+        method: 'POST',
+    })
+    assert.equal(
+        response.status,
+        401,
+        `Expected /api/cms/publish-scheduled to reject unauthorized POST, got ${response.status}`
+    )
+    logPass('scheduled publish endpoint rejects unauthorized requests')
 }
 
 async function checkNewsCrudPublishFlow() {
@@ -187,7 +199,7 @@ async function checkNewsCrudPublishFlow() {
         assert(published.published_at, 'Article published_at must be set')
         logPass('news draft published')
 
-        const { response, html } = await getHtml(`/news/${slug}`)
+        const { response, html } = await getHtml(`/ru/news/${slug}`)
         assert.equal(
             response.status,
             200,
@@ -217,6 +229,7 @@ async function main() {
     await checkLanguageSwitch()
     await checkContactFlow()
     await checkAdmissionFlow()
+    await checkWorkflowProtection()
     await checkNewsCrudPublishFlow()
 
     console.log('Critical E2E smoke checks completed successfully')

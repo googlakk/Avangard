@@ -5,7 +5,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 interface MotivationAtmosphereSectionProps {
     features: MotivationCultureFeature[];
-    photoProof: {
+    photoProof?: {
         image: string;
         caption: string;
     };
@@ -83,34 +83,35 @@ export default function MotivationAtmosphereSection({ features, photoProof }: Mo
                     ))}
                 </div>
 
-                {/* Photo Proof */}
-                <div className="max-w-5xl mx-auto">
-                    <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-xl border border-slate-100 relative overflow-hidden">
-                        {/* Golden Coin Decoration */}
-                        <div className="absolute top-10 right-10 w-24 h-24 rounded-full bg-gradient-to-br from-education-amber to-amber-600 opacity-10 blur-xl"></div>
+                {photoProof?.image && (
+                    <div className="max-w-5xl mx-auto">
+                        <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-xl border border-slate-100 relative overflow-hidden">
+                            {/* Golden Coin Decoration */}
+                            <div className="absolute top-10 right-10 w-24 h-24 rounded-full bg-gradient-to-br from-education-amber to-amber-600 opacity-10 blur-xl"></div>
 
-                        <h3 className="text-2xl font-bold font-lora text-center text-oxford-blue mb-10">
-                            {t.junior.motivation.photoProof.title}
-                        </h3>
+                            <h3 className="text-2xl font-bold font-lora text-center text-oxford-blue mb-10">
+                                {t.junior.motivation.photoProof.title}
+                            </h3>
 
-                        <div className="relative h-[400px] rounded-3xl overflow-hidden mb-8 shadow-lg group">
-                            <Image
-                                src={photoProof.image}
-                                alt={photoProof.caption}
-                                fill
-                                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
-                            <p className="absolute bottom-6 left-0 right-0 text-center text-white/90 font-manrope italic text-lg px-4">
-                                {photoProof.caption}
+                            <div className="relative h-[400px] rounded-3xl overflow-hidden mb-8 shadow-lg group">
+                                <Image
+                                    src={photoProof.image}
+                                    alt={photoProof.caption}
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+                                <p className="absolute bottom-6 left-0 right-0 text-center text-white/90 font-manrope italic text-lg px-4">
+                                    {photoProof.caption}
+                                </p>
+                            </div>
+
+                            <p className="text-center text-xl font-bold font-lora text-oxford-blue mt-6 flex items-center justify-center gap-2">
+                                <span className="text-education-amber">➜</span> {t.junior.motivation.photoProof.cta}
                             </p>
                         </div>
-
-                        <p className="text-center text-xl font-bold font-lora text-oxford-blue mt-6 flex items-center justify-center gap-2">
-                            <span className="text-education-amber">➜</span> {t.junior.motivation.photoProof.cta}
-                        </p>
                     </div>
-                </div>
+                )}
             </div>
         </section>
     );

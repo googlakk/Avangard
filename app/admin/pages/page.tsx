@@ -41,7 +41,6 @@ import {
     type CmsSectionType,
 } from '@/lib/services/page-builder'
 import { DEFAULT_SEO_META, getSeoMeta, upsertSeoMeta } from '@/lib/services/seo'
-import { uploadGalleryImage } from '@/lib/services/storage'
 import {
     getCognitiveFoundationFeatures,
     getGalleryImages,
@@ -147,6 +146,18 @@ const PROGRAM_PAGE_PRESETS: ProgramPagePreset[] = [
         title_en: 'Intellect Senior',
         publicPath: '/programs/senior',
     },
+    {
+        slug: 'student-results',
+        title_ru: 'Результаты наших учеников',
+        title_en: 'Our Students Results',
+        publicPath: '/students/results',
+    },
+    {
+        slug: 'about',
+        title_ru: 'О нас',
+        title_en: 'About Us',
+        publicPath: '/about',
+    },
 ]
 
 const PROGRAM_PAGE_SLUGS = new Set(PROGRAM_PAGE_PRESETS.map(item => item.slug))
@@ -176,6 +187,20 @@ const SENIOR_TYPED_SECTION_KEYS = new Set([
     'senior-academic-results',
     'senior-cognitive-ai',
     'senior-selective-admission',
+])
+
+const RESULTS_TYPED_SECTION_KEYS = new Set([
+    'results-hero',
+    'results-grid',
+    'results-cta',
+])
+
+const ABOUT_TYPED_SECTION_KEYS = new Set([
+    'about-hero',
+    'about-story',
+    'about-values',
+    'about-stats',
+    'about-cta',
 ])
 
 const SECTION_PAYLOAD_TEMPLATES: Record<CmsSectionType, Record<string, unknown>> = {
@@ -251,6 +276,18 @@ const PROGRAM_SECTION_KEYS: Record<string, Array<{ key: string; type: CmsSection
         { key: 'senior-academic-results', type: 'cards' },
         { key: 'senior-cognitive-ai', type: 'cards' },
         { key: 'senior-selective-admission', type: 'cta' },
+    ],
+    'student-results': [
+        { key: 'results-hero', type: 'hero' },
+        { key: 'results-grid', type: 'cards' },
+        { key: 'results-cta', type: 'cta' },
+    ],
+    'about': [
+        { key: 'about-hero', type: 'hero' },
+        { key: 'about-story', type: 'content' },
+        { key: 'about-values', type: 'cards' },
+        { key: 'about-stats', type: 'cards' },
+        { key: 'about-cta', type: 'cta' },
     ],
 }
 
@@ -433,6 +470,164 @@ const PROGRAM_SECTION_PAYLOAD_PRESETS: Record<string, unknown> = {
         bottomBoxTitle: { ru: 'Итог', en: 'Bottom title' },
         bottomBoxText: { ru: 'Описание', en: 'Bottom text' },
     },
+    'results-hero': {
+        eyebrow: { ru: 'Гордость школы', en: 'School pride' },
+        title: { ru: 'Результаты наших учеников', en: 'Outstanding Results of Our Students' },
+        subtitle: {
+            ru: 'Истории достижений, которые подтверждают качество академической среды и персонального сопровождения в Intellect School.',
+            en: 'Achievement stories that prove the strength of our academic environment and personalized guidance.',
+        },
+        backgroundImageUrl: '/images/senior-medalists.png',
+        kpis: [
+            {
+                studentName: { ru: 'Международные победы', en: 'International wins' },
+                resultText: { ru: '25+', en: '25+' },
+            },
+            {
+                studentName: { ru: 'Высокие IELTS', en: 'Top IELTS scores' },
+                resultText: { ru: '8.5', en: '8.5' },
+            },
+            {
+                studentName: { ru: 'Поступления в топ-вузы', en: 'Top university admits' },
+                resultText: { ru: '40+', en: '40+' },
+            },
+            {
+                studentName: { ru: 'Олимпиадные призеры', en: 'Olympiad awardees' },
+                resultText: { ru: '60+', en: '60+' },
+            },
+        ],
+    },
+    'results-grid': {
+        title: { ru: 'Список достижений учеников', en: 'Student Achievement List' },
+        description: {
+            ru: 'Каждая карточка отражает конкретный результат ученика: экзамены, олимпиады, международные конкурсы и проектные победы.',
+            en: 'Each card highlights a measurable outcome: exams, olympiads, international competitions, and project wins.',
+        },
+        emptyTitle: { ru: 'Добавьте первые карточки достижений', en: 'Add the first achievement cards' },
+        emptyDescription: {
+            ru: 'После публикации карточек в админке они появятся в этой сетке автоматически.',
+            en: 'Published cards from the admin panel will appear here automatically.',
+        },
+        items: [
+            {
+                studentName: { ru: 'Алина С.', en: 'Alina S.' },
+                achievementTitle: { ru: 'IELTS Academic', en: 'IELTS Academic' },
+                resultText: { ru: 'Overall 8.5', en: 'Overall 8.5' },
+                description: {
+                    ru: 'Поступление на международную программу с высоким проходным баллом.',
+                    en: 'Admitted to an international program with a high entry threshold.',
+                },
+                category: { ru: 'Экзамены', en: 'Exams' },
+                year: 2025,
+                imageUrl: '/images/senior-medalists.png',
+                imageAlt: { ru: 'Ученик с сертификатом IELTS', en: 'Student with IELTS certificate' },
+                isFeatured: true,
+                isEnabled: true,
+                profileUrl: '/contacts',
+            },
+            {
+                studentName: { ru: 'Команда Intellect', en: 'Intellect Team' },
+                achievementTitle: { ru: 'Республиканская олимпиада по математике', en: 'National Math Olympiad' },
+                resultText: { ru: '1 место', en: '1st place' },
+                description: {
+                    ru: 'Победа в финале и выход на международный этап соревнований.',
+                    en: 'Final victory and qualification for the international stage.',
+                },
+                category: { ru: 'Олимпиады', en: 'Olympiads' },
+                year: 2025,
+                imageUrl: '/images/middle-entrance-group.png',
+                imageAlt: { ru: 'Команда победителей олимпиады', en: 'Olympiad winner team' },
+                isEnabled: true,
+            },
+        ],
+    },
+    'results-cta': {
+        title: { ru: 'Хотите, чтобы ваш ребенок был следующим в этом списке?', en: 'Want your child to be next on this list?' },
+        description: {
+            ru: 'Запишитесь на консультацию и узнайте, как выстроить персональную траекторию роста.',
+            en: 'Book a consultation to build a personalized growth path.',
+        },
+        button: {
+            label: { ru: 'Записаться на консультацию', en: 'Book a consultation' },
+            href: '/contacts',
+        },
+    },
+    'about-hero': {
+        title: { ru: 'Формируем будущее сегодня', en: 'Shaping the future today' },
+        subtitle: { ru: 'О нас', en: 'About us' },
+        description: {
+            ru: 'INTELLECT SCHOOL — пространство, где знания становятся инструментом, а мечты — достижимой реальностью.',
+            en: 'INTELLECT SCHOOL is where knowledge becomes a tool and dreams become achievable.',
+        },
+        imageUrl: '/images/middle-entrance-group.png',
+        button: {
+            label: { ru: 'Наши программы', en: 'Our programs' },
+            href: '/programs',
+        },
+    },
+    'about-story': {
+        title: { ru: 'Путь к мечте', en: 'Path to a dream' },
+        text: {
+            ru: 'История школы — это путь развития, высоких стандартов и постоянного роста учеников, команды и образовательной среды.',
+            en: 'The school story is a path of growth, high standards, and continuous progress of students, team, and educational environment.',
+        },
+        imageUrl: '/images/senior-medalists.png',
+        imageAlt: { ru: 'История школы', en: 'School story' },
+    },
+    'about-values': {
+        title: { ru: 'Наши ценности', en: 'Our values' },
+        items: [
+            {
+                badge: { ru: '01', en: '01' },
+                title: { ru: 'Качество', en: 'Quality' },
+                description: { ru: 'Высокие академические стандарты и системный подход к развитию.', en: 'High academic standards and a systematic approach to growth.' },
+                imageUrl: '/images/junior-morning-exercise.png',
+            },
+            {
+                badge: { ru: '02', en: '02' },
+                title: { ru: 'Инновации', en: 'Innovation' },
+                description: { ru: 'Современные методики и технологии в ежедневном обучении.', en: 'Modern methods and technologies in daily learning.' },
+                imageUrl: '/images/middle-entrance-group.png',
+            },
+            {
+                badge: { ru: '03', en: '03' },
+                title: { ru: 'Глобальное мышление', en: 'Global mindset' },
+                description: { ru: 'Подготовка к международным экзаменам, конкурсам и поступлению.', en: 'Preparation for international exams, contests, and admissions.' },
+                imageUrl: '/images/senior-medalists.png',
+            },
+        ],
+    },
+    'about-stats': {
+        title: { ru: 'Школа в цифрах', en: 'School in numbers' },
+        items: [
+            {
+                badge: { ru: '10 000+', en: '10,000+' },
+                title: { ru: 'Выпускников', en: 'Graduates' },
+                description: { ru: 'Ученики, прошедшие наш образовательный путь.', en: 'Students who completed our educational path.' },
+            },
+            {
+                badge: { ru: '20+', en: '20+' },
+                title: { ru: 'Филиалов', en: 'Campuses' },
+                description: { ru: 'Развитая сеть и единые стандарты качества.', en: 'A strong network with unified quality standards.' },
+            },
+            {
+                badge: { ru: '15+', en: '15+' },
+                title: { ru: 'Лет опыта', en: 'Years of experience' },
+                description: { ru: 'Экспертность команды и управляемые результаты.', en: 'Team expertise and measurable outcomes.' },
+            },
+        ],
+    },
+    'about-cta': {
+        title: { ru: 'Присоединяйтесь к Intellect School', en: 'Join Intellect School' },
+        description: {
+            ru: 'Запишитесь на консультацию и познакомьтесь со школой, которая развивает потенциал каждого ребенка.',
+            en: 'Book a consultation and discover a school that develops every child’s potential.',
+        },
+        button: {
+            label: { ru: 'Связаться с нами', en: 'Contact us' },
+            href: '/contacts',
+        },
+    },
 }
 
 const SECTION_UI_META: Record<string, { title: string; hint: string }> = {
@@ -508,6 +703,38 @@ const SECTION_UI_META: Record<string, { title: string; hint: string }> = {
         title: 'Senior: Selective admission',
         hint: 'Условия отбора и CTA',
     },
+    'results-hero': {
+        title: 'Results: Hero',
+        hint: 'Главный экран страницы достижений',
+    },
+    'results-grid': {
+        title: 'Results: Grid',
+        hint: 'Сетка карточек учеников с достижениями',
+    },
+    'results-cta': {
+        title: 'Results: CTA',
+        hint: 'Финальный призыв к действию',
+    },
+    'about-hero': {
+        title: 'About: Hero',
+        hint: 'Главный экран страницы О нас',
+    },
+    'about-story': {
+        title: 'About: История',
+        hint: 'Текстовый блок с изображением',
+    },
+    'about-values': {
+        title: 'About: Ценности',
+        hint: 'Карточки ценностей школы',
+    },
+    'about-stats': {
+        title: 'About: Статистика',
+        hint: 'Карточки метрик и достижений',
+    },
+    'about-cta': {
+        title: 'About: CTA',
+        hint: 'Финальный призыв к действию',
+    },
 }
 
 function getProgramPublicPath(slug: string) {
@@ -527,6 +754,8 @@ function isTypedSectionKey(key: string) {
     return PRIMARY_TYPED_SECTION_KEYS.has(normalized)
         || MIDDLE_TYPED_SECTION_KEYS.has(normalized)
         || SENIOR_TYPED_SECTION_KEYS.has(normalized)
+        || RESULTS_TYPED_SECTION_KEYS.has(normalized)
+        || ABOUT_TYPED_SECTION_KEYS.has(normalized)
 }
 
 function isObjectRecord(value: unknown): value is Record<string, unknown> {
@@ -1259,8 +1488,22 @@ export default function AdminPagesBuilderPage() {
         try {
             setUploadingMediaField(fieldId)
             setError(null)
-            const uploaded = await uploadGalleryImage(file, selectedPageId)
-            applyUrl(uploaded.publicUrl)
+            const formData = new FormData()
+            formData.append('file', file)
+            formData.append('pageId', selectedPageId)
+            formData.append('fieldId', fieldId)
+
+            const response = await fetch('/api/cms/upload-image', {
+                method: 'POST',
+                body: formData,
+            })
+
+            const payload = await response.json().catch(() => ({}))
+            if (!response.ok || !payload?.publicUrl) {
+                throw new Error(payload?.error || 'Upload failed')
+            }
+
+            applyUrl(payload.publicUrl as string)
         } catch (err) {
             console.error('Failed to upload section image:', err)
             const message = (err as { message?: string })?.message
@@ -1606,7 +1849,7 @@ export default function AdminPagesBuilderPage() {
                                 className="inline-flex items-center gap-2 px-4 py-2.5 border border-navy-200 text-navy-900 text-sm font-medium rounded-lg hover:bg-navy-50 transition-colors disabled:opacity-50"
                             >
                                 <Plus className="w-4 h-4" />
-                                Создать 3 program pages
+                                Создать preset pages
                             </button>
                             <button
                                 onClick={() => openPageForm()}
@@ -1657,7 +1900,7 @@ export default function AdminPagesBuilderPage() {
                                     onClick={() => setProgramOnly(true)}
                                     className={`px-3 py-1.5 text-xs rounded-full border ${programOnly ? 'bg-navy-900 text-white border-navy-900' : 'bg-white text-gray-600 border-gray-300'}`}
                                 >
-                                    Program pages
+                                    Preset pages
                                 </button>
                                 <button
                                     onClick={() => setProgramOnly(false)}
@@ -1737,7 +1980,7 @@ export default function AdminPagesBuilderPage() {
 
                                 {filteredPages.length === 0 && (
                                     <div className="text-center py-10 text-gray-500 text-sm">
-                                        {programOnly ? 'Program pages не найдены. Нажмите "Создать 3 program pages".' : 'Страницы не найдены'}
+                                        {programOnly ? 'Preset pages не найдены. Нажмите "Создать preset pages".' : 'Страницы не найдены'}
                                     </div>
                                 )}
                             </div>
@@ -4123,6 +4366,1017 @@ export default function AdminPagesBuilderPage() {
                                                     />
                                                 </div>
                                             </div>
+                                        </div>
+                                    )}
+
+                                    {sectionKey === 'results-hero' && isObjectRecord(parsedSectionPayload) && (
+                                        <div className="space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                <input
+                                                    type="text"
+                                                    value={getLocalizedValue(parsedSectionPayload.eyebrow, 'ru')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.eyebrow = { ru: e.target.value, en: getLocalizedValue(payload.eyebrow, 'en') }
+                                                    })}
+                                                    placeholder="Eyebrow RU"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                                <input
+                                                    type="text"
+                                                    value={getLocalizedValue(parsedSectionPayload.eyebrow, 'en')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.eyebrow = { ru: getLocalizedValue(payload.eyebrow, 'ru'), en: e.target.value }
+                                                    })}
+                                                    placeholder="Eyebrow EN"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                            </div>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                <input
+                                                    type="text"
+                                                    value={getLocalizedValue(parsedSectionPayload.title, 'ru')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.title = { ru: e.target.value, en: getLocalizedValue(payload.title, 'en') }
+                                                    })}
+                                                    placeholder="Title RU"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                                <input
+                                                    type="text"
+                                                    value={getLocalizedValue(parsedSectionPayload.title, 'en')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.title = { ru: getLocalizedValue(payload.title, 'ru'), en: e.target.value }
+                                                    })}
+                                                    placeholder="Title EN"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                            </div>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                <textarea
+                                                    rows={2}
+                                                    value={getLocalizedValue(parsedSectionPayload.subtitle, 'ru')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.subtitle = { ru: e.target.value, en: getLocalizedValue(payload.subtitle, 'en') }
+                                                    })}
+                                                    placeholder="Subtitle RU"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                                <textarea
+                                                    rows={2}
+                                                    value={getLocalizedValue(parsedSectionPayload.subtitle, 'en')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.subtitle = { ru: getLocalizedValue(payload.subtitle, 'ru'), en: e.target.value }
+                                                    })}
+                                                    placeholder="Subtitle EN"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                            </div>
+                                            <div className="space-y-2">
+                                                <label className="block text-xs font-medium text-gray-700">Background image</label>
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                    <input
+                                                        type="url"
+                                                        value={typeof parsedSectionPayload.backgroundImageUrl === 'string' ? parsedSectionPayload.backgroundImageUrl : ''}
+                                                        onChange={e => mutateSectionPayload(payload => {
+                                                            if (!isObjectRecord(payload)) return
+                                                            payload.backgroundImageUrl = e.target.value
+                                                        })}
+                                                        placeholder="Background image URL"
+                                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                    />
+                                                    <label className="inline-flex items-center gap-2 text-xs text-gray-600 cursor-pointer border border-gray-300 rounded-lg px-3 py-2">
+                                                        <Upload className="w-3.5 h-3.5" />
+                                                        {uploadingMediaField === 'results-hero-bg' ? 'Загрузка...' : 'Загрузить фото'}
+                                                        <input
+                                                            type="file"
+                                                            accept="image/jpeg,image/png,image/webp,image/avif"
+                                                            className="hidden"
+                                                            disabled={uploadingMediaField === 'results-hero-bg'}
+                                                            onChange={async e => {
+                                                                const file = e.target.files?.[0]
+                                                                if (!file) return
+                                                                await uploadImageForSection(file, 'results-hero-bg', (url) => {
+                                                                    mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload)) return
+                                                                        payload.backgroundImageUrl = url
+                                                                    })
+                                                                })
+                                                                e.target.value = ''
+                                                            }}
+                                                        />
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {sectionKey === 'results-grid' && isObjectRecord(parsedSectionPayload) && (
+                                        <div className="space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                <input
+                                                    type="text"
+                                                    value={getLocalizedValue(parsedSectionPayload.title, 'ru')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.title = { ru: e.target.value, en: getLocalizedValue(payload.title, 'en') }
+                                                    })}
+                                                    placeholder="Grid title RU"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                                <input
+                                                    type="text"
+                                                    value={getLocalizedValue(parsedSectionPayload.title, 'en')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.title = { ru: getLocalizedValue(payload.title, 'ru'), en: e.target.value }
+                                                    })}
+                                                    placeholder="Grid title EN"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                            </div>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                <textarea
+                                                    rows={2}
+                                                    value={getLocalizedValue(parsedSectionPayload.description, 'ru')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.description = { ru: e.target.value, en: getLocalizedValue(payload.description, 'en') }
+                                                    })}
+                                                    placeholder="Grid description RU"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                                <textarea
+                                                    rows={2}
+                                                    value={getLocalizedValue(parsedSectionPayload.description, 'en')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.description = { ru: getLocalizedValue(payload.description, 'ru'), en: e.target.value }
+                                                    })}
+                                                    placeholder="Grid description EN"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                            </div>
+
+                                            <div className="space-y-3 border border-gray-200 rounded-lg p-3">
+                                                <div className="flex items-center justify-between">
+                                                    <p className="text-xs font-semibold text-gray-700">Карточки достижений</p>
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => mutateSectionPayload(payload => {
+                                                            if (!isObjectRecord(payload)) return
+                                                            const items = Array.isArray(payload.items) ? payload.items : []
+                                                            items.push({
+                                                                studentName: { ru: '', en: '' },
+                                                                achievementTitle: { ru: '', en: '' },
+                                                                resultText: { ru: '', en: '' },
+                                                                description: { ru: '', en: '' },
+                                                                category: { ru: '', en: '' },
+                                                                year: new Date().getFullYear(),
+                                                                imageUrl: '',
+                                                                imageAlt: { ru: '', en: '' },
+                                                                isFeatured: false,
+                                                                isEnabled: true,
+                                                            })
+                                                            payload.items = items
+                                                        })}
+                                                        className="text-xs px-2 py-1 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-50"
+                                                    >
+                                                        + Добавить карточку
+                                                    </button>
+                                                </div>
+                                                {(Array.isArray(parsedSectionPayload.items) ? parsedSectionPayload.items : []).map((item, idx) => {
+                                                    const card = isObjectRecord(item) ? item : {}
+                                                    return (
+                                                        <div key={`result-card-editor-${idx}`} className="rounded-lg border border-gray-200 p-3 space-y-2 bg-white">
+                                                            <div className="flex items-center justify-between">
+                                                                <p className="text-xs font-medium text-gray-700">Карточка #{idx + 1}</p>
+                                                                <button
+                                                                    type="button"
+                                                                    onClick={() => mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                        payload.items.splice(idx, 1)
+                                                                    })}
+                                                                    className="text-xs px-2 py-1 rounded-md border border-red-200 text-red-700 hover:bg-red-50"
+                                                                >
+                                                                    Удалить
+                                                                </button>
+                                                            </div>
+                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                                <input
+                                                                    type="text"
+                                                                    value={getLocalizedValue(card.studentName, 'ru')}
+                                                                    onChange={e => mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                        const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                        next.studentName = { ru: e.target.value, en: getLocalizedValue(next.studentName, 'en') }
+                                                                        payload.items[idx] = next
+                                                                    })}
+                                                                    placeholder="Student name RU"
+                                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                                />
+                                                                <input
+                                                                    type="text"
+                                                                    value={getLocalizedValue(card.studentName, 'en')}
+                                                                    onChange={e => mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                        const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                        next.studentName = { ru: getLocalizedValue(next.studentName, 'ru'), en: e.target.value }
+                                                                        payload.items[idx] = next
+                                                                    })}
+                                                                    placeholder="Student name EN"
+                                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                                />
+                                                            </div>
+                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                                <input
+                                                                    type="text"
+                                                                    value={getLocalizedValue(card.achievementTitle, 'ru')}
+                                                                    onChange={e => mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                        const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                        next.achievementTitle = { ru: e.target.value, en: getLocalizedValue(next.achievementTitle, 'en') }
+                                                                        payload.items[idx] = next
+                                                                    })}
+                                                                    placeholder="Achievement title RU"
+                                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                                />
+                                                                <input
+                                                                    type="text"
+                                                                    value={getLocalizedValue(card.achievementTitle, 'en')}
+                                                                    onChange={e => mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                        const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                        next.achievementTitle = { ru: getLocalizedValue(next.achievementTitle, 'ru'), en: e.target.value }
+                                                                        payload.items[idx] = next
+                                                                    })}
+                                                                    placeholder="Achievement title EN"
+                                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                                />
+                                                            </div>
+                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                                <input
+                                                                    type="text"
+                                                                    value={getLocalizedValue(card.resultText, 'ru')}
+                                                                    onChange={e => mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                        const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                        next.resultText = { ru: e.target.value, en: getLocalizedValue(next.resultText, 'en') }
+                                                                        payload.items[idx] = next
+                                                                    })}
+                                                                    placeholder="Result text RU"
+                                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                                />
+                                                                <input
+                                                                    type="text"
+                                                                    value={getLocalizedValue(card.resultText, 'en')}
+                                                                    onChange={e => mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                        const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                        next.resultText = { ru: getLocalizedValue(next.resultText, 'ru'), en: e.target.value }
+                                                                        payload.items[idx] = next
+                                                                    })}
+                                                                    placeholder="Result text EN"
+                                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                                />
+                                                            </div>
+                                                            <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                                                                <input
+                                                                    type="text"
+                                                                    value={getLocalizedValue(card.category, 'ru')}
+                                                                    onChange={e => mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                        const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                        next.category = { ru: e.target.value, en: getLocalizedValue(next.category, 'en') }
+                                                                        payload.items[idx] = next
+                                                                    })}
+                                                                    placeholder="Category RU"
+                                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                                />
+                                                                <input
+                                                                    type="text"
+                                                                    value={getLocalizedValue(card.category, 'en')}
+                                                                    onChange={e => mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                        const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                        next.category = { ru: getLocalizedValue(next.category, 'ru'), en: e.target.value }
+                                                                        payload.items[idx] = next
+                                                                    })}
+                                                                    placeholder="Category EN"
+                                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                                />
+                                                                <input
+                                                                    type="number"
+                                                                    value={typeof card.year === 'number' || typeof card.year === 'string' ? String(card.year) : ''}
+                                                                    onChange={e => mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                        const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                        next.year = Number(e.target.value) || ''
+                                                                        payload.items[idx] = next
+                                                                    })}
+                                                                    placeholder="Year"
+                                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                                />
+                                                            </div>
+                                                            <div className="space-y-2">
+                                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                                    <input
+                                                                        type="url"
+                                                                        value={typeof card.imageUrl === 'string' ? card.imageUrl : ''}
+                                                                        onChange={e => mutateSectionPayload(payload => {
+                                                                            if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                            const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                            next.imageUrl = e.target.value
+                                                                            payload.items[idx] = next
+                                                                        })}
+                                                                        placeholder="Image URL"
+                                                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                                    />
+                                                                    <label className="inline-flex items-center gap-2 text-xs text-gray-600 cursor-pointer border border-gray-300 rounded-lg px-3 py-2">
+                                                                        <Upload className="w-3.5 h-3.5" />
+                                                                        {uploadingMediaField === `results-card-${idx}` ? 'Загрузка...' : 'Загрузить фото'}
+                                                                        <input
+                                                                            type="file"
+                                                                            accept="image/jpeg,image/png,image/webp,image/avif"
+                                                                            className="hidden"
+                                                                            disabled={uploadingMediaField === `results-card-${idx}`}
+                                                                            onChange={async e => {
+                                                                                const file = e.target.files?.[0]
+                                                                                if (!file) return
+                                                                                await uploadImageForSection(file, `results-card-${idx}`, (url) => {
+                                                                                    mutateSectionPayload(payload => {
+                                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                                        const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                                        next.imageUrl = url
+                                                                                        payload.items[idx] = next
+                                                                                    })
+                                                                                })
+                                                                                e.target.value = ''
+                                                                            }}
+                                                                        />
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                                <label className="inline-flex items-center gap-2 text-xs text-gray-700">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        checked={card.isFeatured === true}
+                                                                        onChange={e => mutateSectionPayload(payload => {
+                                                                            if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                            const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                            next.isFeatured = e.target.checked
+                                                                            payload.items[idx] = next
+                                                                        })}
+                                                                        className="rounded border-gray-300"
+                                                                    />
+                                                                    Featured card
+                                                                </label>
+                                                                <label className="inline-flex items-center gap-2 text-xs text-gray-700">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        checked={card.isEnabled !== false}
+                                                                        onChange={e => mutateSectionPayload(payload => {
+                                                                            if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                            const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                            next.isEnabled = e.target.checked
+                                                                            payload.items[idx] = next
+                                                                        })}
+                                                                        className="rounded border-gray-300"
+                                                                    />
+                                                                    Card enabled
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                })}
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {sectionKey === 'results-cta' && isObjectRecord(parsedSectionPayload) && (
+                                        <div className="space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                <input
+                                                    type="text"
+                                                    value={getLocalizedValue(parsedSectionPayload.title, 'ru')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.title = { ru: e.target.value, en: getLocalizedValue(payload.title, 'en') }
+                                                    })}
+                                                    placeholder="CTA title RU"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                                <input
+                                                    type="text"
+                                                    value={getLocalizedValue(parsedSectionPayload.title, 'en')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.title = { ru: getLocalizedValue(payload.title, 'ru'), en: e.target.value }
+                                                    })}
+                                                    placeholder="CTA title EN"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                            </div>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                <textarea
+                                                    rows={2}
+                                                    value={getLocalizedValue(parsedSectionPayload.description, 'ru')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.description = { ru: e.target.value, en: getLocalizedValue(payload.description, 'en') }
+                                                    })}
+                                                    placeholder="CTA description RU"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                                <textarea
+                                                    rows={2}
+                                                    value={getLocalizedValue(parsedSectionPayload.description, 'en')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.description = { ru: getLocalizedValue(payload.description, 'ru'), en: e.target.value }
+                                                    })}
+                                                    placeholder="CTA description EN"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                            </div>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                <input
+                                                    type="text"
+                                                    value={isObjectRecord(parsedSectionPayload.button) ? getLocalizedValue(parsedSectionPayload.button.label, 'ru') : ''}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        const current = isObjectRecord(payload.button) ? payload.button : {}
+                                                        const label = isObjectRecord(current.label) ? current.label : {}
+                                                        payload.button = {
+                                                            ...current,
+                                                            label: { ...label, ru: e.target.value, en: getLocalizedValue(label, 'en') },
+                                                        }
+                                                    })}
+                                                    placeholder="Button label RU"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                                <input
+                                                    type="text"
+                                                    value={isObjectRecord(parsedSectionPayload.button) ? getLocalizedValue(parsedSectionPayload.button.label, 'en') : ''}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        const current = isObjectRecord(payload.button) ? payload.button : {}
+                                                        const label = isObjectRecord(current.label) ? current.label : {}
+                                                        payload.button = {
+                                                            ...current,
+                                                            label: { ...label, ru: getLocalizedValue(label, 'ru'), en: e.target.value },
+                                                        }
+                                                    })}
+                                                    placeholder="Button label EN"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                            </div>
+                                            <input
+                                                type="text"
+                                                value={isObjectRecord(parsedSectionPayload.button) && typeof parsedSectionPayload.button.href === 'string' ? parsedSectionPayload.button.href : ''}
+                                                onChange={e => mutateSectionPayload(payload => {
+                                                    if (!isObjectRecord(payload)) return
+                                                    const current = isObjectRecord(payload.button) ? payload.button : {}
+                                                    payload.button = { ...current, href: e.target.value }
+                                                })}
+                                                placeholder="Button href"
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                            />
+                                        </div>
+                                    )}
+
+                                    {sectionKey === 'about-hero' && isObjectRecord(parsedSectionPayload) && (
+                                        <div className="space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                <input
+                                                    type="text"
+                                                    value={getLocalizedValue(parsedSectionPayload.title, 'ru')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.title = { ru: e.target.value, en: getLocalizedValue(payload.title, 'en') }
+                                                    })}
+                                                    placeholder="Title RU"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                                <input
+                                                    type="text"
+                                                    value={getLocalizedValue(parsedSectionPayload.title, 'en')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.title = { ru: getLocalizedValue(payload.title, 'ru'), en: e.target.value }
+                                                    })}
+                                                    placeholder="Title EN"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                            </div>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                <input
+                                                    type="text"
+                                                    value={getLocalizedValue(parsedSectionPayload.subtitle, 'ru')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.subtitle = { ru: e.target.value, en: getLocalizedValue(payload.subtitle, 'en') }
+                                                    })}
+                                                    placeholder="Subtitle RU"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                                <input
+                                                    type="text"
+                                                    value={getLocalizedValue(parsedSectionPayload.subtitle, 'en')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.subtitle = { ru: getLocalizedValue(payload.subtitle, 'ru'), en: e.target.value }
+                                                    })}
+                                                    placeholder="Subtitle EN"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                            </div>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                <textarea
+                                                    rows={2}
+                                                    value={getLocalizedValue(parsedSectionPayload.description, 'ru')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.description = { ru: e.target.value, en: getLocalizedValue(payload.description, 'en') }
+                                                    })}
+                                                    placeholder="Description RU"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                                <textarea
+                                                    rows={2}
+                                                    value={getLocalizedValue(parsedSectionPayload.description, 'en')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.description = { ru: getLocalizedValue(payload.description, 'ru'), en: e.target.value }
+                                                    })}
+                                                    placeholder="Description EN"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                            </div>
+                                            <div className="space-y-2">
+                                                <label className="block text-xs font-medium text-gray-700">Hero image</label>
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                    <input
+                                                        type="url"
+                                                        value={typeof parsedSectionPayload.imageUrl === 'string' ? parsedSectionPayload.imageUrl : ''}
+                                                        onChange={e => mutateSectionPayload(payload => {
+                                                            if (!isObjectRecord(payload)) return
+                                                            payload.imageUrl = e.target.value
+                                                        })}
+                                                        placeholder="Image URL"
+                                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                    />
+                                                    <label className="inline-flex items-center gap-2 text-xs text-gray-600 cursor-pointer border border-gray-300 rounded-lg px-3 py-2">
+                                                        <Upload className="w-3.5 h-3.5" />
+                                                        {uploadingMediaField === 'about-hero-image' ? 'Загрузка...' : 'Загрузить фото'}
+                                                        <input
+                                                            type="file"
+                                                            accept="image/jpeg,image/png,image/webp,image/avif"
+                                                            className="hidden"
+                                                            disabled={uploadingMediaField === 'about-hero-image'}
+                                                            onChange={async e => {
+                                                                const file = e.target.files?.[0]
+                                                                if (!file) return
+                                                                await uploadImageForSection(file, 'about-hero-image', (url) => {
+                                                                    mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload)) return
+                                                                        payload.imageUrl = url
+                                                                    })
+                                                                })
+                                                                e.target.value = ''
+                                                            }}
+                                                        />
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                <input
+                                                    type="text"
+                                                    value={isObjectRecord(parsedSectionPayload.button) ? getLocalizedValue(parsedSectionPayload.button.label, 'ru') : ''}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        const current = isObjectRecord(payload.button) ? payload.button : {}
+                                                        const label = isObjectRecord(current.label) ? current.label : {}
+                                                        payload.button = {
+                                                            ...current,
+                                                            label: { ...label, ru: e.target.value, en: getLocalizedValue(label, 'en') },
+                                                        }
+                                                    })}
+                                                    placeholder="Button label RU"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                                <input
+                                                    type="text"
+                                                    value={isObjectRecord(parsedSectionPayload.button) ? getLocalizedValue(parsedSectionPayload.button.label, 'en') : ''}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        const current = isObjectRecord(payload.button) ? payload.button : {}
+                                                        const label = isObjectRecord(current.label) ? current.label : {}
+                                                        payload.button = {
+                                                            ...current,
+                                                            label: { ...label, ru: getLocalizedValue(label, 'ru'), en: e.target.value },
+                                                        }
+                                                    })}
+                                                    placeholder="Button label EN"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                            </div>
+                                            <input
+                                                type="text"
+                                                value={isObjectRecord(parsedSectionPayload.button) && typeof parsedSectionPayload.button.href === 'string' ? parsedSectionPayload.button.href : ''}
+                                                onChange={e => mutateSectionPayload(payload => {
+                                                    if (!isObjectRecord(payload)) return
+                                                    const current = isObjectRecord(payload.button) ? payload.button : {}
+                                                    payload.button = { ...current, href: e.target.value }
+                                                })}
+                                                placeholder="Button href"
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                            />
+                                        </div>
+                                    )}
+
+                                    {sectionKey === 'about-story' && isObjectRecord(parsedSectionPayload) && (
+                                        <div className="space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                <input
+                                                    type="text"
+                                                    value={getLocalizedValue(parsedSectionPayload.title, 'ru')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.title = { ru: e.target.value, en: getLocalizedValue(payload.title, 'en') }
+                                                    })}
+                                                    placeholder="Title RU"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                                <input
+                                                    type="text"
+                                                    value={getLocalizedValue(parsedSectionPayload.title, 'en')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.title = { ru: getLocalizedValue(payload.title, 'ru'), en: e.target.value }
+                                                    })}
+                                                    placeholder="Title EN"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                            </div>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                <textarea
+                                                    rows={3}
+                                                    value={getLocalizedValue(parsedSectionPayload.text, 'ru')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.text = { ru: e.target.value, en: getLocalizedValue(payload.text, 'en') }
+                                                    })}
+                                                    placeholder="Text RU"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                                <textarea
+                                                    rows={3}
+                                                    value={getLocalizedValue(parsedSectionPayload.text, 'en')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.text = { ru: getLocalizedValue(payload.text, 'ru'), en: e.target.value }
+                                                    })}
+                                                    placeholder="Text EN"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                            </div>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                <input
+                                                    type="url"
+                                                    value={typeof parsedSectionPayload.imageUrl === 'string' ? parsedSectionPayload.imageUrl : ''}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.imageUrl = e.target.value
+                                                    })}
+                                                    placeholder="Image URL"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                                <label className="inline-flex items-center gap-2 text-xs text-gray-600 cursor-pointer border border-gray-300 rounded-lg px-3 py-2">
+                                                    <Upload className="w-3.5 h-3.5" />
+                                                    {uploadingMediaField === 'about-story-image' ? 'Загрузка...' : 'Загрузить фото'}
+                                                    <input
+                                                        type="file"
+                                                        accept="image/jpeg,image/png,image/webp,image/avif"
+                                                        className="hidden"
+                                                        disabled={uploadingMediaField === 'about-story-image'}
+                                                        onChange={async e => {
+                                                            const file = e.target.files?.[0]
+                                                            if (!file) return
+                                                            await uploadImageForSection(file, 'about-story-image', (url) => {
+                                                                mutateSectionPayload(payload => {
+                                                                    if (!isObjectRecord(payload)) return
+                                                                    payload.imageUrl = url
+                                                                })
+                                                            })
+                                                            e.target.value = ''
+                                                        }}
+                                                    />
+                                                </label>
+                                            </div>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                <input
+                                                    type="text"
+                                                    value={getLocalizedValue(parsedSectionPayload.imageAlt, 'ru')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.imageAlt = { ru: e.target.value, en: getLocalizedValue(payload.imageAlt, 'en') }
+                                                    })}
+                                                    placeholder="Image alt RU"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                                <input
+                                                    type="text"
+                                                    value={getLocalizedValue(parsedSectionPayload.imageAlt, 'en')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.imageAlt = { ru: getLocalizedValue(payload.imageAlt, 'ru'), en: e.target.value }
+                                                    })}
+                                                    placeholder="Image alt EN"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {(sectionKey === 'about-values' || sectionKey === 'about-stats') && isObjectRecord(parsedSectionPayload) && (
+                                        <div className="space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                <input
+                                                    type="text"
+                                                    value={getLocalizedValue(parsedSectionPayload.title, 'ru')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.title = { ru: e.target.value, en: getLocalizedValue(payload.title, 'en') }
+                                                    })}
+                                                    placeholder="Section title RU"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                                <input
+                                                    type="text"
+                                                    value={getLocalizedValue(parsedSectionPayload.title, 'en')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.title = { ru: getLocalizedValue(payload.title, 'ru'), en: e.target.value }
+                                                    })}
+                                                    placeholder="Section title EN"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                            </div>
+                                            <div className="flex justify-end">
+                                                <button
+                                                    type="button"
+                                                    onClick={() => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        const items = Array.isArray(payload.items) ? payload.items as unknown[] : []
+                                                        items.push({
+                                                            badge: { ru: '', en: '' },
+                                                            title: { ru: '', en: '' },
+                                                            description: { ru: '', en: '' },
+                                                            imageUrl: '',
+                                                        })
+                                                        payload.items = items
+                                                    })}
+                                                    className="text-sm px-3 py-1.5 border border-gray-300 rounded-lg hover:bg-gray-50"
+                                                >
+                                                    + Добавить карточку
+                                                </button>
+                                            </div>
+                                            <div className="space-y-3">
+                                                {(Array.isArray(parsedSectionPayload.items) ? parsedSectionPayload.items : []).map((item, idx) => {
+                                                    const card = isObjectRecord(item) ? item : {}
+                                                    return (
+                                                        <div key={`about-card-${idx}`} className="border border-gray-200 rounded-lg p-3 space-y-2">
+                                                            <div className="flex justify-between items-center">
+                                                                <p className="text-xs font-medium text-gray-700">Карточка #{idx + 1}</p>
+                                                                <button
+                                                                    type="button"
+                                                                    onClick={() => mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                        payload.items.splice(idx, 1)
+                                                                    })}
+                                                                    className="text-xs px-2 py-1 rounded-md border border-red-200 text-red-700 hover:bg-red-50"
+                                                                >
+                                                                    Удалить
+                                                                </button>
+                                                            </div>
+                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                                <input
+                                                                    type="text"
+                                                                    value={getLocalizedValue(card.badge, 'ru')}
+                                                                    onChange={e => mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                        const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                        next.badge = { ru: e.target.value, en: getLocalizedValue(next.badge, 'en') }
+                                                                        payload.items[idx] = next
+                                                                    })}
+                                                                    placeholder="Badge RU"
+                                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                                />
+                                                                <input
+                                                                    type="text"
+                                                                    value={getLocalizedValue(card.badge, 'en')}
+                                                                    onChange={e => mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                        const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                        next.badge = { ru: getLocalizedValue(next.badge, 'ru'), en: e.target.value }
+                                                                        payload.items[idx] = next
+                                                                    })}
+                                                                    placeholder="Badge EN"
+                                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                                />
+                                                            </div>
+                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                                <input
+                                                                    type="text"
+                                                                    value={getLocalizedValue(card.title, 'ru')}
+                                                                    onChange={e => mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                        const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                        next.title = { ru: e.target.value, en: getLocalizedValue(next.title, 'en') }
+                                                                        payload.items[idx] = next
+                                                                    })}
+                                                                    placeholder="Title RU"
+                                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                                />
+                                                                <input
+                                                                    type="text"
+                                                                    value={getLocalizedValue(card.title, 'en')}
+                                                                    onChange={e => mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                        const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                        next.title = { ru: getLocalizedValue(next.title, 'ru'), en: e.target.value }
+                                                                        payload.items[idx] = next
+                                                                    })}
+                                                                    placeholder="Title EN"
+                                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                                />
+                                                            </div>
+                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                                <textarea
+                                                                    rows={2}
+                                                                    value={getLocalizedValue(card.description, 'ru')}
+                                                                    onChange={e => mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                        const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                        next.description = { ru: e.target.value, en: getLocalizedValue(next.description, 'en') }
+                                                                        payload.items[idx] = next
+                                                                    })}
+                                                                    placeholder="Description RU"
+                                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                                />
+                                                                <textarea
+                                                                    rows={2}
+                                                                    value={getLocalizedValue(card.description, 'en')}
+                                                                    onChange={e => mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                        const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                        next.description = { ru: getLocalizedValue(next.description, 'ru'), en: e.target.value }
+                                                                        payload.items[idx] = next
+                                                                    })}
+                                                                    placeholder="Description EN"
+                                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                                />
+                                                            </div>
+                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                                <input
+                                                                    type="url"
+                                                                    value={typeof card.imageUrl === 'string' ? card.imageUrl : ''}
+                                                                    onChange={e => mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                        const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                        next.imageUrl = e.target.value
+                                                                        payload.items[idx] = next
+                                                                    })}
+                                                                    placeholder="Image URL (optional)"
+                                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                                />
+                                                                <label className="inline-flex items-center gap-2 text-xs text-gray-600 cursor-pointer border border-gray-300 rounded-lg px-3 py-2">
+                                                                    <Upload className="w-3.5 h-3.5" />
+                                                                    {uploadingMediaField === `about-card-${idx}` ? 'Загрузка...' : 'Загрузить фото'}
+                                                                    <input
+                                                                        type="file"
+                                                                        accept="image/jpeg,image/png,image/webp,image/avif"
+                                                                        className="hidden"
+                                                                        disabled={uploadingMediaField === `about-card-${idx}`}
+                                                                        onChange={async e => {
+                                                                            const file = e.target.files?.[0]
+                                                                            if (!file) return
+                                                                            await uploadImageForSection(file, `about-card-${idx}`, (url) => {
+                                                                                mutateSectionPayload(payload => {
+                                                                                    if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                                    const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                                    next.imageUrl = url
+                                                                                    payload.items[idx] = next
+                                                                                })
+                                                                            })
+                                                                            e.target.value = ''
+                                                                        }}
+                                                                    />
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                })}
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {sectionKey === 'about-cta' && isObjectRecord(parsedSectionPayload) && (
+                                        <div className="space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                <input
+                                                    type="text"
+                                                    value={getLocalizedValue(parsedSectionPayload.title, 'ru')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.title = { ru: e.target.value, en: getLocalizedValue(payload.title, 'en') }
+                                                    })}
+                                                    placeholder="CTA title RU"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                                <input
+                                                    type="text"
+                                                    value={getLocalizedValue(parsedSectionPayload.title, 'en')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.title = { ru: getLocalizedValue(payload.title, 'ru'), en: e.target.value }
+                                                    })}
+                                                    placeholder="CTA title EN"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                            </div>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                <textarea
+                                                    rows={2}
+                                                    value={getLocalizedValue(parsedSectionPayload.description, 'ru')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.description = { ru: e.target.value, en: getLocalizedValue(payload.description, 'en') }
+                                                    })}
+                                                    placeholder="CTA description RU"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                                <textarea
+                                                    rows={2}
+                                                    value={getLocalizedValue(parsedSectionPayload.description, 'en')}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        payload.description = { ru: getLocalizedValue(payload.description, 'ru'), en: e.target.value }
+                                                    })}
+                                                    placeholder="CTA description EN"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                            </div>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                <input
+                                                    type="text"
+                                                    value={isObjectRecord(parsedSectionPayload.button) ? getLocalizedValue(parsedSectionPayload.button.label, 'ru') : ''}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        const current = isObjectRecord(payload.button) ? payload.button : {}
+                                                        const label = isObjectRecord(current.label) ? current.label : {}
+                                                        payload.button = {
+                                                            ...current,
+                                                            label: { ...label, ru: e.target.value, en: getLocalizedValue(label, 'en') },
+                                                        }
+                                                    })}
+                                                    placeholder="Button label RU"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                                <input
+                                                    type="text"
+                                                    value={isObjectRecord(parsedSectionPayload.button) ? getLocalizedValue(parsedSectionPayload.button.label, 'en') : ''}
+                                                    onChange={e => mutateSectionPayload(payload => {
+                                                        if (!isObjectRecord(payload)) return
+                                                        const current = isObjectRecord(payload.button) ? payload.button : {}
+                                                        const label = isObjectRecord(current.label) ? current.label : {}
+                                                        payload.button = {
+                                                            ...current,
+                                                            label: { ...label, ru: getLocalizedValue(label, 'ru'), en: e.target.value },
+                                                        }
+                                                    })}
+                                                    placeholder="Button label EN"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                />
+                                            </div>
+                                            <input
+                                                type="text"
+                                                value={isObjectRecord(parsedSectionPayload.button) && typeof parsedSectionPayload.button.href === 'string' ? parsedSectionPayload.button.href : ''}
+                                                onChange={e => mutateSectionPayload(payload => {
+                                                    if (!isObjectRecord(payload)) return
+                                                    const current = isObjectRecord(payload.button) ? payload.button : {}
+                                                    payload.button = { ...current, href: e.target.value }
+                                                })}
+                                                placeholder="Button href"
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                            />
                                         </div>
                                     )}
 

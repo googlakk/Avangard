@@ -46,7 +46,9 @@ export function resolveLocalizedContent<T>(value: T, locale: Locale): T {
     if (!isPlainObject(value)) return value
 
     if (isLocalizedObject(value)) {
-        const localized = value[locale] ?? value.ru ?? value.en ?? ''
+        const localized = locale === 'en'
+            ? (value.en ?? '')
+            : (value.ru ?? value.en ?? '')
         return localized as T
     }
 
@@ -63,4 +65,12 @@ export function pickOverride(
 ): Record<string, unknown> {
     if (!overrides) return {}
     return overrides[key] || {}
+}
+
+export function hasOverrideKey(
+    overrides: CmsOverrideMap | undefined,
+    key: string
+): boolean {
+    if (!overrides) return true
+    return Object.prototype.hasOwnProperty.call(overrides, key)
 }

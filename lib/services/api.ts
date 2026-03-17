@@ -480,6 +480,63 @@ export class SuggestionsService extends BaseService<'suggestions'> {
     }
 }
 
+/**
+ * Portal Posts Service
+ */
+export class PortalPostsService extends BaseService<'portal_posts'> {
+    constructor() {
+        super('portal_posts')
+    }
+
+    async getByPortal(portal: string, limit?: number) {
+        let query = this.supabase
+            .from('portal_posts')
+            .select('*')
+            .eq('portal', portal)
+            .eq('is_published', true)
+            .order('priority', { ascending: false })
+            .order('published_at', { ascending: false })
+
+        if (limit) {
+            query = query.limit(limit)
+        }
+
+        const { data, error } = await query
+        if (error) throw error
+        return data
+    }
+
+    async getBySlug(slug: string) {
+        const { data, error } = await this.supabase
+            .from('portal_posts')
+            .select('*')
+            .eq('slug', slug)
+            .eq('is_published', true)
+            .single()
+
+        if (error) throw error
+        return data
+    }
+
+    async getByCategory(portal: string, category: string, limit?: number) {
+        let query = this.supabase
+            .from('portal_posts')
+            .select('*')
+            .eq('portal', portal)
+            .eq('category', category)
+            .eq('is_published', true)
+            .order('published_at', { ascending: false })
+
+        if (limit) {
+            query = query.limit(limit)
+        }
+
+        const { data, error } = await query
+        if (error) throw error
+        return data
+    }
+}
+
 // Export service instances
 export const documentsService = new DocumentsService()
 export const newsService = new NewsService()
@@ -489,3 +546,4 @@ export const calendarEventsService = new CalendarEventsService()
 export const galleryService = new GalleryService()
 export const galleryImagesService = new GalleryImagesService()
 export const suggestionsService = new SuggestionsService()
+export const portalPostsService = new PortalPostsService()

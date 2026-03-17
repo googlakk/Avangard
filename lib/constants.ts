@@ -1,44 +1,44 @@
 export const SITE_CONFIG = {
-    name: 'Ваша Компания',
-    description: 'Современное решение для вашего бизнеса',
-    url: 'https://yourcompany.com',
-    email: 'info@yourcompany.com',
-    phone: '+7 (XXX) XXX-XX-XX',
-    address: 'г. Москва, ул. Примерная, д. 1',
+    name: 'INTELLECT INTERNATIONAL SCHOOL',
+    description: 'Частная школа нового поколения в Бишкеке',
+    url: 'https://intel.edu.kg',
+    email: 'info@intellect.kg',
+    phone: '+996 705 889 889',
+    address: 'г. Бишкек, ул. Джунусалиева, 177/1',
 };
 
 export const NAV_LINKS = [
     { href: '/', label: 'Главная' },
-    { href: '/about', label: 'О компании' },
-    { href: '/services', label: 'Услуги' },
+    { href: '/about', label: 'О школе' },
+    { href: '/programs', label: 'Программы' },
     { href: '/contacts', label: 'Контакты' },
 ];
 
 export const SOCIAL_LINKS = [
-    { name: 'VK', url: 'https://vk.com/yourcompany', icon: 'VK' },
-    { name: 'Telegram', url: 'https://t.me/yourcompany', icon: 'Telegram' },
-    { name: 'WhatsApp', url: 'https://wa.me/yourphone', icon: 'WhatsApp' },
+    { name: 'Instagram', url: 'https://instagram.com/intellect_pro_school', icon: 'Instagram' },
+    { name: 'Telegram', url: 'https://t.me/intellectproschool', icon: 'Telegram' },
+    { name: 'WhatsApp', url: 'https://wa.me/996705889889', icon: 'WhatsApp' },
 ];
 
 export const FEATURES = [
     {
-        title: 'Инновационные Решения',
-        description: 'Применяем передовые технологии для достижения ваших бизнес-целей',
+        title: 'Cambridge Pathway',
+        description: 'Академическая траектория с международными стандартами и сильной предметной базой',
         icon: 'TrendingUp',
     },
     {
-        title: 'Профессиональная Команда',
-        description: 'Опытные специалисты с глубокими знаниями в своих областях',
+        title: 'Сильная команда',
+        description: 'Преподаватели, наставники и лидеры, которые формируют культуру высоких ожиданий',
         icon: 'Users',
     },
     {
-        title: 'Индивидуальный Подход',
-        description: 'Разрабатываем уникальные решения под ваши требования',
+        title: 'Билингвальная среда',
+        description: 'Английский и русский языки как часть ежедневной академической и социальной практики',
         icon: 'Target',
     },
     {
-        title: 'Надежность и Качество',
-        description: 'Гарантируем высокое качество и своевременное выполнение проектов',
+        title: 'STEAM и навыки будущего',
+        description: 'Проекты, технологии и развитие мышления для реальной жизни и университета',
         icon: 'Award',
     },
 ];

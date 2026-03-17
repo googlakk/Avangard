@@ -1,6 +1,10 @@
+'use client';
+
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import type { ButtonProps } from '@/types';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { localizePathname } from '@/lib/i18n';
 
 export default function Button({
     variant = 'primary',
@@ -11,7 +15,7 @@ export default function Button({
     className,
     type = 'button',
 }: ButtonProps) {
-    // ... (lines 13-37 unchanged)
+    const { language } = useLanguage();
     const baseStyles =
         'inline-flex items-center justify-center font-medium transition-all rounded-lg hover-lift';
 
@@ -30,8 +34,9 @@ export default function Button({
     const buttonClasses = cn(baseStyles, variants[variant], sizes[size], className);
 
     if (href) {
+        const localizedHref = href.startsWith('/') ? localizePathname(href, language) : href;
         return (
-            <Link href={href} className={buttonClasses}>
+            <Link href={localizedHref} className={buttonClasses}>
                 {children}
             </Link>
         );

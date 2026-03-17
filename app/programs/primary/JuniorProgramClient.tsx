@@ -21,7 +21,7 @@ import {
     getMotivationCultureFeatures,
     getMotivationCulturePhotoProof
 } from '@/lib/data/junior-program';
-import { deepMerge, pickOverride, resolveLocalizedContent, type CmsOverrideMap } from '@/lib/cms/program-content';
+import { deepMerge, hasOverrideKey, pickOverride, resolveLocalizedContent, type CmsOverrideMap } from '@/lib/cms/program-content';
 
 interface JuniorProgramClientProps {
     cmsOverrides?: CmsOverrideMap;
@@ -29,6 +29,10 @@ interface JuniorProgramClientProps {
 
 export default function JuniorProgramClient({ cmsOverrides }: JuniorProgramClientProps) {
     const { t, language } = useLanguage();
+    const hasLifestyleFeatures = hasOverrideKey(cmsOverrides, 'junior-lifestyle-care-features');
+    const hasLifestyleProof = hasOverrideKey(cmsOverrides, 'junior-lifestyle-care-proof');
+    const hasMotivationFeatures = hasOverrideKey(cmsOverrides, 'junior-motivation-atmosphere-features');
+    const hasMotivationProof = hasOverrideKey(cmsOverrides, 'junior-motivation-atmosphere-proof');
 
     const heroData = resolveLocalizedContent(
         deepMerge(getJuniorHeroData(t), pickOverride(cmsOverrides, 'junior-hero')),
@@ -77,42 +81,48 @@ export default function JuniorProgramClient({ cmsOverrides }: JuniorProgramClien
     return (
         <main className="bg-white">
             {/* БЛОК 1: Hero - Главное обещание + Безопасность */}
-            <JuniorHero {...heroData} />
+            {hasOverrideKey(cmsOverrides, 'junior-hero') && <JuniorHero {...heroData} />}
 
             {/* БЛОК 2: Философия (Фундамент будущего) */}
             <PhilosophyIntroSection />
 
             {/* БЛОК 3: Родительское счастье (Lifestyle & Care) */}
-            <LifestyleAndCareSection
-                features={lifestyleFeatures}
-                photoProof={lifestylePhotoProof}
-            />
+            {hasLifestyleFeatures && (
+                <LifestyleAndCareSection
+                    features={lifestyleFeatures}
+                    photoProof={hasLifestyleProof ? lifestylePhotoProof : { images: [], message: '' }}
+                />
+            )}
 
             {/* БЛОК 4: Когнитивный фундамент (Hard Skills) */}
-            <CognitiveFoundationSection
-                features={cognitiveFeatures}
-            />
+            {hasOverrideKey(cmsOverrides, 'junior-cognitive-foundation') && (
+                <CognitiveFoundationSection
+                    features={cognitiveFeatures}
+                />
+            )}
 
             {/* БЛОК 5: Мотивация и Атмосфера (Soft Skills) */}
-            <MotivationAtmosphereSection
-                features={motivationFeatures}
-                photoProof={motivationProof}
-            />
+            {hasMotivationFeatures && (
+                <MotivationAtmosphereSection
+                    features={motivationFeatures}
+                    photoProof={hasMotivationProof ? motivationProof : undefined}
+                />
+            )}
 
             {/* БЛОК 6: Преподаватели (Faculty) */}
             <JuniorFaculty />
 
             {/* Фотогалерея - визуальное подтверждение */}
-            <JuniorPhotoGallery images={galleryImages} />
+            {hasOverrideKey(cmsOverrides, 'junior-gallery') && <JuniorPhotoGallery images={galleryImages} />}
 
             {/* Отзывы родителей */}
-            <ParentTestimonials testimonials={testimonialsData} />
+            {hasOverrideKey(cmsOverrides, 'junior-testimonials') && <ParentTestimonials testimonials={testimonialsData} />}
 
             {/* Узнать больше - модальные окна с деталями */}
             <AdditionalInfoSection />
 
             {/* CTA секция */}
-            <JuniorCTA {...ctaData} />
+            {hasOverrideKey(cmsOverrides, 'junior-cta') && <JuniorCTA {...ctaData} />}
         </main>
     );
 }

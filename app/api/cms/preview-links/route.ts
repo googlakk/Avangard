@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { canAccessAdminPanel, normalizeRole } from '@/lib/auth/rbac'
+import { hasPermission, normalizeRole } from '@/lib/auth/rbac'
 import { createPreviewLink, type PreviewEntityType } from '@/lib/services/preview-links'
 import { createClient } from '@/lib/supabase/server'
 
@@ -16,14 +16,15 @@ export async function POST(request: Request) {
         const supabase = await createClient()
         const { data: { user } } = await supabase.auth.getUser()
 
-        const role = normalizeRole(user?.user_metadata?.role ?? user?.app_metadata?.role)
-        if (!user || !canAccessAdminPanel(role)) {
-            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-        }
-
         const body = (await request.json()) as CreatePreviewBody
         if (!body.entityType || !body.entityId || !body.slug) {
             return NextResponse.json({ error: 'Invalid payload' }, { status: 400 })
+        }
+
+        const role = normalizeRole(user?.user_metadata?.role ?? user?.app_metadata?.role)
+        const resource = body.entityType === 'news' ? 'news' : 'pages'
+        if (!user || !hasPermission(role, resource, 'publish')) {
+            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
         }
 
         const result = await createPreviewLink({

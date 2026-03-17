@@ -4,13 +4,90 @@ import Button from '@/components/ui/Button';
 import { IconWrapper } from '@/lib/icon-wrapper';
 import { Icon } from '@/lib/icons';
 import Link from 'next/link';
+import CmsProgramPageRenderer from '@/components/cms/CmsProgramPageRenderer';
+import StarsStack from '@/components/about/StarsStack';
+import { getCmsPageSections, getCmsPageSeoMeta, getPublishedCmsPageBySlug } from '@/lib/services/cms-public';
 
-export const metadata: Metadata = {
-    title: 'О нас | Intellect School',
-    description: 'Узнайте больше об Intellect School - ведущей образовательной организации Казахстана',
-};
+const ABOUT_PAGE_SLUG = 'about'
 
-export default function AboutPage() {
+export async function generateMetadata(): Promise<Metadata> {
+    const page = await getPublishedCmsPageBySlug(ABOUT_PAGE_SLUG)
+    if (!page) {
+        return {
+            title: 'О нас | Intellect School',
+            description: 'Узнайте больше об Intellect School - ведущей образовательной организации Казахстана',
+        }
+    }
+
+    const seo = await getCmsPageSeoMeta(page.id)
+    const title = seo?.seo_title || page.title_ru
+    const description = seo?.seo_description || page.title_en
+    const canonical = seo?.canonical_url || '/about'
+    const ogImage = seo?.og_image_url || '/og-image.jpg'
+
+    return {
+        title,
+        description,
+        alternates: { canonical },
+        openGraph: {
+            title,
+            description,
+            images: [{ url: ogImage }],
+            type: 'website',
+        },
+        robots: {
+            index: seo?.robots_index ?? true,
+            follow: seo?.robots_follow ?? true,
+        },
+    }
+}
+
+export default async function AboutPage() {
+    const cmsPage = await getPublishedCmsPageBySlug(ABOUT_PAGE_SLUG)
+    if (cmsPage) {
+        const sections = await getCmsPageSections(cmsPage.id)
+        return <CmsProgramPageRenderer page={cmsPage} sections={sections} />
+    }
+
+    const starsTeams = [
+        {
+            team: 'Команда "Вундеркинды из Бишкека"',
+            subtitle: "Звезды Central Asia's Got Talent",
+            members: ['Арсен', 'Байэл', 'Альбина', 'Нурболот', 'Чынгыз'],
+            wins: ['Memoriad', 'World Memory Champ', 'Mental Calculation', 'Got Talent'],
+        },
+        {
+            team: 'Команда "Интеллект Прайм"',
+            subtitle: 'Победители регионального чемпионата',
+            members: ['Алина', 'Нурсултан', 'Тимур', 'Мария', 'Азамат'],
+            wins: ['Math Challenge', 'Mental Marathon', 'IT Sprint', 'Debate Cup'],
+        },
+        {
+            team: 'Команда "Smart Leaders"',
+            subtitle: 'Финалисты международной лиги',
+            members: ['Айпери', 'Даниэль', 'Асия', 'Роман', 'Элина'],
+            wins: ['Brain Battle', 'Logic Arena', 'STEM Hackathon', 'Creative Pitch'],
+        },
+        {
+            team: 'Команда "Memory Masters"',
+            subtitle: 'Чемпионы городского этапа',
+            members: ['Бегайым', 'Ислам', 'Жансая', 'Бекзат', 'Лейла'],
+            wins: ['Speed Memory', 'Mental Math', 'Talent Show', 'Science Quiz'],
+        },
+        {
+            team: 'Команда "Future Minds"',
+            subtitle: 'Призеры национального турнира',
+            members: ['Нурия', 'Эржан', 'Сайкал', 'Ильяс', 'София'],
+            wins: ['National Memory Cup', 'Code Stars', 'Edu Forum', 'Olympiad Team'],
+        },
+        {
+            team: 'Команда "Peak Performers"',
+            subtitle: 'Лидеры сезона в академической лиге',
+            members: ['Диана', 'Эмир', 'Элина', 'Руслан', 'Самат'],
+            wins: ['Top Scholar', 'Team Challenge', 'Innovation Day', 'Open Finals'],
+        },
+    ]
+
     return (
         <div className="min-h-screen bg-white font-sans text-gray-900">
             {/* Hero Section */}
@@ -359,43 +436,14 @@ export default function AboutPage() {
                             </div>
                         </div>
                         <div className="w-full lg:w-1/2">
-                            <div className="bg-white rounded-[2rem] p-8 shadow-xl">
+                            <div className="rounded-[2rem] p-2">
                                 <div className="flex items-center gap-4 mb-6">
                                     <div className="w-12 h-12 bg-yellow-400 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-yellow-400/20">
                                         <Icon name="Star" className="w-6 h-6 fill-current" />
                                     </div>
                                     <h3 className="text-2xl font-bold text-navy-900">Наши звезды</h3>
                                 </div>
-
-                                <div className="bg-gray-50 rounded-2xl p-6 mb-6">
-                                    <h4 className="font-bold text-navy-900 text-lg mb-1">Команда &ldquo;Вундеркинды из Бишкека&rdquo;</h4>
-                                    <p className="text-gray-500 text-sm font-medium">Звезды Central Asia&apos;s Got Talent</p>
-                                </div>
-
-                                <div className="flex flex-wrap gap-2 mb-8">
-                                    {['Арсен', 'Байэл', 'Альбина', 'Нурболот', 'Чынгыз'].map((name) => (
-                                        <span key={name} className="px-4 py-1.5 bg-blue-100 text-blue-700 rounded-full text-sm font-bold">
-                                            {name}
-                                        </span>
-                                    ))}
-                                </div>
-
-                                <div>
-                                    <h5 className="text-gray-400 font-bold text-xs uppercase tracking-wider mb-4">ПОБЕДЫ НА АРЕНАХ:</h5>
-                                    <div className="grid grid-cols-2 gap-4">
-                                        {[
-                                            { label: 'Memoriad', icon: 'Medal' },
-                                            { label: 'World Memory Champ', icon: 'Trophy' },
-                                            { label: 'Mental Calculation', icon: 'Brain' },
-                                            { label: 'Got Talent', icon: 'Star' }
-                                        ].map((item, idx) => (
-                                            <div key={idx} className="flex items-center gap-2">
-                                                <Icon name={item.icon} className="w-4 h-4 text-yellow-500" />
-                                                <span className="text-navy-900 font-bold text-sm">{item.label}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
+                                <StarsStack cards={starsTeams} autoplayMs={5000} />
                             </div>
                         </div>
                     </div>

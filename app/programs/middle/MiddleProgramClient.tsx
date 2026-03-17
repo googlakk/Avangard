@@ -14,7 +14,7 @@ import {
     getLeadershipGovernanceData,
     getMiddleCTAData,
 } from '@/lib/data/middle-program';
-import { deepMerge, pickOverride, resolveLocalizedContent, type CmsOverrideMap } from '@/lib/cms/program-content';
+import { deepMerge, hasOverrideKey, pickOverride, resolveLocalizedContent, type CmsOverrideMap } from '@/lib/cms/program-content';
 
 interface MiddleProgramClientProps {
     cmsOverrides?: CmsOverrideMap;
@@ -46,12 +46,12 @@ export default function MiddleProgramClient({ cmsOverrides }: MiddleProgramClien
 
     return (
         <main className="bg-white">
-            <AcademicBreakthrough {...academicBreakthroughData} />
-            <DisciplineEnvironment {...disciplineEnvironmentData} />
-            <TwentyFirstSkills {...twentyFirstSkillsData} />
-            <LeadershipGovernance {...leadershipGovernanceData} />
+            {hasOverrideKey(cmsOverrides, 'middle-academic-breakthrough') && <AcademicBreakthrough {...academicBreakthroughData} />}
+            {hasOverrideKey(cmsOverrides, 'middle-discipline-environment') && <DisciplineEnvironment {...disciplineEnvironmentData} />}
+            {hasOverrideKey(cmsOverrides, 'middle-twenty-first-skills') && <TwentyFirstSkills {...twentyFirstSkillsData} />}
+            {hasOverrideKey(cmsOverrides, 'middle-leadership-governance') && <LeadershipGovernance {...leadershipGovernanceData} />}
             <MiddleAdditionalInfoSection />
-            <MiddleCTA {...middleCtaData} />
+            {hasOverrideKey(cmsOverrides, 'middle-cta') && <MiddleCTA {...middleCtaData} />}
         </main>
     );
 }

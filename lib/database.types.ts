@@ -525,6 +525,69 @@ export type Database = {
         }
         Relationships: []
       }
+      portal_posts: {
+        Row: {
+          category: string
+          content_en: string
+          content_ru: string
+          created_at: string | null
+          created_by: string | null
+          description_en: string
+          description_ru: string
+          id: string
+          image_url: string | null
+          is_published: boolean | null
+          link_url: string | null
+          portal: string
+          priority: number | null
+          published_at: string | null
+          slug: string
+          title_en: string
+          title_ru: string
+          updated_at: string | null
+        }
+        Insert: {
+          category?: string
+          content_en?: string
+          content_ru?: string
+          created_at?: string | null
+          created_by?: string | null
+          description_en?: string
+          description_ru?: string
+          id?: string
+          image_url?: string | null
+          is_published?: boolean | null
+          link_url?: string | null
+          portal: string
+          priority?: number | null
+          published_at?: string | null
+          slug: string
+          title_en: string
+          title_ru: string
+          updated_at?: string | null
+        }
+        Update: {
+          category?: string
+          content_en?: string
+          content_ru?: string
+          created_at?: string | null
+          created_by?: string | null
+          description_en?: string
+          description_ru?: string
+          id?: string
+          image_url?: string | null
+          is_published?: boolean | null
+          link_url?: string | null
+          portal?: string
+          priority?: number | null
+          published_at?: string | null
+          slug?: string
+          title_en?: string
+          title_ru?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       staff_members: {
         Row: {
           bio_en: string | null

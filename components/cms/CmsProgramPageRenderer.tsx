@@ -9,7 +9,9 @@ type LocalizedLike = string | { ru?: string; en?: string } | null | undefined
 function localized(value: LocalizedLike, language: 'ru' | 'en') {
     if (!value) return ''
     if (typeof value === 'string') return value
-    return value[language] || value.ru || value.en || ''
+    return language === 'en'
+        ? (value.en || '')
+        : (value.ru || value.en || '')
 }
 
 function toItems(value: unknown): Array<Record<string, unknown>> {

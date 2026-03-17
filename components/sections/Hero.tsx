@@ -16,21 +16,24 @@ export default function Hero() {
         <section className="relative h-screen flex flex-col items-center justify-center">
             {/* Фоновое видео */}
             <div className="absolute inset-0 overflow-hidden">
+                <Image
+                    src="/images/sen-hero.png"
+                    alt="School background"
+                    fill
+                    priority
+                    className="object-cover"
+                />
                 <video
                     autoPlay
                     loop
                     muted
                     playsInline
+                    preload="metadata"
+                    poster="/images/sen-hero.png"
+                    disablePictureInPicture
                     className="absolute inset-0 w-full h-full object-cover"
                 >
-                    <source src="/videos/Школа.mp4" type="video/mp4" />
-                    {/* Fallback изображение если видео не загрузится */}
-                    <Image
-                        src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2831"
-                        alt="School background"
-                        fill
-                        className="object-cover"
-                    />
+                    <source src="/videos/hero-school-optimized.mp4" type="video/mp4" />
                 </video>
                 {/* Оверлей */}
                 <div className="absolute inset-0 hero-overlay" />

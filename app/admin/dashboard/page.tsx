@@ -272,6 +272,7 @@ export default function AdminDashboardPage() {
                             <Link href="/admin/documents" className="px-3 py-2 text-sm text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50">Documents</Link>
                             <Link href="/admin/gallery" className="px-3 py-2 text-sm text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50">Gallery</Link>
                             <Link href="/admin/pages" className="px-3 py-2 text-sm text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50">Program & Pages Builder</Link>
+                            <Link href="/admin/portal" className="px-3 py-2 text-sm text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50">Portal Posts</Link>
                         </div>
                     </div>
                 </div>

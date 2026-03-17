@@ -42,35 +42,23 @@ export default function Header() {
                     </Link>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden lg:flex items-center gap-9">
+                    <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
                         <Link
                             href="/"
-                            className="relative text-white/90 hover:text-white text-[15px] font-medium tracking-[0.01em] transition-all duration-300 py-2 group"
+                            className="relative text-white/90 hover:text-white text-[14px] font-medium tracking-[0.01em] transition-all duration-300 py-2 group whitespace-nowrap"
                         >
                             {t.header.home}
                             <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gradient-to-r from-[#C6A96B] to-[#D8C08A] group-hover:w-full transition-all duration-300" />
                         </Link>
-                        <Link
-                            href="/about"
-                            className="relative text-white/90 hover:text-white text-[15px] font-medium tracking-[0.01em] transition-all duration-300 py-2 group"
-                        >
-                            {t.header.about}
-                            <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gradient-to-r from-[#C6A96B] to-[#D8C08A] group-hover:w-full transition-all duration-300" />
-                        </Link>
-                        <Link
-                            href="/about/team"
-                            className="relative text-white/90 hover:text-white text-[15px] font-medium tracking-[0.01em] transition-all duration-300 py-2 group"
-                        >
-                            {t.header.team}
-                            <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gradient-to-r from-[#C6A96B] to-[#D8C08A] group-hover:w-full transition-all duration-300" />
-                        </Link>
-                        <Link
-                            href="/programs"
-                            className="relative text-white/90 hover:text-white text-[15px] font-medium tracking-[0.01em] transition-all duration-300 py-2 group"
-                        >
-                            {t.header.programs}
-                            <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gradient-to-r from-[#C6A96B] to-[#D8C08A] group-hover:w-full transition-all duration-300" />
-                        </Link>
+                        <DropdownMenu
+                            label={t.header.aboutMenu.title}
+                            basePath=""
+                            items={[
+                                { label: t.header.aboutMenu.items.about.title, href: '/about', description: t.header.aboutMenu.items.about.description },
+                                { label: t.header.aboutMenu.items.team.title, href: '/about/team', description: t.header.aboutMenu.items.team.description },
+                                { label: t.header.aboutMenu.items.programs.title, href: '/programs', description: t.header.aboutMenu.items.programs.description },
+                            ]}
+                        />
 
                         <DropdownMenu
                             label={t.header.rulesMenu.title}
@@ -91,6 +79,8 @@ export default function Header() {
                                 { label: t.header.parentsMenu.items.values.title, href: '/values', description: t.header.parentsMenu.items.values.description },
                                 { label: t.header.parentsMenu.items.care.title, href: '/care', description: t.header.parentsMenu.items.care.description },
                                 { label: t.header.parentsMenu.items.admission.title, href: '/parents/admission', description: t.header.parentsMenu.items.admission.description },
+                                { label: t.header.parentsMenu.items.parentsSchool.title, href: '/parents-school', description: t.header.parentsMenu.items.parentsSchool.description },
+                                { label: t.header.parentsMenu.items.platforms.title, href: '/platforms', description: t.header.parentsMenu.items.platforms.description },
                                 { label: t.header.parentsMenu.items.faq.title, href: '/faq', description: t.header.parentsMenu.items.faq.description },
                             ]}
                         />
@@ -101,17 +91,19 @@ export default function Header() {
                             items={[
                                 { label: t.header.teachersMenu.items.culture.title, href: '/culture', description: t.header.teachersMenu.items.culture.description },
                                 { label: t.header.teachersMenu.items.benefits.title, href: '/benefits', description: t.header.teachersMenu.items.benefits.description },
+                                { label: t.header.teachersMenu.items.teachersSchool.title, href: '/teachers-school', description: t.header.teachersMenu.items.teachersSchool.description },
+                                { label: t.header.teachersMenu.items.teachersPlatforms.title, href: '/platforms', description: t.header.teachersMenu.items.teachersPlatforms.description },
                                 { label: t.header.teachersMenu.items.careers.title, href: '/careers', description: t.header.teachersMenu.items.careers.description },
                             ]}
                         />
                     </nav>
 
                     {/* Language Switch & CTA Button */}
-                    <div className="hidden lg:flex items-center gap-5">
+                    <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
                         <LanguageSwitch />
                         <Link
                             href="/contacts"
-                            className="relative px-6 py-2.5 rounded-full text-[14px] font-semibold tracking-[0.02em] transition-all duration-300 transform hover:-translate-y-[1px] hover:shadow-[0_8px_24px_rgba(198,169,107,0.25)]"
+                            className="relative px-5 py-2.5 rounded-full text-[13px] font-semibold tracking-[0.02em] transition-all duration-300 transform hover:-translate-y-[1px] hover:shadow-[0_8px_24px_rgba(198,169,107,0.25)] whitespace-nowrap flex-shrink-0"
                             style={{
                                 background: 'linear-gradient(135deg, #C6A96B 0%, #D8C08A 50%, #C6A96B 100%)',
                                 color: '#0F223A',
@@ -159,27 +151,15 @@ export default function Header() {
                                 >
                                     {t.header.home}
                                 </Link>
-                                <Link
-                                    href="/about"
-                                    className="text-white/90 hover:text-white hover:bg-white/[0.05] px-4 py-3 rounded-lg transition-all duration-300"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    {t.header.about}
-                                </Link>
-                                <Link
-                                    href="/about/team"
-                                    className="text-white/90 hover:text-white hover:bg-white/[0.05] px-4 py-3 rounded-lg transition-all duration-300"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    {t.header.team}
-                                </Link>
-                                <Link
-                                    href="/programs"
-                                    className="text-white/90 hover:text-white hover:bg-white/[0.05] px-4 py-3 rounded-lg transition-all duration-300"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    {t.header.programs}
-                                </Link>
+                                {/* About School Mobile Section */}
+                                <div className="py-3 px-4">
+                                    <div className="text-[#C6A96B] text-xs font-semibold uppercase tracking-[0.15em] mb-3">{t.header.aboutMenu.title}</div>
+                                    <div className="pl-3 space-y-1 border-l border-[#C6A96B]/30">
+                                        <Link href="/about" className="block text-white/80 hover:text-white py-2 px-3 rounded transition-all duration-300" onClick={() => setIsMenuOpen(false)}>{t.header.aboutMenu.items.about.title}</Link>
+                                        <Link href="/about/team" className="block text-white/80 hover:text-white py-2 px-3 rounded transition-all duration-300" onClick={() => setIsMenuOpen(false)}>{t.header.aboutMenu.items.team.title}</Link>
+                                        <Link href="/programs" className="block text-white/80 hover:text-white py-2 px-3 rounded transition-all duration-300" onClick={() => setIsMenuOpen(false)}>{t.header.aboutMenu.items.programs.title}</Link>
+                                    </div>
+                                </div>
 
                                 {/* Rules & Safety Mobile Section */}
                                 <div className="py-3 px-4">
@@ -200,6 +180,8 @@ export default function Header() {
                                         <Link href="/parents/values" className="block text-white/80 hover:text-white py-2 px-3 rounded transition-all duration-300" onClick={() => setIsMenuOpen(false)}>{t.header.parentsMenu.items.values.title}</Link>
                                         <Link href="/parents/care" className="block text-white/80 hover:text-white py-2 px-3 rounded transition-all duration-300" onClick={() => setIsMenuOpen(false)}>{t.header.parentsMenu.items.care.title}</Link>
                                         <Link href="/parents/admission" className="block text-white/80 hover:text-white py-2 px-3 rounded transition-all duration-300" onClick={() => setIsMenuOpen(false)}>{t.header.parentsMenu.items.admission.title}</Link>
+                                        <Link href="/parents/parents-school" className="block text-white/80 hover:text-white py-2 px-3 rounded transition-all duration-300" onClick={() => setIsMenuOpen(false)}>{t.header.parentsMenu.items.parentsSchool.title}</Link>
+                                        <Link href="/parents/platforms" className="block text-white/80 hover:text-white py-2 px-3 rounded transition-all duration-300" onClick={() => setIsMenuOpen(false)}>{t.header.parentsMenu.items.platforms.title}</Link>
                                         <Link href="/parents/faq" className="block text-white/80 hover:text-white py-2 px-3 rounded transition-all duration-300" onClick={() => setIsMenuOpen(false)}>{t.header.parentsMenu.items.faq.title}</Link>
                                     </div>
                                 </div>
@@ -210,6 +192,8 @@ export default function Header() {
                                     <div className="pl-3 space-y-1 border-l border-[#C6A96B]/30">
                                         <Link href="/teachers/culture" className="block text-white/80 hover:text-white py-2 px-3 rounded transition-all duration-300" onClick={() => setIsMenuOpen(false)}>{t.header.teachersMenu.items.culture.title}</Link>
                                         <Link href="/teachers/benefits" className="block text-white/80 hover:text-white py-2 px-3 rounded transition-all duration-300" onClick={() => setIsMenuOpen(false)}>{t.header.teachersMenu.items.benefits.title}</Link>
+                                        <Link href="/teachers/teachers-school" className="block text-white/80 hover:text-white py-2 px-3 rounded transition-all duration-300" onClick={() => setIsMenuOpen(false)}>{t.header.teachersMenu.items.teachersSchool.title}</Link>
+                                        <Link href="/teachers/platforms" className="block text-white/80 hover:text-white py-2 px-3 rounded transition-all duration-300" onClick={() => setIsMenuOpen(false)}>{t.header.teachersMenu.items.teachersPlatforms.title}</Link>
                                         <Link href="/teachers/careers" className="block text-white/80 hover:text-white py-2 px-3 rounded transition-all duration-300" onClick={() => setIsMenuOpen(false)}>{t.header.teachersMenu.items.careers.title}</Link>
                                     </div>
                                 </div>

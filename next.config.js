@@ -1,12 +1,26 @@
 /** @type {import('next').NextConfig} */
+const supabaseHostname = process.env.NEXT_PUBLIC_SUPABASE_URL
+    ? new URL(process.env.NEXT_PUBLIC_SUPABASE_URL).hostname
+    : null
+
+const remotePatterns = [
+    {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+    },
+]
+
+if (supabaseHostname) {
+    remotePatterns.push({
+        protocol: 'https',
+        hostname: supabaseHostname,
+        pathname: '/storage/v1/object/public/**',
+    })
+}
+
 const nextConfig = {
     images: {
-        remotePatterns: [
-            {
-                protocol: 'https',
-                hostname: 'images.unsplash.com',
-            },
-        ],
+        remotePatterns,
     },
     // Оптимизация производительности
     reactStrictMode: true,
@@ -46,6 +60,11 @@ const nextConfig = {
             {
                 source: '/teachers',
                 destination: '/about/team',
+                permanent: true,
+            },
+            {
+                source: '/services',
+                destination: '/programs',
                 permanent: true,
             },
         ];

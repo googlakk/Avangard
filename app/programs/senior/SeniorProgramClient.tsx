@@ -12,7 +12,7 @@ import {
     getCognitiveAIData,
     getSelectiveAdmissionData
 } from '@/lib/data/senior-program';
-import { deepMerge, pickOverride, resolveLocalizedContent, type CmsOverrideMap } from '@/lib/cms/program-content';
+import { deepMerge, hasOverrideKey, pickOverride, resolveLocalizedContent, type CmsOverrideMap } from '@/lib/cms/program-content';
 
 interface SeniorProgramClientProps {
     cmsOverrides?: CmsOverrideMap;
@@ -40,11 +40,11 @@ export default function SeniorProgramClient({ cmsOverrides }: SeniorProgramClien
 
     return (
         <main className="bg-white">
-            <SeniorOffer {...seniorOfferData} />
-            <AcademicResults {...academicResultsData} />
-            <CognitiveSuperiorityAI {...cognitiveAiData} />
+            {hasOverrideKey(cmsOverrides, 'senior-offer') && <SeniorOffer {...seniorOfferData} />}
+            {hasOverrideKey(cmsOverrides, 'senior-academic-results') && <AcademicResults {...academicResultsData} />}
+            {hasOverrideKey(cmsOverrides, 'senior-cognitive-ai') && <CognitiveSuperiorityAI {...cognitiveAiData} />}
             <SeniorProgramTabs />
-            <SelectiveAdmission {...selectiveAdmissionData} />
+            {hasOverrideKey(cmsOverrides, 'senior-selective-admission') && <SelectiveAdmission {...selectiveAdmissionData} />}
         </main>
     );
 }
