@@ -3,7 +3,8 @@
 import { IconWrapper } from '@/lib/icon-wrapper';
 import { motion } from 'framer-motion';
 import { ExtracurricularActivity, MotivationSystem } from '@/lib/data/junior-program';
-import { Icon } from '@/lib/icons';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { getJuniorContent } from '@/lib/content/junior-content';
 
 interface ExtracurricularSectionProps {
     activities: ExtracurricularActivity[];
@@ -11,23 +12,26 @@ interface ExtracurricularSectionProps {
 }
 
 export default function ExtracurricularSection({ activities, motivationSystems }: ExtracurricularSectionProps) {
+    const { language } = useLanguage();
+    const copy = getJuniorContent(language).ui.modals.extracurricular;
+
     return (
         <section className="py-20 bg-gray-50">
             <div className="container mx-auto px-4">
                 {/* Заголовок секции */}
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold text-navy-900 mb-4 font-heading">
-                        Внеклассная жизнь и Мотивация
+                        {copy.title}
                     </h2>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Кружки, секции и уникальная система мотивации для развития потенциала каждого ребенка
+                        {copy.subtitle}
                     </p>
                 </div>
 
                 {/* Кружки и секции */}
                 <div className="mb-16">
                     <h3 className="text-3xl font-bold text-navy-900 text-center mb-10">
-                        Кружки и секции
+                        {copy.clubsTitle}
                     </h3>
                     <div className="grid md:grid-cols-3 gap-8">
                         {activities.map((activity, index) => (
@@ -68,7 +72,7 @@ export default function ExtracurricularSection({ activities, motivationSystems }
                 {/* Система мотивации */}
                 <div>
                     <h3 className="text-3xl font-bold text-navy-900 text-center mb-10">
-                        Система мотивации
+                        {copy.motivationTitle}
                     </h3>
                     <div className="grid md:grid-cols-2 gap-8">
                         {motivationSystems.map((system, index) => (
@@ -123,14 +127,13 @@ export default function ExtracurricularSection({ activities, motivationSystems }
                 >
                     <div className="text-5xl mb-6">🌟</div>
                     <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                        Культура похвалы — основа нашей философии
+                        {copy.calloutTitle}
                     </h3>
                     <p className="text-xl md:text-2xl opacity-95 max-w-3xl mx-auto mb-6">
-                        Мы хвалим за старание, а не только за результат
+                        {copy.calloutLead}
                     </p>
                     <p className="text-lg opacity-90 max-w-2xl mx-auto">
-                        Это формирует у ребенка уверенность в себе и отсутствие страха перед ошибками —
-                        ключевые качества для успешного будущего
+                        {copy.calloutText}
                     </p>
                 </motion.div>
             </div>

@@ -1,4 +1,6 @@
 
+import ru from '@/locales/ru.json';
+
 // Данные для страницы Intellect Junior (1-4 классы)
 // Refactored to support i18n
 
@@ -461,27 +463,55 @@ export interface Testimonial {
     quote: string;
 }
 
-export const testimonials: Testimonial[] = [
-    {
-        parentName: "Елена Петрова",
-        childName: "Артем",
-        childGrade: "2 класс",
-        photo: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400",
-        quote: "Артем с радостью бежит в школу каждое утро! Учителя невероятно внимательные, а программа идеально сбалансирована."
-    },
-    {
-        parentName: "Айгуль Султанова",
-        childName: "Алия",
-        childGrade: "4 класс",
-        quote: "За 4 года Алия полюбила английский и математику. Теперь она мечтает стать ученым! Спасибо школе за то, что развили в ней любознательность."
-    },
-    {
-        parentName: "Дмитрий Ким",
-        childName: "Максим",
-        childGrade: "1 класс",
-        quote: "Адаптация прошла очень мягко благодаря методике школы. Максим быстро нашел друзей и с первых дней почувствовал себя комфортно."
+export function getTestimonials(language: 'ru' | 'en'): Testimonial[] {
+    if (language === 'en') {
+        return [
+            {
+                parentName: 'Elena Petrova',
+                childName: 'Artem',
+                childGrade: 'Grade 2',
+                photo: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400',
+                quote: 'Artem runs to school every morning with genuine excitement. The teachers are deeply attentive, and the program feels thoughtfully balanced.'
+            },
+            {
+                parentName: 'Aigul Sultanova',
+                childName: 'Aliya',
+                childGrade: 'Grade 4',
+                quote: 'Over four years, Aliya has fallen in love with English and mathematics. Now she dreams of becoming a scientist. The school has truly nurtured her curiosity.'
+            },
+            {
+                parentName: 'Dmitry Kim',
+                childName: 'Maxim',
+                childGrade: 'Grade 1',
+                quote: 'The transition into school was remarkably gentle. Maxim found friends quickly and felt comfortable from his very first days.'
+            }
+        ];
     }
-];
+
+    return [
+        {
+            parentName: 'Елена Петрова',
+            childName: 'Артем',
+            childGrade: '2 класс',
+            photo: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400',
+            quote: 'Артем с радостью бежит в школу каждое утро! Учителя невероятно внимательные, а программа идеально сбалансирована.'
+        },
+        {
+            parentName: 'Айгуль Султанова',
+            childName: 'Алия',
+            childGrade: '4 класс',
+            quote: 'За 4 года Алия полюбила английский и математику. Теперь она мечтает стать ученым! Спасибо школе за то, что развили в ней любознательность.'
+        },
+        {
+            parentName: 'Дмитрий Ким',
+            childName: 'Максим',
+            childGrade: '1 класс',
+            quote: 'Адаптация прошла очень мягко благодаря методике школы. Максим быстро нашел друзей и с первых дней почувствовал себя комфортно.'
+        }
+    ];
+}
+
+export const testimonials: Testimonial[] = getTestimonials('ru');
 
 export const brainMethodologyContent = {
     title: "Методика развития мозга",
@@ -508,29 +538,41 @@ export const brainMethodologyContent = {
     ]
 };
 
-export const nativeTeachers = [
+export interface JuniorFacultyTeacher {
+    name: string;
+    country: string;
+    experience: string;
+    subjects: string[];
+    photo: string;
+    quote: string;
+}
+
+export const getNativeTeachers = (t: any): JuniorFacultyTeacher[] => [
     {
         name: "Sarah Johnson",
-        country: "USA",
-        experience: "5 лет в Intellect School",
-        subjects: ["English Language", "Science"],
+        country: t.junior.faculty.teachers.sarah.country,
+        experience: t.junior.faculty.teachers.sarah.experience,
+        subjects: t.junior.faculty.teachers.sarah.subjects,
         photo: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?q=80&w=800",
-        quote: "Дети учат язык лучше всего, когда им интересно. Мы играем, исследуем и общаемся."
+        quote: t.junior.faculty.teachers.sarah.quote
     },
     {
         name: "James Wilson",
-        country: "UK",
-        experience: "3 года в Intellect School",
-        subjects: ["English Literature", "Drama"],
+        country: t.junior.faculty.teachers.james.country,
+        experience: t.junior.faculty.teachers.james.experience,
+        subjects: t.junior.faculty.teachers.james.subjects,
         photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800",
-        quote: "Моя цель — научить детей не просто говорить, а думать на английском языке."
+        quote: t.junior.faculty.teachers.james.quote
     },
     {
         name: "Emily Brown",
-        country: "Canada",
-        experience: "4 года в Intellect School",
-        subjects: ["Math in English", "Art"],
+        country: t.junior.faculty.teachers.emily.country,
+        experience: t.junior.faculty.teachers.emily.experience,
+        subjects: t.junior.faculty.teachers.emily.subjects,
         photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800",
-        quote: "Мы создаем среду, где ошибка — это просто шаг к новому открытию."
+        quote: t.junior.faculty.teachers.emily.quote
     }
 ];
+
+// Backward-compatible default export for legacy pages that still render the RU version statically.
+export const nativeTeachers = getNativeTeachers(ru);

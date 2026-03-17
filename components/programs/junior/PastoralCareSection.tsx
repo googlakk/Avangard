@@ -1,6 +1,8 @@
 'use client';
 
 import { IconWrapper } from '@/lib/icon-wrapper';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { getJuniorContent } from '@/lib/content/junior-content';
 
 interface CareItem {
     icon: string;
@@ -13,16 +15,19 @@ interface PastoralCareProps {
 }
 
 export default function PastoralCareSection({ items }: PastoralCareProps) {
+    const { language } = useLanguage();
+    const copy = getJuniorContent(language).ui.modals.pastoral;
+
     return (
         <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
             <div className="container mx-auto px-4">
                 {/* Заголовок секции */}
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-                        Забота о каждом ребенке
+                        {copy.title}
                     </h2>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Создаем безопасную и поддерживающую среду, где каждый ребенок чувствует себя ценным
+                        {copy.subtitle}
                     </p>
                 </div>
 

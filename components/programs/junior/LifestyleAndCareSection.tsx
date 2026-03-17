@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { JUNIOR_LIFESTYLE_CARD_BACKGROUNDS, LifestyleCareFeature } from '@/lib/data/junior-program';
 import { IconWrapper } from '@/lib/icon-wrapper';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { getJuniorContent } from '@/lib/content/junior-content';
 
 interface LifestyleAndCareSectionProps {
     features: LifestyleCareFeature[];
@@ -14,7 +15,8 @@ interface LifestyleAndCareSectionProps {
 }
 
 export default function LifestyleAndCareSection({ features, photoProof }: LifestyleAndCareSectionProps) {
-    const { t } = useLanguage();
+    const { language } = useLanguage();
+    const ui = getJuniorContent(language).ui;
 
     // Custom positioning for asymmetric layout - 3 columns, 2 rows, all 4 cards visible
     const cardPositions = [
@@ -30,10 +32,10 @@ export default function LifestyleAndCareSection({ features, photoProof }: Lifest
                 {/* Заголовок секции */}
                 <div className="text-center mb-8">
                     <h2 className="text-3xl md:text-4xl font-bold font-lora text-oxford-blue mb-3">
-                        Почему мы?
+                        {ui.lifestyleIntro.title}
                     </h2>
                     <p className="text-base md:text-lg font-manrope text-slate-600 max-w-3xl mx-auto">
-                        Школа остается в школе. Вечер — для семьи
+                        {ui.lifestyleIntro.subtitle}
                     </p>
                 </div>
 

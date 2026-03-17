@@ -1,21 +1,22 @@
 'use client';
 
 import Image from 'next/image';
-import { nativeTeachers } from '@/lib/data/junior-program';
+import { getNativeTeachers } from '@/lib/data/junior-program';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function JuniorFaculty() {
     const { t } = useLanguage();
+    const nativeTeachers = getNativeTeachers(t);
 
     return (
         <section className="py-24 bg-white">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold font-lora text-oxford-blue mb-4">
-                        Преподаватели-носители языка
+                        {t.junior.faculty.title}
                     </h2>
                     <p className="text-lg md:text-xl font-manrope text-slate-600 max-w-3xl mx-auto">
-                        Они не просто учат языку, они на нем живут
+                        {t.junior.faculty.subtitle}
                     </p>
                 </div>
 

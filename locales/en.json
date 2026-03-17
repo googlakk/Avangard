@@ -270,6 +270,7 @@
                 "title": "Brain Fitness",
                 "subtitle": "Brain Training",
                 "description": [
+                    "Dedicated learning platforms strengthen memory, logic, and critical thinking",
                     "Mental arithmetic and memory training included in the schedule",
                     "Increases memory capacity and concentration by 2x",
                     "Using the window of maximum brain plasticity (6-10 years)"
@@ -340,6 +341,30 @@
                 "title": "📸 Photo-proof",
                 "caption": "Happy child holding an earned award, proud teacher nearby",
                 "cta": "The child runs to school with joy, they like winning here"
+            }
+        },
+        "faculty": {
+            "title": "Native-Speaking Teachers",
+            "subtitle": "They do not just teach the language, they live in it",
+            "teachers": {
+                "sarah": {
+                    "country": "USA",
+                    "experience": "5 years at Intellect School",
+                    "subjects": ["English Language", "Science"],
+                    "quote": "Children learn a language best when they are genuinely interested. We play, explore, and communicate."
+                },
+                "james": {
+                    "country": "UK",
+                    "experience": "3 years at Intellect School",
+                    "subjects": ["English Literature", "Drama"],
+                    "quote": "My goal is to teach children not just to speak, but to think in English."
+                },
+                "emily": {
+                    "country": "Canada",
+                    "experience": "4 years at Intellect School",
+                    "subjects": ["Math in English", "Art"],
+                    "quote": "We create an environment where a mistake is simply a step toward a new discovery."
+                }
             }
         },
         "additionalInfo": {

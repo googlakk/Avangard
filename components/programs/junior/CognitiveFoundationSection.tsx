@@ -1,13 +1,15 @@
 import { CognitiveFoundationFeature } from '@/lib/data/junior-program';
 import { IconWrapper } from '@/lib/icon-wrapper';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { getJuniorContent } from '@/lib/content/junior-content';
 
 interface CognitiveFoundationSectionProps {
     features: CognitiveFoundationFeature[];
 }
 
 export default function CognitiveFoundationSection({ features }: CognitiveFoundationSectionProps) {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
+    const ui = getJuniorContent(language).ui;
 
     return (
         <section className="py-10 bg-oxford-blue relative overflow-hidden min-h-screen flex flex-col justify-center">
@@ -25,7 +27,7 @@ export default function CognitiveFoundationSection({ features }: CognitiveFounda
                 {/* Заголовок секции */}
                 <div className="text-center mb-8">
                     <span className="inline-block px-4 py-2 bg-electric-blue/20 border border-electric-blue/40 rounded-full text-electric-blue text-sm font-bold tracking-widest uppercase mb-6 backdrop-blur-sm">
-                        Hard Skills
+                        {ui.cognitiveBadge}
                     </span>
                     <h2 className="text-4xl md:text-5xl font-bold font-lora text-white mb-6">
                         {t.junior.cognitive.intro.title}

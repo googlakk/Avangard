@@ -3,37 +3,20 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const FAQS = [
-    {
-        question: "Какой размер классов в школе?",
-        answer: "Мы придерживаемся принципа комфортного обучения. Средняя наполняемость классов — около 20 человек. Это позволяет учителю уделить внимание каждому ребенку и выстроить индивидуальную траекторию обучения."
-    },
-
-    {
-        question: "Как организовано питание?",
-        answer: "Мы предоставляем сбалансированное 3-разовое питание (завтрак, обед, полдник). Меню составляется с учетом возрастных потребностей, есть возможность диетического стола по медицинским показаниям."
-    },
-    {
-        question: "Есть ли развозка/трансфер?",
-        answer: "Да, школа предоставляет услуги трансфера. Маршруты составляются в зависимости от места проживания учеников. Транспорт оснащен ремнями безопасности, детей сопровождает взрослый."
-    },
-    {
-        question: "Обязательна ли школьная форма?",
-        answer: "Да, в школе принят деловой стиль одежды и фирменная форма с логотипом школы для парадных мероприятий. Это дисциплинирует и создает чувство общности."
-    }
-];
+import { useLanguage } from '@/contexts/LanguageContext';
+import { getSitePageContent } from '@/lib/content/site-pages';
 
 export default function FAQPage() {
+    const { language } = useLanguage();
+    const copy = getSitePageContent(language).parents.faq;
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
         <main className="min-h-screen">
-            {/* Hero Section */}
             <section className="relative h-[40vh] flex items-center justify-center overflow-hidden">
                 <Image
                     src="/api/placeholder/1920/1080"
-                    alt="Вопросы и ответы"
+                    alt={copy.heroAlt}
                     fill
                     className="object-cover"
                 />
@@ -44,16 +27,15 @@ export default function FAQPage() {
                         animate={{ opacity: 1, y: 0 }}
                         className="font-display text-4xl md:text-6xl mb-6"
                     >
-                        Вопросы и ответы
+                        {copy.heroTitle}
                     </motion.h1>
                 </div>
             </section>
 
-            {/* Accordion Section */}
             <section className="py-20 bg-gray-50">
                 <div className="container mx-auto px-4 max-w-3xl">
                     <div className="space-y-4">
-                        {FAQS.map((faq, index) => (
+                        {copy.items.map((faq, index) => (
                             <div
                                 key={index}
                                 className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer"

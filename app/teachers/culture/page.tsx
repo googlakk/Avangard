@@ -4,11 +4,13 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 import { useLanguage } from '@/contexts/LanguageContext';
+import { getSitePageContent } from '@/lib/content/site-pages';
 import { getCultureData } from '@/lib/data/teachers';
 
 export default function CulturePage() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
     const data = getCultureData(t);
+    const copy = getSitePageContent(language).teachers.culture;
     const { hero, manifesto, slider } = data;
     return (
         <main className="min-h-screen">
@@ -16,7 +18,7 @@ export default function CulturePage() {
             <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
                 <Image
                     src="/api/placeholder/1920/1080"
-                    alt="Учителя школы"
+                    alt={copy.heroAlt}
                     fill
                     className="object-cover"
                 />
@@ -55,7 +57,7 @@ export default function CulturePage() {
                         <div className="relative rounded-2xl overflow-hidden h-full md:col-span-1">
                             <Image
                                 src="/api/placeholder/600/800"
-                                alt="Учительская"
+                                alt={copy.loungeAlt}
                                 fill
                                 className="object-cover hover:scale-105 transition-transform duration-700"
                             />
@@ -63,7 +65,7 @@ export default function CulturePage() {
                         <div className="relative rounded-2xl overflow-hidden h-full md:col-span-2">
                             <Image
                                 src="/api/placeholder/1200/800"
-                                alt="Команда на тимбилдинге"
+                                alt={copy.teamAlt}
                                 fill
                                 className="object-cover hover:scale-105 transition-transform duration-700"
                             />

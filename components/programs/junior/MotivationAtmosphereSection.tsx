@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { MotivationCultureFeature } from '@/lib/data/junior-program';
 import { IconWrapper } from '@/lib/icon-wrapper';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { getJuniorContent } from '@/lib/content/junior-content';
 
 interface MotivationAtmosphereSectionProps {
     features: MotivationCultureFeature[];
@@ -12,7 +13,8 @@ interface MotivationAtmosphereSectionProps {
 }
 
 export default function MotivationAtmosphereSection({ features, photoProof }: MotivationAtmosphereSectionProps) {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
+    const ui = getJuniorContent(language).ui;
 
     return (
         <section className="py-24 bg-gradient-to-b from-slate-50 to-amber-50/50">
@@ -70,8 +72,8 @@ export default function MotivationAtmosphereSection({ features, photoProof }: Mo
                                         <div className="w-10 h-10 rounded-full bg-education-amber flex items-center justify-center shadow-lg text-white font-bold text-lg border-2 border-white ring-2 ring-amber-100">
                                             $
                                         </div>
-                                        <div>
-                                            <p className="text-xs text-slate-500 font-bold uppercase mb-1">Concept</p>
+                                            <div>
+                                            <p className="text-xs text-slate-500 font-bold uppercase mb-1">{ui.motivationExampleLabel}</p>
                                             <p className="text-sm font-manrope text-oxford-blue font-medium italic">
                                                 &ldquo;{feature.example}&rdquo;
                                             </p>

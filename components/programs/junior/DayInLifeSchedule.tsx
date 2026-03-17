@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { getJuniorContent } from '@/lib/content/junior-content';
 
 interface ScheduleItem {
     time: string;
@@ -16,9 +18,10 @@ interface DayScheduleProps {
 }
 
 export default function DayInLifeSchedule({ schedule }: DayScheduleProps) {
+    const { language } = useLanguage();
+    const copy = getJuniorContent(language).ui.modals.schedule;
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    // Автопереключение каждые 4 секунды
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prev) => (prev + 1) % schedule.length);
@@ -31,7 +34,6 @@ export default function DayInLifeSchedule({ schedule }: DayScheduleProps) {
         setCurrentIndex(index);
     };
 
-    // Функция для получения 5 превью (2 слева, центр, 2 справа)
     const getVisibleSlides = () => {
         const visible = [];
         for (let i = -2; i <= 2; i++) {
@@ -51,15 +53,13 @@ export default function DayInLifeSchedule({ schedule }: DayScheduleProps) {
     return (
         <section className="py-20 bg-white">
             <div className="container mx-auto px-4">
-                {/* Заголовок */}
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-                        Один день из жизни
+                        {copy.title}
                     </h2>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-2">
-                        Как проходит типичный день ученика Intellect Junior
+                        {copy.subtitle}
                     </p>
-                    {/* Отображаем название и описание текущей активности */}
                     <div className="max-w-2xl mx-auto mt-8">
                         <h3 className="text-2xl font-bold text-navy-900 mb-2">
                             {currentItem.activity}
@@ -74,21 +74,19 @@ export default function DayInLifeSchedule({ schedule }: DayScheduleProps) {
 
                 {/* Carousel Container */}
                 <div className="max-w-6xl mx-auto">
-                    {/* Карусель с 5 превью */}
                     <div className="flex items-end justify-center gap-3 md:gap-6 mb-8">
                         {visibleSlides.map(({ item, index, position }) => {
                             const isActive = position === 0;
 
-                            // Размеры зависят от позиции
                             let size, rounded;
                             if (isActive) {
-                                size = 'w-48 h-64 md:w-64 md:h-80'; // Центральная - самая большая
+                                size = 'w-48 h-64 md:w-64 md:h-80';
                                 rounded = 'rounded-3xl';
                             } else if (Math.abs(position) === 1) {
-                                size = 'w-32 h-48 md:w-40 md:h-56'; // Соседние
+                                size = 'w-32 h-48 md:w-40 md:h-56';
                                 rounded = 'rounded-2xl';
                             } else {
-                                size = 'w-24 h-36 md:w-32 md:h-44'; // Крайние
+                                size = 'w-24 h-36 md:w-32 md:h-44';
                                 rounded = 'rounded-xl';
                             }
 
@@ -109,10 +107,8 @@ export default function DayInLifeSchedule({ schedule }: DayScheduleProps) {
                                         fill
                                         className="object-cover"
                                     />
-                                    {/* Gradient overlay */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
 
-                                    {/* Время */}
                                     <div className="absolute bottom-0 left-0 right-0 p-3">
                                         <p className={`font-bold text-white text-center ${isActive ? 'text-xl md:text-2xl' : 'text-base md:text-lg'
                                             }`}>
@@ -124,7 +120,6 @@ export default function DayInLifeSchedule({ schedule }: DayScheduleProps) {
                         })}
                     </div>
 
-                    {/* Индикаторы прогресса */}
                     <div className="flex justify-center gap-2">
                         {schedule.map((_, index) => (
                             <button

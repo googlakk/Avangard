@@ -3,23 +3,27 @@
 import { IconWrapper } from '@/lib/icon-wrapper';
 import { motion } from 'framer-motion';
 import { LanguageFeature } from '@/lib/data/junior-program';
-import { Icon } from '@/lib/icons';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { getJuniorContent } from '@/lib/content/junior-content';
 
 interface LanguageEnvironmentSectionProps {
     features: LanguageFeature[];
 }
 
 export default function LanguageEnvironmentSection({ features }: LanguageEnvironmentSectionProps) {
+    const { language } = useLanguage();
+    const copy = getJuniorContent(language).ui.modals.language;
+
     return (
         <section className="py-20 bg-gray-50">
             <div className="container mx-auto px-4">
                 {/* Заголовок секции */}
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold text-navy-900 mb-4 font-heading">
-                        Языковая среда и международные стандарты
+                        {copy.title}
                     </h2>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Наше ключевое отличие — не «уроки английского», а <span className="font-bold text-navy-900 font-ibm-plex-serif">жизнь на английском</span>
+                        {copy.subtitle}
                     </p>
                 </div>
 
@@ -78,10 +82,10 @@ export default function LanguageEnvironmentSection({ features }: LanguageEnviron
                     className="mt-16 bg-navy-900 rounded-3xl p-10 text-white text-center shadow-xl"
                 >
                     <p className="text-2xl md:text-3xl font-bold mb-4 font-ibm-plex-serif">
-                        🌍 К концу 4 класса — свободное владение английским языком
+                        {copy.summaryTitle}
                     </p>
                     <p className="text-lg opacity-90">
-                        Ребенок не просто знает грамматику, он живет в языковой среде каждый день
+                        {copy.summaryDescription}
                     </p>
                 </motion.div>
             </div>

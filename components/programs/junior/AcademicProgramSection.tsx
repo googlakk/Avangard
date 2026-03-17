@@ -4,13 +4,16 @@ import { IconWrapper } from '@/lib/icon-wrapper';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { AcademicBlock } from '@/lib/data/junior-program';
-import { Icon } from '@/lib/icons';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { getJuniorContent } from '@/lib/content/junior-content';
 
 interface AcademicProgramSectionProps {
     blocks: AcademicBlock[];
 }
 
 export default function AcademicProgramSection({ blocks }: AcademicProgramSectionProps) {
+    const { language } = useLanguage();
+    const copy = getJuniorContent(language).ui.modals.academic;
     const [activeBlock, setActiveBlock] = useState(0);
 
     return (
@@ -19,10 +22,10 @@ export default function AcademicProgramSection({ blocks }: AcademicProgramSectio
                 {/* Заголовок секции */}
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold text-navy-900 mb-4 font-heading">
-                        Академическая программа
+                        {copy.title}
                     </h2>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Обучение строится на интеграции трех компонентов: государственный стандарт, когнитивное развитие и IT-технологии
+                        {copy.subtitle}
                     </p>
                 </div>
 
@@ -113,12 +116,10 @@ export default function AcademicProgramSection({ blocks }: AcademicProgramSectio
                         className="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-xl transition-shadow"
                     >
                         <h4 className="text-2xl font-bold text-navy-900 mb-4 font-heading">
-                            💡 Brain Fitness
+                            💡 {copy.extras[0].title}
                         </h4>
                         <p className="text-gray-700 leading-relaxed">
-                            Авторские дисциплины для развития мозга, эффективность которых доказана наукой
-                            (Evidence-based education). Мы используем нейропластичность мозга для формирования
-                            когнитивных способностей.
+                            {copy.extras[0].description}
                         </p>
                     </motion.div>
 
@@ -130,12 +131,10 @@ export default function AcademicProgramSection({ blocks }: AcademicProgramSectio
                         className="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-xl transition-shadow"
                     >
                         <h4 className="text-2xl font-bold text-navy-900 mb-4 font-heading">
-                            📊 МОиН КР
+                            📊 {copy.extras[1].title}
                         </h4>
                         <p className="text-gray-700 leading-relaxed">
-                            Мы обеспечиваем сильную академическую базу, соответствующую требованиям
-                            Министерства образования и науки Кыргызской Республики. Наши ученики показывают
-                            высокие результаты на олимпиадах.
+                            {copy.extras[1].description}
                         </p>
                     </motion.div>
                 </div>

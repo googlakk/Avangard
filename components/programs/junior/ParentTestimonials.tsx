@@ -1,6 +1,8 @@
 'use client';
 
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { getJuniorContent } from '@/lib/content/junior-content';
 
 interface Testimonial {
     parentName: string;
@@ -15,16 +17,19 @@ interface TestimonialsProps {
 }
 
 export default function ParentTestimonials({ testimonials }: TestimonialsProps) {
+    const { language } = useLanguage();
+    const ui = getJuniorContent(language).ui.testimonials;
+
     return (
         <section className="py-20 bg-white">
             <div className="container mx-auto px-4">
                 {/* Заголовок */}
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-                        Отзывы родителей
+                        {ui.title}
                     </h2>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Что говорят семьи наших учеников
+                        {ui.subtitle}
                     </p>
                 </div>
 
@@ -66,7 +71,7 @@ export default function ParentTestimonials({ testimonials }: TestimonialsProps) 
                                         {testimonial.parentName}
                                     </p>
                                     <p className="text-sm text-gray-600">
-                                        Родитель {testimonial.childName}, {testimonial.childGrade}
+                                        {ui.parentLabel} {testimonial.childName}, {testimonial.childGrade}
                                     </p>
                                 </div>
                             </div>

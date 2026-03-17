@@ -2,6 +2,8 @@
 
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { getJuniorContent } from '@/lib/content/junior-content';
 
 interface AdditionalInfoModalProps {
     isOpen: boolean;
@@ -11,7 +13,9 @@ interface AdditionalInfoModalProps {
 }
 
 export default function AdditionalInfoModal({ isOpen, onClose, title, children }: AdditionalInfoModalProps) {
-    // Закрытие по Escape
+    const { language } = useLanguage();
+    const closeLabel = getJuniorContent(language).ui.modalClose;
+
     useEffect(() => {
         const handleEscape = (e: KeyboardEvent) => {
             if (e.key === 'Escape' && isOpen) {
@@ -23,7 +27,6 @@ export default function AdditionalInfoModal({ isOpen, onClose, title, children }
         return () => document.removeEventListener('keydown', handleEscape);
     }, [isOpen, onClose]);
 
-    // Блокировка скролла при открытой модалке
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
@@ -56,7 +59,7 @@ export default function AdditionalInfoModal({ isOpen, onClose, title, children }
                     <button
                         onClick={onClose}
                         className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-                        aria-label="Закрыть"
+                        aria-label={closeLabel}
                     >
                         <svg
                             className="w-6 h-6 text-gray-600"

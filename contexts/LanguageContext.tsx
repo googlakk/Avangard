@@ -10,6 +10,7 @@ type Translations = typeof ru & {
     senior: any;
     teachers: any;
     contacts: any;
+    rules: any;
 };
 
 interface LanguageContextType {

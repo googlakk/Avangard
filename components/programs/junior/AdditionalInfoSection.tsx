@@ -12,7 +12,6 @@ import PastoralCareSection from './PastoralCareSection';
 import { useLanguage } from '@/contexts/LanguageContext';
 import {
     getDailySchedule,
-    getLanguageEnvironment, // Note: I need to make sure this is exported and implemented
     getAcademicProgram,
     getHeadOfJuniorData,
     getExtracurricularActivities,
@@ -23,7 +22,7 @@ import {
 type ModalType = 'schedule' | 'language' | 'academic' | 'head' | 'extracurricular' | 'pastoral' | null;
 
 export default function AdditionalInfoSection() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
     const [activeModal, setActiveModal] = useState<ModalType>(null);
 
     // Fetch dynamic data using the current language
@@ -34,13 +33,6 @@ export default function AdditionalInfoSection() {
     const motivation = getMotivationSystems(t);
     const pastoral = getPastoralCareItems(t);
 
-    // Fallback for Language Environment if I missed implementing it fully in the previous step
-    // I decided to skip it in the previous step because I was creating the plan. 
-    // I need to ensure it returns something valid or reuse the cognitive block.
-    // For now, let's assume I will fix the getter or use 'languageEnvironment' from data.
-    // But I emptied the static array! So I MUST use a getter that returns meaningful data.
-    // I will implement a basic getter based on 'junior.cognitive.immersion' here if the import fails or returns empty?
-    // In the previous step I defined 'getLanguageEnvironment' returning one item.
     const languageFeatures = [
         {
             icon: "GraduationCap",
@@ -49,10 +41,38 @@ export default function AdditionalInfoSection() {
             description: t.junior.cognitive.immersion.description,
             highlight: t.junior.cognitive.immersion.highlight
         },
-        // Add more static/hardcoded items if needed to match the 3-card layout, 
-        // or just stick with 1 for now if translation keys are missing.
-        // To be safe and "High Quality", I should duplicate or adapt to fill the space?
-        // Let's just use the one we have translations for.
+        {
+            icon: "Users",
+            title: language === 'en' ? 'Co-Teaching' : 'Co-Teaching',
+            subtitle: language === 'en' ? 'Two educators in one lesson' : 'Два педагога в одном уроке',
+            description: language === 'en'
+                ? [
+                    'The lead teacher keeps the academic structure.',
+                    'The Native Speaker supports pronunciation and live communication.',
+                    'Children hear English inside authentic classroom interaction.',
+                ]
+                : [
+                    'Основной учитель удерживает академическую структуру урока.',
+                    'Native Speaker помогает с произношением и живым общением.',
+                    'Ребёнок слышит английский в естественной учебной среде.',
+                ],
+        },
+        {
+            icon: "MessageCircle",
+            title: language === 'en' ? 'Daily Practice' : 'Ежедневная практика',
+            subtitle: language === 'en' ? 'English beyond the lesson' : 'Английский вне рамок урока',
+            description: language === 'en'
+                ? [
+                    'Breaks, projects, lunch, and routines reinforce language naturally.',
+                    'Children build confidence through repeated live interaction.',
+                    'Communication becomes spontaneous rather than forced.',
+                ]
+                : [
+                    'Перемены, проекты, обед и совместные активности закрепляют язык естественно.',
+                    'Ребёнок набирает уверенность через регулярное живое общение.',
+                    'Английский становится спонтанным, а не “выученным для ответа”.',
+                ],
+        },
     ];
 
     const infoCards = [

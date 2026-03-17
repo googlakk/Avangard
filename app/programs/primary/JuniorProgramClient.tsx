@@ -11,10 +11,11 @@ import AdditionalInfoSection from '@/components/programs/junior/AdditionalInfoSe
 import PhilosophyIntroSection from '@/components/programs/junior/PhilosophyIntroSection';
 import JuniorFaculty from '@/components/programs/junior/JuniorFaculty';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { getJuniorContent } from '@/lib/content/junior-content';
 import {
     getJuniorHeroData,
     getGalleryImages,
-    testimonials,
+    getTestimonials,
     getLifestyleCareFeatures,
     getLifestyleCarePhotoProof,
     getCognitiveFoundationFeatures,
@@ -29,6 +30,7 @@ interface JuniorProgramClientProps {
 
 export default function JuniorProgramClient({ cmsOverrides }: JuniorProgramClientProps) {
     const { t, language } = useLanguage();
+    const staticCopy = getJuniorContent(language);
     const hasLifestyleFeatures = hasOverrideKey(cmsOverrides, 'junior-lifestyle-care-features');
     const hasLifestyleProof = hasOverrideKey(cmsOverrides, 'junior-lifestyle-care-proof');
     const hasMotivationFeatures = hasOverrideKey(cmsOverrides, 'junior-motivation-atmosphere-features');
@@ -63,16 +65,16 @@ export default function JuniorProgramClient({ cmsOverrides }: JuniorProgramClien
         language
     );
     const testimonialsData = resolveLocalizedContent(
-        deepMerge(testimonials, pickOverride(cmsOverrides, 'junior-testimonials')),
+        deepMerge(getTestimonials(language), pickOverride(cmsOverrides, 'junior-testimonials')),
         language
     );
     const ctaData = resolveLocalizedContent(
         deepMerge({
-            title: 'Готовы дать своему ребенку лучший старт?',
-            description: 'Запишитесь на индивидуальную экскурсию по школе и познакомьтесь с нашей командой',
-            primaryText: 'Записаться на экскурсию',
-            primaryLink: '/admissions',
-            secondaryText: 'Скачать брошюру',
+            title: staticCopy.ui.cta.title,
+            description: staticCopy.ui.cta.description,
+            primaryText: staticCopy.ui.cta.primaryText,
+            primaryLink: '/parents/admission',
+            secondaryText: staticCopy.ui.cta.secondaryText,
             secondaryLink: '/downloads/junior-brochure.pdf',
         }, pickOverride(cmsOverrides, 'junior-cta')),
         language

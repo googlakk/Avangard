@@ -40,6 +40,9 @@ jobs:
       - name: Type Check
         run: npm run type-check
 
+      - name: i18n Checks
+        run: npm run check:i18n
+
       - name: Build
         run: npm run build
 

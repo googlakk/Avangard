@@ -3,48 +3,20 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Button from '@/components/ui/Button';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { getSitePageContent } from '@/lib/content/site-pages';
+import { localizePathname } from '@/lib/i18n';
 
 export default function AdmissionPage() {
-    const STEPS = [
-        {
-            number: '01',
-            title: 'Консультация',
-            text: 'Вы можете связаться с нами, и мы будем рады ответить на все ваши вопросы. Первый шаг к знакомству со школой.'
-        },
-        {
-            number: '02',
-            title: 'Тестирование',
-            text: 'Предметы: Русский язык, Английский язык и Математика. Это помогает нам определить уровень знаний ребенка.'
-        },
-        {
-            number: '03',
-            title: 'Заключение контракта',
-            text: 'После успешного прохождения тестирования необходимо заключить договор на обучение в нашей школе.'
-        },
-        {
-            number: '04',
-            title: 'Подать документы',
-            text: 'Личное дело ребенка, копия свидетельства о рождении, копии паспортов родителей.'
-        },
-        {
-            number: '05',
-            title: 'Предоставить справки',
-            text: 'Медицинские справки №026 и №063, справка о месте жительства и фотография 3х4.'
-        },
-        {
-            number: '06',
-            title: 'Зачисление',
-            text: 'Добро пожаловать в Intellect International School! Вы получаете доступ к личному кабинету.'
-        }
-    ];
+    const { language } = useLanguage();
+    const copy = getSitePageContent(language).parents.admission;
 
     return (
         <main className="min-h-screen">
-            {/* Hero Section */}
             <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
                 <Image
                     src="/images/senior-medalists.png"
-                    alt="Процесс поступления"
+                    alt={copy.hero.imageAlt}
                     fill
                     sizes="100vw"
                     priority
@@ -57,19 +29,18 @@ export default function AdmissionPage() {
                         animate={{ opacity: 1, y: 0 }}
                         className="font-display text-4xl md:text-6xl mb-6"
                     >
-                        Процесс поступления
+                        {copy.hero.title}
                     </motion.h1>
                     <p className="text-xl text-gray-200 max-w-2xl mx-auto font-light">
-                        Прозрачный и понятный путь к качественному образованию.
+                        {copy.hero.subtitle}
                     </p>
                 </div>
             </section>
 
-            {/* Steps Section */}
             <section className="py-20 bg-white">
                 <div className="container mx-auto px-4">
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {STEPS.map((step, index) => (
+                        {copy.steps.map((step, index) => (
                             <div key={index} className="relative p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-shadow bg-white group">
                                 <div className="text-6xl font-display font-bold text-navy-900/10 mb-6 group-hover:text-navy-900/20 transition-colors">
                                     {step.number}
@@ -87,22 +58,12 @@ export default function AdmissionPage() {
                 </div>
             </section>
 
-            {/* Documents Checklist */}
             <section className="py-20 bg-gray-50">
                 <div className="container mx-auto px-4 max-w-4xl">
                     <div className="bg-white rounded-3xl p-10 shadow-lg">
-                        <h2 className="text-3xl font-bold font-display text-center mb-10 text-navy-900">Необходимые документы</h2>
+                        <h2 className="text-3xl font-bold font-display text-center mb-10 text-navy-900">{copy.documents.title}</h2>
                         <div className="grid md:grid-cols-2 gap-x-12 gap-y-6">
-                            {[
-                                'Личное дело учащегося',
-                                'Копия свидетельства о рождении',
-                                'Копии паспортов родителей (ИИН)',
-                                'Адресная справка',
-                                'Медицинская карта (Форма №026)',
-                                'Паспорт здоровья (Форма №063)',
-                                'Фотографии 3х4 (2 шт)',
-                                'Табель успеваемости (при переводе)'
-                            ].map((doc, i) => (
+                            {copy.documents.items.map((doc, i) => (
                                 <div key={i} className="flex items-start gap-4">
                                     <div className="w-6 h-6 rounded-full bg-navy-900 flex items-center justify-center flex-shrink-0 mt-0.5">
                                         <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -114,8 +75,8 @@ export default function AdmissionPage() {
                             ))}
                         </div>
                         <div className="mt-12 text-center">
-                            <Button href="/contacts" size="lg" className="w-full md:w-auto">
-                                Связаться с приемной комиссией
+                            <Button href={localizePathname('/contacts', language)} size="lg" className="w-full md:w-auto">
+                                {copy.documents.button}
                             </Button>
                         </div>
                     </div>

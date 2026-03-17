@@ -39,12 +39,12 @@ type PageProps = {
 }
 
 type RouteEntry = {
-    component: () => Promise<JSX.Element | null> | JSX.Element | null
+    component: (locale: PublicLocale) => Promise<JSX.Element | null> | JSX.Element | null
     metadata: Record<PublicLocale, { title: string; description: string }>
 }
 
 const renderPage = (Component: any) => {
-    const WrappedPage = () => <Component />
+    const WrappedPage = (locale: PublicLocale) => <Component locale={locale} />
     WrappedPage.displayName = 'LocalizedPage'
     return WrappedPage
 }
@@ -518,5 +518,5 @@ export default async function LocalizedStaticPage({ params }: PageProps) {
         notFound()
     }
 
-    return await entry.component()
+    return await entry.component(params.locale)
 }

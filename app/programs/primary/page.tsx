@@ -1,13 +1,14 @@
+import type { Metadata } from 'next';
 import JuniorProgramClient from './JuniorProgramClient';
 import { getPublishedCmsSectionPayloadsBySlug } from '@/lib/services/cms-public';
 
-export const metadata = {
-    title: 'Начальная школа Intellect Junior (1-4 классы) | Intellect Pro',
-    description: 'Счастливое детство с интеллектом будущего. Школа полного дня (08:00-17:00) с носителями языка. Мягкая адаптация, развитие мозга и безопасность 360°. ',
-    keywords: 'начальная школа, 1-4 классы, билингвальное образование, английский, носители языка, Cambridge Primary, ментальная арифметика, школа полного дня, Бишкек, Intellect Pro',
+export const metadata: Metadata = {
+    title: 'Intellect Primary School (Grades 1-4) | Intellect Pro',
+    description: 'Full-day bilingual primary school with native speakers, brain development, and 360° safety.',
+    keywords: ['primary school', 'grades 1-4', 'bilingual education', 'Cambridge Primary', 'Bishkek', 'Intellect Pro'],
     openGraph: {
-        title: 'Intellect Junior — Счастливое детство с интеллектом будущего',
-        description: 'Школа полного дня с Native Speakers, когнитивное развитие, безопасность 360°',
+        title: 'Intellect Primary',
+        description: 'Full-day primary school with native speakers, cognitive development, and 360° safety.',
         images: [{
             url: '/images/junior/og-image.jpg',
             width: 1200,

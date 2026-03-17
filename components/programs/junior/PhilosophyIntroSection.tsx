@@ -3,9 +3,11 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { getJuniorContent } from '@/lib/content/junior-content';
 
 export default function PhilosophyIntroSection() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
+    const ui = getJuniorContent(language).ui;
 
     const formatText = (text: string) => {
         const html = text
@@ -46,7 +48,7 @@ export default function PhilosophyIntroSection() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-oxford-blue/50 to-transparent"></div>
 
                                 <div className="absolute bottom-6 left-6 right-6 text-white bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20">
-                                    <p className="font-lora italic text-lg text-center">&ldquo;Every child is a genius awaiting discovery&rdquo;</p>
+                                    <p className="font-lora italic text-lg text-center">&ldquo;{ui.philosophyQuote}&rdquo;</p>
                                 </div>
                             </div>
                         </motion.div>

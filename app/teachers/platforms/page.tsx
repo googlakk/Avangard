@@ -5,16 +5,22 @@ import PortalPostsPage from '@/components/portal/PortalPostsPage'
 
 export default function TeachersPlatformsPage() {
     const { language } = useLanguage()
+    const copy = {
+        ru: {
+            title: 'Полезные платформы',
+            subtitle: 'Инструменты и платформы для педагогов',
+        },
+        en: {
+            title: 'Useful Platforms',
+            subtitle: 'Tools and platforms for educators',
+        },
+    }[language]
 
     return (
         <PortalPostsPage
             portal="teachers_platforms"
-            heroTitle={language === 'ru' ? 'Полезные платформы' : 'Useful Platforms'}
-            heroSubtitle={
-                language === 'ru'
-                    ? 'Инструменты и платформы для педагогов'
-                    : 'Tools and platforms for educators'
-            }
+            heroTitle={copy.title}
+            heroSubtitle={copy.subtitle}
         />
     )
 }

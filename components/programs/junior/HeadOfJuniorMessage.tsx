@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface HeadMessageProps {
     name: string;
@@ -11,6 +12,8 @@ interface HeadMessageProps {
 }
 
 export default function HeadOfJuniorMessage({ name, position, photo, videoUrl, quote }: HeadMessageProps) {
+    const { language } = useLanguage();
+
     return (
         <section className="py-20 bg-white">
             <div className="container mx-auto px-4">
@@ -68,7 +71,7 @@ export default function HeadOfJuniorMessage({ name, position, photo, videoUrl, q
                                         >
                                             <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
                                         </svg>
-                                        Смотреть видео-приветствие
+                                        {language === 'en' ? 'Watch the welcome video' : 'Смотреть видео-приветствие'}
                                     </a>
                                 </div>
                             )}

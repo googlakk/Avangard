@@ -1,6 +1,8 @@
 'use client';
 
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { getJuniorContent } from '@/lib/content/junior-content';
 
 interface JuniorHeroProps {
     title: string;
@@ -21,6 +23,9 @@ export default function JuniorHero({
     backgroundImage,
     badge
 }: JuniorHeroProps) {
+    const { language } = useLanguage();
+    const ui = getJuniorContent(language).ui;
+
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
             {/* Background Image */}
@@ -81,11 +86,11 @@ export default function JuniorHero({
                 <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-3xl shadow-2xl max-w-xs transform rotate-2 hover:rotate-0 transition-transform duration-300">
                     <div className="flex items-center gap-4 mb-2">
                         <div className="w-12 h-12 rounded-full bg-education-amber flex items-center justify-center text-oxford-blue font-bold text-xl">
-                            100%
+                            {ui.heroWidget.stat}
                         </div>
                         <div>
-                            <p className="text-white font-display font-medium text-lg leading-tight">Native Speakers</p>
-                            <p className="text-slate-300 text-sm font-manrope">from UK & USA</p>
+                            <p className="text-white font-display font-medium text-lg leading-tight">{ui.heroWidget.title}</p>
+                            <p className="text-slate-300 text-sm font-manrope">{ui.heroWidget.subtitle}</p>
                         </div>
                     </div>
                 </div>
