@@ -1,6 +1,5 @@
 'use client';
 import { IconWrapper } from '@/lib/icon-wrapper';
-import { Icon } from '@/lib/icons';
 
 interface Feature {
     icon: string;
@@ -23,47 +22,47 @@ export default function TransitionSupport({
     features,
 }: TransitionSupportProps) {
     return (
-        <section className="py-20 bg-white">
+        <section className="bg-white py-8">
             <div className="container mx-auto px-4">
                 {/* Header */}
-                <div className="text-center max-w-4xl mx-auto mb-16">
-                    <p className="text-sm uppercase tracking-wider text-gray-600 mb-3 font-medium">
+                <div className="mx-auto mb-10 max-w-3xl text-center">
+                    <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-slate-500">
                         {subtitle}
                     </p>
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    <h2 className="mb-4 font-heading text-2xl font-semibold text-navy-900 md:text-3xl">
                         {title}
                     </h2>
-                    <p className="text-lg text-gray-700 leading-relaxed">
+                    <p className="text-sm leading-relaxed text-slate-600 md:text-base">
                         {description}
                     </p>
                 </div>
 
                 {/* Features Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
                     {features.map((feature, index) => (
                         <div
                             key={index}
-                            className="group bg-gray-50 rounded-2xl p-8 hover:bg-gray-100 transition-all duration-300 hover:shadow-lg"
+                            className="rounded-xl border border-slate-200 bg-white p-6"
                         >
                             {/* Icon */}
-                            <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                                <IconWrapper icon={feature.icon} variant="middle" size="md" />
+                            <div className="mb-4">
+                                <IconWrapper icon={feature.icon} variant="navy" size="sm" hoverable={false} />
                             </div>
 
                             {/* Highlight Badge */}
                             <div className="inline-block mb-4">
-                                <span className="text-xs uppercase tracking-wider text-[#0f1419] font-bold bg-yellow-100 px-3 py-1 rounded-full">
+                                <span className="rounded-md bg-slate-50 px-2 py-1 text-xs font-semibold uppercase tracking-wide text-slate-600 ring-1 ring-inset ring-slate-200">
                                     {feature.highlight}
                                 </span>
                             </div>
 
                             {/* Title */}
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">
+                            <h3 className="mb-2 font-heading text-base font-semibold text-navy-900">
                                 {feature.title}
                             </h3>
 
                             {/* Description */}
-                            <p className="text-gray-700 leading-relaxed">
+                            <p className="text-sm leading-relaxed text-slate-600">
                                 {feature.description}
                             </p>
                         </div>

@@ -29,25 +29,26 @@ export default function AcademicBreakthrough({
                     fill
                     className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-navy-900/80 via-navy-900/70 to-navy-900/90"></div>
+                <div className="absolute inset-0 bg-blue-900/30 mix-blend-multiply"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-navy-900/80 via-navy-900/40 to-navy-900/90"></div>
             </div>
 
             {/* Content */}
             <div className="container mx-auto px-4 relative z-10 text-center text-white py-20">
                 {/* Badge */}
-                <div className="inline-block mb-6 opacity-0 animate-[fadeInDown_1s_ease-out_0.2s_forwards]">
-                    <span className="inline-block px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/30 rounded-full text-sm font-medium tracking-wider uppercase">
+                <div className="inline-block mb-8 opacity-0 animate-[fadeInDown_1s_ease-out_0.2s_forwards]">
+                    <span className="inline-block px-6 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-[13px] font-semibold tracking-widest uppercase shadow-sm">
                         Академический прорыв
                     </span>
                 </div>
 
                 {/* Main Title */}
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading mb-6 opacity-0 animate-[fadeIn_1s_ease-out_0.4s_forwards] leading-tight">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-6 opacity-0 animate-[fadeIn_1s_ease-out_0.4s_forwards] leading-tight">
                     {title}
                 </h1>
 
                 {/* Subtitle */}
-                <p className="text-xl md:text-2xl font-light mb-6 opacity-0 animate-[fadeIn_1s_ease-out_0.6s_forwards] max-w-4xl mx-auto text-gray-100">
+                <p className="text-xl md:text-2xl font-serif font-light mb-10 opacity-0 animate-[fadeIn_1s_ease-out_0.6s_forwards] max-w-3xl mx-auto text-blue-50">
                     {subtitle}
                 </p>
 
@@ -57,7 +58,7 @@ export default function AcademicBreakthrough({
                 <div className="opacity-0 animate-[fadeInUp_1s_ease-out_1s_forwards]">
                     <a
                         href={ctaLink}
-                        className="inline-block px-8 py-4 bg-white text-navy-900 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 font-sans"
+                        className="inline-block px-10 py-4 bg-white text-navy-900 rounded-full text-lg font-semibold hover:bg-gray-50 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-2xl"
                     >
                         {ctaText}
                     </a>

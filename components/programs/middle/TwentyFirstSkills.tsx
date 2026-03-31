@@ -1,8 +1,6 @@
-'use client';
 import { IconWrapper } from '@/lib/icon-wrapper';
-import { Icon } from '@/lib/icons';
-
-import Image from 'next/image';
+import Link from 'next/link';
+import { ProgramFigure, ProgramSection, ProgramSectionHeader, programCardClassName } from '@/components/programs/shared/ProgramSection';
 
 interface Skill {
     icon: string;
@@ -26,75 +24,53 @@ export default function TwentyFirstSkills({
     proofCaption,
 }: TwentyFirstSkillsProps) {
     return (
-        <section className="py-16 md:py-24 bg-white">
-            <div className="container mx-auto px-4">
-                {/* Header */}
-                <div className="text-center max-w-4xl mx-auto mb-12">
-                    <p className="text-sm uppercase tracking-wider text-navy-900/60 mb-3 font-medium">
-                        {subtitle}
-                    </p>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-gray-900 mb-6">
-                        {title}
-                    </h2>
-                </div>
+        <ProgramSection tone="muted">
+            <ProgramSectionHeader title={title} subtitle={subtitle} />
 
-                {/* Two-Column Layout: Skills + Proof Image */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-center">
-                    {/* Left: Skills List */}
-                    <div className="space-y-6">
+            <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-12">
+                <div className="lg:col-span-7">
+                    <div className="grid gap-6 sm:grid-cols-2">
                         {skills.map((skill, index) => (
                             <div
                                 key={index}
-                                className="flex gap-4 items-start group"
+                                className={programCardClassName}
                             >
-                                {/* Icon */}
-                                <div className="text-4xl flex-shrink-0 mt-1">
-                                    <IconWrapper icon={skill.icon} variant="middle" size="md" />
+                                <div className="mb-4">
+                                    <IconWrapper icon={skill.icon} variant="navy" size="sm" hoverable={false} />
                                 </div>
-
-                                {/* Content */}
-                                <div>
-                                    <h3 className="text-xl font-bold font-heading text-gray-900 mb-2 group-hover:text-navy-900 transition-colors">
-                                        {skill.title}
-                                    </h3>
-                                    <p className="text-gray-700 leading-relaxed font-sans">
-                                        {skill.description}
-                                    </p>
-                                </div>
+                                <h3 className="mb-2 font-heading text-lg font-semibold text-navy-900">
+                                    {skill.title}
+                                </h3>
+                                <p className="text-sm leading-relaxed text-slate-600">
+                                    {skill.description}
+                                </p>
                             </div>
                         ))}
                     </div>
-
-                    {/* Right: Proof Image */}
-                    <div>
-                        <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                            <div className="relative aspect-[4/3]">
-                                <Image
-                                    src={proofImage}
-                                    alt="IT & Financial Literacy"
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                        </div>
-                        {/* Caption */}
-                        <p className="text-center text-sm text-gray-600 italic mt-4 font-sans">
-                            📸 {proofCaption}
-                        </p>
-                    </div>
                 </div>
 
-                {/* Bottom CTA Link */}
-                <div className="text-center mt-12">
-                    <a
-                        href="/programs/middle/it-steam"
-                        className="inline-flex items-center gap-2 text-navy-900 font-semibold hover:gap-3 transition-all font-sans"
-                    >
-                        Подробнее о программе IT & STEAM
-                        <span>→</span>
-                    </a>
+                <div className="lg:col-span-5">
+                    <ProgramFigure
+                        src={proofImage || 'https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1000'}
+                        alt="21st Century Skills"
+                        caption={proofCaption}
+                        aspectClassName="aspect-[4/5]"
+                        sizes="(max-width: 1024px) 100vw, 520px"
+                    />
                 </div>
             </div>
-        </section>
+
+            <div className="mt-12 border-t border-slate-200 pt-8">
+                <Link
+                    href="/programs/middle/it-steam"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-navy-900 underline decoration-slate-300 underline-offset-4 transition-colors hover:text-navy-700"
+                >
+                    Подробнее о программе IT &amp; STEAM
+                    <span aria-hidden className="text-base">
+                        →
+                    </span>
+                </Link>
+            </div>
+        </ProgramSection>
     );
 }

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
-import { hasPermission, normalizeRole } from '@/lib/auth/rbac'
+import { hasPermission } from '@/lib/auth/rbac'
+import { resolveRoleForUser } from '@/lib/auth/roles'
 import { createPreviewLink, type PreviewEntityType } from '@/lib/services/preview-links'
 import { createClient } from '@/lib/supabase/server'
 
@@ -21,7 +22,7 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'Invalid payload' }, { status: 400 })
         }
 
-        const role = normalizeRole(user?.user_metadata?.role ?? user?.app_metadata?.role)
+        const role = await resolveRoleForUser(user)
         const resource = body.entityType === 'news' ? 'news' : 'pages'
         if (!user || !hasPermission(role, resource, 'publish')) {
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })

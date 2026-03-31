@@ -5,8 +5,9 @@ import Button from '@/components/ui/Button';
 import { Icon } from '@/lib/icons';
 import CmsProgramPageRenderer from '@/components/cms/CmsProgramPageRenderer';
 import { getSitePageContent } from '@/lib/content/site-pages';
-import { localizePathname, type PublicLocale } from '@/lib/i18n';
+import { DEFAULT_LOCALE, isValidLocale, LOCALE_COOKIE_NAME, localizePathname, type PublicLocale } from '@/lib/i18n';
 import { getCmsPageSections, getCmsPageSeoMeta, getPublishedCmsPageBySlug } from '@/lib/services/cms-public';
+import { cookies } from 'next/headers';
 
 const ABOUT_PAGE_SLUG = 'about';
 
@@ -42,7 +43,13 @@ export async function generateMetadata(): Promise<Metadata> {
     };
 }
 
-export default async function AboutPage({ locale = 'ru' }: { locale?: PublicLocale }) {
+function resolveRequestLocale(): PublicLocale {
+    const cookieValue = cookies().get(LOCALE_COOKIE_NAME)?.value;
+    return isValidLocale(cookieValue) ? cookieValue : DEFAULT_LOCALE;
+}
+
+export default async function AboutPage() {
+    const locale = resolveRequestLocale();
     const cmsPage = await getPublishedCmsPageBySlug(ABOUT_PAGE_SLUG);
     if (cmsPage) {
         const sections = await getCmsPageSections(cmsPage.id);

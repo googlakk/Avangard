@@ -6,7 +6,8 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { createServerClient } from '@supabase/ssr'
-import { canAccessAdminPanel, hasPermission, normalizeRole } from '@/lib/auth/rbac'
+import { canAccessAdminPanel, hasPermission } from '@/lib/auth/rbac'
+import { resolveRoleForUser } from '@/lib/auth/roles'
 import { DEFAULT_LOCALE, getLocaleFromPathname, isValidLocale, LOCALE_COOKIE_NAME, localizePathname } from '@/lib/i18n'
 
 function requiredPermissionForPath(pathname: string) {
@@ -41,6 +42,7 @@ function isBypassedPath(pathname: string) {
     return pathname.startsWith('/_next')
         || pathname.startsWith('/api')
         || pathname.startsWith('/preview')
+        || pathname.startsWith('/admin')
         || pathname === '/favicon.ico'
         || isStaticAsset(pathname)
 }
@@ -76,7 +78,7 @@ export async function middleware(request: NextRequest) {
         )
 
         const { data: { user } } = await supabase.auth.getUser()
-        const role = normalizeRole(user?.user_metadata?.role ?? user?.app_metadata?.role)
+        const role = await resolveRoleForUser(user)
 
         if (!user || !canAccessAdminPanel(role)) {
             const loginUrl = new URL('/admin/login', request.url)

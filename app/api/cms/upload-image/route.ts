@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { createClient as createServerClient } from '@/lib/supabase/server'
-import { hasPermission, normalizeRole } from '@/lib/auth/rbac'
+import { hasPermission } from '@/lib/auth/rbac'
+import { resolveRoleForUser } from '@/lib/auth/roles'
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 
 const MAX_IMAGE_SIZE = 10 * 1024 * 1024
@@ -31,7 +32,7 @@ export async function POST(request: Request) {
         const supabase = await createServerClient()
         const { data: { user } } = await supabase.auth.getUser()
 
-        const role = normalizeRole(user?.user_metadata?.role ?? user?.app_metadata?.role)
+        const role = await resolveRoleForUser(user)
         if (!user || !hasPermission(role, 'pages', 'update')) {
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
         }

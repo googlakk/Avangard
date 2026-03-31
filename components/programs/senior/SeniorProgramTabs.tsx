@@ -1,6 +1,5 @@
 'use client';
 
-import { Icon } from '@/lib/icons';
 import { IconWrapper } from '@/lib/icon-wrapper';
 import {
     getUniversityPathwayBlocks,
@@ -12,6 +11,7 @@ import {
 } from '@/lib/data/senior-program';
 import Tabs from '@/components/ui/Tabs';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { ProgramSection, ProgramSectionHeader, programCardClassName } from '@/components/programs/shared/ProgramSection';
 
 export default function SeniorProgramTabs() {
     const { t } = useLanguage();
@@ -38,24 +38,13 @@ export default function SeniorProgramTabs() {
     ];
 
     return (
-        <section id="program-details" className="py-16 md:py-20 bg-gray-50">
-            <div className="container mx-auto px-4">
-                {/* Section Header */}
-                <div className="text-center mb-12 max-w-3xl mx-auto">
-                    <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900 mb-4">
-                        {t.senior.tabs.title}
-                    </h2>
-                    <p className="text-lg text-gray-600">
-                        {t.senior.tabs.subtitle}
-                    </p>
-                </div>
+        <ProgramSection id="program-details" tone="muted" spacing="md">
+            <ProgramSectionHeader title={t.senior.tabs.title} subtitle={t.senior.tabs.subtitle} align="center" />
 
-                {/* Tabs Component */}
-                <div className="max-w-6xl mx-auto">
-                    <Tabs tabs={tabs} defaultTab="academic-track" />
-                </div>
+            <div className="mx-auto max-w-6xl">
+                <Tabs tabs={tabs} defaultTab="academic-track" />
             </div>
-        </section>
+        </ProgramSection>
     );
 }
 
@@ -79,10 +68,10 @@ function AcademicTrackContent() {
                     {universityPathwayBlocks.map((block) => (
                         <div
                             key={block.id}
-                            className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all"
+                            className={programCardClassName}
                         >
                             <div className="mb-4">
-                                <IconWrapper icon={block.icon} variant="senior" size="md" />
+                                <IconWrapper icon={block.icon} variant="navy" size="sm" hoverable={false} />
                             </div>
                             <h4 className="text-xl font-bold font-heading text-gray-900 mb-2">
                                 {block.title}
@@ -104,32 +93,32 @@ function AcademicTrackContent() {
             </div>
 
             {/* English Proficiency */}
-            <div className="bg-navy-900 rounded-3xl p-8 md:p-12 text-white">
-                <h3 className="text-2xl font-bold font-heading mb-4">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 md:p-8">
+                <h3 className="text-2xl font-bold font-heading text-navy-900 mb-4">
                     {t.senior.tabs.academic.englishTitle}
                 </h3>
-                <p className="text-gray-300 mb-8 text-lg">
+                <p className="text-slate-600 mb-8 text-base md:text-lg">
                     {t.senior.tabs.academic.englishText}
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {englishProficiencyBlocks.map((block, idx) => (
-                        <div key={idx} className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6">
-                            <div className="mb-3">
-                                <IconWrapper icon={block.icon} variant="white" size="sm" />
+                        <div key={idx} className={programCardClassName}>
+                            <div className="mb-4">
+                                <IconWrapper icon={block.icon} variant="navy" size="sm" hoverable={false} />
                             </div>
-                            <h4 className="text-lg font-bold mb-2">{block.title}</h4>
-                            <p className="text-sm text-gray-300 mb-4">{block.subtitle}</p>
+                            <h4 className="text-lg font-bold font-heading text-navy-900 mb-2">{block.title}</h4>
+                            <p className="text-sm text-slate-600 mb-4">{block.subtitle}</p>
                             <ul className="space-y-2">
                                 {block.description.map((item, itemIdx) => (
-                                    <li key={itemIdx} className="flex items-start gap-2 text-sm text-gray-200">
-                                        <span className="shrink-0">✓</span>
-                                        <span>{item}</span>
+                                    <li key={itemIdx} className="flex items-start gap-2 text-sm text-slate-700">
+                                        <span className="shrink-0 text-navy-900">•</span>
+                                        <span className="leading-relaxed">{item}</span>
                                     </li>
                                 ))}
                             </ul>
                             {block.target && (
-                                <div className="mt-4 bg-white text-navy-900 px-3 py-1 rounded-full text-xs font-bold inline-block">
-                                    🎯 {block.target}
+                                <div className="mt-4 inline-flex rounded-md bg-slate-50 px-2 py-1 text-xs font-semibold text-slate-700 ring-1 ring-inset ring-slate-200">
+                                    {block.target}
                                 </div>
                             )}
                         </div>
@@ -158,9 +147,9 @@ function SkillsDevelopmentContent() {
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {cognitiveAdvantages.map((advantage, idx) => (
-                        <div key={idx} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                            <div className="w-14 h-14 bg-navy-900 rounded-xl flex items-center justify-center text-2xl mb-4">
-                                <IconWrapper icon={advantage.icon} variant="white" size="sm" />
+                        <div key={idx} className={programCardClassName}>
+                            <div className="mb-4">
+                                <IconWrapper icon={advantage.icon} variant="navy" size="sm" hoverable={false} />
                             </div>
                             <h4 className="text-xl font-bold font-heading text-gray-900 mb-2">
                                 {advantage.title}
@@ -168,13 +157,13 @@ function SkillsDevelopmentContent() {
                             <p className="text-sm text-navy-900/70 mb-4">{advantage.subtitle}</p>
                             <ul className="space-y-2 mb-4">
                                 {advantage.description.map((item, itemIdx) => (
-                                    <li key={itemIdx} className="flex items-start gap-2 text-sm text-gray-600">
-                                        <span className="text-navy-900">✓</span>
-                                        <span>{item}</span>
+                                    <li key={itemIdx} className="flex items-start gap-2 text-sm text-slate-700">
+                                        <span className="text-navy-900">•</span>
+                                        <span className="leading-relaxed">{item}</span>
                                     </li>
                                 ))}
                             </ul>
-                            <div className="bg-navy-900/5 border-2 border-navy-900 text-navy-900 px-3 py-2 rounded-full text-xs font-bold text-center">
+                            <div className="rounded-md bg-slate-50 px-2 py-1 text-xs font-semibold text-navy-900 ring-1 ring-inset ring-slate-200">
                                 {advantage.benefit}
                             </div>
                         </div>
@@ -183,32 +172,32 @@ function SkillsDevelopmentContent() {
             </div>
 
             {/* XXI Century Skills */}
-            <div className="bg-gradient-to-br from-navy-900 to-navy-800 rounded-3xl p-8 md:p-12 text-white">
-                <h3 className="text-2xl font-bold font-heading mb-4">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 md:p-8">
+                <h3 className="text-2xl font-bold font-heading text-navy-900 mb-4">
                     {t.senior.tabs.skills.xxiTitle}
                 </h3>
-                <p className="text-gray-300 mb-8 text-lg">
+                <p className="text-slate-600 mb-8 text-base md:text-lg">
                     {t.senior.tabs.skills.xxiText}
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {xxiCenturySkills.map((skill, idx) => (
-                        <div key={idx} className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6">
+                        <div key={idx} className={programCardClassName}>
                             <div className="mb-4">
-                                <IconWrapper icon={skill.icon} variant="white" size="md" />
+                                <IconWrapper icon={skill.icon} variant="navy" size="sm" hoverable={false} />
                             </div>
-                            <h4 className="text-xl font-bold mb-2">{skill.title}</h4>
-                            <p className="text-sm text-gray-300 mb-4">{skill.subtitle}</p>
-                            <div className="space-y-2 mb-4">
+                            <h4 className="text-xl font-bold font-heading text-navy-900 mb-2">{skill.title}</h4>
+                            <p className="text-sm text-gray-500 font-medium mb-4">{skill.subtitle}</p>
+                            <div className="space-y-2 mb-5">
                                 {skill.description.map((item, itemIdx) => (
-                                    <p key={itemIdx} className="text-sm text-gray-200">
+                                    <p key={itemIdx} className="text-sm text-slate-600">
                                         {item}
                                     </p>
                                 ))}
                             </div>
                             {skill.keyPoints && (
-                                <div className="flex flex-wrap gap-2">
+                                <div className="flex flex-wrap gap-2 mt-auto">
                                     {skill.keyPoints.map((point, pointIdx) => (
-                                        <span key={pointIdx} className="bg-white/20 px-3 py-1 rounded-full text-xs">
+                                        <span key={pointIdx} className="rounded-md border border-slate-200 bg-slate-50 px-2 py-1 text-xs font-medium text-slate-700">
                                             {point}
                                         </span>
                                     ))}
@@ -240,9 +229,9 @@ function StudentExperienceContent() {
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {studentLifeFeatures.map((feature, idx) => (
-                        <div key={idx} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                        <div key={idx} className={programCardClassName}>
                             <div className="mb-4">
-                                <IconWrapper icon={feature.icon} variant="senior" size="md" />
+                                <IconWrapper icon={feature.icon} variant="navy" size="sm" hoverable={false} />
                             </div>
                             <h4 className="text-xl font-bold font-heading text-gray-900 mb-2">
                                 {feature.title}
@@ -252,14 +241,14 @@ function StudentExperienceContent() {
                             </p>
                             <ul className="space-y-2 mb-4">
                                 {feature.description.map((item, itemIdx) => (
-                                    <li key={itemIdx} className="flex items-start gap-2 text-sm text-gray-600">
+                                    <li key={itemIdx} className="flex items-start gap-2 text-sm text-slate-700">
                                         <span className="text-navy-900">•</span>
-                                        <span>{item}</span>
+                                        <span className="leading-relaxed">{item}</span>
                                     </li>
                                 ))}
                             </ul>
                             {feature.benefit && (
-                                <div className="bg-navy-900 text-white px-3 py-2 rounded-full text-xs font-bold inline-block">
+                                <div className="inline-flex rounded-md bg-slate-50 px-2 py-1 text-xs font-semibold text-navy-900 ring-1 ring-inset ring-slate-200">
                                     {feature.benefit}
                                 </div>
                             )}
@@ -269,33 +258,33 @@ function StudentExperienceContent() {
             </div>
 
             {/* Career Guidance */}
-            <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-12 border border-gray-100">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 md:p-8">
                 <h3 className="text-2xl font-bold font-heading text-gray-900 mb-4">
                     {t.senior.tabs.life.careerTitle}
                 </h3>
-                <p className="text-gray-600 mb-8 text-lg">
+                <p className="text-slate-600 mb-8 text-base md:text-lg">
                     {t.senior.tabs.life.careerText}
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {careerGuidanceItems.map((item, idx) => (
-                        <div key={idx} className="bg-white rounded-2xl p-6 shadow-sm">
+                        <div key={idx} className={programCardClassName}>
                             <div className="mb-4">
-                                <IconWrapper icon={item.icon} variant="senior" size="md" />
+                                <IconWrapper icon={item.icon} variant="navy" size="sm" hoverable={false} />
                             </div>
                             <h4 className="text-lg font-bold font-heading text-gray-900 mb-4">
                                 {item.title}
                             </h4>
                             <ul className="space-y-2">
                                 {item.description.map((desc, descIdx) => (
-                                    <li key={descIdx} className="flex items-start gap-2 text-sm text-gray-600">
+                                    <li key={descIdx} className="flex items-start gap-2 text-sm text-slate-700">
                                         <span className="text-navy-900 shrink-0">→</span>
-                                        <span>{desc}</span>
+                                        <span className="leading-relaxed">{desc}</span>
                                     </li>
                                 ))}
                             </ul>
                             {item.highlight && (
-                                <div className="mt-4 bg-navy-900/5 text-navy-900 px-3 py-2 rounded-full text-xs font-bold inline-flex items-center gap-1">
-                                    <span>✓</span>
+                                <div className="mt-4 inline-flex items-center gap-1 rounded-md bg-slate-50 px-2 py-1 text-xs font-semibold text-navy-900 ring-1 ring-inset ring-slate-200">
+                                    <span aria-hidden>✓</span>
                                     <span>{item.highlight}</span>
                                 </div>
                             )}

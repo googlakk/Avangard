@@ -30,20 +30,16 @@ export default function SeniorOffer({
                     priority
                 />
 
-                {/* Layer 1: Vertical depth gradient — continues from header */}
+                {/* Layer 1: Vertical depth gradient — softer for academic feel */}
                 <div
                     className="absolute inset-0"
                     style={{
                         background: `linear-gradient(
                             180deg,
-                            rgba(15,34,58,0.96) 0%,
-                            rgba(15,34,58,0.92) 15%,
-                            rgba(15,34,58,0.82) 30%,
-                            rgba(15,34,58,0.65) 45%,
-                            rgba(15,34,58,0.40) 60%,
-                            rgba(15,34,58,0.18) 75%,
-                            rgba(15,34,58,0.06) 90%,
-                            rgba(15,34,58,0.02) 100%
+                            rgba(15,34,58,0.85) 0%,
+                            rgba(15,34,58,0.7) 20%,
+                            rgba(15,34,58,0.4) 60%,
+                            rgba(15,34,58,0.1) 100%
                         )`
                     }}
                 />
@@ -54,10 +50,10 @@ export default function SeniorOffer({
                     style={{
                         background: `linear-gradient(
                             90deg,
-                            rgba(15,34,58,0.88) 0%,
-                            rgba(15,34,58,0.65) 35%,
-                            rgba(15,34,58,0.25) 65%,
-                            transparent 85%
+                            rgba(15,34,58,0.9) 0%,
+                            rgba(15,34,58,0.7) 40%,
+                            rgba(15,34,58,0.2) 70%,
+                            transparent 100%
                         )`
                     }}
                 />
@@ -123,29 +119,18 @@ export default function SeniorOffer({
 
                     {/* Buttons */}
                     <div className="flex flex-wrap gap-4 mb-14 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.7s_forwards]">
-                        {/* Primary Button — Soft Gold */}
+                        {/* Primary Button — Classic White */}
                         <Link
                             href={ctaLink}
-                            className="inline-flex items-center justify-center px-7 py-3.5 rounded-full text-[15px] font-semibold tracking-[0.01em] transition-all duration-300 transform hover:-translate-y-[1px]"
-                            style={{
-                                background: 'linear-gradient(135deg, #C6A96B 0%, #D4B87A 50%, #C6A96B 100%)',
-                                color: '#0F223A',
-                                boxShadow: '0 4px 16px rgba(198,169,107,0.3), 0 1px 4px rgba(0,0,0,0.1)',
-                            }}
+                            className="inline-flex items-center justify-center px-8 py-4 rounded-full text-[15px] font-semibold tracking-wide transition-all duration-300 transform hover:-translate-y-1 bg-white text-navy-900 shadow-xl hover:shadow-2xl"
                         >
                             {ctaText}
                         </Link>
 
-                        {/* Secondary Button — Transparent Outline */}
+                        {/* Secondary Button — Elegant Outline */}
                         <Link
                             href="#curriculum"
-                            className="inline-flex items-center justify-center px-7 py-3.5 rounded-full text-[15px] font-medium tracking-[0.01em] transition-all duration-300 hover:bg-white/[0.06]"
-                            style={{
-                                background: 'rgba(15,34,58,0.3)',
-                                backdropFilter: 'blur(4px)',
-                                border: '1px solid rgba(255,255,255,0.2)',
-                                color: 'rgba(255,255,255,0.95)',
-                            }}
+                            className="inline-flex items-center justify-center px-8 py-4 rounded-full text-[15px] font-medium tracking-wide transition-all duration-300 border border-white/40 text-white hover:bg-white/10 backdrop-blur-sm"
                         >
                             Программа обучения
                         </Link>

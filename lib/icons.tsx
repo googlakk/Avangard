@@ -3,6 +3,8 @@ import * as LucideIcons from 'lucide-react';
 // Маппинг названий иконок к компонентам Lucide React
 export type IconName = keyof typeof iconMap;
 
+const anyIcons = LucideIcons as unknown as Record<string, LucideIcons.LucideIcon>;
+
 export const iconMap = {
     // General
     ArrowLeft: LucideIcons.ArrowLeft,
@@ -20,6 +22,7 @@ export const iconMap = {
     Calculator: LucideIcons.Calculator,
     PenTool: LucideIcons.PenTool,
     Globe: LucideIcons.Globe,
+    Globe2: anyIcons.Globe2 ?? LucideIcons.Globe,
     Brain: LucideIcons.Brain,
     Lightbulb: LucideIcons.Lightbulb,
     Grid3x3: LucideIcons.Grid3x3,
@@ -36,6 +39,7 @@ export const iconMap = {
     User: LucideIcons.User,
     Handshake: LucideIcons.Handshake,
     Shield: LucideIcons.Shield,
+    ShieldCheck: anyIcons.ShieldCheck ?? LucideIcons.Shield,
     Activity: LucideIcons.Activity,
     Apple: LucideIcons.Apple,
     Home: LucideIcons.Home,

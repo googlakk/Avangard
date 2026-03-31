@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import { ProgramSection, ProgramSectionHeader } from '@/components/programs/shared/ProgramSection';
 
 interface CTAProps {
     title: string;
@@ -22,36 +22,25 @@ export default function MiddleCTA({
     secondaryCTA,
 }: CTAProps) {
     return (
-        <section className="py-16 md:py-20 bg-white">
-            <div className="container mx-auto px-4">
-                <div className="max-w-4xl mx-auto text-center">
-                    {/* Title */}
-                    <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900 mb-6">
-                        {title}
-                    </h2>
+        <ProgramSection tone="muted" spacing="md">
+            <div className="mx-auto max-w-4xl text-center">
+                <ProgramSectionHeader title={title} subtitle={description} align="center" className="mb-10" />
 
-                    {/* Description */}
-                    <p className="text-lg text-gray-700 mb-10 leading-relaxed font-sans">
-                        {description}
-                    </p>
-
-                    {/* CTA Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <a
-                            href={primaryCTA.link}
-                            className="px-8 py-4 bg-navy-900 text-white rounded-full text-lg font-semibold hover:bg-navy-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 font-sans"
-                        >
-                            {primaryCTA.text}
-                        </a>
-                        <a
-                            href={secondaryCTA.link}
-                            className="px-8 py-4 bg-white text-navy-900 border-2 border-navy-900 rounded-full text-lg font-semibold hover:bg-gray-50 transition-all duration-300 font-sans"
-                        >
-                            {secondaryCTA.text}
-                        </a>
-                    </div>
+                <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+                    <a
+                        href={primaryCTA.link}
+                        className="inline-flex items-center justify-center rounded-lg bg-navy-900 px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-navy-800 md:px-8 md:py-4 md:text-base"
+                    >
+                        {primaryCTA.text}
+                    </a>
+                    <a
+                        href={secondaryCTA.link}
+                        className="inline-flex items-center justify-center rounded-lg border border-navy-900/20 bg-white px-7 py-3 text-sm font-semibold text-navy-900 transition-colors hover:bg-slate-50 md:px-8 md:py-4 md:text-base"
+                    >
+                        {secondaryCTA.text}
+                    </a>
                 </div>
             </div>
-        </section>
+        </ProgramSection>
     );
 }

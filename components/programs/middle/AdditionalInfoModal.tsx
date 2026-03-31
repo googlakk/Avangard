@@ -42,20 +42,20 @@ export default function AdditionalInfoModal({ isOpen, onClose, title, children }
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             {/* Backdrop */}
             <div
-                className="absolute inset-0 bg-navy-900/80 backdrop-blur-sm animate-fade-in"
+                className="absolute inset-0 bg-navy-900/70"
                 onClick={onClose}
             />
 
             {/* Modal Content */}
-            <div className="relative bg-white rounded-3xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto animate-slide-up">
+            <div className="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto rounded-xl bg-white shadow-2xl">
                 {/* Header */}
-                <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between rounded-t-3xl z-10">
-                    <h2 className="text-2xl md:text-3xl font-heading font-bold text-navy-900">
+                <div className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 bg-white px-6 py-4">
+                    <h2 className="font-heading text-xl font-semibold text-navy-900 md:text-2xl">
                         {title}
                     </h2>
                     <button
                         onClick={onClose}
-                        className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                        className="rounded-md p-2 transition-colors hover:bg-slate-100"
                         aria-label="Закрыть"
                     >
                         <svg

@@ -8,6 +8,7 @@ import TransitionSupport from './TransitionSupport';
 import SkillsDevelopment from './SkillsDevelopment';
 import BeyondClassroom from './BeyondClassroom';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { ProgramSection, ProgramSectionHeader, programInteractiveCardClassName } from '@/components/programs/shared/ProgramSection';
 import {
     getTransitionSupportData,
     getSkillsDevelopmentData,
@@ -87,79 +88,69 @@ export default function MiddleAdditionalInfoSection() {
 
     return (
         <>
-            <section className="py-16 bg-gray-50">
-                <div className="container mx-auto px-4">
-                    {/* Заголовок */}
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-heading font-bold text-navy-900 mb-4">
-                            {t.middle.additionalInfo.title}
-                        </h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto">
-                            {t.middle.additionalInfo.subtitle}
-                        </p>
-                    </div>
+            <ProgramSection tone="muted" spacing="md">
+                <ProgramSectionHeader
+                    title={t.middle.additionalInfo.title}
+                    subtitle={t.middle.additionalInfo.subtitle}
+                    align="center"
+                />
 
-                    {/* Карточки */}
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                        {infoCards.map((card) => {
-                            const CardContent = (
-                                <>
-                                    {/* Иконка */}
-                                    <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
-                                        <IconWrapper icon={card.icon} variant="middle" size="md" />
-                                    </div>
+                <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {infoCards.map((card) => {
+                        const CardContent = (
+                            <>
+                                <div className="mb-4">
+                                    <IconWrapper icon={card.icon} variant="navy" size="sm" hoverable={false} />
+                                </div>
 
-                                    {/* Текст */}
-                                    <h3 className="text-xl font-bold text-navy-900 mb-2 font-heading">
-                                        {card.title}
-                                    </h3>
-                                    <p className="text-sm text-gray-600 mb-4">
-                                        {card.description}
-                                    </p>
+                                <h3 className="mb-2 font-heading text-lg font-semibold text-navy-900">
+                                    {card.title}
+                                </h3>
+                                <p className="mb-4 text-sm leading-relaxed text-slate-600">
+                                    {card.description}
+                                </p>
 
-                                    {/* Стрелка */}
-                                    <div className="flex items-center text-navy-600 font-medium text-sm group-hover:text-navy-900">
-                                        {card.type === 'link' ? (t.middle.additionalInfo.readMore || 'Перейти') : (t.middle.additionalInfo.readMore || 'Подробнее')}
-                                        <svg
-                                            className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
-                                            fill="none"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth="2"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                        >
-                                            <path d="M9 5l7 7-7 7" />
-                                        </svg>
-                                    </div>
-                                </>
-                            );
-
-                            if (card.type === 'link') {
-                                return (
-                                    <Link
-                                        key={card.id}
-                                        href={card.link}
-                                        className="bg-white rounded-2xl p-6 text-left hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 group block"
+                                <div className="flex items-center text-sm font-medium text-navy-900">
+                                    {card.type === 'link' ? (t.middle.additionalInfo.readMore || 'Перейти') : (t.middle.additionalInfo.readMore || 'Подробнее')}
+                                    <svg
+                                        className="ml-2 h-4 w-4"
+                                        fill="none"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
                                     >
-                                        {CardContent}
-                                    </Link>
-                                );
-                            }
+                                        <path d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </div>
+                            </>
+                        );
 
+                        if (card.type === 'link') {
                             return (
-                                <button
+                                <Link
                                     key={card.id}
-                                    onClick={() => setActiveModal(card.id as ModalType)}
-                                    className="bg-white rounded-2xl p-6 text-left hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 group"
+                                    href={card.link}
+                                    className={programInteractiveCardClassName}
                                 >
                                     {CardContent}
-                                </button>
+                                </Link>
                             );
-                        })}
-                    </div>
+                        }
+
+                        return (
+                            <button
+                                key={card.id}
+                                onClick={() => setActiveModal(card.id as ModalType)}
+                                className={programInteractiveCardClassName}
+                            >
+                                {CardContent}
+                            </button>
+                        );
+                    })}
                 </div>
-            </section>
+            </ProgramSection>
 
             {/* Модальное окно */}
             <AdditionalInfoModal

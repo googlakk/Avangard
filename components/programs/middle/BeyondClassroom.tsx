@@ -22,43 +22,44 @@ export default function BeyondClassroom({
     activities,
 }: BeyondClassroomProps) {
     return (
-        <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <section className="bg-white py-8">
             <div className="container mx-auto px-4">
                 {/* Header */}
-                <div className="text-center max-w-4xl mx-auto mb-16">
-                    <p className="text-sm uppercase tracking-wider text-gray-600 mb-3 font-medium">
+                <div className="mx-auto mb-10 max-w-3xl text-center">
+                    <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-slate-500">
                         {subtitle}
                     </p>
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    <h2 className="mb-4 font-heading text-2xl font-semibold text-navy-900 md:text-3xl">
                         {title}
                     </h2>
-                    <p className="text-lg text-gray-700 leading-relaxed">
+                    <p className="text-sm leading-relaxed text-slate-600 md:text-base">
                         {description}
                     </p>
                 </div>
 
                 {/* Activities Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
                     {activities.map((activity, index) => (
                         <div
                             key={index}
-                            className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300"
+                            className="overflow-hidden rounded-xl border border-slate-200 bg-white"
                         >
                             {/* Image */}
-                            <div className="aspect-[3/4] overflow-hidden relative">
+                            <div className="relative aspect-[4/3] overflow-hidden">
                                 <Image
                                     src={activity.image}
                                     alt={activity.title}
                                     fill
-                                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, 320px"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
                             </div>
 
-                            {/* Content Overlay */}
-                            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                                <h3 className="text-2xl font-bold mb-3">{activity.title}</h3>
-                                <p className="text-gray-200 leading-relaxed">
+                            <div className="p-5">
+                                <h3 className="mb-2 font-heading text-base font-semibold text-navy-900">
+                                    {activity.title}
+                                </h3>
+                                <p className="text-sm leading-relaxed text-slate-600">
                                     {activity.description}
                                 </p>
                             </div>

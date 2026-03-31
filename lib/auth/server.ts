@@ -7,7 +7,8 @@
 import { createClient } from '@/lib/supabase/server'
 import { cache } from 'react'
 import type { CmsAction, CmsResource } from '@/lib/auth/rbac'
-import { hasPermission, isAdminRole, normalizeRole } from '@/lib/auth/rbac'
+import { hasPermission, isAdminRole } from '@/lib/auth/rbac'
+import { resolveRoleForUser } from '@/lib/auth/roles'
 
 /**
  * Get current user session (cached)
@@ -47,7 +48,7 @@ export async function isAdmin() {
 
     if (!user) return false
 
-    const role = normalizeRole(user.user_metadata?.role ?? user.app_metadata?.role)
+    const role = await resolveRoleForUser(user)
     return isAdminRole(role)
 }
 
@@ -73,7 +74,7 @@ export async function getUserRole() {
 
     if (!user) return null
 
-    return normalizeRole(user.user_metadata?.role ?? user.app_metadata?.role)
+    return resolveRoleForUser(user)
 }
 
 /**

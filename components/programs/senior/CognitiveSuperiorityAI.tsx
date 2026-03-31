@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { ProgramFigure, ProgramSection, ProgramSectionHeader, programCardClassName } from '@/components/programs/shared/ProgramSection';
 
 interface CognitiveAdvantage {
     title: string;
@@ -28,91 +28,74 @@ export default function CognitiveSuperiorityAI({
     bottomText
 }: CognitiveSuperiorityAIProps) {
     return (
-        <section className="py-20 md:py-28 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 text-white">
-            <div className="container mx-auto px-4">
-                {/* Header */}
-                <div className="max-w-4xl mx-auto text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold font-ibm-plex-serif mb-6">
-                        {headline}
-                    </h2>
-                    <p className="text-2xl md:text-3xl text-gray-300 font-medium">
-                        {hook}
-                    </p>
+        <ProgramSection tone="muted">
+            <ProgramSectionHeader title={headline} subtitle={hook} />
+
+            <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-12">
+                <div className="lg:col-span-5">
+                    <ProgramFigure
+                        src={proofImage || 'https://images.unsplash.com/photo-1544717302-de2939b7ef71?q=80&w=2000'}
+                        alt="Студент за учебой"
+                        caption={proofCaption}
+                        aspectClassName="aspect-[3/4]"
+                        sizes="(max-width: 1024px) 100vw, 520px"
+                    />
                 </div>
 
-                {/* Two Main Advantages */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
-                    {advantages.map((advantage, index) => (
-                        <div
-                            key={index}
-                            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 md:p-10 hover:bg-white/15 transition-all duration-300"
-                        >
-                            {/* Title */}
-                            <h3 className="text-3xl font-bold font-heading mb-2">
-                                {advantage.title}
-                            </h3>
+                <div className="lg:col-span-7">
+                    <ol className="space-y-6">
+                        {advantages.map((advantage, index) => (
+                            <li
+                                key={index}
+                                className={programCardClassName}
+                            >
+                                <div className="flex items-start gap-4">
+                                    <div className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-sm font-semibold text-navy-900">
+                                        {index + 1}
+                                    </div>
 
-                            {/* Tagline */}
-                            <p className="text-gray-300 text-lg mb-6 italic">
-                                {advantage.tagline}
-                            </p>
+                                    <div className="min-w-0">
+                                        <h3 className="mb-1 font-heading text-lg font-semibold text-navy-900">
+                                            {advantage.title}
+                                        </h3>
+                                        <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">
+                                            {advantage.tagline}
+                                        </p>
 
-                            {/* Description */}
-                            <p className="text-gray-200 mb-6 leading-relaxed">
-                                {advantage.description}
-                            </p>
+                                        <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                                            {advantage.description}
+                                        </p>
 
-                            {/* Benefits */}
-                            <ul className="space-y-3">
-                                {advantage.benefits.map((benefit, idx) => (
-                                    <li key={idx} className="flex items-start gap-3">
-                                        <span className="text-2xl shrink-0">→</span>
-                                        <span className="text-gray-100">{benefit}</span>
-                                    </li>
-                                ))}
-                            </ul>
+                                        <ul className="mt-4 space-y-2">
+                                            {advantage.benefits.map((benefit, idx) => (
+                                                <li key={idx} className="flex items-start gap-2 text-sm text-slate-700">
+                                                    <span className="mt-0.5 text-navy-900">•</span>
+                                                    <span className="leading-relaxed">{benefit}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
 
-                            {/* Multiplier badge */}
-                            {advantage.multiplier && (
-                                <div className="mt-6 inline-block bg-white text-navy-900 px-6 py-3 rounded-full font-bold text-lg">
-                                    {advantage.multiplier}
+                                        {advantage.multiplier && (
+                                            <div className="mt-4 inline-flex rounded-md bg-slate-50 px-2 py-1 text-xs font-semibold text-navy-900 ring-1 ring-inset ring-slate-200">
+                                                {advantage.multiplier}
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
-                            )}
-                        </div>
-                    ))}
-                </div>
+                            </li>
+                        ))}
+                    </ol>
 
-                {/* Proof Image Section */}
-                <div className="max-w-5xl mx-auto">
-                    <div className="relative rounded-3xl overflow-hidden border border-white/30 shadow-2xl">
-                        <Image
-                            src={proofImage}
-                            alt="Студент работает с AI и mind map"
-                            width={1200}
-                            height={600}
-                            className="w-full h-auto"
-                        />
-                        {/* Caption */}
-                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                            <p className="text-white text-sm md:text-base font-medium">
-                                {proofCaption}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Bottom Emphasis */}
-                <div className="mt-16 text-center">
-                    <div className="inline-block bg-white/10 backdrop-blur-xl border border-white/30 px-10 py-6 rounded-3xl">
-                        <p className="text-xl md:text-2xl font-bold mb-2">
+                    <div className="mt-10 rounded-xl border border-slate-200 bg-white p-8 text-center">
+                        <p className="mb-2 font-heading text-lg font-semibold text-navy-900">
                             {bottomTitle}
                         </p>
-                        <p className="text-gray-300">
+                        <p className="text-sm leading-relaxed text-slate-600 md:text-base">
                             {bottomText}
                         </p>
                     </div>
                 </div>
             </div>
-        </section>
+        </ProgramSection>
     );
 }
