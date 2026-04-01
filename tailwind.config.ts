@@ -56,7 +56,7 @@ const config: Config = {
                 logo: ['var(--font-cinzel)', 'serif'],
                 'ibm-plex-serif': ['var(--font-ibm-plex-serif)', 'serif'],
                 cormorant: ['var(--font-cormorant)', 'serif'],
-                serif: ['var(--font-cormorant)', 'serif'],
+                serif: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
                 // New fonts
                 lora: ['var(--font-lora)', 'serif'],
                 manrope: ['var(--font-manrope)', 'sans-serif'],

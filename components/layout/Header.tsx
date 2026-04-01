@@ -27,8 +27,8 @@ export default function Header() {
                 }}
             />
 
-            <div className="container mx-auto px-6 relative">
-                <div className="flex items-center justify-between h-[72px]">
+            <div className="relative mx-auto max-w-[1440px] px-6 xl:px-8">
+                <div className="flex items-center justify-between h-[82px]">
                     {/* Logo */}
                     <Link href="/" className="flex items-center group">
                         <Image
@@ -37,15 +37,15 @@ export default function Header() {
                             width={1024}
                             height={190}
                             priority
-                            className="h-9 md:h-11 w-auto transition-opacity duration-300 group-hover:opacity-90"
+                            className="h-11 md:h-12 xl:h-14 w-auto transition-opacity duration-300 group-hover:opacity-90"
                         />
                     </Link>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
+                    <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
                         <Link
                             href="/"
-                            className="relative text-white/90 hover:text-white text-[14px] font-medium tracking-[0.01em] transition-all duration-300 py-2 group whitespace-nowrap"
+                            className="relative py-2 font-heading text-[15px] font-semibold tracking-[0.01em] text-white/90 transition-all duration-300 group whitespace-nowrap hover:text-white xl:text-[16px]"
                         >
                             {t.header.home}
                             <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gradient-to-r from-[#C6A96B] to-[#D8C08A] group-hover:w-full transition-all duration-300" />
@@ -99,11 +99,11 @@ export default function Header() {
                     </nav>
 
                     {/* Language Switch & CTA Button */}
-                    <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
+                    <div className="hidden lg:flex items-center gap-5 flex-shrink-0">
                         <LanguageSwitch />
                         <Link
                             href="/contacts"
-                            className="relative px-5 py-2.5 rounded-full text-[13px] font-semibold tracking-[0.02em] transition-all duration-300 transform hover:-translate-y-[1px] hover:shadow-[0_8px_24px_rgba(198,169,107,0.25)] whitespace-nowrap flex-shrink-0"
+                            className="relative rounded-full px-6 py-3 font-heading text-[14px] font-semibold tracking-[0.02em] transition-all duration-300 transform whitespace-nowrap flex-shrink-0 hover:-translate-y-[1px] hover:shadow-[0_8px_24px_rgba(198,169,107,0.25)] xl:px-7 xl:py-3.5 xl:text-[15px]"
                             style={{
                                 background: 'linear-gradient(135deg, #C6A96B 0%, #D8C08A 50%, #C6A96B 100%)',
                                 color: '#0F223A',
