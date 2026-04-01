@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import { createClient as createServerClient } from '@/lib/supabase/server'
 import { hasPermission } from '@/lib/auth/rbac'
 import { resolveRoleForUser } from '@/lib/auth/roles'
-import { createClient, type SupabaseClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/supabase-js'
 
 const MAX_IMAGE_SIZE = 10 * 1024 * 1024
 const ALLOWED_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp', 'image/avif'])
@@ -58,15 +58,7 @@ export async function POST(request: Request) {
         const extension = (file.name.split('.').pop() || 'jpg').toLowerCase()
         const safeFieldId = sanitizeFileName(fieldId || 'generic')
         const filePath = `${pageId}/${safeFieldId}-${Date.now()}.${extension}`
-        const serviceClient = getServiceClient()
-        if (!serviceClient) {
-            return NextResponse.json(
-                { error: 'Supabase storage is not configured for production uploads' },
-                { status: 500 }
-            )
-        }
-
-        const uploadClient: SupabaseClient = serviceClient
+        const uploadClient = getServiceClient() ?? supabase
         const { data, error } = await uploadClient.storage
             .from('gallery-images')
             .upload(filePath, file, {

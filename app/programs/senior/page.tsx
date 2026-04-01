@@ -1,6 +1,8 @@
 import SeniorProgramClient from './SeniorProgramClient';
 import { getPublishedCmsSectionPayloadsBySlug } from '@/lib/services/cms-public';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
     title: 'Intellect Senior (10-11 классы) | Intellect Pro',
     description: 'Ваш прямой путь в ТОП-вузы мира. Подготовка к SAT, IELTS, TOEFL и поступлению в университеты США, Европы и Азии. Грантовое обучение.',

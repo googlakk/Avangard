@@ -51,6 +51,8 @@ const pageText = {
         error: 'Ошибка загрузки данных',
         retry: 'Попробовать снова',
         noData: 'Данные о коллективе скоро появятся',
+        leadershipIntro: 'Ключевые лица школы, отвечающие за стратегию, академическое качество и ежедневную организацию.',
+        departmentsIntro: 'Кафедры и академические команды, формирующие учебную среду и сопровождающие развитие учеников.',
     },
     en: {
         heroTitle: 'Our Team',
@@ -62,6 +64,8 @@ const pageText = {
         error: 'Error loading data',
         retry: 'Try again',
         noData: 'Team information coming soon',
+        leadershipIntro: 'Key school leaders responsible for strategy, academic quality, and day-to-day coordination.',
+        departmentsIntro: 'Departments and academic teams shaping the learning environment and supporting student growth.',
     },
 }
 
@@ -197,9 +201,13 @@ export default function TeamPage() {
                                     </h2>
                                 </div>
 
-                                <div className="space-y-6">
+                                <p className="mb-8 max-w-3xl text-base leading-7 text-slate-600">
+                                    {text.leadershipIntro}
+                                </p>
+
+                                <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
                                     {leadership.map(dept => (
-                                        <div key={dept.id}>
+                                        <div key={dept.id} className="contents">
                                             {dept.staff_members?.filter(m => m.is_active)
                                                 .sort((a, b) => (a.order_index || 0) - (b.order_index || 0))
                                                 .map(member => (
@@ -207,7 +215,7 @@ export default function TeamPage() {
                                                         key={member.id}
                                                         member={member}
                                                         language={lang}
-                                                        variant="large"
+                                                        variant="feature"
                                                     />
                                                 ))}
                                         </div>
@@ -228,7 +236,11 @@ export default function TeamPage() {
                                     </h2>
                                 </div>
 
-                                <div className="space-y-4">
+                                <p className="mb-8 max-w-3xl text-base leading-7 text-slate-600">
+                                    {text.departmentsIntro}
+                                </p>
+
+                                <div className="space-y-6">
                                     {academic
                                         .sort((a, b) => (a.order_index || 0) - (b.order_index || 0))
                                         .map((dept, i) => (
@@ -255,7 +267,7 @@ export default function TeamPage() {
                                     </h2>
                                 </div>
 
-                                <div className="space-y-4">
+                                <div className="space-y-6">
                                     {support
                                         .sort((a, b) => (a.order_index || 0) - (b.order_index || 0))
                                         .map(dept => (

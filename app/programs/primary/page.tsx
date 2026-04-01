@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import JuniorProgramClient from './JuniorProgramClient';
 import { getPublishedCmsSectionPayloadsBySlug } from '@/lib/services/cms-public';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
     title: 'Intellect Primary School (Grades 1-4) | Intellect Pro',
     description: 'Full-day bilingual primary school with native speakers, brain development, and 360° safety.',

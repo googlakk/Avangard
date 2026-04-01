@@ -5,6 +5,8 @@ import { getCmsPageSections, getCmsPageSeoMeta, getPublishedCmsPageBySlug } from
 import type { PublicLocale } from '@/lib/i18n'
 import { localizePathname } from '@/lib/i18n'
 
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata({
     params,
 }: {
