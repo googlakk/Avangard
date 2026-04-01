@@ -52,7 +52,8 @@ const config: Config = {
             fontFamily: {
                 sans: ['var(--font-inter)', 'system-ui', 'sans-serif'], // Keeping Inter as default sans
                 heading: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
-                display: ['var(--font-cinzel)', 'serif'],
+                display: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
+                logo: ['var(--font-cinzel)', 'serif'],
                 'ibm-plex-serif': ['var(--font-ibm-plex-serif)', 'serif'],
                 cormorant: ['var(--font-cormorant)', 'serif'],
                 serif: ['var(--font-cormorant)', 'serif'],

@@ -18,7 +18,7 @@ import {
 type ModalType = 'transition' | 'skills' | 'beyond' | null;
 
 export default function MiddleAdditionalInfoSection() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
     const [activeModal, setActiveModal] = useState<ModalType>(null);
 
     const transitionData = getTransitionSupportData(t);
@@ -88,25 +88,37 @@ export default function MiddleAdditionalInfoSection() {
 
     return (
         <>
-            <ProgramSection tone="muted" spacing="md">
+            <ProgramSection id="middle-pathways" tone="muted" spacing="md" className="relative overflow-hidden">
+                <div className="absolute inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_top,rgba(49,86,163,0.08),transparent_40%)]" />
                 <ProgramSectionHeader
                     title={t.middle.additionalInfo.title}
                     subtitle={t.middle.additionalInfo.subtitle}
                     align="center"
                 />
 
-                <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-6">
                     {infoCards.map((card) => {
+                        const spanClass = card.id === 'cambridge'
+                            ? 'lg:col-span-3'
+                            : card.id === 'it-steam' || card.id === 'life'
+                                ? 'lg:col-span-3'
+                                : 'lg:col-span-2';
+
                         const CardContent = (
                             <>
                                 <div className="mb-4">
                                     <IconWrapper icon={card.icon} variant="navy" size="sm" hoverable={false} />
                                 </div>
 
-                                <h3 className="mb-2 font-heading text-lg font-semibold text-navy-900">
+                                <div className="mb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">
+                                    {card.type === 'link'
+                                        ? (language === 'en' ? 'Explore track' : 'Изучить трек')
+                                        : (language === 'en' ? 'Open insight' : 'Открыть обзор')}
+                                </div>
+                                <h3 className="mb-2 font-heading text-xl font-semibold text-navy-900">
                                     {card.title}
                                 </h3>
-                                <p className="mb-4 text-sm leading-relaxed text-slate-600">
+                                <p className="mb-5 text-sm leading-7 text-slate-600">
                                     {card.description}
                                 </p>
 
@@ -132,7 +144,7 @@ export default function MiddleAdditionalInfoSection() {
                                 <Link
                                     key={card.id}
                                     href={card.link}
-                                    className={programInteractiveCardClassName}
+                                    className={`${programInteractiveCardClassName} ${spanClass} rounded-[24px] border-slate-200/80 shadow-[0_22px_60px_-48px_rgba(15,23,42,0.45)]`}
                                 >
                                     {CardContent}
                                 </Link>
@@ -143,7 +155,7 @@ export default function MiddleAdditionalInfoSection() {
                             <button
                                 key={card.id}
                                 onClick={() => setActiveModal(card.id as ModalType)}
-                                className={programInteractiveCardClassName}
+                                className={`${programInteractiveCardClassName} ${spanClass} rounded-[24px] border-slate-200/80 text-left shadow-[0_22px_60px_-48px_rgba(15,23,42,0.45)]`}
                             >
                                 {CardContent}
                             </button>

@@ -34,7 +34,7 @@ export const getDisciplineEnvironmentData = (t: any) => ({
             highlight: t.middle.discipline.features.environment.highlight
         }
     ],
-    proofImage: "/images/Гимн абду.png",
+    proofImage: "/images/гимн абду.jpg",
     proofCaption: t.middle.discipline.features.photoProof.caption
 });
 
@@ -58,7 +58,7 @@ export const getTwentyFirstSkillsData = (t: any) => ({
             description: t.middle.skills.items.soft.description,
         }
     ],
-    proofImage: "/Users/intellectmac/.gemini/antigravity/brain/5dfee3b6-c7c1-4d72-8534-1c2033e049e3/middle_coding_currency_1769397394322.png",
+    proofImage: "/images/ученики с грамотами.jpg",
     proofCaption: t.middle.skills.photoProof.caption
 });
 
@@ -84,7 +84,7 @@ export const getLeadershipGovernanceData = (t: any) => ({
     ],
     ctaText: t.middle.leadership.ctaText,
     ctaLink: "/admissions",
-    proofImage: "/Users/intellectmac/.gemini/antigravity/brain/5dfee3b6-c7c1-4d72-8534-1c2033e049e3/middle_student_presenting_1769397412463.png",
+    proofImage: "/images/вручение победителя int cup.png",
     proofCaption: t.middle.leadership.photoProof.caption
 });
 

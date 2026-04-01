@@ -1,0 +1,365 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "INTELLECT INTERNATIONAL SCHOOL" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "INTELLECT INTERNATIONAL SCHOOL" [ref=e6]
+      - navigation [ref=e7]:
+        - link "Главная" [ref=e8] [cursor=pointer]:
+          - /url: /
+          - text: Главная
+        - button "О школе" [ref=e10] [cursor=pointer]:
+          - text: О школе
+          - img [ref=e11]
+        - button "Правила и безопасность" [ref=e14] [cursor=pointer]:
+          - text: Правила и безопасность
+          - img [ref=e15]
+        - button "Для родителей" [ref=e18] [cursor=pointer]:
+          - text: Для родителей
+          - img [ref=e19]
+        - button "Для учителей" [ref=e22] [cursor=pointer]:
+          - text: Для учителей
+          - img [ref=e23]
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - button "RU" [ref=e27] [cursor=pointer]
+          - button "EN" [ref=e28] [cursor=pointer]
+        - link "Связаться с нами" [ref=e29] [cursor=pointer]:
+          - /url: /contacts
+  - main [ref=e30]:
+    - main [ref=e31]:
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - generic [ref=e38]:
+            - text: Intellect Middle
+            - text: 5–9 классы
+          - heading "Средняя школа Intellect Middle" [level=1] [ref=e40]
+          - paragraph [ref=e41]: 5-9 классы • Раскрытие потенциала
+          - paragraph [ref=e42]: Время больших открытий и формирования личности. Cambridge Checkpoint, проектная деятельность и развитие лидерских качеств.
+          - generic [ref=e43]:
+            - generic [ref=e44]: Cambridge-aligned академическая траектория
+            - generic [ref=e45]: IT & STEAM лаборатории
+            - generic [ref=e46]: Клубы, проекты и лидерство
+            - generic [ref=e47]: Плавный переход к senior stage
+          - generic [ref=e48]:
+            - link "Подать заявку" [ref=e49] [cursor=pointer]:
+              - /url: /admissions
+            - link "Исследовать среду Middle" [ref=e50] [cursor=pointer]:
+              - /url: "#middle-environment"
+          - generic [ref=e51]:
+            - generic [ref=e52]:
+              - generic [ref=e53]: 5–9
+              - generic [ref=e54]: Классы
+            - generic [ref=e55]:
+              - generic [ref=e56]: 360°
+              - generic [ref=e57]: Поддержка
+            - generic [ref=e58]:
+              - generic [ref=e59]: 15+
+              - generic [ref=e60]: Клубов
+        - generic [ref=e62]:
+          - generic [ref=e63]:
+            - img "Intellect Middle environment" [ref=e65]
+            - generic [ref=e66]:
+              - paragraph [ref=e67]: Academic Momentum
+              - paragraph [ref=e68]: Структурированные привычки, проектная работа и социальный рост для ключевого переходного этапа.
+          - generic [ref=e69]:
+            - generic [ref=e70]:
+              - paragraph [ref=e71]: Фокус + свобода
+              - paragraph [ref=e72]: Школьная культура, где дисциплина помогает самостоятельности, а не подавляет её.
+            - generic [ref=e73]:
+              - paragraph [ref=e74]: Специфика middle
+              - list [ref=e75]:
+                - listitem [ref=e76]: Культура проектных презентаций
+                - listitem [ref=e77]: Клубы, соревнования, самоуправление
+                - listitem [ref=e78]: Подготовка к темпу senior stage
+            - generic [ref=e79]:
+              - paragraph [ref=e80]: Переходный этап
+              - paragraph [ref=e81]: Здесь формируются привычки, уверенность и личная позиция перед входом в senior track.
+      - generic [ref=e83]:
+        - link "Обзор" [ref=e84] [cursor=pointer]:
+          - /url: "#middle-overview"
+        - link "Среда" [ref=e85] [cursor=pointer]:
+          - /url: "#middle-environment"
+        - link "Навыки" [ref=e86] [cursor=pointer]:
+          - /url: "#middle-skills"
+        - link "Лидерство" [ref=e87] [cursor=pointer]:
+          - /url: "#middle-leadership"
+        - link "Траектории" [ref=e88] [cursor=pointer]:
+          - /url: "#middle-pathways"
+        - link "Поступление" [ref=e89] [cursor=pointer]:
+          - /url: "#middle-cta"
+      - generic [ref=e93]:
+        - generic [ref=e94]:
+          - generic [ref=e95]: Культура школы
+          - generic [ref=e96]:
+            - heading "Дисциплина и Среда" [level=2] [ref=e97]
+            - paragraph [ref=e98]: Фокус на главном
+          - generic [ref=e99]:
+            - generic [ref=e100]:
+              - img [ref=e103]
+              - heading "Digital Detox" [level=3] [ref=e107]
+              - paragraph [ref=e108]: Сдача телефонов перед уроками для максимальной концентрации и живого общения.
+              - paragraph [ref=e110]: Без гаджетов
+            - generic [ref=e111]:
+              - img [ref=e114]
+              - heading "Study Club" [level=3] [ref=e117]
+              - paragraph [ref=e118]: Выполнение домашних заданий в школе под присмотром тьюторов.
+              - paragraph [ref=e120]: Уроки в школе
+            - generic [ref=e121]:
+              - img [ref=e124]
+              - heading "Вдохновляющая среда" [level=3] [ref=e129]
+              - paragraph [ref=e130]: Современные лаборатории и пространства для командной работы.
+              - paragraph [ref=e132]: Комфорт
+        - generic [ref=e133]:
+          - generic [ref=e135]:
+            - paragraph [ref=e136]: Фокус и рамка
+            - paragraph [ref=e137]: Ученикам middle school нужна дисциплина, которая сохраняет смысл, социальность и внутреннюю мотивацию.
+          - generic [ref=e139]:
+            - generic [ref=e140]: Фото-доказательство
+            - figure "Ученики работают над проектом в библиотеке" [ref=e141]:
+              - img "Discipline and Environment" [ref=e144]
+              - generic [ref=e145]: Ученики работают над проектом в библиотеке
+      - generic [ref=e147]:
+        - generic [ref=e149]:
+          - generic [ref=e150]:
+            - generic [ref=e151]: Навыки следующего этапа
+            - generic [ref=e152]:
+              - heading "Навыки XXI века" [level=2] [ref=e153]
+              - paragraph [ref=e154]: Компетенции будущего
+            - generic [ref=e155]:
+              - generic [ref=e156]:
+                - img [ref=e159]
+                - heading "IT и Кодинг" [level=3] [ref=e163]
+                - paragraph [ref=e164]: Программирование на Python и веб-разработка.
+              - generic [ref=e165]:
+                - img [ref=e168]
+                - heading "Финансовая грамотность" [level=3] [ref=e171]
+                - paragraph [ref=e172]: Управление личным бюджетом через школьную валюту.
+              - generic [ref=e173]:
+                - img [ref=e176]
+                - heading "Soft Skills" [level=3] [ref=e178]
+                - paragraph [ref=e179]: Критическое мышление, коммуникация и работа в команде.
+            - generic [ref=e180]:
+              - paragraph [ref=e181]: Логика развития
+              - generic [ref=e182]:
+                - generic [ref=e183]:
+                  - generic [ref=e184]: Шаг 1
+                  - generic [ref=e185]: Освоить инструмент
+                - generic [ref=e186]:
+                  - generic [ref=e187]: Шаг 2
+                  - generic [ref=e188]: Применить в проекте
+                - generic [ref=e189]:
+                  - generic [ref=e190]: Шаг 3
+                  - generic [ref=e191]: Презентовать результат
+          - generic [ref=e193]:
+            - generic [ref=e194]:
+              - generic [ref=e195]: IT и Кодинг
+              - generic [ref=e196]: Финансовая грамотность
+              - generic [ref=e197]: Soft Skills
+            - figure "Презентация IT-проектов" [ref=e198]:
+              - img "21st Century Skills" [ref=e201]
+              - generic [ref=e202]: Презентация IT-проектов
+        - link "Подробнее о треке IT & STEAM" [ref=e204] [cursor=pointer]:
+          - /url: /programs/middle/it-steam
+          - text: Подробнее о треке IT & STEAM
+          - generic [ref=e205]: →
+      - generic [ref=e209]:
+        - generic [ref=e210]:
+          - generic [ref=e211]: Самостоятельность и влияние
+          - generic [ref=e212]:
+            - heading "Лидерство и Самоуправление" [level=2] [ref=e213]
+            - paragraph [ref=e214]: Активная позиция
+          - generic [ref=e215]:
+            - generic [ref=e217]:
+              - img [ref=e220]
+              - generic [ref=e224]:
+                - generic [ref=e225]: Роль 1
+                - heading "Клубы по интересам" [level=3] [ref=e226]
+                - paragraph [ref=e227]: Дебаты, экология, журналистика и другие клубы.
+            - generic [ref=e229]:
+              - img [ref=e232]
+              - generic [ref=e235]:
+                - generic [ref=e236]: Роль 2
+                - heading "Социальные проекты" [level=3] [ref=e237]
+                - paragraph [ref=e238]: Волонтерство и организация школьных мероприятий.
+            - generic [ref=e240]:
+              - img [ref=e243]
+              - generic [ref=e246]:
+                - generic [ref=e247]: Роль 3
+                - heading "Соревнования" [level=3] [ref=e248]
+                - paragraph [ref=e249]: Олимпиады и спортивные турниры.
+          - generic [ref=e250]:
+            - paragraph [ref=e251]: Почему это важно в middle school
+            - paragraph [ref=e252]: Именно в этом возрасте дети начинают пробовать ответственность, командную работу и самовыражение. Лидерство должно быть видимым и достижимым.
+        - generic [ref=e253]:
+          - figure "Совет старшеклассников на собрании" [ref=e255]:
+            - img "Student Leadership" [ref=e258]
+            - generic [ref=e259]: Совет старшеклассников на собрании
+          - generic [ref=e260]:
+            - generic [ref=e261]:
+              - generic [ref=e262]: Клубы
+              - generic [ref=e263]: Принадлежность
+            - generic [ref=e264]:
+              - generic [ref=e265]: Проекты
+              - generic [ref=e266]: Инициатива
+            - generic [ref=e267]:
+              - generic [ref=e268]: Соревнования
+              - generic [ref=e269]: Уверенность
+          - link "Узнать больше" [ref=e270] [cursor=pointer]:
+            - /url: /admissions
+      - generic [ref=e272]:
+        - generic [ref=e274]:
+          - heading "Узнайте больше" [level=2] [ref=e275]
+          - paragraph [ref=e276]: Все грани Intellect Middle
+        - generic [ref=e277]:
+          - link "Изучить трек Cambridge Pathway Международная академическая программа Подробнее" [ref=e445] [cursor=pointer]:
+            - /url: /programs/middle/cambridge-pathway
+            - img [ref=e448]
+            - generic [ref=e451]: Изучить трек
+            - heading "Cambridge Pathway" [level=3] [ref=e452]
+            - paragraph [ref=e453]: Международная академическая программа
+            - generic [ref=e454]:
+              - text: Подробнее
+              - img [ref=e455]
+          - link "Изучить трек IT & STEAM Технологии и инженерное творчество Подробнее" [ref=e457] [cursor=pointer]:
+            - /url: /programs/middle/it-steam
+            - img [ref=e460]
+            - generic [ref=e463]: Изучить трек
+            - heading "IT & STEAM" [level=3] [ref=e464]
+            - paragraph [ref=e465]: Технологии и инженерное творчество
+            - generic [ref=e466]:
+              - text: Подробнее
+              - img [ref=e467]
+          - link "Изучить трек Жизнь школы Спорт, искусство и традиции Подробнее" [ref=e469] [cursor=pointer]:
+            - /url: /programs/middle/life-in-middle
+            - img [ref=e472]
+            - generic [ref=e475]: Изучить трек
+            - heading "Жизнь школы" [level=3] [ref=e476]
+            - paragraph [ref=e477]: Спорт, искусство и традиции
+            - generic [ref=e478]:
+              - text: Подробнее
+              - img [ref=e479]
+          - button "Открыть обзор Поддержка Адаптация при переходе Подробнее" [ref=e481] [cursor=pointer]:
+            - img [ref=e484]
+            - generic [ref=e487]: Открыть обзор
+            - heading "Поддержка" [level=3] [ref=e488]
+            - paragraph [ref=e489]: Адаптация при переходе
+            - generic [ref=e490]:
+              - text: Подробнее
+              - img [ref=e491]
+          - button "Открыть обзор Soft Skills Навыки будущего Подробнее" [ref=e493] [cursor=pointer]:
+            - img [ref=e496]
+            - generic [ref=e504]: Открыть обзор
+            - heading "Soft Skills" [level=3] [ref=e505]
+            - paragraph [ref=e506]: Навыки будущего
+            - generic [ref=e507]:
+              - text: Подробнее
+              - img [ref=e508]
+      - generic [ref=e347]:
+        - generic [ref=e348]: Поступление и следующий шаг
+        - generic [ref=e349]:
+          - heading "Готовы присоединиться?" [level=2] [ref=e350]
+          - paragraph [ref=e351]: Набор в 5-9 классы открыт.
+        - generic [ref=e352]:
+          - generic [ref=e353]: 5–9 классы
+          - generic [ref=e354]: Cambridge-aligned progression
+          - generic [ref=e355]: Проектная и клубная среда
+          - generic [ref=e356]: Подготовка к senior school
+        - generic [ref=e357]:
+          - link "Записаться на тестирование" [ref=e358] [cursor=pointer]:
+            - /url: /admissions
+          - link "Скачать брошюру" [ref=e359] [cursor=pointer]:
+            - /url: /downloads/middle-brochure.pdf
+  - contentinfo [ref=e360]:
+    - generic [ref=e361]:
+      - generic [ref=e362]:
+        - generic [ref=e363]:
+          - link "INTELLECT INTERNATIONAL SCHOOL" [ref=e364] [cursor=pointer]:
+            - /url: /
+            - img "INTELLECT INTERNATIONAL SCHOOL" [ref=e365]
+          - paragraph [ref=e366]: Элитная частная школа в Бишкеке. Воспитываем лидеров будущего с 2016 года, объединяя традиции и инновации.
+          - generic [ref=e367]:
+            - link "Следите за нами в Instagram" [ref=e368] [cursor=pointer]:
+              - /url: https://instagram.com/intellect_pro_school
+              - img [ref=e369]
+            - link "Следите за нами в Facebook" [ref=e371] [cursor=pointer]:
+              - /url: https://facebook.com/intellectproschool
+              - img [ref=e372]
+            - link "Следите за нами в WhatsApp" [ref=e374] [cursor=pointer]:
+              - /url: https://wa.me/996555123456
+              - img [ref=e375]
+            - link "Следите за нами в Telegram" [ref=e377] [cursor=pointer]:
+              - /url: https://t.me/intellectproschool
+              - img [ref=e378]
+            - link "Следите за нами в YouTube" [ref=e380] [cursor=pointer]:
+              - /url: https://youtube.com/@intellectproschool
+              - img [ref=e381]
+        - generic [ref=e384]:
+          - heading "Навигация" [level=3] [ref=e385]: Навигация
+          - list [ref=e387]:
+            - listitem [ref=e388]:
+              - link "Главная" [ref=e389] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e390]:
+              - link "О нас" [ref=e391] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e392]:
+              - link "Программы" [ref=e393] [cursor=pointer]:
+                - /url: /programs
+            - listitem [ref=e394]:
+              - link "Преподаватели" [ref=e395] [cursor=pointer]:
+                - /url: /teachers
+            - listitem [ref=e396]:
+              - link "Контакты" [ref=e397] [cursor=pointer]:
+                - /url: /contacts
+        - generic [ref=e398]:
+          - heading "Правила и безопасность" [level=3] [ref=e399]: Правила и безопасность
+          - list [ref=e401]:
+            - listitem [ref=e402]:
+              - link "Для учителей" [ref=e403] [cursor=pointer]:
+                - /url: /rules/teachers
+            - listitem [ref=e404]:
+              - link "Для учеников" [ref=e405] [cursor=pointer]:
+                - /url: /rules/students
+            - listitem [ref=e406]:
+              - link "Для родителей" [ref=e407] [cursor=pointer]:
+                - /url: /rules/parents
+            - listitem [ref=e408]:
+              - link "Протоколы безопасности" [ref=e409] [cursor=pointer]:
+                - /url: /safety
+        - generic [ref=e410]:
+          - heading "Программы" [level=3] [ref=e411]: Программы
+          - list [ref=e413]:
+            - listitem [ref=e414]:
+              - link "Память и внимание" [ref=e415] [cursor=pointer]:
+                - /url: /programs#memory
+            - listitem [ref=e416]:
+              - link "Критическое мышление" [ref=e417] [cursor=pointer]:
+                - /url: /programs#critical
+            - listitem [ref=e418]:
+              - link "Иностранные языки" [ref=e419] [cursor=pointer]:
+                - /url: /programs#languages
+            - listitem [ref=e420]:
+              - link "STEAM лаборатории" [ref=e421] [cursor=pointer]:
+                - /url: /programs#steam
+        - generic [ref=e422]:
+          - heading "Контакты" [level=3] [ref=e423]: Контакты
+          - list [ref=e425]:
+            - listitem [ref=e426]:
+              - img [ref=e427]
+              - generic [ref=e430]:
+                - text: г. Бишкек, ул. Джунусалиева, 177/1
+                - text: ул. А. Бакаева, 119
+            - listitem [ref=e431]:
+              - img [ref=e432]
+              - generic [ref=e434]:
+                - link "+996 705 889 889" [ref=e435] [cursor=pointer]:
+                  - /url: tel:+996705889889
+                - link "+996 778 889 889" [ref=e436] [cursor=pointer]:
+                  - /url: tel:+996778889889
+            - listitem [ref=e437]:
+              - img [ref=e438]
+              - link "info@intellect.kg" [ref=e440] [cursor=pointer]:
+                - /url: mailto:info@intellect.kg
+      - paragraph [ref=e443]: © 2026 Intellect Pro School. Все права защищены.
+  - alert [ref=e444]
