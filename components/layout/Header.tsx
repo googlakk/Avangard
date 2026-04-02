@@ -27,25 +27,25 @@ export default function Header() {
                 }}
             />
 
-            <div className="relative mx-auto max-w-[1440px] px-6 xl:px-8">
-                <div className="flex items-center justify-between h-[82px]">
+            <div className="relative mx-auto max-w-[1360px] px-4 sm:px-5 lg:px-6 xl:px-7">
+                <div className="flex min-h-[74px] items-center justify-between lg:min-h-[78px]">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center group">
+                    <Link href="/" className="flex shrink-0 items-center group">
                         <Image
                             src="/logo.png"
                             alt="INTELLECT INTERNATIONAL SCHOOL"
                             width={1024}
                             height={190}
                             priority
-                            className="h-11 md:h-12 xl:h-14 w-auto transition-opacity duration-300 group-hover:opacity-90"
+                            className="h-9 w-auto transition-opacity duration-300 group-hover:opacity-90 sm:h-10 lg:h-11 xl:h-12"
                         />
                     </Link>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
+                    <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
                         <Link
                             href="/"
-                            className="relative py-2 font-heading text-[15px] font-semibold tracking-[0.01em] text-white/90 transition-all duration-300 group whitespace-nowrap hover:text-white xl:text-[16px]"
+                            className="group relative whitespace-nowrap py-2 font-heading text-[14px] font-semibold leading-none tracking-[0.01em] text-white/90 transition-all duration-300 hover:text-white xl:text-[15px]"
                         >
                             {t.header.home}
                             <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gradient-to-r from-[#C6A96B] to-[#D8C08A] group-hover:w-full transition-all duration-300" />
@@ -99,11 +99,11 @@ export default function Header() {
                     </nav>
 
                     {/* Language Switch & CTA Button */}
-                    <div className="hidden lg:flex items-center gap-5 flex-shrink-0">
+                    <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
                         <LanguageSwitch />
                         <Link
                             href="/contacts"
-                            className="relative rounded-full px-6 py-3 font-heading text-[14px] font-semibold tracking-[0.02em] transition-all duration-300 transform whitespace-nowrap flex-shrink-0 hover:-translate-y-[1px] hover:shadow-[0_8px_24px_rgba(198,169,107,0.25)] xl:px-7 xl:py-3.5 xl:text-[15px]"
+                            className="relative flex-shrink-0 whitespace-nowrap rounded-full px-5 py-2.5 font-heading text-[13px] font-semibold leading-none tracking-[0.02em] transition-all duration-300 transform hover:-translate-y-[1px] hover:shadow-[0_8px_24px_rgba(198,169,107,0.25)] xl:px-6 xl:py-3 xl:text-[14px]"
                             style={{
                                 background: 'linear-gradient(135deg, #C6A96B 0%, #D8C08A 50%, #C6A96B 100%)',
                                 color: '#0F223A',

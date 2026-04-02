@@ -29,7 +29,7 @@ export default function DropdownMenu({ label, items, basePath }: DropdownMenuPro
             onMouseLeave={() => setIsOpen(false)}
         >
             <button
-                className={`flex items-center gap-1 whitespace-nowrap py-2 font-heading text-[15px] font-semibold tracking-[0.01em] transition-colors xl:text-[16px] ${isOpen ? 'text-white' : 'text-white/80 hover:text-white'
+                className={`flex items-center gap-1 whitespace-nowrap py-2 font-heading text-[14px] font-semibold leading-none tracking-[0.01em] transition-colors xl:text-[15px] ${isOpen ? 'text-white' : 'text-white/80 hover:text-white'
                     }`}
             >
                 {label}
