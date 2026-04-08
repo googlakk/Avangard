@@ -64,13 +64,38 @@ const RULES_UI_TEXT = {
 
 export default function RulesPage({ kind }: { kind: RulesKind }) {
     const { t, language } = useLanguage();
-    const rules = t.rules[kind];
+    const rulesDictionary = t.senior?.rules ?? t.rules ?? t.parents?.rules;
+    const rules = rulesDictionary?.[kind];
     const uiText = RULES_UI_TEXT[language];
     const navItems: Array<{ kind: RulesKind; href: string; label: string }> = [
         { kind: 'teachers', href: '/rules/teachers', label: t.header.rulesMenu.items.teachers.title },
         { kind: 'students', href: '/rules/students', label: t.header.rulesMenu.items.students.title },
         { kind: 'parents', href: '/rules/parents', label: t.header.rulesMenu.items.parents.title },
     ];
+
+    if (!rules || !rulesDictionary?.meta) {
+        return (
+            <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white pt-[78px]">
+                <div className="container mx-auto px-4 py-24 max-w-3xl">
+                    <h1 className="text-3xl font-bold text-gray-900 mb-4">
+                        {language === 'ru' ? 'Раздел временно недоступен' : 'This section is temporarily unavailable'}
+                    </h1>
+                    <p className="text-gray-600 mb-8">
+                        {language === 'ru'
+                            ? 'Контент правил не найден для этой страницы.'
+                            : 'Rules content was not found for this page.'}
+                    </p>
+                    <Link
+                        href={localizePathname('/', language)}
+                        className="inline-flex items-center bg-navy-900 text-white px-6 py-3 rounded-xl font-semibold hover:bg-navy-800 transition-colors"
+                    >
+                        <Icon name="ArrowLeft" className="w-4 h-4 mr-2" />
+                        {uiText.backHome}
+                    </Link>
+                </div>
+            </div>
+        );
+    }
 
     const sections = SECTION_ORDER[kind]
         .map(sectionKey => {
@@ -90,7 +115,7 @@ export default function RulesPage({ kind }: { kind: RulesKind }) {
     const localizedContacts = localizePathname('/contacts', language);
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+        <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white pt-[78px]">
             <div className={`bg-gradient-to-r ${HERO_STYLES[kind]} text-white py-8`}>
                 <div className="container mx-auto px-4">
                     <Link
@@ -126,7 +151,7 @@ export default function RulesPage({ kind }: { kind: RulesKind }) {
                     <p className="text-gray-600 mt-3 max-w-3xl mx-auto">{rules.mainSubtitle}</p>
                     {'effectiveDate' in rules && rules.effectiveDate && (
                         <p className="text-sm text-gray-500 mt-4">
-                            {t.rules.meta.effectiveDate}: {rules.effectiveDate}
+                            {rulesDictionary.meta.effectiveDate}: {rules.effectiveDate}
                         </p>
                     )}
                 </section>

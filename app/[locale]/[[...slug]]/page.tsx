@@ -480,7 +480,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const localizedCanonical = localizePathname(pathname, params.locale)
     const ruPath = localizePathname(pathname, 'ru')
     const enPath = localizePathname(pathname, 'en')
-    const localizedMeta = entry.metadata[params.locale]
+    const localizedMeta = entry.metadata[params.locale] ?? entry.metadata['ru']
 
     return {
         title: localizedMeta.title,

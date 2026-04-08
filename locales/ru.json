@@ -161,7 +161,7 @@
         "addresses": "Адреса:",
         "socials": "Соцсети:",
         "addressList": {
-            "main": "г. Бишкек, ул. Джунусалиева, 177/1",
+            "main": "720044, г. Бишкек, ул. Джунусалиева, 177/1",
             "branch": "ул. А. Бакаева, 119"
         }
     },
@@ -897,7 +897,7 @@
             "reserve": {
                 "title": "Не нашли подходящую вакансию?",
                 "text": "Мы формируем кадровый резерв. Отправьте нам свое резюме, и мы свяжемся с вами, когда появится подходящая позиция.",
-                "button": "Отправить резюме (hr@avangard.school)"
+                "button": "Отправить резюме (hr@intellect.edu.kg)"
             },
             "positions": {
                 "title": "Открытые позиции",
@@ -1906,7 +1906,7 @@
                 "effectiveDate": "1 сентября 2026",
                 "footer": {
                     "effectiveDate": "Действует с: 1 сентября 2026",
-                    "contact": "По вопросам обращайтесь на reception@intellectschool.kg"
+                    "contact": "По вопросам обращайтесь на info@intellect.edu.kg"
                 }
             }
         },
@@ -2022,7 +2022,7 @@
                     },
                     {
                         "label": "Email",
-                        "value": "safety@intellectschool.kg"
+                        "value": "psy@intellect.edu.kg"
                     }
                 ]
             },

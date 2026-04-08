@@ -132,7 +132,7 @@ export default function SafetyPage() {
     const isEn = language === 'en';
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+        <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white pt-[78px]">
             {/* Hero Section */}
             <section className="relative bg-gradient-to-br from-navy-900 via-navy-800 to-blue-900 text-white overflow-hidden">
                 {/* Background pattern */}

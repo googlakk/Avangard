@@ -13,8 +13,8 @@ export default function AcademicsPage() {
     const copy = getSitePageContent(language).parents.academics;
 
     return (
-        <main className="min-h-screen">
-            <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
+        <main className="min-h-screen pt-[78px]">
+            <section className="relative h-[75vh] flex items-center justify-center overflow-hidden">
                 <Image
                     src="/images/класс.png"
                     alt={copy.hero.imageAlt}

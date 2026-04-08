@@ -10,8 +10,8 @@ export default function CarePage() {
     const copy = getSitePageContent(language).parents.care;
 
     return (
-        <main className="min-h-screen">
-            <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+        <main className="min-h-screen pt-[78px]">
+            <section className="relative h-[75vh] flex items-center justify-center overflow-hidden">
                 <Image
                     src="/images/рисует жуниор.png"
                     alt={copy.hero.imageAlt}

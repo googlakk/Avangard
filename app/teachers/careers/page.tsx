@@ -44,7 +44,7 @@ export default function CareersPage() {
                         <p className="text-gray-600 mb-6">
                             {reserve.text}
                         </p>
-                        <Button href="mailto:hr@avangard.school" size="lg">
+                        <Button href="mailto:hr@intellect.edu.kg" size="lg">
                             {reserve.button}
                         </Button>
                     </div>
@@ -65,7 +65,7 @@ export default function CareersPage() {
                                     </div>
                                 </div>
                                 <Button
-                                    href={`mailto:hr@avangard.school?subject=${job.subject}`}
+                                    href={`mailto:hr@intellect.edu.kg?subject=${job.subject}`}
                                     variant="outline"
                                     className="shrink-0"
                                 >

@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export default function ContactSection() {
     const { t } = useLanguage();
@@ -113,6 +114,16 @@ export default function ContactSection() {
                                 <p className="text-gray-700">
                                     {t.contact.addressList.branch}
                                 </p>
+                            </div>
+
+                            <div>
+                                <h4 className="font-semibold text-gray-900 mb-2">Email:</h4>
+                                <a
+                                    href={`mailto:${SITE_CONFIG.email}`}
+                                    className="text-xl text-navy-900 hover:text-navy-700 transition-colors block"
+                                >
+                                    {SITE_CONFIG.email}
+                                </a>
                             </div>
 
                             <div>

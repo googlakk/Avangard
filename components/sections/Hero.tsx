@@ -17,11 +17,12 @@ export default function Hero() {
             {/* Фоновое видео */}
             <div className="absolute inset-0 overflow-hidden">
                 <Image
-                    src="/images/sen-hero.png"
+                    src="/images/sen-hero.jpg"
                     alt="School background"
                     fill
                     priority
                     className="object-cover"
+                    sizes="100vw"
                 />
                 <video
                     autoPlay
@@ -29,11 +30,11 @@ export default function Hero() {
                     muted
                     playsInline
                     preload="metadata"
-                    poster="/images/sen-hero.png"
+                    poster="/images/sen-hero.jpg"
                     disablePictureInPicture
                     className="absolute inset-0 w-full h-full object-cover"
                 >
-                    <source src="/videos/hero-school-optimized.mp4" type="video/mp4" />
+                    <source src="/videos/IMG_6812.mp4" type="video/mp4" />
                 </video>
                 {/* Оверлей */}
                 <div className="absolute inset-0 hero-overlay" />

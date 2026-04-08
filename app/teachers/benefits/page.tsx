@@ -34,21 +34,19 @@ export default function BenefitsPage() {
 
             {/* Benefits Grid */}
             <section className="py-20 bg-gray-50">
-                <div className="container mx-auto px-4">
+                <div className="container mx-auto px-4 max-w-6xl">
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {list.map((item: any, idx: number) => (
-                                <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                                    <div className="w-12 h-12 bg-amber-100/50 rounded-lg flex items-center justify-center mb-6 text-2xl">
-                                        {item.icon}
-                                    </div>
-                                    <h3 className="font-heading font-bold text-xl text-navy-900 mb-4">{item.title}</h3>
-                                    <p className="text-gray-600">
-                                        {item.description}
-                                    </p>
+                        {list.map((item: any, idx: number) => (
+                            <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                                <div className="w-12 h-12 bg-amber-100/50 rounded-lg flex items-center justify-center mb-6 text-2xl">
+                                    {item.icon}
                                 </div>
-                            ))}
-                        </div>
+                                <h3 className="font-heading font-bold text-xl text-navy-900 mb-4">{item.title}</h3>
+                                <p className="text-gray-600">
+                                    {item.description}
+                                </p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>

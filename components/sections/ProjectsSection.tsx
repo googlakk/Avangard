@@ -22,7 +22,7 @@ export default function ProgramsSection() {
             badge: t.programs.items.junior.badge,
             description: t.programs.items.junior.description,
             subtitle: t.programs.items.junior.subtitle,
-            image: '/images/junior-morning-exercise.png',
+            image: '/images/junior-morning-exercise.jpg',
             url: '/programs/primary',
         },
         {
@@ -31,7 +31,7 @@ export default function ProgramsSection() {
             badge: t.programs.items.middle.badge,
             description: t.programs.items.middle.description,
             subtitle: t.programs.items.middle.subtitle,
-            image: '/images/middle-entrance-group.png',
+            image: '/images/middle-entrance-group.jpg',
             url: '/programs/middle',
         },
         {
@@ -40,7 +40,7 @@ export default function ProgramsSection() {
             badge: t.programs.items.senior.badge,
             description: t.programs.items.senior.description,
             subtitle: t.programs.items.senior.subtitle,
-            image: '/images/senior-medalists.png',
+            image: '/images/senior-medalists.jpg',
             url: '/programs/senior',
         },
         {
@@ -58,7 +58,7 @@ export default function ProgramsSection() {
             badge: t.programs.items.life.badge,
             description: t.programs.items.life.description,
             subtitle: t.programs.items.life.subtitle,
-            image: '/images/10а квиз.png',
+            image: '/images/10а квиз.jpg',
             url: '/parents/values',
         },
         {

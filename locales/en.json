@@ -161,7 +161,7 @@
         "addresses": "Locations:",
         "socials": "Social Media:",
         "addressList": {
-            "main": "Bishkek, 177/1 Junusalieva St.",
+            "main": "720044, Bishkek, 177/1 Junusalieva St.",
             "branch": "119 A. Bakaeva St."
         }
     },
@@ -897,7 +897,7 @@
             "reserve": {
                 "title": "Didn't find a suitable vacancy?",
                 "text": "We are building a talent pool. Send us your CV, and we will contact you when a suitable position becomes available.",
-                "button": "Send CV (hr@avangard.school)"
+                "button": "Send CV (hr@intellect.edu.kg)"
             },
             "positions": {
                 "title": "Open Positions",
@@ -1905,7 +1905,7 @@
                 "cta": "Download PDF",
                 "footer": {
                     "effectiveDate": "Effective from: September 1, 2026",
-                    "contact": "For questions, contact reception@intellectschool.kg"
+                    "contact": "For questions, contact info@intellect.edu.kg"
                 },
                 "effectiveDate": "September 1, 2026"
             }
@@ -2022,7 +2022,7 @@
                     },
                     {
                         "label": "Email",
-                        "value": "safety@intellectschool.kg"
+                        "value": "psy@intellect.edu.kg"
                     }
                 ]
             },

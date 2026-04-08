@@ -52,7 +52,7 @@ export function ProgramSectionHeader({
     return (
         <header
             className={cn(
-                'mx-auto mb-12 max-w-3xl',
+                'mx-auto mt-12 mb-24 max-w-3xl',
                 align === 'center' ? 'text-center' : 'text-center lg:mx-0 lg:text-left',
                 className
             )}

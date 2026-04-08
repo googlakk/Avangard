@@ -5,13 +5,12 @@ import {
     Cormorant_Garamond,
     IBM_Plex_Serif,
     Inter,
-    Lora,
-    Manrope,
     Montserrat,
 } from 'next/font/google';
 import './globals.css';
 import ClientProviders from '@/components/ClientProviders';
 import { DEFAULT_LOCALE, isValidLocale, LOCALE_COOKIE_NAME, type PublicLocale } from '@/lib/i18n';
+import { getOrganizationSchema } from '@/lib/services/structured-data';
 
 const inter = Inter({
     subsets: ['latin', 'cyrillic'],
@@ -44,18 +43,6 @@ const cinzel = Cinzel({
     variable: '--font-cinzel',
     display: 'swap',
     weight: ['400', '500', '600', '700'],
-})
-
-const lora = Lora({
-    subsets: ['latin', 'cyrillic'],
-    variable: '--font-lora',
-    display: 'swap',
-})
-
-const manrope = Manrope({
-    subsets: ['latin', 'cyrillic'],
-    variable: '--font-manrope',
-    display: 'swap',
 })
 
 export const viewport: Viewport = {
@@ -168,7 +155,15 @@ export default function RootLayout({
     const locale = resolveRequestLocale()
     return (
         <html lang={locale}>
-            <body className={`${inter.variable} ${montserrat.variable} ${cormorant.variable} ${ibmPlexSerif.variable} ${cinzel.variable} ${lora.variable} ${manrope.variable}`}>
+            <head>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(getOrganizationSchema()),
+                    }}
+                />
+            </head>
+            <body className={`${inter.variable} ${montserrat.variable} ${cormorant.variable} ${ibmPlexSerif.variable} ${cinzel.variable}`}>
                 <ClientProviders initialLanguage={locale}>{children}</ClientProviders>
             </body>
         </html>

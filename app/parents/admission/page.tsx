@@ -12,8 +12,8 @@ export default function AdmissionPage() {
     const copy = getSitePageContent(language).parents.admission;
 
     return (
-        <main className="min-h-screen">
-            <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
+        <main className="min-h-screen pt-[78px]">
+            <section className="relative h-[75vh] flex items-center justify-center overflow-hidden">
                 <Image
                     src="/images/senior-medalists.png"
                     alt={copy.hero.imageAlt}

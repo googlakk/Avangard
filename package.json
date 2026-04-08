@@ -12,6 +12,8 @@
     "preflight:env": "node ./scripts/preflight-env.mjs",
     "e2e:critical": "node ./scripts/e2e-critical-flows.mjs",
     "check:migration-types": "bash ./scripts/check-migration-types-sync.sh",
+    "analyze": "ANALYZE=true npm run build",
+    "pre-deploy": "bash ./scripts/pre-deploy-check.sh",
     "prepare": "husky"
   },
   "dependencies": {
@@ -26,6 +28,7 @@
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^14.2.35",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

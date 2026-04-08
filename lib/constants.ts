@@ -2,9 +2,9 @@ export const SITE_CONFIG = {
     name: 'INTELLECT INTERNATIONAL SCHOOL',
     description: 'Частная школа нового поколения в Бишкеке',
     url: 'https://intel.edu.kg',
-    email: 'info@intellect.kg',
+    email: 'info@intellect.edu.kg',
     phone: '+996 705 889 889',
-    address: 'г. Бишкек, ул. Джунусалиева, 177/1',
+    address: '720044, г. Бишкек, ул. Джунусалиева, 177/1',
 };
 
 export const NAV_LINKS = [

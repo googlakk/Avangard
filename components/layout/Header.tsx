@@ -17,6 +17,9 @@ export default function Header() {
             className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-white/[0.08]"
             style={{
                 background: 'linear-gradient(90deg, #0F223A 0%, #1C2F4A 25%, #223A5E 50%, rgba(198,169,107,0.08) 70%, #1C2F4A 85%, #0F223A 100%)',
+                WebkitFontSmoothing: 'antialiased',
+                MozOsxFontSmoothing: 'grayscale',
+                fontWeight: 'normal',
             }}
         >
             {/* Subtle noise texture overlay */}
@@ -27,7 +30,7 @@ export default function Header() {
                 }}
             />
 
-            <div className="relative mx-auto max-w-[1360px] px-4 sm:px-5 lg:px-6 xl:px-7">
+            <div className="relative mx-auto max-w-[95%] px-4 sm:px-4 lg:px-4 xl:px-5">
                 <div className="flex min-h-[74px] items-center justify-between lg:min-h-[78px]">
                     {/* Logo */}
                     <Link href="/" className="flex shrink-0 items-center group">
@@ -37,7 +40,7 @@ export default function Header() {
                             width={1024}
                             height={190}
                             priority
-                            className="h-9 w-auto transition-opacity duration-300 group-hover:opacity-90 sm:h-10 lg:h-11 xl:h-12"
+                            className="h-6 w-auto transition-opacity duration-300 group-hover:opacity-90 sm:h-7 lg:h-7 xl:h-8"
                         />
                     </Link>
 
@@ -62,38 +65,38 @@ export default function Header() {
 
                         <DropdownMenu
                             label={t.header.rulesMenu.title}
-                            basePath="/rules"
+                            basePath=""
                             items={[
-                                { label: t.header.rulesMenu.items.teachers.title, href: '/teachers', description: t.header.rulesMenu.items.teachers.description },
-                                { label: t.header.rulesMenu.items.students.title, href: '/students', description: t.header.rulesMenu.items.students.description },
-                                { label: t.header.rulesMenu.items.parents.title, href: '/parents', description: t.header.rulesMenu.items.parents.description },
+                                { label: t.header.rulesMenu.items.teachers.title, href: '/rules/teachers', description: t.header.rulesMenu.items.teachers.description },
+                                { label: t.header.rulesMenu.items.students.title, href: '/rules/students', description: t.header.rulesMenu.items.students.description },
+                                { label: t.header.rulesMenu.items.parents.title, href: '/rules/parents', description: t.header.rulesMenu.items.parents.description },
                                 { label: t.header.rulesMenu.items.safety.title, href: '/safety', description: t.header.rulesMenu.items.safety.description },
                             ]}
                         />
 
                         <DropdownMenu
                             label={t.header.parentsMenu.title}
-                            basePath="/parents"
+                            basePath=""
                             items={[
-                                { label: t.header.parentsMenu.items.academics.title, href: '/academics', description: t.header.parentsMenu.items.academics.description },
-                                { label: t.header.parentsMenu.items.values.title, href: '/values', description: t.header.parentsMenu.items.values.description },
-                                { label: t.header.parentsMenu.items.care.title, href: '/care', description: t.header.parentsMenu.items.care.description },
+                                { label: t.header.parentsMenu.items.academics.title, href: '/parents/academics', description: t.header.parentsMenu.items.academics.description },
+                                { label: t.header.parentsMenu.items.values.title, href: '/parents/values', description: t.header.parentsMenu.items.values.description },
+                                { label: t.header.parentsMenu.items.care.title, href: '/parents/care', description: t.header.parentsMenu.items.care.description },
                                 { label: t.header.parentsMenu.items.admission.title, href: '/parents/admission', description: t.header.parentsMenu.items.admission.description },
-                                { label: t.header.parentsMenu.items.parentsSchool.title, href: '/parents-school', description: t.header.parentsMenu.items.parentsSchool.description },
-                                { label: t.header.parentsMenu.items.platforms.title, href: '/platforms', description: t.header.parentsMenu.items.platforms.description },
-                                { label: t.header.parentsMenu.items.faq.title, href: '/faq', description: t.header.parentsMenu.items.faq.description },
+                                { label: t.header.parentsMenu.items.parentsSchool.title, href: '/parents/parents-school', description: t.header.parentsMenu.items.parentsSchool.description },
+                                { label: t.header.parentsMenu.items.platforms.title, href: '/parents/platforms', description: t.header.parentsMenu.items.platforms.description },
+                                { label: t.header.parentsMenu.items.faq.title, href: '/parents/faq', description: t.header.parentsMenu.items.faq.description },
                             ]}
                         />
 
                         <DropdownMenu
                             label={t.header.teachersMenu.title}
-                            basePath="/teachers"
+                            basePath=""
                             items={[
-                                { label: t.header.teachersMenu.items.culture.title, href: '/culture', description: t.header.teachersMenu.items.culture.description },
-                                { label: t.header.teachersMenu.items.benefits.title, href: '/benefits', description: t.header.teachersMenu.items.benefits.description },
-                                { label: t.header.teachersMenu.items.teachersSchool.title, href: '/teachers-school', description: t.header.teachersMenu.items.teachersSchool.description },
-                                { label: t.header.teachersMenu.items.teachersPlatforms.title, href: '/platforms', description: t.header.teachersMenu.items.teachersPlatforms.description },
-                                { label: t.header.teachersMenu.items.careers.title, href: '/careers', description: t.header.teachersMenu.items.careers.description },
+                                { label: t.header.teachersMenu.items.culture.title, href: '/teachers/culture', description: t.header.teachersMenu.items.culture.description },
+                                { label: t.header.teachersMenu.items.benefits.title, href: '/teachers/benefits', description: t.header.teachersMenu.items.benefits.description },
+                                { label: t.header.teachersMenu.items.teachersSchool.title, href: '/teachers/teachers-school', description: t.header.teachersMenu.items.teachersSchool.description },
+                                { label: t.header.teachersMenu.items.teachersPlatforms.title, href: '/teachers/platforms', description: t.header.teachersMenu.items.teachersPlatforms.description },
+                                { label: t.header.teachersMenu.items.careers.title, href: '/teachers/careers', description: t.header.teachersMenu.items.careers.description },
                             ]}
                         />
                     </nav>
