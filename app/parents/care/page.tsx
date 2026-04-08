@@ -13,7 +13,7 @@ export default function CarePage() {
         <main className="min-h-screen pt-[78px]">
             <section className="relative h-[75vh] flex items-center justify-center overflow-hidden">
                 <Image
-                    src="/images/рисует жуниор.png"
+                    src="/images/рисует жуниор.jpg"
                     alt={copy.hero.imageAlt}
                     fill
                     className="object-cover"

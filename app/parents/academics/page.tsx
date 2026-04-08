@@ -16,7 +16,7 @@ export default function AcademicsPage() {
         <main className="min-h-screen pt-[78px]">
             <section className="relative h-[75vh] flex items-center justify-center overflow-hidden">
                 <Image
-                    src="/images/класс.png"
+                    src="/images/класс.jpg"
                     alt={copy.hero.imageAlt}
                     fill
                     className="object-cover"

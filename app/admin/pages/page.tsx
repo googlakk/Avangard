@@ -208,7 +208,7 @@ const SECTION_PAYLOAD_TEMPLATES: Record<CmsSectionType, Record<string, unknown>>
         title: { ru: 'Заголовок Hero', en: 'Hero Title' },
         subtitle: { ru: 'Подзаголовок', en: 'Subtitle' },
         description: { ru: 'Описание программы', en: 'Program description' },
-        imageUrl: '/images/junior-morning-exercise.png',
+        imageUrl: '/images/junior-morning-exercise.jpg',
         button: {
             label: { ru: 'Подать заявку', en: 'Apply now' },
             href: '/parents/admission',
@@ -217,7 +217,7 @@ const SECTION_PAYLOAD_TEMPLATES: Record<CmsSectionType, Record<string, unknown>>
     content: {
         title: { ru: 'Заголовок секции', en: 'Section title' },
         text: { ru: 'Текст секции', en: 'Section text' },
-        imageUrl: '/images/middle-entrance-group.png',
+        imageUrl: '/images/middle-entrance-group.jpg',
         imageAlt: { ru: 'Изображение секции', en: 'Section image' },
     },
     cards: {
@@ -227,7 +227,7 @@ const SECTION_PAYLOAD_TEMPLATES: Record<CmsSectionType, Record<string, unknown>>
                 badge: { ru: 'Бейдж', en: 'Badge' },
                 title: { ru: 'Заголовок 1', en: 'Card 1' },
                 description: { ru: 'Описание 1', en: 'Description 1' },
-                imageUrl: '/images/senior-medalists.png',
+                imageUrl: '/images/senior-medalists.jpg',
             },
         ],
     },
@@ -242,8 +242,8 @@ const SECTION_PAYLOAD_TEMPLATES: Record<CmsSectionType, Record<string, unknown>>
     media: {
         title: { ru: 'Фотогалерея', en: 'Photo gallery' },
         images: [
-            { url: '/images/junior-morning-exercise.png', alt: { ru: 'Фото 1', en: 'Image 1' } },
-            { url: '/images/middle-entrance-group.png', alt: { ru: 'Фото 2', en: 'Image 2' } },
+            { url: '/images/junior-morning-exercise.jpg', alt: { ru: 'Фото 1', en: 'Image 1' } },
+            { url: '/images/middle-entrance-group.jpg', alt: { ru: 'Фото 2', en: 'Image 2' } },
         ],
     },
     custom: {
@@ -298,7 +298,7 @@ const PROGRAM_SECTION_PAYLOAD_PRESETS: Record<string, unknown> = {
         description: { ru: 'Описание', en: 'Description' },
         ctaText: { ru: 'Подать заявку', en: 'Apply now' },
         ctaLink: '/admissions',
-        backgroundImage: '/images/junior-morning-exercise.png',
+        backgroundImage: '/images/junior-morning-exercise.jpg',
         badge: { ru: '1-4 классы', en: 'Grades 1-4' },
     },
     'junior-lifestyle-care-features': [
@@ -307,12 +307,12 @@ const PROGRAM_SECTION_PAYLOAD_PRESETS: Record<string, unknown> = {
             title: { ru: 'Заголовок', en: 'Title' },
             subtitle: { ru: 'Подзаголовок', en: 'Subtitle' },
             description: [{ ru: 'Пункт 1', en: 'Point 1' }],
-            backgroundImage: '/images/junior-morning-exercise.png',
+            backgroundImage: '/images/junior-morning-exercise.jpg',
             benefit: { ru: 'Польза', en: 'Benefit' },
         },
     ],
     'junior-lifestyle-care-proof': {
-        images: [{ src: '/images/junior-morning-exercise.png', caption: { ru: 'Подпись', en: 'Caption' } }],
+        images: [{ src: '/images/junior-morning-exercise.jpg', caption: { ru: 'Подпись', en: 'Caption' } }],
         message: { ru: 'Сообщение', en: 'Message' },
     },
     'junior-cognitive-foundation': [
@@ -333,12 +333,12 @@ const PROGRAM_SECTION_PAYLOAD_PRESETS: Record<string, unknown> = {
         },
     ],
     'junior-motivation-atmosphere-proof': {
-        image: '/images/junior-morning-exercise.png',
+        image: '/images/junior-morning-exercise.jpg',
         caption: { ru: 'Подпись', en: 'Caption' },
     },
     'junior-gallery': [
         {
-            src: '/images/junior-morning-exercise.png',
+            src: '/images/junior-morning-exercise.jpg',
             alt: { ru: 'Фото', en: 'Image' },
             category: 'classroom',
         },
@@ -349,7 +349,7 @@ const PROGRAM_SECTION_PAYLOAD_PRESETS: Record<string, unknown> = {
             childName: { ru: 'Имя ребенка', en: 'Child Name' },
             childGrade: { ru: 'Класс', en: 'Grade' },
             quote: { ru: 'Отзыв', en: 'Quote' },
-            photo: '/images/junior-morning-exercise.png',
+            photo: '/images/junior-morning-exercise.jpg',
         },
     ],
     'junior-cta': {
@@ -366,7 +366,7 @@ const PROGRAM_SECTION_PAYLOAD_PRESETS: Record<string, unknown> = {
         description: { ru: 'Описание блока', en: 'Section description' },
         ctaText: { ru: 'Поступить', en: 'Apply' },
         ctaLink: '/admissions',
-        backgroundImage: '/images/middle-entrance-group.png',
+        backgroundImage: '/images/middle-entrance-group.jpg',
     },
     'middle-discipline-environment': {
         title: { ru: 'Дисциплина и среда', en: 'Discipline and environment' },
@@ -385,7 +385,7 @@ const PROGRAM_SECTION_PAYLOAD_PRESETS: Record<string, unknown> = {
     'middle-twenty-first-skills': {
         title: { ru: 'Навыки XXI века', en: '21st century skills' },
         subtitle: { ru: 'Подзаголовок', en: 'Subtitle' },
-        proofImage: '/images/middle-entrance-group.png',
+        proofImage: '/images/middle-entrance-group.jpg',
         proofCaption: { ru: 'Подпись', en: 'Caption' },
         skills: [
             {
@@ -400,7 +400,7 @@ const PROGRAM_SECTION_PAYLOAD_PRESETS: Record<string, unknown> = {
         subtitle: { ru: 'Подзаголовок', en: 'Subtitle' },
         ctaText: { ru: 'Поступить', en: 'Apply' },
         ctaLink: '/admissions',
-        proofImage: '/images/middle-entrance-group.png',
+        proofImage: '/images/middle-entrance-group.jpg',
         proofCaption: { ru: 'Подпись', en: 'Caption' },
         features: [
             {
@@ -421,14 +421,14 @@ const PROGRAM_SECTION_PAYLOAD_PRESETS: Record<string, unknown> = {
         subheadline: { ru: 'International High School • Grades 10-11', en: 'International High School • Grades 10-11' },
         ctaText: { ru: 'Поступить', en: 'Apply' },
         ctaLink: '/contacts',
-        backgroundImage: '/images/sen-hero.png',
+        backgroundImage: '/images/sen-hero.jpg',
         scrollText: { ru: 'Листайте вниз', en: 'Scroll down' },
     },
     'senior-academic-results': {
         headline: { ru: 'Академические результаты', en: 'Academic results' },
         description: { ru: 'Описание блока', en: 'Section description' },
         timeframe: { ru: '2 года', en: '2 years' },
-        proofImage: '/images/senior-medalists.png',
+        proofImage: '/images/senior-medalists.jpg',
         proofCaption: { ru: 'Подпись к фото', en: 'Photo caption' },
         bottomStrong: { ru: 'Сильный результат.', en: 'Strong outcome.' },
         bottomText: { ru: 'Дополнительный текст', en: 'Additional text' },
@@ -444,7 +444,7 @@ const PROGRAM_SECTION_PAYLOAD_PRESETS: Record<string, unknown> = {
     'senior-cognitive-ai': {
         headline: { ru: 'Когнитивное превосходство', en: 'Cognitive superiority' },
         hook: { ru: 'Ключевая мысль', en: 'Key message' },
-        proofImage: '/images/senior-medalists.png',
+        proofImage: '/images/senior-medalists.jpg',
         proofCaption: { ru: 'Подпись', en: 'Caption' },
         bottomTitle: { ru: 'Итог', en: 'Bottom title' },
         bottomText: { ru: 'Описание', en: 'Bottom text' },
@@ -464,7 +464,7 @@ const PROGRAM_SECTION_PAYLOAD_PRESETS: Record<string, unknown> = {
         ctaText: { ru: 'Поступить', en: 'Apply' },
         ctaLink: '/contacts',
         communityValues: [{ ru: 'Ценность', en: 'Value' }],
-        proofImage: '/images/senior-medalists.png',
+        proofImage: '/images/senior-medalists.jpg',
         subText: { ru: 'Доп. текст', en: 'Subtext' },
         proofCaption: { ru: 'Подпись', en: 'Caption' },
         bottomBoxTitle: { ru: 'Итог', en: 'Bottom title' },
@@ -477,7 +477,7 @@ const PROGRAM_SECTION_PAYLOAD_PRESETS: Record<string, unknown> = {
             ru: 'Истории достижений, которые подтверждают качество академической среды и персонального сопровождения в Intellect School.',
             en: 'Achievement stories that prove the strength of our academic environment and personalized guidance.',
         },
-        backgroundImageUrl: '/images/senior-medalists.png',
+        backgroundImageUrl: '/images/senior-medalists.jpg',
         kpis: [
             {
                 studentName: { ru: 'Международные победы', en: 'International wins' },
@@ -519,7 +519,7 @@ const PROGRAM_SECTION_PAYLOAD_PRESETS: Record<string, unknown> = {
                 },
                 category: { ru: 'Экзамены', en: 'Exams' },
                 year: 2025,
-                imageUrl: '/images/senior-medalists.png',
+                imageUrl: '/images/senior-medalists.jpg',
                 imageAlt: { ru: 'Ученик с сертификатом IELTS', en: 'Student with IELTS certificate' },
                 isFeatured: true,
                 isEnabled: true,
@@ -535,7 +535,7 @@ const PROGRAM_SECTION_PAYLOAD_PRESETS: Record<string, unknown> = {
                 },
                 category: { ru: 'Олимпиады', en: 'Olympiads' },
                 year: 2025,
-                imageUrl: '/images/middle-entrance-group.png',
+                imageUrl: '/images/middle-entrance-group.jpg',
                 imageAlt: { ru: 'Команда победителей олимпиады', en: 'Olympiad winner team' },
                 isEnabled: true,
             },
@@ -559,7 +559,7 @@ const PROGRAM_SECTION_PAYLOAD_PRESETS: Record<string, unknown> = {
             ru: 'INTELLECT SCHOOL — пространство, где знания становятся инструментом, а мечты — достижимой реальностью.',
             en: 'INTELLECT SCHOOL is where knowledge becomes a tool and dreams become achievable.',
         },
-        imageUrl: '/images/middle-entrance-group.png',
+        imageUrl: '/images/middle-entrance-group.jpg',
         button: {
             label: { ru: 'Наши программы', en: 'Our programs' },
             href: '/programs',
@@ -571,7 +571,7 @@ const PROGRAM_SECTION_PAYLOAD_PRESETS: Record<string, unknown> = {
             ru: 'История школы — это путь развития, высоких стандартов и постоянного роста учеников, команды и образовательной среды.',
             en: 'The school story is a path of growth, high standards, and continuous progress of students, team, and educational environment.',
         },
-        imageUrl: '/images/senior-medalists.png',
+        imageUrl: '/images/senior-medalists.jpg',
         imageAlt: { ru: 'История школы', en: 'School story' },
     },
     'about-values': {
@@ -581,19 +581,19 @@ const PROGRAM_SECTION_PAYLOAD_PRESETS: Record<string, unknown> = {
                 badge: { ru: '01', en: '01' },
                 title: { ru: 'Качество', en: 'Quality' },
                 description: { ru: 'Высокие академические стандарты и системный подход к развитию.', en: 'High academic standards and a systematic approach to growth.' },
-                imageUrl: '/images/junior-morning-exercise.png',
+                imageUrl: '/images/junior-morning-exercise.jpg',
             },
             {
                 badge: { ru: '02', en: '02' },
                 title: { ru: 'Инновации', en: 'Innovation' },
                 description: { ru: 'Современные методики и технологии в ежедневном обучении.', en: 'Modern methods and technologies in daily learning.' },
-                imageUrl: '/images/middle-entrance-group.png',
+                imageUrl: '/images/middle-entrance-group.jpg',
             },
             {
                 badge: { ru: '03', en: '03' },
                 title: { ru: 'Глобальное мышление', en: 'Global mindset' },
                 description: { ru: 'Подготовка к международным экзаменам, конкурсам и поступлению.', en: 'Preparation for international exams, contests, and admissions.' },
-                imageUrl: '/images/senior-medalists.png',
+                imageUrl: '/images/senior-medalists.jpg',
             },
         ],
     },

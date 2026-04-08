@@ -20,7 +20,7 @@ const sitePages = {
                             description: 'Мягкая адаптация к школе, развитие эмоционального интеллекта, ментальная арифметика и углублённый английский в игровой форме.',
                             bullets: ['Полный день до 17:00', 'Развитие soft skills'],
                             href: '/programs/primary',
-                            image: '/images/junior-morning-exercise.png',
+                            image: '/images/junior-morning-exercise.jpg',
                             imageAlt: 'Intellect Primary',
                         },
                         {
@@ -29,7 +29,7 @@ const sitePages = {
                             description: 'Фундаментальные предметы, проектная деятельность, начало профориентации и подготовка к олимпиадам.',
                             bullets: ['Углублённая математика', 'IT и робототехника'],
                             href: '/programs/middle',
-                            image: '/images/middle-entrance-group.png',
+                            image: '/images/middle-entrance-group.jpg',
                             imageAlt: 'Intellect Middle',
                         },
                         {
@@ -38,7 +38,7 @@ const sitePages = {
                             description: 'Индивидуальные треки обучения, подготовка к ОРТ и IELTS/TOEFL, помощь с поступлением в зарубежные вузы.',
                             bullets: ['Career guidance', 'Подготовка к university'],
                             href: '/programs/senior',
-                            image: '/images/senior-medalists.png',
+                            image: '/images/senior-medalists.jpg',
                             imageAlt: 'Intellect Senior',
                         },
                     ],
@@ -292,7 +292,7 @@ const sitePages = {
                             description: 'Gentle school adaptation, emotional intelligence, mental arithmetic, and strong English in an engaging environment.',
                             bullets: ['Full day until 17:00', 'Soft skills development'],
                             href: '/programs/primary',
-                            image: '/images/junior-morning-exercise.png',
+                            image: '/images/junior-morning-exercise.jpg',
                             imageAlt: 'Intellect Primary',
                         },
                         {
@@ -301,7 +301,7 @@ const sitePages = {
                             description: 'Core academics, project-based learning, early career awareness, and olympiad preparation.',
                             bullets: ['Advanced mathematics', 'IT and robotics'],
                             href: '/programs/middle',
-                            image: '/images/middle-entrance-group.png',
+                            image: '/images/middle-entrance-group.jpg',
                             imageAlt: 'Intellect Middle',
                         },
                         {
@@ -310,7 +310,7 @@ const sitePages = {
                             description: 'Individual study tracks, ORT and IELTS/TOEFL preparation, and guidance for university admissions abroad.',
                             bullets: ['Career guidance', 'University preparation'],
                             href: '/programs/senior',
-                            image: '/images/senior-medalists.png',
+                            image: '/images/senior-medalists.jpg',
                             imageAlt: 'Intellect Senior',
                         },
                     ],

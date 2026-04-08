@@ -17,7 +17,7 @@ export default function ValuesPage() {
         <main className="min-h-screen pt-[78px]">
             <section className="relative h-[75vh] flex items-center justify-center overflow-hidden">
                 <Image
-                    src="/images/middle-entrance-group.png"
+                    src="/images/middle-entrance-group.jpg"
                     alt={copy.hero.imageAlt}
                     fill
                     className="object-cover"

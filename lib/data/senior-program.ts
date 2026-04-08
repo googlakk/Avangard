@@ -56,7 +56,7 @@ export const getSeniorOfferData = (t: any) => ({
     subheadline: "International High School • Grades 10–11",
     ctaText: "Поступить",
     ctaLink: "/contacts",
-    backgroundImage: "/images/sen-hero.png",
+    backgroundImage: "/images/sen-hero.jpg",
     scrollText: t.senior.hero.scrollText
 });
 

@@ -84,7 +84,7 @@ export const getLeadershipGovernanceData = (t: any) => ({
     ],
     ctaText: t.middle.leadership.ctaText,
     ctaLink: "/admissions",
-    proofImage: "/images/вручение победителя int cup.png",
+    proofImage: "/images/вручение победителя int cup.jpg",
     proofCaption: t.middle.leadership.photoProof.caption
 });
 
