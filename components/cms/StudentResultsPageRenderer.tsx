@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '@/contexts/LanguageContext'
 import type { PublicCmsPage, PublicCmsSection } from '@/lib/services/cms-public'
 
@@ -47,6 +48,16 @@ function sectionByKey(sections: PublicCmsSection[]) {
     return map
 }
 
+// Stagger variants for regular cards
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+}
+const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } }
+}
+
 export default function StudentResultsPageRenderer({
     page,
     sections,
@@ -66,7 +77,7 @@ export default function StudentResultsPageRenderer({
     const heroTitle = localized(heroPayload.title as Localized, language) || pageTitle
     const heroSubtitle = localized(heroPayload.subtitle as Localized, language)
     const heroBackgroundImage = typeof heroPayload.backgroundImageUrl === 'string'
-        ? heroPayload.backgroundImageUrl
+        ? heroPayload.backgroundImageUrl.replace('senior-medalists.png', 'senior-medalists.jpg').replace('middle-entrance-group.png', 'middle-entrance-group.jpg')
         : ''
     const heroKpis = asCards(heroPayload.kpis)
 
@@ -95,323 +106,372 @@ export default function StudentResultsPageRenderer({
     const ctaButton = asRecord(ctaPayload.button)
     const ctaLabel = localized(ctaButton.label as Localized, language)
     const ctaHref = typeof ctaButton.href === 'string' ? ctaButton.href : '/contacts'
+    
+    // Cards rendering
     const featuredCards = visibleCards.filter(card => card.isFeatured === true)
     const regularCards = visibleCards.filter(card => card.isFeatured !== true)
     const kpiDurationSeconds = Math.max(14, heroKpis.length * 4)
 
     return (
-        <main className="relative overflow-hidden bg-[#f6f8fc]">
-            <div className="pointer-events-none absolute inset-0">
-                <div className="absolute -top-32 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-blue-200/30 blur-3xl" />
-                <div className="absolute top-[28rem] -left-20 h-72 w-72 rounded-full bg-amber-100/50 blur-3xl" />
-                <div className="absolute bottom-20 -right-16 h-80 w-80 rounded-full bg-blue-100/50 blur-3xl" />
+        <main className="relative overflow-hidden bg-[#020813] min-h-screen text-slate-300 font-sans">
+            {/* Cinematic Background Glob */}
+            <div className="pointer-events-none fixed inset-0 z-0">
+                <div className="absolute top-[-20%] left-[-10%] h-[70vh] w-[70vw] rounded-full bg-blue-900/10 blur-[130px]" />
+                <div className="absolute bottom-[-20%] right-[-10%] h-[60vh] w-[60vw] rounded-full bg-amber-900/10 blur-[130px]" />
             </div>
 
-            <section className="relative overflow-hidden border-b border-white/20 bg-[#08162b]">
+            <section className="relative z-10 pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden border-b border-white/5">
                 {heroBackgroundImage && (
-                    <Image
-                        src={heroBackgroundImage}
-                        alt={heroTitle || 'Students results'}
-                        fill
-                        priority
-                        className="object-cover scale-105"
-                        sizes="100vw"
-                    />
+                    <motion.div 
+                        initial={{ scale: 1.1, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 0.3 }}
+                        transition={{ duration: 2, ease: "easeOut" }}
+                        className="absolute inset-0 z-0 origin-center"
+                    >
+                        <Image
+                            src={heroBackgroundImage}
+                            alt={heroTitle || 'Students results'}
+                            fill
+                            priority
+                            className="object-cover"
+                            sizes="100vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-[#020813]/40 via-[#020813]/80 to-[#020813]" />
+                    </motion.div>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#050d1d]/90 via-[#081a34]/80 to-[#0f2a56]/70" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.28),transparent_35%)]" />
-                <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28 text-white">
-                    {heroEyebrow && (
-                        <div className="inline-flex items-center gap-2 rounded-full border border-amber-200/40 bg-amber-300/10 px-4 py-1.5">
-                            <span className="h-2 w-2 rounded-full bg-amber-300" />
-                            <p className="text-xs md:text-sm uppercase tracking-[0.18em] text-amber-200 font-semibold">{heroEyebrow}</p>
-                        </div>
-                    )}
-                    <h1 className="mt-5 text-4xl md:text-6xl font-display leading-tight max-w-4xl text-balance">
-                        {heroTitle}
-                    </h1>
-                    {heroSubtitle && (
-                        <p className="mt-5 text-base md:text-xl text-blue-50/90 max-w-3xl leading-relaxed">
-                            {heroSubtitle}
-                        </p>
-                    )}
-                    {heroKpis.length > 0 && (
-                        <>
-                            <div className="mt-10 md:hidden">
-                                <div className="results-kpi-marquee-mask">
-                                    <div
-                                        className="results-kpi-marquee-track"
-                                        style={{ ['--kpi-duration' as string]: `${kpiDurationSeconds}s` }}
-                                    >
-                                        {heroKpis.map((kpi, index) => (
-                                            <div
-                                                key={`kpi-mobile-a-${index}`}
-                                                className="results-kpi-card rounded-2xl border border-white/25 bg-white/12 backdrop-blur-xl px-4 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
-                                            >
-                                                <p className="text-3xl font-semibold text-amber-200">
-                                                    {localized(kpi.resultText, language) || localized(kpi.achievementTitle, language)}
-                                                </p>
-                                                <p className="text-sm text-blue-100/90 mt-1">
-                                                    {localized(kpi.studentName, language) || localized(kpi.category, language)}
-                                                </p>
-                                            </div>
-                                        ))}
-                                        {heroKpis.map((kpi, index) => (
-                                            <div
-                                                key={`kpi-mobile-b-${index}`}
-                                                aria-hidden="true"
-                                                className="results-kpi-card rounded-2xl border border-white/25 bg-white/12 backdrop-blur-xl px-4 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
-                                            >
-                                                <p className="text-3xl font-semibold text-amber-200">
-                                                    {localized(kpi.resultText, language) || localized(kpi.achievementTitle, language)}
-                                                </p>
-                                                <p className="text-sm text-blue-100/90 mt-1">
-                                                    {localized(kpi.studentName, language) || localized(kpi.category, language)}
-                                                </p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
+                
+                <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
+                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }}>
+                        {heroEyebrow && (
+                            <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 backdrop-blur-md mb-6">
+                                <span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse" />
+                                <p className="text-xs md:text-sm uppercase tracking-[0.2em] text-amber-200 font-semibold">{heroEyebrow}</p>
                             </div>
-                            <div className="hidden md:grid mt-10 grid-cols-4 gap-3 max-w-5xl">
+                        )}
+                    </motion.div>
+                    
+                    <motion.h1 
+                        initial={{ opacity: 0, y: 30 }} 
+                        animate={{ opacity: 1, y: 0 }} 
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="mt-2 text-5xl md:text-7xl lg:text-8xl font-cormorant leading-[1.1] max-w-5xl mx-auto text-white text-balance"
+                    >
+                        {heroTitle}
+                    </motion.h1>
+                    
+                    {heroSubtitle && (
+                        <motion.p 
+                            initial={{ opacity: 0, y: 20 }} 
+                            animate={{ opacity: 1, y: 0 }} 
+                            transition={{ duration: 0.8, delay: 0.3 }}
+                            className="mt-6 md:mt-8 text-lg md:text-2xl text-blue-100/70 max-w-3xl mx-auto font-light leading-relaxed text-balance"
+                        >
+                            {heroSubtitle}
+                        </motion.p>
+                    )}
+                </div>
+
+                {heroKpis.length > 0 && (
+                    <motion.div 
+                        initial={{ opacity: 0, y: 30 }} 
+                        animate={{ opacity: 1, y: 0 }} 
+                        transition={{ duration: 1, delay: 0.5 }}
+                        className="relative z-10 mt-20"
+                    >
+                        <div className="overflow-hidden" style={{ WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)', maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)' }}>
+                            <motion.div 
+                                className="flex gap-6 px-4 w-max"
+                                animate={{ x: ["0%", "calc(-50% - 0.75rem)"] }}
+                                transition={{ repeat: Infinity, ease: "linear", duration: kpiDurationSeconds }}
+                            >
                                 {heroKpis.map((kpi, index) => (
-                                    <div
-                                        key={`kpi-desktop-${index}`}
-                                        className="rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl px-4 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
-                                    >
-                                        <p className="text-2xl md:text-3xl font-semibold text-amber-200">
+                                    <div key={`kpi-a-${index}`} className="shrink-0 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-xl px-8 py-6 max-w-sm">
+                                        <p className="text-4xl font-cormorant text-amber-400">
                                             {localized(kpi.resultText, language) || localized(kpi.achievementTitle, language)}
                                         </p>
-                                        <p className="text-xs md:text-sm text-blue-100/90 mt-1">
+                                        <p className="text-sm font-medium tracking-wide text-white/60 mt-3 uppercase">
                                             {localized(kpi.studentName, language) || localized(kpi.category, language)}
                                         </p>
                                     </div>
                                 ))}
-                            </div>
-                        </>
-                    )}
-                </div>
+                                {heroKpis.map((kpi, index) => (
+                                    <div key={`kpi-b-${index}`} aria-hidden="true" className="shrink-0 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-xl px-8 py-6 max-w-sm">
+                                        <p className="text-4xl font-cormorant text-amber-400">
+                                            {localized(kpi.resultText, language) || localized(kpi.achievementTitle, language)}
+                                        </p>
+                                        <p className="text-sm font-medium tracking-wide text-white/60 mt-3 uppercase">
+                                            {localized(kpi.studentName, language) || localized(kpi.category, language)}
+                                        </p>
+                                    </div>
+                                ))}
+                            </motion.div>
+                        </div>
+                    </motion.div>
+                )}
             </section>
 
-            <section className="relative z-10 max-w-7xl mx-auto px-4 py-10 md:py-12">
-                <div className="rounded-3xl border border-white/70 bg-white/85 backdrop-blur-sm shadow-[0_18px_45px_rgba(15,23,42,0.1)] p-5 md:p-7">
-                    <div className="flex flex-wrap items-end justify-between gap-4 mb-6">
-                        <div>
-                            {cardsTitle && <h2 className="text-2xl md:text-4xl font-cormorant text-navy-950">{cardsTitle}</h2>}
-                            {cardsDescription && <p className="text-slate-600 mt-2 max-w-3xl">{cardsDescription}</p>}
-                        </div>
-                        {categories.length > 0 && (
-                            <div className="flex gap-2 overflow-x-auto pb-1 max-w-full">
-                                <button
-                                    onClick={() => setSelectedCategory('all')}
-                                    className={`shrink-0 px-3 py-1.5 rounded-full text-sm border transition-colors ${
-                                        selectedCategory === 'all'
-                                            ? 'bg-navy-900 border-navy-900 text-white'
-                                            : 'bg-white border-slate-300 text-slate-700 hover:border-navy-300'
-                                    }`}
-                                >
-                                    {language === 'en' ? 'All' : 'Все'}
-                                </button>
-                                {categories.map(category => (
-                                    <button
-                                        key={category}
-                                        onClick={() => setSelectedCategory(category)}
-                                        className={`shrink-0 px-3 py-1.5 rounded-full text-sm border transition-colors ${
-                                            selectedCategory === category
-                                                ? 'bg-navy-900 border-navy-900 text-white'
-                                                : 'bg-white border-slate-300 text-slate-700 hover:border-navy-300'
-                                        }`}
-                                    >
-                                        {category}
-                                    </button>
-                                ))}
-                            </div>
-                        )}
+            <section className="relative z-10 max-w-7xl mx-auto px-4 py-20 md:py-32">
+                
+                {/* Header & Filters */}
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16"
+                >
+                    <div className="max-w-2xl">
+                        {cardsTitle && <h2 className="text-4xl md:text-5xl font-cormorant text-white leading-tight">{cardsTitle}</h2>}
+                        {cardsDescription && <p className="text-slate-400 mt-4 text-lg font-light leading-relaxed text-balance">{cardsDescription}</p>}
                     </div>
 
-                    {visibleCards.length === 0 && (
-                        <div className="rounded-2xl border border-slate-200 bg-white p-8 text-center">
-                            <h3 className="text-xl font-semibold text-navy-900">{emptyTitle}</h3>
-                            <p className="text-slate-600 mt-2">{emptyDescription}</p>
+                    {categories.length > 0 && (
+                        <div className="flex gap-2 p-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shrink-0 overflow-x-auto max-w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                            <button
+                                onClick={() => setSelectedCategory('all')}
+                                className="relative px-6 py-2.5 rounded-full text-sm font-medium transition-colors outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50"
+                            >
+                                {selectedCategory === 'all' && (
+                                    <motion.div
+                                        layoutId="activeFilterBg"
+                                        className="absolute inset-0 bg-[#0a1526] rounded-full shadow-[0_0_15px_rgba(245,158,11,0.15)] border border-amber-500/20"
+                                        initial={false}
+                                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                                    />
+                                )}
+                                <span className={`relative z-10 ${selectedCategory === 'all' ? 'text-amber-400' : 'text-slate-300 hover:text-white'}`}>
+                                    {language === 'en' ? 'All' : 'Все'}
+                                </span>
+                            </button>
+                            {categories.map(category => (
+                                <button
+                                    key={category}
+                                    onClick={() => setSelectedCategory(category)}
+                                    className="relative px-6 py-2.5 rounded-full text-sm font-medium transition-colors outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50"
+                                >
+                                    {selectedCategory === category && (
+                                        <motion.div
+                                            layoutId="activeFilterBg"
+                                            className="absolute inset-0 bg-[#0a1526] rounded-full shadow-[0_0_15px_rgba(245,158,11,0.15)] border border-amber-500/20"
+                                            initial={false}
+                                            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                                        />
+                                    )}
+                                    <span className={`relative z-10 ${selectedCategory === category ? 'text-amber-400' : 'text-slate-300 hover:text-white'}`}>
+                                        {category}
+                                    </span>
+                                </button>
+                            ))}
                         </div>
                     )}
+                </motion.div>
 
-                    {featuredCards.length > 0 && (
-                        <div className="space-y-4 mb-7">
-                            <p className="text-xs uppercase tracking-[0.18em] text-amber-700 font-semibold">
-                                {language === 'en' ? 'Hall of Distinction' : 'Зал особых достижений'}
-                            </p>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                                {featuredCards.map((card, index) => {
+                {visibleCards.length === 0 && (
+                    <motion.div 
+                        initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                        className="rounded-3xl border border-white/5 bg-white/5 p-16 text-center backdrop-blur-sm"
+                    >
+                        <h3 className="text-2xl font-cormorant text-white">{emptyTitle}</h3>
+                        <p className="text-slate-400 mt-4">{emptyDescription}</p>
+                    </motion.div>
+                )}
+
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={selectedCategory}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.4 }}
+                    >
+                        {/* Featured Cards - "Гордость школы" */}
+                        {featuredCards.length > 0 && (
+                            <div className="mb-16 md:mb-24">
+                                <p className="text-sm uppercase tracking-[0.2em] text-amber-500/80 font-medium mb-8">
+                                    {language === 'en' ? 'Hall of Distinction' : 'Зал особых достижений'}
+                                </p>
+                                <div className="space-y-8">
+                                    {featuredCards.map((card, index) => {
+                                        const name = localized(card.studentName, language)
+                                        const title = localized(card.achievementTitle, language)
+                                        const result = localized(card.resultText, language)
+                                        const description = localized(card.description, language)
+                                        let imageUrl = card.imageUrl || ''
+                                        imageUrl = imageUrl.replace('senior-medalists.png', 'senior-medalists.jpg').replace('middle-entrance-group.png', 'middle-entrance-group.jpg')
+                                        const imageAlt = localized(card.imageAlt, language) || name || title || 'Student result'
+                                        const category = localized(card.category, language)
+                                        const year = card.year ? String(card.year) : ''
+
+                                        const featuredBody = (
+                                            <motion.article 
+                                                initial={{ opacity: 0, y: 40 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                viewport={{ once: true, margin: "-100px" }}
+                                                transition={{ duration: 0.7, delay: index * 0.1 }}
+                                                className="group relative overflow-hidden rounded-[2rem] border border-white/5 bg-[#061124]"
+                                            >
+                                                <div className="flex flex-col lg:flex-row min-h-[420px] lg:min-h-[480px]">
+                                                    {/* Left: Student Photo — never covered by text */}
+                                                    {imageUrl && (
+                                                        <div className="relative lg:w-[45%] min-h-[320px] lg:min-h-full overflow-hidden shrink-0">
+                                                            <motion.div
+                                                                className="absolute inset-0"
+                                                                whileHover={{ scale: 1.05 }}
+                                                                transition={{ duration: 0.8, ease: "easeOut" }}
+                                                            >
+                                                                <Image
+                                                                    src={imageUrl}
+                                                                    alt={imageAlt}
+                                                                    fill
+                                                                    className="object-cover object-top group-hover:opacity-100 opacity-85 transition-all duration-700"
+                                                                    sizes="(max-width: 1024px) 100vw, 45vw"
+                                                                />
+                                                            </motion.div>
+                                                            {/* Subtle gradient at bottom for mobile, at right edge for desktop */}
+                                                            <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[#061124] via-transparent to-transparent pointer-events-none" />
+                                                            {/* Name overlay on photo */}
+                                                            {name && (
+                                                                <div className="absolute bottom-0 left-0 right-0 lg:hidden p-6 pt-16 bg-gradient-to-t from-[#061124] via-[#061124]/80 to-transparent">
+                                                                    <p className="text-xl font-cormorant text-white font-medium">{name}</p>
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    )}
+
+                                                    {/* Right: Achievement Content */}
+                                                    <div className="flex-1 p-8 lg:p-10 xl:p-12 flex flex-col justify-center relative">
+                                                        {/* Glow effect on hover */}
+                                                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-r-[2rem] shadow-[inset_0_0_120px_rgba(245,158,11,0.08)]" />
+                                                        
+                                                        <div className="relative z-10">
+                                                            <div className="flex flex-wrap gap-2.5 mb-5">
+                                                                <span className="inline-flex items-center rounded-full border border-amber-500/50 bg-amber-500/10 px-3 py-1 text-[11px] uppercase tracking-widest text-amber-300 font-medium">
+                                                                    {language === 'en' ? 'Featured' : 'Гордость школы'}
+                                                                </span>
+                                                                {year && <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-[11px] text-white/70">{year}</span>}
+                                                                {category && <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-[11px] text-white/70">{category}</span>}
+                                                            </div>
+                                                            
+                                                            {name && <p className="hidden lg:block mb-2 text-base font-medium tracking-wide text-white/50">{name}</p>}
+                                                            <h3 className="mb-4 text-2xl lg:text-3xl xl:text-4xl font-cormorant text-white leading-tight group-hover:text-amber-50 transition-colors duration-500">{title}</h3>
+                                                            
+                                                            {result && (
+                                                                <div className="mb-5 text-lg lg:text-xl text-amber-400 font-light leading-relaxed whitespace-pre-line line-clamp-4 group-hover:line-clamp-none transition-all duration-500">
+                                                                    {result}
+                                                                </div>
+                                                            )}
+                                                            
+                                                            {description && (
+                                                                <p className="text-sm text-white/50 leading-relaxed font-light line-clamp-3 group-hover:line-clamp-none transition-all duration-500">
+                                                                    {description}
+                                                                </p>
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </motion.article>
+                                        )
+
+                                        if (card.profileUrl) return <Link key={`featured-${index}`} href={card.profileUrl} className="block">{featuredBody}</Link>
+                                        return <div key={`featured-${index}`}>{featuredBody}</div>
+                                    })}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Regular Grid */}
+                        {regularCards.length > 0 && (
+                            <motion.div
+                                variants={containerVariants}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true, margin: "-100px" }}
+                                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+                            >
+                                {regularCards.map((card, index) => {
                                     const name = localized(card.studentName, language)
                                     const title = localized(card.achievementTitle, language)
                                     const result = localized(card.resultText, language)
                                     const description = localized(card.description, language)
-                                    const imageUrl = card.imageUrl || ''
+                                    let imageUrl = card.imageUrl || ''
+                                    imageUrl = imageUrl.replace('senior-medalists.png', 'senior-medalists.jpg').replace('middle-entrance-group.png', 'middle-entrance-group.jpg')
                                     const imageAlt = localized(card.imageAlt, language) || name || title || 'Student result'
                                     const category = localized(card.category, language)
                                     const year = card.year ? String(card.year) : ''
 
-                                    const featuredBody = (
-                                        <article className="group relative overflow-hidden rounded-3xl border border-amber-100/70 bg-gradient-to-br from-[#0a1f40] via-[#10284e] to-[#173868] text-white h-full shadow-[0_20px_50px_rgba(9,20,42,0.35)]">
+                                    const cardBody = (
+                                        <motion.article 
+                                            variants={itemVariants}
+                                            whileHover={{ y: -8 }}
+                                            className="group rounded-3xl overflow-hidden border border-white/5 bg-[#0a1526]/40 backdrop-blur-md h-full flex flex-col transition-all duration-500 hover:border-white/20 hover:bg-[#0c1930]/80 hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
+                                        >
                                             {imageUrl && (
-                                                <div className="absolute inset-0">
+                                                <div className="relative h-[280px] overflow-hidden bg-[#061124]">
                                                     <Image
                                                         src={imageUrl}
                                                         alt={imageAlt}
                                                         fill
-                                                        className="object-cover opacity-35 group-hover:opacity-45 transition-opacity"
-                                                        sizes="(max-width: 1024px) 100vw, 50vw"
+                                                        className="object-cover object-top opacity-70 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-700"
+                                                        sizes="(max-width: 1024px) 50vw, 33vw"
                                                     />
+                                                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a1526] via-transparent to-transparent opacity-90" />
+                                                    <div className="absolute top-0 inset-x-0 h-1/3 bg-gradient-to-b from-[#0a1526]/50 to-transparent opacity-80" />
+                                                    
+                                                    <div className="absolute top-5 left-5 right-5 flex justify-between items-start">
+                                                        <div className="flex gap-2 flex-wrap">
+                                                            {category && <span className="px-3 py-1.5 text-[11px] uppercase tracking-wider bg-amber-500/90 text-[#020813] rounded-full font-bold backdrop-blur-md shadow-sm">{category}</span>}
+                                                            {year && <span className="px-3 py-1.5 text-[11px] border border-white/20 bg-black/40 backdrop-blur-md rounded-full text-white font-medium">{year}</span>}
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             )}
-                                            <div className="absolute inset-0 bg-[linear-gradient(140deg,rgba(8,20,40,0.92),rgba(17,44,84,0.72))]" />
-                                            <div className="relative p-5 md:p-7 flex flex-col min-h-[300px] md:min-h-[320px]">
-                                                <div className="inline-flex items-center gap-2 rounded-full border border-amber-200/40 bg-amber-300/10 px-3 py-1 w-fit">
-                                                    <span className="text-xs uppercase tracking-[0.18em] text-amber-100 font-semibold">
-                                                        {language === 'en' ? 'Featured' : 'Гордость школы'}
-                                                    </span>
-                                                </div>
-                                                <div className="mt-3 flex flex-wrap gap-2">
-                                                    {year && <span className="text-xs bg-white/90 text-navy-900 px-2.5 py-1 rounded-full font-semibold">{year}</span>}
-                                                    {category && <span className="text-xs bg-amber-300 text-navy-900 px-2.5 py-1 rounded-full font-semibold">{category}</span>}
-                                                </div>
-                                                {name && <p className="mt-5 text-sm text-blue-100/90 font-medium">{name}</p>}
-                                                <h3 className="mt-1 text-2xl md:text-3xl font-semibold text-white text-balance leading-tight">{title}</h3>
-                                                {result && <p className="mt-4 text-lg md:text-xl text-amber-200 font-semibold">{result}</p>}
-                                                {description && <p className="mt-3 text-sm md:text-base text-blue-100/90 leading-relaxed max-w-xl">{description}</p>}
+                                            <div className="p-6 lg:p-8 flex-1 flex flex-col pt-6 relative z-10">
+                                                {name && <p className="text-xs uppercase tracking-[0.18em] text-white/40 font-semibold mb-3">{name}</p>}
+                                                <h3 className="text-xl font-cormorant text-white mb-3 leading-tight font-medium group-hover:text-amber-50 transition-colors line-clamp-2">{title}</h3>
+                                                {result && <p className="text-base text-amber-500 font-medium mb-4 line-clamp-3 group-hover:line-clamp-none transition-all duration-500">{result}</p>}
+                                                {description && <p className="text-sm text-slate-400 leading-relaxed mt-auto font-light line-clamp-2">{description}</p>}
                                             </div>
-                                        </article>
+                                        </motion.article>
                                     )
 
-                                    if (card.profileUrl) {
-                                        return (
-                                            <Link key={`featured-result-card-${index}`} href={card.profileUrl} className="block">
-                                                {featuredBody}
-                                            </Link>
-                                        )
-                                    }
-                                    return <div key={`featured-result-card-${index}`}>{featuredBody}</div>
+                                    if (card.profileUrl) return <Link key={`regular-${index}`} href={card.profileUrl} className="block h-full">{cardBody}</Link>
+                                    return <div key={`regular-${index}`} className="h-full">{cardBody}</div>
                                 })}
-                            </div>
-                        </div>
-                    )}
-
-                    {regularCards.length > 0 && (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                            {regularCards.map((card, index) => {
-                                const name = localized(card.studentName, language)
-                                const title = localized(card.achievementTitle, language)
-                                const result = localized(card.resultText, language)
-                                const description = localized(card.description, language)
-                                const imageUrl = card.imageUrl || ''
-                                const imageAlt = localized(card.imageAlt, language) || name || title || 'Student result'
-                                const category = localized(card.category, language)
-                                const year = card.year ? String(card.year) : ''
-
-                                const cardBody = (
-                                    <article className="group rounded-2xl overflow-hidden border border-slate-200/80 bg-white h-full transition-all hover:-translate-y-1 hover:shadow-xl">
-                                        {imageUrl && (
-                                            <div className="relative h-64 md:h-56">
-                                                <Image
-                                                    src={imageUrl}
-                                                    alt={imageAlt}
-                                                    fill
-                                                    className="object-cover"
-                                                    sizes="(max-width: 1024px) 50vw, 33vw"
-                                                />
-                                                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
-                                                <div className="absolute left-4 bottom-4 flex gap-2">
-                                                    {year && <span className="text-xs bg-white/95 text-navy-900 px-2.5 py-1 rounded-full font-medium">{year}</span>}
-                                                    {category && <span className="text-xs bg-amber-300/95 text-navy-900 px-2.5 py-1 rounded-full font-medium">{category}</span>}
-                                                </div>
-                                            </div>
-                                        )}
-                                        <div className="p-5 md:p-5">
-                                            {name && <p className="text-sm text-navy-700 font-semibold">{name}</p>}
-                                            <h3 className="mt-1 text-xl md:text-xl font-semibold text-navy-950 text-balance leading-tight">{title}</h3>
-                                            {result && <p className="mt-3 text-base text-amber-700 font-semibold">{result}</p>}
-                                            {description && <p className="mt-3 text-sm md:text-sm text-slate-600 leading-relaxed">{description}</p>}
-                                        </div>
-                                    </article>
-                                )
-
-                                if (card.profileUrl) {
-                                    return (
-                                        <Link key={`result-card-${index}`} href={card.profileUrl} className="block">
-                                            {cardBody}
-                                        </Link>
-                                    )
-                                }
-
-                                return <div key={`result-card-${index}`}>{cardBody}</div>
-                            })}
-                        </div>
-                    )}
-                </div>
+                            </motion.div>
+                        )}
+                    </motion.div>
+                </AnimatePresence>
             </section>
 
             {(ctaTitle || ctaDescription || ctaLabel) && (
-                <section className="relative z-10 max-w-7xl mx-auto px-4 pb-14 md:pb-20">
-                    <div className="relative overflow-hidden rounded-3xl border border-amber-200/40 bg-gradient-to-r from-[#0a1f3e] via-[#0f2d57] to-[#0b1f3c] text-white px-6 py-12 md:px-10 md:py-16 text-center shadow-[0_20px_55px_rgba(10,25,50,0.35)]">
-                        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(245,158,11,0.25),transparent_40%)]" />
-                        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.04),transparent_35%,rgba(255,255,255,0.02))]" />
-                        <div className="relative">
-                            {ctaTitle && <h2 className="text-2xl md:text-5xl font-cormorant text-balance">{ctaTitle}</h2>}
-                            {ctaDescription && <p className="mt-4 text-blue-100/90 max-w-3xl mx-auto leading-relaxed">{ctaDescription}</p>}
+                <section className="relative z-10 max-w-7xl mx-auto px-4 pb-20 md:pb-32">
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="relative overflow-hidden rounded-[2.5rem] border border-amber-500/20 bg-gradient-to-br from-[#0a1a36] via-[#0d2247] to-[#0a1a36] px-6 py-16 md:px-12 md:py-24 text-center shadow-[0_30px_60px_rgba(0,0,0,0.4)]"
+                    >
+                        <div className="pointer-events-none absolute inset-0 bg-[#020813] mix-blend-overlay opacity-50" />
+                        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(245,158,11,0.15),transparent_60%)]" />
+                        <div className="relative z-10">
+                            {ctaTitle && <h2 className="text-4xl md:text-6xl font-cormorant text-white leading-tight">{ctaTitle}</h2>}
+                            {ctaDescription && <p className="mt-6 text-lg md:text-xl text-blue-100/70 max-w-2xl mx-auto font-light leading-relaxed text-balance">{ctaDescription}</p>}
+                            
+                            {ctaLabel && (
+                                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="inline-block mt-10">
+                                    <Link
+                                        href={ctaHref}
+                                        className="inline-flex px-8 py-4 rounded-full bg-amber-500 text-[#020813] font-semibold text-lg tracking-wide shadow-[0_0_40px_rgba(245,158,11,0.2)] hover:shadow-[0_0_60px_rgba(245,158,11,0.4)] transition-shadow"
+                                    >
+                                        {ctaLabel}
+                                    </Link>
+                                </motion.div>
+                            )}
                         </div>
-                        {ctaLabel && (
-                            <Link
-                                href={ctaHref}
-                                className="relative inline-flex mt-8 px-7 py-3 rounded-full bg-white text-navy-900 font-semibold hover:bg-amber-50 transition-colors shadow-lg"
-                            >
-                                {ctaLabel}
-                            </Link>
-                        )}
-                    </div>
+                    </motion.div>
                 </section>
             )}
-            <style jsx>{`
-                .results-kpi-marquee-mask {
-                    overflow: hidden;
-                    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-                    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-                }
-
-                .results-kpi-marquee-track {
-                    display: inline-flex;
-                    width: max-content;
-                    gap: 0.75rem;
-                    animation: results-kpi-marquee var(--kpi-duration, 18s) linear infinite;
-                    will-change: transform;
-                }
-
-                .results-kpi-card {
-                    width: 78vw;
-                    flex-shrink: 0;
-                }
-
-                @keyframes results-kpi-marquee {
-                    from {
-                        transform: translate3d(0, 0, 0);
-                    }
-                    to {
-                        transform: translate3d(calc(-50% - 0.375rem), 0, 0);
-                    }
-                }
-
-                @media (prefers-reduced-motion: reduce) {
-                    .results-kpi-marquee-mask {
-                        overflow-x: auto;
-                        mask-image: none;
-                        -webkit-mask-image: none;
-                    }
-
-                    .results-kpi-marquee-track {
-                        animation: none;
-                    }
-                }
-            `}</style>
         </main>
     )
 }

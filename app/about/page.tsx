@@ -83,8 +83,8 @@ export default async function AboutPage() {
                         <div className="relative">
                             <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] shadow-2xl">
                                 <Image
-                                    src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2000"
-                                    alt="Students at Intellect School"
+                                    src="/images/about-hero.jpg"
+                                    alt="Ученики Intellect School"
                                     fill
                                     className="object-cover"
                                 />
@@ -105,8 +105,8 @@ export default async function AboutPage() {
                         <p className="mb-8 max-w-2xl text-lg leading-relaxed text-gray-600">{copy.founder.subtitle}</p>
                         <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-xl">
                             <Image
-                                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2000"
-                                alt="Founder journey"
+                                src="/images/director.jpg"
+                                alt="Фото директора"
                                 fill
                                 className="object-cover"
                             />

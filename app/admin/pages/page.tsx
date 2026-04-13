@@ -4723,6 +4723,58 @@ export default function AdminPagesBuilderPage() {
                                                                 </div>
                                                             </div>
                                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                                <textarea
+                                                                    rows={2}
+                                                                    value={getLocalizedValue(card.description, 'ru')}
+                                                                    onChange={e => mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                        const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                        next.description = { ru: e.target.value, en: getLocalizedValue(next.description, 'en') }
+                                                                        payload.items[idx] = next
+                                                                    })}
+                                                                    placeholder="Description RU"
+                                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                                />
+                                                                <textarea
+                                                                    rows={2}
+                                                                    value={getLocalizedValue(card.description, 'en')}
+                                                                    onChange={e => mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                        const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                        next.description = { ru: getLocalizedValue(next.description, 'ru'), en: e.target.value }
+                                                                        payload.items[idx] = next
+                                                                    })}
+                                                                    placeholder="Description EN"
+                                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                                />
+                                                            </div>
+                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                                <input
+                                                                    type="text"
+                                                                    value={getLocalizedValue(card.imageAlt, 'ru')}
+                                                                    onChange={e => mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                        const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                        next.imageAlt = { ru: e.target.value, en: getLocalizedValue(next.imageAlt, 'en') }
+                                                                        payload.items[idx] = next
+                                                                    })}
+                                                                    placeholder="Image alt RU"
+                                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                                />
+                                                                <input
+                                                                    type="text"
+                                                                    value={getLocalizedValue(card.imageAlt, 'en')}
+                                                                    onChange={e => mutateSectionPayload(payload => {
+                                                                        if (!isObjectRecord(payload) || !Array.isArray(payload.items)) return
+                                                                        const next = isObjectRecord(payload.items[idx]) ? payload.items[idx] as Record<string, unknown> : {}
+                                                                        next.imageAlt = { ru: getLocalizedValue(next.imageAlt, 'ru'), en: e.target.value }
+                                                                        payload.items[idx] = next
+                                                                    })}
+                                                                    placeholder="Image alt EN"
+                                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                                                />
+                                                            </div>
+                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                                                                 <label className="inline-flex items-center gap-2 text-xs text-gray-700">
                                                                     <input
                                                                         type="checkbox"
