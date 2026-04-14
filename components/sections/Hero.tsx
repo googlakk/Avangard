@@ -3,14 +3,41 @@
 import { useCountUp } from '@/hooks/useCountUp';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Hero() {
     const { t } = useLanguage();
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const [videoLoaded, setVideoLoaded] = useState(false);
 
     // Анимация для чисел
     const yearCount = useCountUp({ end: 2016, duration: 2000 });
     const studentsCount = useCountUp({ end: 1000, duration: 2500 });
     const clubsCount = useCountUp({ end: 15, duration: 1500 });
+
+    // Smart video loading: start loading after page settles
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        const isMobile = window.innerWidth < 768;
+
+        if (isMobile) {
+            // On mobile: delay video load to prioritize page content
+            const timer = setTimeout(() => {
+                video.src = '/videos/hero-video.mp4';
+                video.load();
+                video.play().catch(() => {
+                    // Autoplay blocked — poster image stays visible
+                });
+            }, 1500);
+            return () => clearTimeout(timer);
+        } else {
+            // On desktop: load immediately
+            video.src = '/videos/hero-video.mp4';
+            video.load();
+        }
+    }, []);
 
     return (
         <section className="relative h-screen flex flex-col items-center justify-center">
@@ -25,17 +52,17 @@ export default function Hero() {
                     sizes="100vw"
                 />
                 <video
+                    ref={videoRef}
                     autoPlay
                     loop
                     muted
                     playsInline
-                    preload="metadata"
+                    preload="auto"
                     poster="/images/sen-hero.jpg"
                     disablePictureInPicture
-                    className="absolute inset-0 w-full h-full object-cover"
-                >
-                    <source src="/videos/IMG_6812.mp4" type="video/mp4" />
-                </video>
+                    onCanPlay={() => setVideoLoaded(true)}
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+                />
                 {/* Оверлей */}
                 <div className="absolute inset-0 hero-overlay" />
             </div>
