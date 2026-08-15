@@ -1,14 +1,14 @@
 import Link from 'next/link';
-import { cambridgePathwayDetailData } from '@/lib/data/middle-program';
+import { internationalCurriculumDetailData } from '@/lib/data/middle-program';
 
 export const metadata = {
-    title: 'Cambridge Pathway — Intellect Middle | Intellect Pro',
+    title: 'Международная образовательная программа — Intellect Middle | Intellect Pro',
     description:
-        'Подробная информация о Cambridge Pathway для 5-9 классов: переход на английский в точных науках, второй иностранный язык, международная сертификация.',
+        'Подробная информация о международной образовательной программе для 5-9 классов: обучение точным наукам на английском, второй иностранный язык и проектная деятельность.',
 };
 
-export default function CambridgePathwayPage() {
-    const data = cambridgePathwayDetailData;
+export default function InternationalCurriculumPage() {
+    const data = internationalCurriculumDetailData;
 
     return (
         <main className="bg-white">
@@ -68,11 +68,11 @@ export default function CambridgePathwayPage() {
                                     </p>
                                     <div className="border-t border-gray-200 pt-4">
                                         <p className="text-sm text-gray-600 font-semibold mb-2">
-                                            Учебники:
+                                            Направления обучения:
                                         </p>
                                         <ul className="list-disc list-inside text-gray-700 font-sans">
-                                            {subject.textbooks.map((book, i) => (
-                                                <li key={i}>{book}</li>
+                                            {subject.learningAreas.map((area, i) => (
+                                                <li key={i}>{area}</li>
                                             ))}
                                         </ul>
                                     </div>
@@ -148,7 +148,7 @@ export default function CambridgePathwayPage() {
                 <div className="container mx-auto px-4">
                     <div className="max-w-3xl mx-auto text-center">
                         <h2 className="text-3xl font-bold font-heading text-gray-900 mb-6">
-                            Готовы начать обучение по Cambridge Pathway?
+                            Готовы начать обучение по международной образовательной программе?
                         </h2>
                         <Link
                             href="/admissions"

@@ -32,7 +32,7 @@ Parents decide with emotions. Show, don't just tell.
 - **Every major claim** needs a supporting photo:
   - "Modern labs" → Photo of students in the lab
   - "Experienced teachers" → Photo of teacher with students
-  - "Cambridge curriculum" → Photo of classroom/certificate
+  - "International curriculum" → Photo of classroom or collaborative learning
 - **Minimum photo ratio:** 1 photo per 2 text blocks.
 - **Hero sections:** MUST have background image or video (like main page).
 - **Avoid:** Stock photos of random buildings. Use REAL school photos or high-quality placeholders that match the school's actual aesthetic.

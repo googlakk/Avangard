@@ -41,7 +41,7 @@ export default function ExtracurricularSection({ activities, motivationSystems }
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
 
-                                className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+                                className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 flex flex-col h-full"
                             >
                                 {/* Иконка категории */}
                                 <div className="text-6xl mb-6 text-center">
@@ -54,7 +54,7 @@ export default function ExtracurricularSection({ activities, motivationSystems }
                                 </h4>
 
                                 {/* Список активностей */}
-                                <div className="flex flex-wrap gap-3 justify-center">
+                                <div className="flex flex-wrap gap-3 justify-center mt-auto">
                                     {activity.activities.map((item, idx) => (
                                         <span
                                             key={idx}
@@ -88,7 +88,7 @@ export default function ExtracurricularSection({ activities, motivationSystems }
                                 <div className="absolute inset-0 bg-white rounded-3xl border border-gray-200"></div>
 
                                 {/* Контент */}
-                                <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white">
+                                <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white flex flex-col h-full">
                                     {/* Иконка */}
                                     <div className="mb-4">
                                         <IconWrapper icon={system.icon} variant="junior" size="md" />
@@ -105,7 +105,7 @@ export default function ExtracurricularSection({ activities, motivationSystems }
                                     </p>
 
                                     {/* Преимущество */}
-                                    <div className="bg-navy-800 text-white rounded-2xl p-4">
+                                    <div className="bg-navy-800 text-white rounded-2xl p-4 mt-auto">
                                         <p className="font-semibold flex items-start">
                                             <span className="mr-2 text-xl">✓</span>
                                             <span>{system.benefit}</span>

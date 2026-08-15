@@ -126,7 +126,7 @@
         "criticalThinking": {
             "title": "Critical Inquiry",
             "description": "Cultivating the ability to analyze perspectives and engineer creative solutions.",
-            "badge": "Cambridge Pathway"
+            "badge": "International curriculum"
         },
         "gamification": {
             "title": "Engagement Mechanics",
@@ -200,7 +200,7 @@
             "intro": {
                 "p1": "Primary school <bold>Intellect Primary</bold> is a space where we not only give knowledge but <bold>form the child's brain architecture</bold>.",
                 "p2": "At the age of <bold>6 to 10 years</bold>, the brain has maximum neuroplasticity, and our task is to use this period to develop cognitive abilities, critical thinking, and a love for learning.",
-                "box": "We have combined <bold>state educational standards</bold>, <bold>Cambridge International</bold> methods, and proprietary <bold>cognitive development</bold> courses into a single <bold>full-day ecosystem</bold>."
+                "box": "We have combined <bold>state educational standards</bold>, an <bold>international approach to learning</bold>, and proprietary <bold>cognitive development</bold> courses into a single <bold>full-day ecosystem</bold>."
             },
             "stats": {
                 "neuroplasticity": {
@@ -209,7 +209,7 @@
                 },
                 "standards": {
                     "title": "International Standards",
-                    "description": "Cambridge International + Ministry of Education in one program"
+                    "description": "International curriculum + Ministry of Education in one program"
                 },
                 "love": {
                     "title": "Love for Learning",
@@ -282,12 +282,12 @@
                 "title": "Language Immersion",
                 "subtitle": "8-10 hours of English per week",
                 "description": [
-                    "Science and Math in English (Cambridge Intro)",
+                    "Science and Math in English",
                     "Native speaker assistants during breaks and lunch",
                     "Not just lessons — lively communication every day"
                 ],
                 "stats": "8-10 hours",
-                "highlight": "Cambridge"
+                "highlight": "International"
             },
             "it": {
                 "title": "IT from Grade 1",
@@ -300,7 +300,7 @@
             },
             "photoProof": {
                 "title": "📸 Photo-proof",
-                "caption": "Child solving a problem at an interactive board. Cambridge-certified program",
+                "caption": "Child solving a problem at an interactive board in the international curriculum",
                 "cta": "We teach not only reading and writing, we train the brain"
             }
         },
@@ -527,7 +527,7 @@
         "hero": {
             "title": "Middle School Excellence",
             "subtitle": "Grades 5-9 • Unlocking Potential",
-            "description": "A transformative journey for students in grades 5-9, combining Cambridge curriculum with project-based learning and personal growth.",
+            "description": "A transformative journey for students in grades 5-9, combining an international curriculum with project-based learning and personal growth.",
             "ctaText": "Admissions Open"
         },
         "discipline": {
@@ -606,10 +606,10 @@
             }
         },
         "modals": {
-            "cambridge": {
-                "title": "Cambridge Pathway",
+            "internationalCurriculum": {
+                "title": "International curriculum",
                 "subtitle": "International Standard",
-                "description": "Our curriculum follows the Cambridge Pathway for developing learners.",
+                "description": "Our international curriculum develops strong subject knowledge, English proficiency, and independent learning skills.",
                 "subjects": {
                     "math": {
                         "description": "Mathematics focusing on problem solving."
@@ -627,10 +627,10 @@
                 },
                 "pathway": {
                     "lower": {
-                        "description": "Cambridge Lower Secondary (Grades 6-7)"
+                        "description": "Foundation academic stage (Grades 6-7)"
                     },
                     "checkpoint": {
-                        "description": "Cambridge Checkpoint (Grades 8-9)"
+                        "description": "Advanced subject-learning stage (Grades 8-9)"
                     }
                 }
             },
@@ -813,8 +813,8 @@
             "title": "Learn More",
             "subtitle": "All facets of Intellect Middle",
             "cards": {
-                "cambridge": {
-                    "title": "Cambridge Pathway",
+                "internationalCurriculum": {
+                    "title": "International curriculum",
                     "description": "International Academic Program"
                 },
                 "steam": {
@@ -859,7 +859,7 @@
             "middle": {
                 "title": "Intellect Middle",
                 "badge": "Grades 5-9",
-                "description": "Unlocking potential. Cambridge System, STEAM laboratories, and project-based excellence.",
+                "description": "Unlocking potential. International curriculum, STEAM laboratories, and project-based excellence.",
                 "subtitle": "Middle School"
             },
             "senior": {
@@ -897,7 +897,7 @@
             "reserve": {
                 "title": "Didn't find a suitable vacancy?",
                 "text": "We are building a talent pool. Send us your CV, and we will contact you when a suitable position becomes available.",
-                "button": "Send CV (hr@intellect.edu.kg)"
+                "button": "Send CV"
             },
             "positions": {
                 "title": "Open Positions",
@@ -1179,7 +1179,7 @@
                     ]
                 },
                 "science": {
-                    "title": "Cambridge Science",
+                    "title": "Science in English",
                     "description": "Learning exact sciences in English",
                     "details": [
                         "Physics, Chemistry, Biology in English",
@@ -1905,7 +1905,7 @@
                 "cta": "Download PDF",
                 "footer": {
                     "effectiveDate": "Effective from: September 1, 2026",
-                    "contact": "For questions, contact info@intellect.edu.kg"
+                    "contact": "For questions, contact school administration"
                 },
                 "effectiveDate": "September 1, 2026"
             }
@@ -2019,10 +2019,6 @@
                     {
                         "label": "Security",
                         "value": "+996 777 123 456"
-                    },
-                    {
-                        "label": "Email",
-                        "value": "psy@intellect.edu.kg"
                     }
                 ]
             },

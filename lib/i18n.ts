@@ -57,7 +57,7 @@ export const STATIC_PUBLIC_ROUTE_KEYS = [
     'programs/primary/brain-methodology',
     'programs/primary/english-environment',
     'programs/middle',
-    'programs/middle/cambridge-pathway',
+    'programs/middle/international-curriculum',
     'programs/middle/it-steam',
     'programs/middle/life-in-middle',
     'programs/senior',

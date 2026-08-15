@@ -36,7 +36,7 @@ export default function JuniorCurriculum({ blocks }: JuniorCurriculumProps) {
                     {blocks.map((block, index) => (
                         <div
                             key={index}
-                            className="group bg-gray-50 rounded-2xl p-8 hover:bg-white hover:shadow-xl transition-all duration-300 border border-gray-100"
+                            className="group bg-gray-50 rounded-2xl p-8 hover:bg-white hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col h-full"
                         >
                             <div className="text-6xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
                                 <IconWrapper icon={block.icon} variant="white" size="md" />
@@ -50,7 +50,7 @@ export default function JuniorCurriculum({ blocks }: JuniorCurriculumProps) {
                                 {block.subtitle}
                             </p>
 
-                            <ul className="space-y-2">
+                            <ul className="space-y-2 mt-auto pt-4">
                                 {block.description.map((item, idx) => (
                                     <li key={idx} className="flex items-start text-sm text-gray-700">
                                         <svg

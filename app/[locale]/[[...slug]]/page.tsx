@@ -19,7 +19,7 @@ import DayInJuniorPage from '@/app/programs/primary/a-day-in-junior/page'
 import BrainMethodologyPage from '@/app/programs/primary/brain-methodology/page'
 import EnglishEnvironmentPage from '@/app/programs/primary/english-environment/page'
 import MiddleProgramPage from '@/app/programs/middle/page'
-import CambridgePathwayPage from '@/app/programs/middle/cambridge-pathway/page'
+import InternationalCurriculumPage from '@/app/programs/middle/international-curriculum/page'
 import ItSteamPage from '@/app/programs/middle/it-steam/page'
 import LifeInMiddlePage from '@/app/programs/middle/life-in-middle/page'
 import SeniorProgramPage from '@/app/programs/senior/page'
@@ -55,11 +55,11 @@ const ROUTES: Record<string, RouteEntry> = {
         metadata: {
             ru: {
                 title: 'INTELLECT INTERNATIONAL SCHOOL | Школа нового поколения',
-                description: 'Частная школа в Бишкеке с Cambridge pathway, STEAM и билингвальным обучением.',
+                description: 'Частная школа в Бишкеке с международной образовательной программой, STEAM и билингвальным обучением.',
             },
             en: {
                 title: 'INTELLECT INTERNATIONAL SCHOOL | School for the Next Generation',
-                description: 'Private school in Bishkek with Cambridge pathway, STEAM and bilingual learning.',
+                description: 'Private school in Bishkek with an international curriculum, STEAM and bilingual learning.',
             },
         },
     },
@@ -263,24 +263,24 @@ const ROUTES: Record<string, RouteEntry> = {
         metadata: {
             ru: {
                 title: 'Middle Program | Intellect School',
-                description: 'Средняя школа с Cambridge pathway, discipline и 21st century skills.',
+                description: 'Средняя школа с международной образовательной программой, дисциплиной и навыками XXI века.',
             },
             en: {
                 title: 'Middle Program | Intellect School',
-                description: 'Middle school with Cambridge pathway, discipline and 21st century skills.',
+                description: 'Middle school with an international curriculum, discipline and 21st century skills.',
             },
         },
     },
-    'programs/middle/cambridge-pathway': {
-        component: renderPage(CambridgePathwayPage),
+    'programs/middle/international-curriculum': {
+        component: renderPage(InternationalCurriculumPage),
         metadata: {
             ru: {
-                title: 'Cambridge Pathway | Intellect School',
-                description: 'Как в школе устроен академический Cambridge pathway.',
+                title: 'Международная образовательная программа | Intellect School',
+                description: 'Как в школе устроена международная академическая траектория.',
             },
             en: {
-                title: 'Cambridge Pathway | Intellect School',
-                description: 'How the school structures its academic Cambridge pathway.',
+                title: 'International Curriculum | Intellect School',
+                description: 'How the school structures its international academic pathway.',
             },
         },
     },

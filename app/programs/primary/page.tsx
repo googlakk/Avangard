@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
     title: 'Intellect Primary School (Grades 1-4) | Intellect Pro',
     description: 'Full-day bilingual primary school with native speakers, brain development, and 360° safety.',
-    keywords: ['primary school', 'grades 1-4', 'bilingual education', 'Cambridge Primary', 'Bishkek', 'Intellect Pro'],
+    keywords: ['primary school', 'grades 1-4', 'bilingual education', 'international curriculum', 'Bishkek', 'Intellect Pro'],
     openGraph: {
         title: 'Intellect Primary',
         description: 'Full-day primary school with native speakers, cognitive development, and 360° safety.',

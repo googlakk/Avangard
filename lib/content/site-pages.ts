@@ -47,7 +47,7 @@ const sitePages = {
                     title: 'Академический фокус',
                     items: [
                         { name: 'Математика', icon: 'Calculator', desc: 'Углублённое изучение' },
-                        { name: 'Английский язык', icon: 'Globe', desc: 'Cambridge и международные экзамены' },
+                        { name: 'Английский язык', icon: 'Globe', desc: 'Международная образовательная программа и языковая практика' },
                         { name: 'IT и программирование', icon: 'Code2', desc: 'Python, web и цифровая грамотность' },
                         { name: 'Естественные науки', icon: 'Microscope', desc: 'Лабораторная практика и исследования' },
                         { name: 'Ментальная арифметика', icon: 'Brain', desc: 'Тренировка памяти и скорости мышления' },
@@ -254,7 +254,7 @@ const sitePages = {
                 title: 'Программы обучения',
                 items: [
                     { title: 'Intellect Primary', badge: '1–4 классы', bullets: ['Ментальная арифметика', 'Робототехника', 'Английский язык'], href: '/programs/primary' },
-                    { title: 'Intellect Middle', badge: '5–9 классы', bullets: ['Cambridge pathway', 'STEAM проекты', 'Второй язык'], href: '/programs/middle' },
+                    { title: 'Intellect Middle', badge: '5–9 классы', bullets: ['Международная образовательная программа', 'STEAM проекты', 'Второй язык'], href: '/programs/middle' },
                     { title: 'Intellect Senior', badge: '10–11 классы', bullets: ['Подготовка к ОРТ', 'IELTS/TOEFL', 'Профориентация'], href: '/programs/senior' },
                 ],
                 more: 'Подробнее',
@@ -319,7 +319,7 @@ const sitePages = {
                     title: 'Academic Focus',
                     items: [
                         { name: 'Mathematics', icon: 'Calculator', desc: 'Advanced progression' },
-                        { name: 'English', icon: 'Globe', desc: 'Cambridge and international exams' },
+                        { name: 'English', icon: 'Globe', desc: 'International curriculum and language practice' },
                         { name: 'IT and programming', icon: 'Code2', desc: 'Python, web, and digital literacy' },
                         { name: 'Science', icon: 'Microscope', desc: 'Labs and inquiry' },
                         { name: 'Mental arithmetic', icon: 'Brain', desc: 'Memory and mental speed' },
@@ -526,7 +526,7 @@ const sitePages = {
                 title: 'Learning Programs',
                 items: [
                     { title: 'Intellect Primary', badge: 'Grades 1–4', bullets: ['Mental arithmetic', 'Robotics', 'English language'], href: '/programs/primary' },
-                    { title: 'Intellect Middle', badge: 'Grades 5–9', bullets: ['Cambridge pathway', 'STEAM projects', 'Second language'], href: '/programs/middle' },
+                    { title: 'Intellect Middle', badge: 'Grades 5–9', bullets: ['International curriculum', 'STEAM projects', 'Second language'], href: '/programs/middle' },
                     { title: 'Intellect Senior', badge: 'Grades 10–11', bullets: ['ORT preparation', 'IELTS/TOEFL', 'Career guidance'], href: '/programs/senior' },
                 ],
                 more: 'Learn more',

@@ -61,7 +61,7 @@ const content = {
                             description: 'Авторские дисциплины для развития памяти, внимания, логики и скорости мышления. Мы используем период максимальной нейропластичности, чтобы сформировать устойчивый интеллектуальный фундамент.',
                         },
                         {
-                            title: 'Госстандарт + Cambridge mindset',
+                            title: 'Госстандарт + международный подход',
                             description: 'Ребёнок получает сильную академическую базу, соответствующую государственным требованиям, и одновременно учится рассуждать, исследовать и применять знания в проектной работе.',
                         },
                     ],
@@ -263,7 +263,7 @@ const content = {
                             description: 'Proprietary disciplines develop memory, attention, logic, and mental speed. We use the period of maximum neuroplasticity to build a durable intellectual foundation.',
                         },
                         {
-                            title: 'National Standard + Cambridge Mindset',
+                            title: 'National Standard + International Approach',
                             description: 'Children receive a strong academic base aligned with national expectations while also learning to question, investigate, and apply knowledge through projects.',
                         },
                     ],

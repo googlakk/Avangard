@@ -28,12 +28,12 @@ export default function MiddleAdditionalInfoSection() {
     const infoCards = [
         // Ссылки на подстраницы (Links)
         {
-            id: 'cambridge',
+            id: 'international-curriculum',
             type: 'link' as const,
             icon: 'GraduationCap',
-            title: t.middle.additionalInfo.cards.cambridge.title,
-            description: t.middle.additionalInfo.cards.cambridge.description,
-            link: '/programs/middle/cambridge-pathway'
+            title: t.middle.additionalInfo.cards.internationalCurriculum.title,
+            description: t.middle.additionalInfo.cards.internationalCurriculum.description,
+            link: '/programs/middle/international-curriculum'
         },
         {
             id: 'it-steam',
@@ -98,7 +98,7 @@ export default function MiddleAdditionalInfoSection() {
 
                 <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-6">
                     {infoCards.map((card) => {
-                        const spanClass = card.id === 'cambridge'
+                        const spanClass = card.id === 'international-curriculum'
                             ? 'lg:col-span-3'
                             : card.id === 'it-steam' || card.id === 'life'
                                 ? 'lg:col-span-3'

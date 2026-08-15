@@ -24,7 +24,7 @@ export function getOrganizationSchema(): SchemaOrgData {
         'alternateName': 'INTELLECT School',
         'url': SITE_URL,
         'logo': LOGO_URL,
-        'description': 'Premium international school in Bishkek with Cambridge pathway, STEAM labs, and bilingual education',
+        'description': 'Premium international school in Bishkek with an international curriculum, STEAM labs, and bilingual education',
         'address': {
             '@type': 'PostalAddress',
             'addressCountry': 'KG',
@@ -33,7 +33,7 @@ export function getOrganizationSchema(): SchemaOrgData {
         'contactPoint': {
             '@type': 'ContactPoint',
             'contactType': 'Customer Service',
-            'email': 'info@intel.edu.kg',
+            'telephone': '+996-705-889-889',
         },
         'sameAs': [
             'https://instagram.com/intellect.bishkek',

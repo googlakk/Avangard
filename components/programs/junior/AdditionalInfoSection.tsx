@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { IconWrapper } from '@/lib/icon-wrapper';
 import AdditionalInfoModal from './AdditionalInfoModal';
 import DayInLifeSchedule from './DayInLifeSchedule';
@@ -25,7 +26,6 @@ export default function AdditionalInfoSection() {
     const { t, language } = useLanguage();
     const [activeModal, setActiveModal] = useState<ModalType>(null);
 
-    // Fetch dynamic data using the current language
     const schedule = getDailySchedule(t);
     const academic = getAcademicProgram(t);
     const head = getHeadOfJuniorData(t);
@@ -70,7 +70,7 @@ export default function AdditionalInfoSection() {
                 : [
                     'Перемены, проекты, обед и совместные активности закрепляют язык естественно.',
                     'Ребёнок набирает уверенность через регулярное живое общение.',
-                    'Английский становится спонтанным, а не “выученным для ответа”.',
+                    'Английский становится спонтанным, а не "выученным для ответа".',
                 ],
         },
     ];
@@ -140,44 +140,62 @@ export default function AdditionalInfoSection() {
 
     return (
         <>
-            <section className="py-16 bg-gray-50">
-                <div className="container mx-auto px-4">
-                    {/* Заголовок */}
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-heading font-bold text-navy-900 mb-4">
+            <section className="py-20 md:py-28 bg-[#f5f5f7]">
+                <div className="container mx-auto px-4 md:px-8">
+                    {/* Header */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                        className="mb-14"
+                    >
+                        <span className="inline-block font-manrope font-semibold text-xs tracking-[0.15em] uppercase text-oxford-blue/40 mb-4">
+                            {language === 'ru' ? 'Подробнее' : 'Learn More'}
+                        </span>
+                        <h2
+                            className="font-heading font-bold text-oxford-blue leading-tight max-w-3xl"
+                            style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}
+                        >
                             {t.junior.additionalInfo.title}
                         </h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto">
+                        <p className="text-base md:text-lg font-manrope text-slate-500 max-w-2xl mt-4">
                             {t.junior.additionalInfo.subtitle}
                         </p>
-                    </div>
+                    </motion.div>
 
-                    {/* Карточки */}
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                        {infoCards.map((card) => (
-                            <button
+                    {/* Bento Grid Cards */}
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+                        {infoCards.map((card, index) => (
+                            <motion.button
                                 key={card.id}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
                                 onClick={() => setActiveModal(card.id)}
-                                className="bg-white rounded-2xl p-6 text-left hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 group"
+                                className="bg-white rounded-[4px] p-6 text-left hover:shadow-lg transition-all duration-500 hover:-translate-y-[3px] border border-slate-100 group cursor-pointer"
                             >
-                                {/* Иконка */}
-                                <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
-                                    <IconWrapper icon={card.icon} variant="junior" size="md" />
+                                {/* Icon */}
+                                <div className="mb-5 group-hover:scale-105 transition-transform duration-300">
+                                    <div className="w-12 h-12 rounded-[4px] bg-oxford-blue/5 flex items-center justify-center">
+                                        <IconWrapper icon={card.icon} variant="junior" size="md" />
+                                    </div>
                                 </div>
 
-                                {/* Текст */}
-                                <h3 className="text-xl font-bold text-navy-900 mb-2 font-heading">
+                                {/* Title */}
+                                <h3 className="text-lg font-heading font-bold text-oxford-blue mb-2 group-hover:text-electric-blue transition-colors duration-300">
                                     {card.title}
                                 </h3>
-                                <p className="text-sm text-gray-600 mb-4">
+                                <p className="text-sm text-slate-500 font-manrope mb-5 leading-relaxed">
                                     {card.description}
                                 </p>
 
-                                {/* Стрелка */}
-                                <div className="flex items-center text-navy-600 font-medium text-sm group-hover:text-navy-900">
+                                {/* Arrow Link */}
+                                <div className="flex items-center text-[#00c6ff] font-manrope font-semibold text-xs uppercase tracking-wider group-hover:text-electric-blue transition-colors">
                                     {t.junior.additionalInfo.readMore}
                                     <svg
-                                        className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                                        className="w-3.5 h-3.5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
                                         fill="none"
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
@@ -188,13 +206,13 @@ export default function AdditionalInfoSection() {
                                         <path d="M9 5l7 7-7 7" />
                                     </svg>
                                 </div>
-                            </button>
+                            </motion.button>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Модальное окно */}
+            {/* Modal */}
             <AdditionalInfoModal
                 isOpen={activeModal !== null}
                 onClose={() => setActiveModal(null)}

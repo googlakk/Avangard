@@ -9,7 +9,6 @@ import ParentTestimonials from '@/components/programs/junior/ParentTestimonials'
 import JuniorCTA from '@/components/programs/junior/JuniorCTA';
 import AdditionalInfoSection from '@/components/programs/junior/AdditionalInfoSection';
 import PhilosophyIntroSection from '@/components/programs/junior/PhilosophyIntroSection';
-import JuniorFaculty from '@/components/programs/junior/JuniorFaculty';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { getJuniorContent } from '@/lib/content/junior-content';
 import {
@@ -111,8 +110,6 @@ export default function JuniorProgramClient({ cmsOverrides }: JuniorProgramClien
                 />
             )}
 
-            {/* БЛОК 6: Преподаватели (Faculty) */}
-            <JuniorFaculty />
 
             {/* Фотогалерея - визуальное подтверждение */}
             {hasOverrideKey(cmsOverrides, 'junior-gallery') && <JuniorPhotoGallery images={galleryImages} />}

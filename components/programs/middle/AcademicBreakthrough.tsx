@@ -26,13 +26,13 @@ export default function AcademicBreakthrough({
 
     const pillars = isRu
         ? [
-            'Cambridge-aligned академическая траектория',
+            'Международная академическая траектория',
             'IT & STEAM лаборатории',
             'Клубы, проекты и лидерство',
             'Плавный переход к senior stage',
         ]
         : [
-            'Cambridge-aligned academic pathway',
+            'International academic pathway',
             'IT & STEAM labs',
             'Clubs, projects, and leadership',
             'Structured transition to senior school',

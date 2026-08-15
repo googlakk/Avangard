@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { MotivationCultureFeature } from '@/lib/data/junior-program';
 import { IconWrapper } from '@/lib/icon-wrapper';
@@ -17,102 +18,119 @@ export default function MotivationAtmosphereSection({ features, photoProof }: Mo
     const ui = getJuniorContent(language).ui;
 
     return (
-        <section className="py-24 bg-gradient-to-b from-slate-50 to-amber-50/50">
-            <div className="container mx-auto px-4">
-                {/* Заголовок секции */}
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold font-lora text-oxford-blue mb-4">
+        <section className="py-20 md:py-28 bg-[#f5f5f7]">
+            <div className="container mx-auto px-4 md:px-8">
+                {/* Section Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                    className="mb-14"
+                >
+                    <span className="inline-block font-manrope font-semibold text-xs tracking-[0.15em] uppercase text-oxford-blue/40 mb-4">
+                        {language === 'ru' ? 'Soft Skills' : 'Soft Skills'}
+                    </span>
+                    <h2
+                        className="font-heading font-bold text-oxford-blue leading-tight max-w-3xl"
+                        style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}
+                    >
                         {t.junior.motivation.intro.title}
                     </h2>
-                    <p className="text-lg md:text-xl font-manrope text-slate-600 max-w-3xl mx-auto">
+                    <p className="text-base md:text-lg font-manrope text-slate-500 max-w-3xl mt-4">
                         {t.junior.motivation.intro.subtitle}
                     </p>
-                </div>
+                </motion.div>
 
-                {/* Сетка с фичами - 3 колонки */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                {/* Feature Cards — 3 columns */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
                     {features.map((feature, index) => (
-                        <div
+                        <motion.div
                             key={index}
-                            className="bg-white rounded-[32px] p-8 shadow-sm hover:shadow-2xl transition-all duration-300 group border border-slate-100 hover:border-education-amber/30 relative overflow-hidden"
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                            className="flex flex-col h-full bg-white rounded-[4px] p-7 md:p-8 shadow-sm hover:shadow-lg transition-all duration-500 group border border-slate-100 hover:border-education-amber/30 cursor-pointer hover:-translate-y-[3px]"
                         >
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-full -mr-16 -mt-16 group-hover:bg-amber-100 transition-colors"></div>
-
-                            {/* Иконка */}
-                            <div className="mb-6 relative z-10 transform group-hover:scale-110 transition-transform duration-300">
-                                <div className="w-16 h-16 rounded-2xl bg-education-amber/10 flex items-center justify-center text-education-amber">
-                                    <IconWrapper icon={feature.icon} variant="junior" size="md" />
+                            {/* Icon */}
+                            <div className="mb-5 transform group-hover:scale-105 transition-transform duration-300">
+                                <div className="inline-flex w-14 h-14 rounded-[4px] bg-education-amber/10 items-center justify-center text-education-amber overflow-hidden">
+                                    <IconWrapper icon={feature.icon} variant="junior" size="sm" className="!bg-transparent !text-inherit !w-auto !h-auto" hoverable={false} />
                                 </div>
                             </div>
 
-                            {/* Заголовок */}
-                            <h3 className="text-2xl font-bold font-lora text-oxford-blue mb-2">
-                                {feature.title}
-                            </h3>
+                            {/* Title with accent line */}
+                            <div className="flex items-start gap-3 mb-2">
+                                <div className="w-[2.5px] h-5 bg-education-amber rounded-full flex-shrink-0 mt-1" />
+                                <h3 className="font-heading text-xl font-bold text-oxford-blue leading-tight">
+                                    {feature.title}
+                                </h3>
+                            </div>
 
-                            {/* Подзаголовок */}
-                            <p className="text-xs font-bold text-education-amber uppercase tracking-widest mb-4 font-manrope">
+                            {/* Subtitle */}
+                            <p className="text-xs font-manrope font-semibold text-education-amber uppercase tracking-[0.12em] mb-5 pl-[14px]">
                                 {feature.subtitle}
                             </p>
 
-                            {/* Описание */}
-                            <ul className="space-y-3 mb-6">
+                            {/* Description */}
+                            <ul className="space-y-2.5 mb-5 pl-[14px]">
                                 {feature.description.map((item, idx) => (
-                                    <li key={idx} className="text-slate-600 font-manrope flex items-start leading-relaxed">
-                                        <span className="text-education-amber mr-2 flex-shrink-0">➜</span>
+                                    <li key={idx} className="text-slate-500 font-manrope flex items-start leading-relaxed text-sm">
+                                        <span className="text-education-amber mr-2 flex-shrink-0 text-xs mt-0.5">→</span>
                                         <span>{item}</span>
                                     </li>
                                 ))}
                             </ul>
 
-                            {/* Пример / Валюта */}
+                            {/* Example / How it Works — Editorial Treatment */}
                             {feature.example && (
-                                <div className="mt-auto pt-6 border-t border-slate-100">
-                                    <div className="bg-gradient-to-r from-amber-50 to-white p-4 rounded-xl border border-amber-100 flex items-center gap-4">
-                                        <div className="w-10 h-10 rounded-full bg-education-amber flex items-center justify-center shadow-lg text-white font-bold text-lg border-2 border-white ring-2 ring-amber-100">
-                                            $
-                                        </div>
-                                            <div>
-                                            <p className="text-xs text-slate-500 font-bold uppercase mb-1">{ui.motivationExampleLabel}</p>
-                                            <p className="text-sm font-manrope text-oxford-blue font-medium italic">
-                                                &ldquo;{feature.example}&rdquo;
-                                            </p>
-                                        </div>
+                                <div className="mt-auto pt-5 border-t border-slate-100 pl-[14px]">
+                                    <div className="border-l-2 border-education-amber/40 pl-4 py-2">
+                                        <p className="text-xs text-slate-400 font-manrope font-bold uppercase tracking-wider mb-1.5">{ui.motivationExampleLabel}</p>
+                                        <p className="text-sm font-manrope text-oxford-blue/80 italic leading-relaxed">
+                                            &ldquo;{feature.example}&rdquo;
+                                        </p>
                                     </div>
                                 </div>
                             )}
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
 
+                {/* Photo Proof Block */}
                 {photoProof?.image && (
-                    <div className="max-w-5xl mx-auto">
-                        <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-xl border border-slate-100 relative overflow-hidden">
-                            {/* Golden Coin Decoration */}
-                            <div className="absolute top-10 right-10 w-24 h-24 rounded-full bg-gradient-to-br from-education-amber to-amber-600 opacity-10 blur-xl"></div>
-
-                            <h3 className="text-2xl font-bold font-lora text-center text-oxford-blue mb-10">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        className="max-w-4xl mx-auto"
+                    >
+                        <div className="bg-white rounded-[4px] p-8 md:p-10 shadow-md border border-slate-100 relative overflow-hidden">
+                            <h3 className="font-heading text-xl md:text-2xl font-bold text-center text-oxford-blue mb-8">
                                 {t.junior.motivation.photoProof.title}
                             </h3>
 
-                            <div className="relative h-[400px] rounded-3xl overflow-hidden mb-8 shadow-lg group">
+                            <div className="relative h-[350px] md:h-[400px] rounded-[4px] overflow-hidden shadow-lg group">
                                 <Image
                                     src={photoProof.image}
                                     alt={photoProof.caption}
                                     fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                    className="object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                                    style={{ filter: 'brightness(0.85) contrast(1.1) saturate(0.8)' }}
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
-                                <p className="absolute bottom-6 left-0 right-0 text-center text-white/90 font-manrope italic text-lg px-4">
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
+                                <p className="absolute bottom-5 left-0 right-0 text-center text-white/90 font-manrope italic text-base px-4">
                                     {photoProof.caption}
                                 </p>
                             </div>
 
-                            <p className="text-center text-xl font-bold font-lora text-oxford-blue mt-6 flex items-center justify-center gap-2">
-                                <span className="text-education-amber">➜</span> {t.junior.motivation.photoProof.cta}
+                            <p className="text-center text-lg font-heading font-bold text-oxford-blue mt-6 flex items-center justify-center gap-2">
+                                <span className="text-education-amber">→</span> {t.junior.motivation.photoProof.cta}
                             </p>
                         </div>
-                    </div>
+                    </motion.div>
                 )}
             </div>
         </section>

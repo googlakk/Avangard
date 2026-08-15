@@ -34,9 +34,9 @@ export default function FullDaySchoolSection({ features }: FullDaySchoolSectionP
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: index * 0.15 }}
-                            className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                            className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full"
                         >
-                            <div className="w-20 h-20 bg-navy-50 text-navy-900 rounded-2xl flex items-center justify-center mb-6 text-4xl shadow-sm border border-navy-100">
+                            <div className="mb-6 flex justify-start">
                                 <IconWrapper icon={feature.icon} variant="junior" size="md" />
                             </div>
 
@@ -64,7 +64,7 @@ export default function FullDaySchoolSection({ features }: FullDaySchoolSectionP
                             </ul>
 
                             {feature.benefits && (
-                                <div className="pt-4 border-t border-gray-200">
+                                <div className="pt-4 border-t border-gray-200 mt-auto">
                                     <div className="flex flex-wrap gap-2">
                                         {feature.benefits.map((benefit, idx) => (
                                             <span

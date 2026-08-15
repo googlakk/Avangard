@@ -16,27 +16,33 @@ export default function PhilosophyIntroSection() {
         return { __html: html };
     };
 
-    return (
-        <section className="py-24 bg-slate-50 relative overflow-hidden">
-            {/* Abstract Background Shapes */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-                <div className="absolute top-[-10%] left-[-5%] w-[40%] h-[40%] rounded-full bg-education-amber/5 blur-[100px]"></div>
-                <div className="absolute bottom-[10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-electric-blue/5 blur-[120px]"></div>
-                <svg className="absolute top-20 right-20 w-64 h-64 text-slate-200/50" viewBox="0 0 200 200">
-                    <path fill="currentColor" d="M45.7,28.3C58.9,38.1,76.3,46.8,85.5,60.2C94.7,73.6,95.7,91.7,86.9,104.9C78,118.1,59.3,126.4,43.2,128.5C27,130.6,13.4,126.5,-1.9,119.2C-17.3,111.9,-34.4,101.4,-44.6,86.4C-54.8,71.4,-58,51.9,-53.4,36.5C-48.8,21.1,-36.4,9.8,-24.8,1.2C-13.2,-7.4,-2.4,-13.3,12.3,-8.6C26.9,-3.9,46.3,11.5,45.7,28.3Z" transform="translate(100 100)" />
-                </svg>
-            </div>
+    const items = [
+        { icon: '01', ...t.junior.philosophy.stats.neuroplasticity },
+        { icon: '02', ...t.junior.philosophy.stats.standards },
+        { icon: '03', ...t.junior.philosophy.stats.love }
+    ];
 
-            <div className="container mx-auto px-4 relative z-10">
-                <div className="grid lg:grid-cols-12 gap-12 items-center">
-                    {/* Left: Component Image */}
+    return (
+        <section className="py-24 bg-[#f5f5f7] relative overflow-hidden">
+            {/* Subtle Grid Pattern */}
+            <div
+                className="absolute inset-0 opacity-[0.03] pointer-events-none"
+                style={{
+                    backgroundImage: 'linear-gradient(rgba(10,36,99,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(10,36,99,0.3) 1px, transparent 1px)',
+                    backgroundSize: '60px 60px',
+                }}
+            />
+
+            <div className="container mx-auto px-4 md:px-8 relative z-10">
+                <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                    {/* Left: Photo */}
                     <div className="lg:col-span-5 relative">
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            className="relative rounded-3xl overflow-hidden shadow-2xl z-10"
+                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                            className="relative rounded-[4px] overflow-hidden shadow-2xl"
                         >
                             <div className="aspect-[4/5] relative">
                                 <Image
@@ -44,18 +50,22 @@ export default function PhilosophyIntroSection() {
                                     alt="Intellect Junior Philosophy"
                                     fill
                                     className="object-cover"
+                                    style={{
+                                        filter: 'brightness(0.85) contrast(1.1) saturate(0.8)',
+                                    }}
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-oxford-blue/50 to-transparent"></div>
+                                {/* Bottom overlay for quote */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-oxford-blue/70 via-transparent to-transparent" />
 
-                                <div className="absolute bottom-6 left-6 right-6 text-white bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20">
-                                    <p className="font-lora italic text-lg text-center">&ldquo;{ui.philosophyQuote}&rdquo;</p>
+                                <div className="absolute bottom-6 left-6 right-6">
+                                    <div className="bg-white/10 backdrop-blur-md p-5 rounded-[4px] border border-white/15">
+                                        <p className="font-lora italic text-base md:text-lg text-white text-center leading-relaxed">
+                                            &ldquo;{ui.philosophyQuote}&rdquo;
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </motion.div>
-
-                        {/* Decorative Graphic Element */}
-                        <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-education-amber rounded-full blur-[80px] -z-10"></div>
-                        <div className="absolute -top-10 -left-10 w-40 h-40 bg-electric-blue rounded-full blur-[80px] -z-10"></div>
                     </div>
 
                     {/* Right: Text Content */}
@@ -64,40 +74,47 @@ export default function PhilosophyIntroSection() {
                             initial={{ opacity: 0, x: 30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
+                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                         >
-                            <h2 className="font-lora text-4xl md:text-5xl font-bold text-oxford-blue mb-8 leading-tight">
+                            {/* Kicker */}
+                            <span className="inline-block font-manrope font-semibold text-xs tracking-[0.15em] uppercase text-oxford-blue/50 mb-4">
+                                {language === 'ru' ? 'Наша философия' : 'Our Philosophy'}
+                            </span>
+
+                            <h2
+                                className="font-heading font-bold text-oxford-blue mb-8 leading-tight"
+                                style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}
+                            >
                                 {t.junior.philosophy.title}
                             </h2>
 
-                            <div className="space-y-6 mb-10">
-                                <p className="font-manrope text-lg text-slate-600 leading-relaxed" dangerouslySetInnerHTML={formatText(t.junior.philosophy.intro.p1)} />
-                                <p className="font-manrope text-lg text-slate-600 leading-relaxed" dangerouslySetInnerHTML={formatText(t.junior.philosophy.intro.p2)} />
+                            <div className="space-y-5 mb-10">
+                                <p className="font-manrope text-base md:text-lg text-slate-600 leading-relaxed" dangerouslySetInnerHTML={formatText(t.junior.philosophy.intro.p1)} />
+                                <p className="font-manrope text-base md:text-lg text-slate-600 leading-relaxed" dangerouslySetInnerHTML={formatText(t.junior.philosophy.intro.p2)} />
                             </div>
 
-                            {/* Numbered List / Stats */}
-                            <div className="space-y-6">
-                                {[
-                                    { icon: '01', ...t.junior.philosophy.stats.neuroplasticity },
-                                    { icon: '02', ...t.junior.philosophy.stats.standards },
-                                    { icon: '03', ...t.junior.philosophy.stats.love }
-                                ].map((item, index) => (
+                            {/* Numbered List with accent line */}
+                            <div className="space-y-0">
+                                {items.map((item, index) => (
                                     <motion.div
                                         key={index}
                                         initial={{ opacity: 0, y: 20 }}
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
-                                        transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
-                                        className="flex gap-6 group hover:bg-white hover:shadow-lg p-4 rounded-2xl transition-all duration-300"
+                                        transition={{ duration: 0.5, delay: index * 0.1 + 0.3, ease: [0.16, 1, 0.3, 1] }}
+                                        className="flex gap-5 group py-5 border-b border-slate-200/60 last:border-b-0 cursor-pointer"
                                     >
-                                        <div className="flex-shrink-0 w-12 h-12 bg-oxford-blue text-education-amber font-lora font-bold text-xl flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-300">
-                                            {item.icon}
+                                        <div className="flex-shrink-0 relative">
+                                            <div className="absolute left-0 top-0 bottom-0 w-[2.5px] bg-[#00c6ff] rounded-full" />
+                                            <div className="pl-5 font-heading font-bold text-lg text-oxford-blue/30 group-hover:text-oxford-blue/60 transition-colors duration-300">
+                                                {item.icon}
+                                            </div>
                                         </div>
                                         <div>
-                                            <h3 className="font-lora text-xl font-bold text-oxford-blue mb-1">
+                                            <h3 className="font-heading text-lg font-bold text-oxford-blue mb-1 group-hover:text-electric-blue transition-colors duration-300">
                                                 {item.title}
                                             </h3>
-                                            <p className="font-manrope text-slate-600">
+                                            <p className="font-manrope text-sm text-slate-500 leading-relaxed">
                                                 {item.description}
                                             </p>
                                         </div>

@@ -270,7 +270,7 @@ export default function SafetyPage() {
                             </div>
                         </div>
 
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                             {safety.contact?.items && Array.isArray(safety.contact.items) &&
                                 safety.contact.items.map((contact: { label: string; value: string }, i: number) => (
                                     <motion.a

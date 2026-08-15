@@ -91,23 +91,12 @@ export default function StaffCard({ member, language, variant = 'directory' }: S
                             </div>
                         )}
 
-                        {(member.email || member.phone) && (
+                        {member.phone && (
                             <div className="mt-auto rounded-2xl border border-navy-100 bg-navy-50/55 p-3.5">
                                 <div className="mb-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-navy-700">
                                     {contactLabel}
                                 </div>
                                 <div className="flex flex-wrap gap-3 text-xs text-slate-600">
-                                {member.email && (
-                                    <a
-                                        href={`mailto:${member.email}`}
-                                        className="inline-flex items-center gap-2 rounded-full border border-navy-100 bg-white px-3 py-2 hover:border-navy-200 hover:bg-navy-100/40 transition-colors duration-200"
-                                    >
-                                        <Mail className="h-4 w-4 text-navy-700" />
-                                        <span className="hidden sm:inline text-slate-700">{member.email}</span>
-                                        <span className="sm:hidden text-slate-700">{language === 'ru' ? 'Почта' : 'Email'}</span>
-                                    </a>
-                                )}
-                                {member.phone && (
                                     <a
                                         href={`tel:${member.phone.replace(/\s/g, '')}`}
                                         className="inline-flex items-center gap-2 rounded-full border border-navy-100 bg-white px-3 py-2 hover:border-navy-200 hover:bg-navy-100/40 transition-colors duration-200"
@@ -116,7 +105,6 @@ export default function StaffCard({ member, language, variant = 'directory' }: S
                                         <span className="hidden sm:inline text-slate-700">{member.phone}</span>
                                         <span className="sm:hidden text-slate-700">{language === 'ru' ? 'Телефон' : 'Phone'}</span>
                                     </a>
-                                )}
                                 </div>
                             </div>
                         )}
@@ -202,32 +190,20 @@ export default function StaffCard({ member, language, variant = 'directory' }: S
                         </div>
                     )}
 
-                    {(member.email || member.phone) && (
+                    {member.phone && (
                         <div className="mt-auto rounded-2xl border border-navy-100 bg-navy-50/55 p-3">
                             <div className="mb-2.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-navy-700">
                                 {contactLabel}
                             </div>
                             <div className="flex flex-wrap gap-2.5">
-                                {member.email && (
-                                    <a
-                                        href={`mailto:${member.email}`}
-                                        className="inline-flex items-center gap-1.5 rounded-full border border-navy-100 bg-white px-3 py-2 text-xs text-slate-700 hover:border-navy-200 hover:bg-navy-100/40 transition-all duration-200"
-                                        title={member.email}
-                                    >
-                                        <Mail className="h-3.5 w-3.5 flex-shrink-0 text-navy-700" />
-                                        <span>{language === 'ru' ? 'Почта' : 'Email'}</span>
-                                    </a>
-                                )}
-                                {member.phone && (
-                                    <a
-                                        href={`tel:${member.phone.replace(/\s/g, '')}`}
-                                        className="inline-flex items-center gap-1.5 rounded-full border border-navy-100 bg-white px-3 py-2 text-xs text-slate-700 hover:border-navy-200 hover:bg-navy-100/40 transition-all duration-200"
-                                        title={member.phone}
-                                    >
-                                        <Phone className="h-3.5 w-3.5 flex-shrink-0 text-navy-700" />
-                                        <span>{language === 'ru' ? 'Телефон' : 'Phone'}</span>
-                                    </a>
-                                )}
+                                <a
+                                    href={`tel:${member.phone.replace(/\s/g, '')}`}
+                                    className="inline-flex items-center gap-1.5 rounded-full border border-navy-100 bg-white px-3 py-2 text-xs text-slate-700 hover:border-navy-200 hover:bg-navy-100/40 transition-all duration-200"
+                                    title={member.phone}
+                                >
+                                    <Phone className="h-3.5 w-3.5 flex-shrink-0 text-navy-700" />
+                                    <span>{language === 'ru' ? 'Телефон' : 'Phone'}</span>
+                                </a>
                             </div>
                         </div>
                     )}

@@ -56,22 +56,6 @@ export default function ContactsPage() {
                         <h2 className="font-heading font-bold text-3xl mb-8">{t.contacts.info.title}</h2>
 
                         <div className="space-y-6">
-                            <div className="bg-white border border-gray-200 rounded-xl p-6">
-                                <div className="flex items-start space-x-4">
-                                    <div className="w-12 h-12 rounded-lg bg-navy-900 flex items-center justify-center flex-shrink-0">
-                                        <IconWrapper icon="Mail" variant="navy" size="sm" />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-heading font-bold text-lg mb-2 text-gray-900">{t.contacts.info.email}</h3>
-                                        <a
-                                            href={`mailto:${SITE_CONFIG.email}`}
-                                            className="text-gray-600 hover:text-navy-900 transition-colors"
-                                        >
-                                            {SITE_CONFIG.email}
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
 
                             <div className="bg-white border border-gray-200 rounded-xl p-6">
                                 <div className="flex items-start space-x-4">

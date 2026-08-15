@@ -102,45 +102,45 @@ export const getMiddleCTAData = (t: any) => ({
 });
 
 // Deep-dive pages data (Modals)
-export const getCambridgePathwayDetailData = (t: any) => ({
-    title: t.middle.modals.cambridge.title,
-    subtitle: t.middle.modals.cambridge.subtitle,
-    description: t.middle.modals.cambridge.description,
+export const getInternationalCurriculumDetailData = (t: any) => ({
+    title: t.middle.modals.internationalCurriculum.title,
+    subtitle: t.middle.modals.internationalCurriculum.subtitle,
+    description: t.middle.modals.internationalCurriculum.description,
     subjects: [
         {
             name: "Mathematics",
             grade: "6-9 классы", // TODO: Translate grades if needed
-            description: t.middle.modals.cambridge.subjects.math.description,
-            textbooks: ["Cambridge Lower Secondary Mathematics", "Cambridge Checkpoint Mathematics"]
+            description: t.middle.modals.internationalCurriculum.subjects.math.description,
+            learningAreas: ["Алгебра", "Геометрия", "Решение задач"]
         },
         {
             name: "Science (Physics, Chemistry, Biology)",
             grade: "6-9 классы",
-            description: t.middle.modals.cambridge.subjects.science.description,
-            textbooks: ["Cambridge Lower Secondary Science", "Cambridge Checkpoint Science"]
+            description: t.middle.modals.internationalCurriculum.subjects.science.description,
+            learningAreas: ["Физика", "Химия", "Биология"]
         },
         {
             name: "Computer Science",
             grade: "6-9 классы",
-            description: t.middle.modals.cambridge.subjects.cs.description,
-            textbooks: ["Cambridge IGCSE Computer Science"]
+            description: t.middle.modals.internationalCurriculum.subjects.cs.description,
+            learningAreas: ["Информатика", "Программирование", "Цифровая грамотность"]
         }
     ],
     secondLanguage: {
-        title: t.middle.modals.cambridge.secondLang.title,
+        title: t.middle.modals.internationalCurriculum.secondLang.title,
         options: ["Немецкий", "Корейский"], // TODO: Translate options
-        description: t.middle.modals.cambridge.secondLang.description
+        description: t.middle.modals.internationalCurriculum.secondLang.description
     },
     pathway: [
         {
             grade: "6-7 классы",
-            stage: "Cambridge Lower Secondary",
-            description: t.middle.modals.cambridge.pathway.lower.description
+            stage: "Базовый академический этап",
+            description: t.middle.modals.internationalCurriculum.pathway.lower.description
         },
         {
             grade: "8-9 классы",
-            stage: "Cambridge Checkpoint",
-            description: t.middle.modals.cambridge.pathway.checkpoint.description
+            stage: "Этап углубления предметных знаний",
+            description: t.middle.modals.internationalCurriculum.pathway.checkpoint.description
         }
     ]
 });
@@ -252,28 +252,28 @@ export const disciplineEnvironmentData = {};
 export const twentyFirstSkillsData = {};
 export const leadershipGovernanceData = {};
 export const middleCTAData = {};
-export const cambridgePathwayDetailData = {
-    title: "Cambridge Pathway",
+export const internationalCurriculumDetailData = {
+    title: "Международная образовательная программа",
     subtitle: "Международная программа",
-    description: "Путь к поступлению в лучшие университеты мира через британскую систему образования.",
+    description: "Сильная академическая база, обучение на английском языке и развитие самостоятельности в учёбе.",
     subjects: [
         {
             name: "Mathematics",
             grade: "6-9 классы",
-            description: "Математика на английском языке по кембриджской программе.",
-            textbooks: ["Cambridge Lower Secondary Mathematics", "Cambridge Checkpoint Mathematics"]
+            description: "Математика на английском языке с развитием логики и навыков решения задач.",
+            learningAreas: ["Алгебра", "Геометрия", "Решение задач"]
         },
         {
             name: "Science",
             grade: "6-9 классы",
             description: "Естественные науки (физика, химия, биология) на английском.",
-            textbooks: ["Cambridge Lower Secondary Science", "Cambridge Checkpoint Science"]
+            learningAreas: ["Физика", "Химия", "Биология"]
         },
         {
             name: "Computer Science",
             grade: "6-9 классы",
             description: "Информатика и программирование.",
-            textbooks: ["Cambridge IGCSE Computer Science"]
+            learningAreas: ["Информатика", "Программирование", "Цифровая грамотность"]
         }
     ],
     secondLanguage: {
@@ -284,13 +284,13 @@ export const cambridgePathwayDetailData = {
     pathway: [
         {
             grade: "6-7 классы",
-            stage: "Cambridge Lower Secondary",
+            stage: "Базовый академический этап",
             description: "Базовая ступень"
         },
         {
             grade: "8-9 классы",
-            stage: "Cambridge Checkpoint",
-            description: "Подготовка к экзаменам"
+            stage: "Этап углубления предметных знаний",
+            description: "Углублённое изучение предметов и проектная работа"
         }
     ]
 };

@@ -17,11 +17,11 @@ interface PathwayStage {
 
 interface Stats {
     englishHours: string;
-    certification: string;
-    recognition: string;
+    academicFocus: string;
+    projectLearning: string;
 }
 
-interface CambridgePathwayProps {
+interface InternationalCurriculumProps {
     title: string;
     subtitle: string;
     description: string;
@@ -30,14 +30,14 @@ interface CambridgePathwayProps {
     stats: Stats;
 }
 
-export default function CambridgePathway({
+export default function InternationalCurriculum({
     title,
     subtitle,
     description,
     subjects,
     pathway,
     stats,
-}: CambridgePathwayProps) {
+}: InternationalCurriculumProps) {
     return (
         <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
             <div className="container mx-auto px-4">
@@ -119,15 +119,15 @@ export default function CambridgePathway({
                             </p>
                         </div>
                         <div>
-                            <div className="text-lg font-bold mb-2">Cambridge</div>
+                            <div className="text-lg font-bold mb-2">International curriculum</div>
                             <p className="text-sm text-gray-300">
-                                {stats.certification.replace('Cambridge Assessment International Education', 'Assessment')}
+                                {stats.academicFocus}
                             </p>
                         </div>
                         <div>
-                            <div className="text-3xl font-bold mb-2">160+</div>
+                            <div className="text-lg font-bold mb-2">Project learning</div>
                             <p className="text-sm text-gray-300">
-                                стран признают сертификат
+                                {stats.projectLearning}
                             </p>
                         </div>
                     </div>

@@ -75,6 +75,16 @@ const nextConfig = {
     async redirects() {
         return [
             {
+                source: '/programs/middle/cambridge-pathway',
+                destination: '/programs/middle/international-curriculum',
+                permanent: true,
+            },
+            {
+                source: '/:locale(ru|en)/programs/middle/cambridge-pathway',
+                destination: '/:locale/programs/middle/international-curriculum',
+                permanent: true,
+            },
+            {
                 source: '/admission',
                 destination: '/parents/admission',
                 permanent: true,
