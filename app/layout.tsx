@@ -54,10 +54,10 @@ export const viewport: Viewport = {
 
 const siteMetadata: Record<PublicLocale, { title: string; description: string; keywords: string[] }> = {
     ru: {
-        title: 'INTELLECT INTERNATIONAL SCHOOL | Школа нового поколения',
+        title: 'INTELLECT PRO SCHOOL | Школа нового поколения',
         description: 'Частная школа в Бишкеке. Международная образовательная программа, STEAM-лаборатории и билингвальное обучение.',
         keywords: [
-            'INTELLECT INTERNATIONAL SCHOOL',
+            'INTELLECT PRO SCHOOL',
             'частная школа Бишкек',
             'международная образовательная программа',
             'STEAM образование',
@@ -66,10 +66,10 @@ const siteMetadata: Record<PublicLocale, { title: string; description: string; k
         ],
     },
     en: {
-        title: 'INTELLECT INTERNATIONAL SCHOOL | School for the Next Generation',
+        title: 'INTELLECT PRO SCHOOL | School for the Next Generation',
         description: 'Private school in Bishkek with an international curriculum, STEAM labs and bilingual learning.',
         keywords: [
-            'INTELLECT INTERNATIONAL SCHOOL',
+            'INTELLECT PRO SCHOOL',
             'private school Bishkek',
             'international curriculum school',
             'STEAM education',
@@ -93,10 +93,10 @@ export async function generateMetadata(): Promise<Metadata> {
         title: meta.title,
         description: meta.description,
         keywords: meta.keywords,
-        authors: [{ name: 'INTELLECT INTERNATIONAL SCHOOL' }],
-        creator: 'INTELLECT INTERNATIONAL SCHOOL',
-        publisher: 'INTELLECT INTERNATIONAL SCHOOL',
-        applicationName: 'INTELLECT INTERNATIONAL SCHOOL',
+        authors: [{ name: 'INTELLECT PRO SCHOOL' }],
+        creator: 'INTELLECT PRO SCHOOL',
+        publisher: 'INTELLECT PRO SCHOOL',
+        applicationName: 'INTELLECT PRO SCHOOL',
         alternates: {
             languages: {
                 ru: '/ru',
@@ -107,13 +107,13 @@ export async function generateMetadata(): Promise<Metadata> {
             title: meta.title,
             description: meta.description,
             url: process.env.NEXT_PUBLIC_SITE_URL || 'https://intel.edu.kg',
-            siteName: 'INTELLECT INTERNATIONAL SCHOOL',
+            siteName: 'INTELLECT PRO SCHOOL',
             images: [
                 {
                     url: '/og-image.jpg',
                     width: 1200,
                     height: 630,
-                    alt: 'INTELLECT INTERNATIONAL SCHOOL',
+                    alt: 'INTELLECT PRO SCHOOL',
                 }
             ],
             locale: locale === 'en' ? 'en_US' : 'ru_RU',

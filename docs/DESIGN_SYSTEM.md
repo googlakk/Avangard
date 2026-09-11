@@ -12,7 +12,7 @@ This document is the **Single Source of Truth**, strictly derived from the Main 
 
 The site uses a mix of 5 specific fonts. Agents must use the correct font for the correct context.
 
-> **NEW (2026-01-26):** **Cinzel** font added to match the INTELLECT INTERNATIONAL SCHOOL logo's classic Trajan-style typography.
+> **NEW (2026-01-26):** **Cinzel** font added to match the INTELLECT PRO SCHOOL logo's classic Trajan-style typography.
 
 | Font Name | Logic / Variable | Tailwind Class / Usage | Context |
 |-----------|------------------|------------------------|---------|
@@ -23,7 +23,7 @@ The site uses a mix of 5 specific fonts. Agents must use the correct font for th
 | **Inter** | `var(--font-inter)` | `font-sans` | **Body Text**, Buttons, UI Elements. |
 
 ### ⚠️ Typography Rules
-1. **NEW: Logo-Matching Headers** - Use **Cinzel** (`font-display`) for main page titles and H1 elements to maintain brand consistency with the INTELLECT INTERNATIONAL SCHOOL logo's Trajan style.
+1. **NEW: Logo-Matching Headers** - Use **Cinzel** (`font-display`) for main page titles and H1 elements to maintain brand consistency with the INTELLECT PRO SCHOOL logo's Trajan style.
 2. **DO NOT** use generic `font-serif` unless you specifically want the browser default. Use the specific variable classes above for the "Premium" look.
 3. **Hero/Display Size:** Use `text-5xl` (desktop) / `text-4xl` (mobile) for stats.
 4. **Section Headings:** Use `text-3xl md:text-4xl font-bold font-display` (Cinzel) for major headings OR `font-heading` (Montserrat) for standard section headers.

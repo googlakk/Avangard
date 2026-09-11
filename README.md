@@ -1,6 +1,6 @@
-# INTELLECT INTERNATIONAL SCHOOL
+# INTELLECT PRO SCHOOL
 
-Next.js 14 + Supabase проект публичного сайта и CMS Intellect International School. Production target: `Vercel + Supabase`.
+Next.js 14 + Supabase проект публичного сайта и CMS Intellect Pro School. Production target: `Vercel + Supabase`.
 
 ## Быстрый старт
 

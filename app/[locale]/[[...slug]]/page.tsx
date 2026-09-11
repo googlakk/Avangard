@@ -54,11 +54,11 @@ const ROUTES: Record<string, RouteEntry> = {
         component: renderPage(HomePage),
         metadata: {
             ru: {
-                title: 'INTELLECT INTERNATIONAL SCHOOL | Школа нового поколения',
+                title: 'INTELLECT PRO SCHOOL | Школа нового поколения',
                 description: 'Частная школа в Бишкеке с международной образовательной программой, STEAM и билингвальным обучением.',
             },
             en: {
-                title: 'INTELLECT INTERNATIONAL SCHOOL | School for the Next Generation',
+                title: 'INTELLECT PRO SCHOOL | School for the Next Generation',
                 description: 'Private school in Bishkek with an international curriculum, STEAM and bilingual learning.',
             },
         },
@@ -68,11 +68,11 @@ const ROUTES: Record<string, RouteEntry> = {
         metadata: {
             ru: {
                 title: 'О школе | Intellect School',
-                description: 'История, миссия и подход Intellect International School.',
+                description: 'История, миссия и подход Intellect Pro School.',
             },
             en: {
                 title: 'About the School | Intellect School',
-                description: 'The story, mission and educational approach of Intellect International School.',
+                description: 'The story, mission and educational approach of Intellect Pro School.',
             },
         },
     },
@@ -81,11 +81,11 @@ const ROUTES: Record<string, RouteEntry> = {
         metadata: {
             ru: {
                 title: 'Команда | Intellect School',
-                description: 'Преподаватели и сотрудники Intellect International School.',
+                description: 'Преподаватели и сотрудники Intellect Pro School.',
             },
             en: {
                 title: 'Team | Intellect School',
-                description: 'Teachers and staff of Intellect International School.',
+                description: 'Teachers and staff of Intellect Pro School.',
             },
         },
     },
@@ -94,11 +94,11 @@ const ROUTES: Record<string, RouteEntry> = {
         metadata: {
             ru: {
                 title: 'Контакты | Intellect School',
-                description: 'Свяжитесь с Intellect International School и получите консультацию по поступлению.',
+                description: 'Свяжитесь с Intellect Pro School и получите консультацию по поступлению.',
             },
             en: {
                 title: 'Contacts | Intellect School',
-                description: 'Contact Intellect International School and request an admissions consultation.',
+                description: 'Contact Intellect Pro School and request an admissions consultation.',
             },
         },
     },
@@ -120,11 +120,11 @@ const ROUTES: Record<string, RouteEntry> = {
         metadata: {
             ru: {
                 title: 'Поступление | Intellect School',
-                description: 'Шаги поступления и список документов для Intellect International School.',
+                description: 'Шаги поступления и список документов для Intellect Pro School.',
             },
             en: {
                 title: 'Admissions | Intellect School',
-                description: 'Admissions steps and required documents for Intellect International School.',
+                description: 'Admissions steps and required documents for Intellect Pro School.',
             },
         },
     },
@@ -198,11 +198,11 @@ const ROUTES: Record<string, RouteEntry> = {
         metadata: {
             ru: {
                 title: 'Программы | Intellect School',
-                description: 'Обзор академических программ Intellect International School.',
+                description: 'Обзор академических программ Intellect Pro School.',
             },
             en: {
                 title: 'Programs | Intellect School',
-                description: 'Overview of academic programs at Intellect International School.',
+                description: 'Overview of academic programs at Intellect Pro School.',
             },
         },
     },
@@ -406,11 +406,11 @@ const ROUTES: Record<string, RouteEntry> = {
         metadata: {
             ru: {
                 title: 'Карьера | Intellect School',
-                description: 'Открытые позиции и кадровый резерв Intellect International School.',
+                description: 'Открытые позиции и кадровый резерв Intellect Pro School.',
             },
             en: {
                 title: 'Careers | Intellect School',
-                description: 'Open roles and talent pool opportunities at Intellect International School.',
+                description: 'Open roles and talent pool opportunities at Intellect Pro School.',
             },
         },
     },

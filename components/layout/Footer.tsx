@@ -65,7 +65,7 @@ export default function Footer() {
                         <Link href="/" className="inline-block mb-6 group">
                             <Image
                                 src="/logo.png"
-                                alt="INTELLECT INTERNATIONAL SCHOOL"
+                                alt="INTELLECT PRO SCHOOL"
                                 width={1024}
                                 height={190}
                                 className="h-10 md:h-12 w-auto transition-opacity duration-300 group-hover:opacity-80"

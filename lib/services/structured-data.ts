@@ -20,7 +20,7 @@ export function getOrganizationSchema(): SchemaOrgData {
     return {
         '@context': 'https://schema.org',
         '@type': 'EducationalOrganization',
-        'name': 'INTELLECT INTERNATIONAL SCHOOL',
+        'name': 'INTELLECT PRO SCHOOL',
         'alternateName': 'INTELLECT School',
         'url': SITE_URL,
         'logo': LOGO_URL,
@@ -97,10 +97,10 @@ export function getArticleSchema(data: {
         'image': data.image ? [data.image] : [LOGO_URL],
         'datePublished': data.datePublished || new Date().toISOString(),
         'dateModified': data.dateModified || new Date().toISOString(),
-        'author': data.author || 'INTELLECT INTERNATIONAL SCHOOL',
+        'author': data.author || 'INTELLECT PRO SCHOOL',
         'publisher': {
             '@type': 'Organization',
-            'name': 'INTELLECT INTERNATIONAL SCHOOL',
+            'name': 'INTELLECT PRO SCHOOL',
             'logo': {
                 '@type': 'ImageObject',
                 'url': LOGO_URL,
@@ -127,7 +127,7 @@ export function getProgramSchema(data: {
         'url': data.url || SITE_URL,
         'provider': {
             '@type': 'EducationalOrganization',
-            'name': 'INTELLECT INTERNATIONAL SCHOOL',
+            'name': 'INTELLECT PRO SCHOOL',
             'url': SITE_URL,
         },
         ...(data.ageRange && { 'typicalAgeRange': data.ageRange }),

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**AvangardIntellect** is a Next.js 14 school website for INTELLECT INTERNATIONAL SCHOOL (a premium international school in Bishkek). It combines a public-facing website with a comprehensive CMS admin panel for content management (staff, programs, news, documents, gallery).
+**AvangardIntellect** is a Next.js 14 school website for INTELLECT PRO SCHOOL (a premium international school in Bishkek). It combines a public-facing website with a comprehensive CMS admin panel for content management (staff, programs, news, documents, gallery).
 
 **Tech Stack:**
 - **Next.js 14** (App Router, TypeScript)

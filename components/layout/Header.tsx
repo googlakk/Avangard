@@ -36,7 +36,7 @@ export default function Header() {
                     <Link href="/" className="flex shrink-0 items-center group">
                         <Image
                             src="/logo.png"
-                            alt="INTELLECT INTERNATIONAL SCHOOL"
+                            alt="INTELLECT PRO SCHOOL"
                             width={1024}
                             height={190}
                             priority

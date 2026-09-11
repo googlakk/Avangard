@@ -1,5 +1,5 @@
 export const SITE_CONFIG = {
-    name: 'INTELLECT INTERNATIONAL SCHOOL',
+    name: 'INTELLECT PRO SCHOOL',
     description: 'Частная школа нового поколения в Бишкеке',
     url: 'https://intel.edu.kg',
     email: '',
