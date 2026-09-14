@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSwitch from '@/components/ui/LanguageSwitch';
 import DropdownMenu from '@/components/ui/DropdownMenu';
@@ -34,14 +34,10 @@ export default function Header() {
                 <div className="flex min-h-[74px] items-center justify-between lg:min-h-[78px]">
                     {/* Logo */}
                     <Link href="/" className="flex shrink-0 items-center group">
-                        <Image
-                            src="/logo.png"
-                            alt="INTELLECT PRO SCHOOL"
-                            width={1024}
-                            height={190}
-                            priority
-                            className="h-6 w-auto transition-opacity duration-300 group-hover:opacity-90 sm:h-7 lg:h-7 xl:h-8"
-                        />
+                        <span className="font-display font-semibold tracking-[0.12em] uppercase text-white transition-opacity duration-300 group-hover:opacity-90 flex flex-col items-center text-center leading-tight">
+                            <span className="text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px]">Intellect</span>
+                            <span className="text-[8px] sm:text-[9px] lg:text-[9px] xl:text-[10px] tracking-[0.2em]">Pro School</span>
+                        </span>
                     </Link>
 
                     {/* Desktop Navigation */}

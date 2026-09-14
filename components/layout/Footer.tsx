@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
+
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Footer() {
@@ -63,13 +63,9 @@ export default function Footer() {
                     {/* Brand Column */}
                     <div>
                         <Link href="/" className="inline-block mb-6 group">
-                            <Image
-                                src="/logo.png"
-                                alt="INTELLECT PRO SCHOOL"
-                                width={1024}
-                                height={190}
-                                className="h-10 md:h-12 w-auto transition-opacity duration-300 group-hover:opacity-80"
-                            />
+                            <span className="font-display text-[14px] sm:text-[16px] md:text-[18px] font-semibold tracking-[0.12em] uppercase text-white transition-opacity duration-300 group-hover:opacity-80 leading-none">
+                                Intellect Pro School
+                            </span>
                         </Link>
                         <p className="text-gray-400 mb-6 leading-relaxed">
                             {t.footer.description}
