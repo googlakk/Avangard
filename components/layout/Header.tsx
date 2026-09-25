@@ -34,7 +34,7 @@ export default function Header() {
                 <div className="flex min-h-[74px] items-center justify-between lg:min-h-[78px]">
                     {/* Logo */}
                     <Link href="/" className="flex shrink-0 items-center group">
-                        <span className="font-display font-semibold tracking-[0.12em] uppercase text-white transition-opacity duration-300 group-hover:opacity-90 flex flex-col items-center text-center leading-tight">
+                        <span className="font-heading font-semibold tracking-[0.12em] uppercase text-white transition-opacity duration-300 group-hover:opacity-90 flex flex-col items-center text-center leading-tight">
                             <span className="text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px]">Intellect</span>
                             <span className="text-[8px] sm:text-[9px] lg:text-[9px] xl:text-[10px] tracking-[0.2em]">Pro School</span>
                         </span>

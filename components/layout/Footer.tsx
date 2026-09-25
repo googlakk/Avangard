@@ -63,7 +63,7 @@ export default function Footer() {
                     {/* Brand Column */}
                     <div>
                         <Link href="/" className="inline-block mb-6 group">
-                            <span className="font-display text-[14px] sm:text-[16px] md:text-[18px] font-semibold tracking-[0.12em] uppercase text-white transition-opacity duration-300 group-hover:opacity-80 leading-none">
+                            <span className="font-heading text-[14px] sm:text-[16px] md:text-[18px] font-semibold tracking-[0.12em] uppercase text-white transition-opacity duration-300 group-hover:opacity-80 leading-none">
                                 Intellect Pro School
                             </span>
                         </Link>

@@ -69,7 +69,7 @@ export default function PlatformsPage() {
                                 <span className="h-2 w-2 rounded-full bg-[#d69a72]" />
                                 {ui.eyebrow}
                             </p>
-                            <h1 className="max-w-3xl font-display text-4xl font-semibold leading-[1.08] tracking-[-0.035em] text-[#1c2944] md:text-6xl">
+                            <h1 className="max-w-3xl font-display text-4xl leading-[1.08] text-[#1c2944] md:text-6xl">
                                 {ui.title}
                             </h1>
                         </div>

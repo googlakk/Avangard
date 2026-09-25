@@ -33,6 +33,39 @@ body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
   font-family: var(--font-inter);
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* A single, predictable type system keeps Cyrillic copy crisp across the site. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input,
+textarea,
+select {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-inter), system-ui, sans-serif;
+    font-weight: 650;
+    letter-spacing: -0.035em;
+  }
+
+  .font-heading {
+    font-family: var(--font-montserrat), var(--font-inter), system-ui, sans-serif;
+    letter-spacing: -0.015em;
+  }
 }
 
 a {
