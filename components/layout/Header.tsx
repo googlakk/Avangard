@@ -49,6 +49,13 @@ export default function Header() {
                             {t.header.home}
                             <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gradient-to-r from-[#C6A96B] to-[#D8C08A] group-hover:w-full transition-all duration-300" />
                         </Link>
+                        <Link
+                            href="/platforms"
+                            className="group relative whitespace-nowrap py-2 font-heading text-[14px] font-semibold leading-none tracking-[0.01em] text-white/90 transition-all duration-300 hover:text-white xl:text-[15px]"
+                        >
+                            {t.header.platforms}
+                            <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gradient-to-r from-[#C6A96B] to-[#D8C08A] group-hover:w-full transition-all duration-300" />
+                        </Link>
                         <DropdownMenu
                             label={t.header.aboutMenu.title}
                             basePath=""
@@ -149,6 +156,13 @@ export default function Header() {
                                     onClick={() => setIsMenuOpen(false)}
                                 >
                                     {t.header.home}
+                                </Link>
+                                <Link
+                                    href="/platforms"
+                                    className="text-white/90 hover:text-white hover:bg-white/[0.05] px-4 py-3 rounded-lg transition-all duration-300"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    {t.header.platforms}
                                 </Link>
                                 {/* About School Mobile Section */}
                                 <div className="py-3 px-4">

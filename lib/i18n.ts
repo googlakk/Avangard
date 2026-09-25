@@ -41,6 +41,7 @@ export function getPathKey(pathname: string) {
 
 export const STATIC_PUBLIC_ROUTE_KEYS = [
     '',
+    'platforms',
     'about',
     'about/team',
     'contacts',
