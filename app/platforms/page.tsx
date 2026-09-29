@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { ArrowUpRight, BookOpen, ExternalLink, Layers3, Search, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowUpRight, BookOpen, ClipboardCheck, ExternalLink, Layers3, Search, ShieldCheck, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const platformUrl = 'https://web-production-eaae77.up.railway.app';
@@ -22,6 +22,8 @@ const copy = {
         result: 'Платформа школы',
         cardTitle: 'INTELLECT PRO SCHOOL',
         cardDescription: 'Цифровая платформа нашей школы для учебных материалов, заданий и взаимодействия с образовательным сообществом.',
+        intestTitle: 'Intest.Live',
+        intestDescription: 'Онлайн-платформа для учебной работы и проверки знаний.',
         visit: 'Открыть платформу',
         note: 'Откроется в новой вкладке',
         empty: 'Платформы скоро появятся здесь.',
@@ -41,6 +43,8 @@ const copy = {
         result: 'School platform',
         cardTitle: 'INTELLECT PRO SCHOOL',
         cardDescription: 'Our school’s digital platform for learning materials, assignments and collaboration across the school community.',
+        intestTitle: 'Intest.Live',
+        intestDescription: 'An online platform for learning activities and knowledge checks.',
         visit: 'Open platform',
         note: 'Opens in a new tab',
         empty: 'Platforms will appear here soon.',
@@ -53,9 +57,15 @@ export default function PlatformsPage() {
     const [activeFilter, setActiveFilter] = useState('all');
     const [query, setQuery] = useState('');
 
-    const showSchool = activeFilter === 'all' || activeFilter === 'school';
-    const matchesSearch = ui.cardTitle.toLowerCase().includes(query.toLowerCase()) || ui.cardDescription.toLowerCase().includes(query.toLowerCase());
-    const visiblePlatform = useMemo(() => showSchool && matchesSearch, [matchesSearch, showSchool]);
+    const platforms = useMemo(() => [
+        { url: platformUrl, title: ui.cardTitle, description: ui.cardDescription, mark: 'IP', category: ui.school, kind: 'school' },
+        { url: 'https://intest.live', title: ui.intestTitle, description: ui.intestDescription, mark: 'IT', category: 'Intest.Live', kind: 'learning' },
+    ], [ui]);
+    const visiblePlatforms = platforms.filter((platform) => {
+        const matchesFilter = activeFilter === 'all' || platform.kind === activeFilter;
+        const searchText = `${platform.title} ${platform.description}`.toLowerCase();
+        return matchesFilter && searchText.includes(query.trim().toLowerCase());
+    });
 
     return (
         <main className="min-h-screen bg-[#f5f7f8] pt-[78px] text-[#17233c]">
@@ -101,6 +111,7 @@ export default function PlatformsPage() {
                         {[
                             ['all', ui.all],
                             ['school', ui.school],
+                            ['learning', language === 'ru' ? 'Обучение' : 'Learning'],
                         ].map(([value, label]) => (
                             <button
                                 key={value}
@@ -123,24 +134,28 @@ export default function PlatformsPage() {
                     {ui.result}
                 </div>
 
-                {visiblePlatform ? (
+                {visiblePlatforms.length > 0 ? (
                     <div className="mt-5 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                        <a href={platformUrl} target="_blank" rel="noopener noreferrer" className="group relative flex min-h-[360px] flex-col overflow-hidden rounded-[26px] bg-white p-7 shadow-[0_12px_40px_rgba(35,52,86,0.08)] ring-1 ring-[#e4eaf1] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(35,52,86,0.14)]">
-                            <div className="absolute right-0 top-0 h-40 w-40 rounded-bl-[80px] bg-gradient-to-br from-[#dce7ff] to-[#f7d7cd] opacity-80" />
-                            <div className="relative flex items-start justify-between">
-                                <div className="flex h-16 w-16 items-center justify-center rounded-[20px] bg-[#213c8a] text-xl font-black tracking-[-0.08em] text-white shadow-lg shadow-[#213c8a]/20">IP</div>
-                                <span className="rounded-full bg-[#eef2ff] px-3 py-1.5 text-xs font-bold text-[#4260b8]">{ui.school}</span>
-                            </div>
-                            <div className="relative mt-12 flex-1">
-                                <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-[#1e2b49]">{ui.cardTitle}</h3>
-                                <p className="mt-4 max-w-sm text-base leading-7 text-[#667085]">{ui.cardDescription}</p>
-                            </div>
-                            <div className="relative mt-8 flex items-center justify-between border-t border-[#edf0f4] pt-5">
-                                <span className="text-sm font-bold text-[#4260b8]">{ui.visit}</span>
-                                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#cef8f6] to-[#ffd7cf] text-[#344469] transition group-hover:rotate-45"><ArrowUpRight className="h-5 w-5" /></span>
-                            </div>
-                            <span className="relative mt-3 flex items-center gap-1.5 text-xs text-[#98a2b3]"><ExternalLink className="h-3.5 w-3.5" />{ui.note}</span>
-                        </a>
+                        {visiblePlatforms.map((platform) => (
+                            <a key={platform.url} href={platform.url} target="_blank" rel="noopener noreferrer" className="group relative flex min-h-[360px] flex-col overflow-hidden rounded-[26px] bg-white p-7 shadow-[0_12px_40px_rgba(35,52,86,0.08)] ring-1 ring-[#e4eaf1] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(35,52,86,0.14)]">
+                                <div className="absolute right-0 top-0 h-40 w-40 rounded-bl-[80px] bg-gradient-to-br from-[#dce7ff] to-[#f7d7cd] opacity-80" />
+                                <div className="relative flex items-start justify-between">
+                                    <div className={`flex h-16 w-16 items-center justify-center rounded-[20px] text-xl font-black tracking-[-0.08em] text-white shadow-lg ${platform.kind === 'school' ? 'bg-[#213c8a] shadow-[#213c8a]/20' : 'bg-[#248f8b] shadow-[#248f8b]/20'}`}>
+                                        {platform.kind === 'school' ? platform.mark : <ClipboardCheck className="h-7 w-7" />}
+                                    </div>
+                                    <span className="rounded-full bg-[#eef2ff] px-3 py-1.5 text-xs font-bold text-[#4260b8]">{platform.category}</span>
+                                </div>
+                                <div className="relative mt-12 flex-1">
+                                    <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-[#1e2b49]">{platform.title}</h3>
+                                    <p className="mt-4 max-w-sm text-base leading-7 text-[#667085]">{platform.description}</p>
+                                </div>
+                                <div className="relative mt-8 flex items-center justify-between border-t border-[#edf0f4] pt-5">
+                                    <span className="text-sm font-bold text-[#4260b8]">{ui.visit}</span>
+                                    <span className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#cef8f6] to-[#ffd7cf] text-[#344469] transition group-hover:rotate-45"><ArrowUpRight className="h-5 w-5" /></span>
+                                </div>
+                                <span className="relative mt-3 flex items-center gap-1.5 text-xs text-[#98a2b3]"><ExternalLink className="h-3.5 w-3.5" />{ui.note}</span>
+                            </a>
+                        ))}
                     </div>
                 ) : (
                     <div className="mt-5 rounded-[26px] bg-white p-12 text-center text-[#667085] ring-1 ring-[#e4eaf1]">{ui.empty}</div>
