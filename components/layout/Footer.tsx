@@ -216,6 +216,16 @@ export default function Footer() {
                                     </a>
                                 </div>
                             </li>
+                            <li>
+                                <a
+                                    href="https://feedback.intel.edu.kg/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block"
+                                >
+                                    {t.contact.feedbackLink}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
