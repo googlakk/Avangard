@@ -4,7 +4,17 @@ export const SITE_CONFIG = {
     url: 'https://intel.edu.kg',
     email: '',
     phone: '+996 705 889 889',
-    address: '720044, г. Бишкек, ул. Джунусалиева, 177/1',
+    locations: {
+        main: {
+            name: 'Intellect Pro School',
+            postalCode: '720044',
+            streetAddress: '177/1 Junusalieva St.',
+        },
+        primary: {
+            name: 'Intellect Primary',
+            streetAddress: '119 A. Bakaeva St.',
+        },
+    },
 };
 
 export const NAV_LINKS = [

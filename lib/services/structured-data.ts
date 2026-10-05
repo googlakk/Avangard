@@ -3,6 +3,8 @@
  * Generate schema.org compatible JSON-LD for social sharing and search engines
  */
 
+import { SITE_CONFIG } from '@/lib/constants'
+
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://intel.edu.kg'
 const LOGO_URL = `${SITE_URL}/logo.png`
 
@@ -29,6 +31,18 @@ export function getOrganizationSchema(): SchemaOrgData {
             '@type': 'PostalAddress',
             'addressCountry': 'KG',
             'addressLocality': 'Bishkek',
+            'postalCode': SITE_CONFIG.locations.main.postalCode,
+            'streetAddress': SITE_CONFIG.locations.main.streetAddress,
+        },
+        'department': {
+            '@type': 'EducationalOrganization',
+            'name': SITE_CONFIG.locations.primary.name,
+            'address': {
+                '@type': 'PostalAddress',
+                'addressCountry': 'KG',
+                'addressLocality': 'Bishkek',
+                'streetAddress': SITE_CONFIG.locations.primary.streetAddress,
+            },
         },
         'contactPoint': {
             '@type': 'ContactPoint',

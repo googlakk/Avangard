@@ -81,7 +81,11 @@ export default function ContactsPage() {
                                     </div>
                                     <div>
                                         <h3 className="font-heading font-bold text-lg mb-2 text-gray-900">{t.contacts.info.address.title}</h3>
-                                        <p className="text-gray-600">{SITE_CONFIG.address}</p>
+                                        <p className="text-gray-600">
+                                            {t.contact.addressList.main}
+                                            <br />
+                                            {t.contact.addressList.branch}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
