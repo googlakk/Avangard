@@ -1,6 +1,7 @@
 'use client';
 
 import HomeReveal from '@/components/ui/HomeReveal';
+import { useCountUp } from '@/hooks/useCountUp';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
@@ -9,10 +10,9 @@ export default function Hero() {
     const { t } = useLanguage();
     const videoRef = useRef<HTMLVideoElement>(null);
 
-    // Facts stay readable while the panel appears as a single unit.
     const yearCount = 2016;
-    const studentsCount = 1000;
-    const clubsCount = 15;
+    const studentsCount = useCountUp({ end: 1000, duration: 1400 });
+    const clubsCount = useCountUp({ end: 15, duration: 1400 });
 
     const [autoplayBlocked, setAutoplayBlocked] = useState(false);
     const { language } = useLanguage();
