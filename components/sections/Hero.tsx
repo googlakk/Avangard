@@ -10,7 +10,7 @@ export default function Hero() {
     const { t } = useLanguage();
     const videoRef = useRef<HTMLVideoElement>(null);
 
-    const yearCount = 2016;
+    const yearCount = useCountUp({ end: 2016, duration: 1400 });
     const studentsCount = useCountUp({ end: 1000, duration: 1400 });
     const clubsCount = useCountUp({ end: 15, duration: 1400 });
 
