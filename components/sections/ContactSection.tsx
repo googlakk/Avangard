@@ -2,7 +2,7 @@
 
 import { useState, FormEvent } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { SITE_CONFIG } from '@/lib/constants';
+import HomeReveal from '@/components/ui/HomeReveal';
 
 export default function ContactSection() {
     const { t } = useLanguage();
@@ -23,11 +23,11 @@ export default function ContactSection() {
     };
 
     return (
-        <section className="py-16 bg-gray-50">
+        <section className="home-contact py-16 bg-gray-50">
             <div className="container mx-auto px-4">
                 <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
                     {/* Форма */}
-                    <div>
+                    <HomeReveal>
                         <h2 className="text-3xl font-bold font-heading text-gray-900 mb-2">{t.contact.title}</h2>
                         <p className="text-gray-600 mb-8">{t.contact.subtitle}</p>
 
@@ -84,10 +84,10 @@ export default function ContactSection() {
                                 {t.contact.form.submit}
                             </button>
                         </form>
-                    </div>
+                    </HomeReveal>
 
                     {/* Контактная информация */}
-                    <div>
+                    <HomeReveal delay={0.065}>
                         <h3 className="text-2xl font-bold font-heading text-gray-900 mb-6">{t.contact.contactsTitle}</h3>
                         <div className="space-y-6">
                             <div>
@@ -132,7 +132,7 @@ export default function ContactSection() {
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </HomeReveal>
                 </div>
             </div>
         </section>

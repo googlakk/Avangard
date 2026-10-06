@@ -1,12 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import HomeReveal from '@/components/ui/HomeReveal';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useEffect, useMemo, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 
-export default function ProgramsSection() {
+export default function ProgramsSection({ animateHome = false }: { animateHome?: boolean }) {
     const { t, language } = useLanguage();
     const [cmsProgramCards, setCmsProgramCards] = useState<Record<string, {
         title: string;
@@ -163,7 +164,7 @@ export default function ProgramsSection() {
     }, [programs, cmsProgramCards]);
 
     return (
-        <section className="min-h-screen py-8 md:py-12 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden flex items-center">
+        <section className="home-programs min-h-screen py-8 md:py-12 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden flex items-center">
             {/* Декоративный фоновый элемент */}
             <div className="absolute inset-0 opacity-5">
                 <div className="absolute top-0 left-1/4 w-96 h-96 bg-navy-900 rounded-full blur-3xl"></div>
@@ -172,7 +173,7 @@ export default function ProgramsSection() {
 
             <div className="container mx-auto px-4 relative z-10 w-full">
                 {/* Заголовок в академическом стиле - компактный */}
-                <div className="text-center mb-8 md:mb-12">
+                <HomeReveal enabled={animateHome} className="home-section-heading text-center mb-8 md:mb-12">
                     {/* Декоративная верхняя линия */}
                     <div className="flex items-center justify-center mb-4 opacity-0 animate-[fadeInDown_1s_ease-out_0.2s_forwards]">
                         <div className="h-px w-12 bg-gradient-to-r from-transparent via-navy-900 to-transparent"></div>
@@ -207,20 +208,21 @@ export default function ProgramsSection() {
                     <div className="flex items-center justify-center mt-6 opacity-0 animate-[fadeInUp_1s_ease-out_1s_forwards]">
                         <div className="h-px w-20 bg-gradient-to-r from-transparent via-navy-900/30 to-transparent"></div>
                     </div>
-                </div>
+                </HomeReveal>
 
                 {/* Сетка программ - компактнее */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 max-w-6xl mx-auto">
-                    {dynamicPrograms.map((program) => (
+                    {dynamicPrograms.map((program, index) => (
+                        <HomeReveal enabled={animateHome} key={program.id} delay={(index % 3) * 0.065} className="home-reveal-slot">
                         <Link
                             href={program.url}
                             key={program.id}
-                            className="group relative mb-4 block"
+                            className="home-program-card group relative mb-4 block"
                         >
                             {/* Карточка с светло-серым фоном - компактная */}
-                            <div className="bg-gray-100 rounded-2xl p-3 pb-6 shadow-sm transition-shadow hover:shadow-md">
+                            <div className="home-card-surface bg-gray-100 rounded-2xl p-3 pb-6 shadow-sm transition-shadow hover:shadow-md">
                                 {/* Контейнер изображения с overflow */}
-                                <div className="relative mb-4 overflow-hidden rounded-xl aspect-[5/3]">
+                                <div className="home-card-image relative mb-4 overflow-hidden rounded-xl aspect-[5/3]">
                                     {/* Badge в левом верхнем углу */}
                                     {program.badge && (
                                         <div className="absolute top-2 left-2 z-10">
@@ -243,7 +245,7 @@ export default function ProgramsSection() {
                                     </div>
 
                                     {/* Описание (появляется снизу при hover) */}
-                                    <div className="absolute bottom-0 left-0 right-0 px-3 py-2 bg-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center min-h-[50px]">
+                                    <div className="home-card-description absolute bottom-0 left-0 right-0 px-3 py-2 bg-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center min-h-[50px]">
                                         <p className="text-[10px] text-gray-700 leading-tight text-center">
                                             {program.description}
                                         </p>
@@ -251,18 +253,19 @@ export default function ProgramsSection() {
                                 </div>
 
                                 {/* Текстовый контент - компактный */}
-                                <div className="text-center px-1 mb-2">
+                                <div className="home-card-text text-center px-1 mb-2">
                                     <h3 className="text-base font-bold text-gray-900 mb-0.5">
                                         {program.title}
                                     </h3>
                                     {program.subtitle && (
                                         <p className="text-xs text-gray-500">{program.subtitle}</p>
                                     )}
+                                    <p className="home-program-summary">{program.description}</p>
                                 </div>
                             </div>
 
                             {/* Кнопка \"О проекте\" на границе карточки - меньше */}
-                            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-10">
+                            <div className="home-card-action absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-10">
                                 <span
                                     className="inline-block bg-[#0f1419] text-white px-6 py-1.5 rounded-full text-xs font-medium group-hover:bg-[#1a1f26] transition-colors shadow-lg whitespace-nowrap"
                                 >
@@ -270,6 +273,7 @@ export default function ProgramsSection() {
                                 </span>
                             </div>
                         </Link>
+                        </HomeReveal>
                     ))}
                 </div>
             </div>

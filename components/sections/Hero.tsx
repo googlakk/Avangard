@@ -1,6 +1,6 @@
 'use client';
 
-import { useCountUp } from '@/hooks/useCountUp';
+import HomeReveal from '@/components/ui/HomeReveal';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
@@ -8,41 +8,38 @@ import { useEffect, useRef, useState } from 'react';
 export default function Hero() {
     const { t } = useLanguage();
     const videoRef = useRef<HTMLVideoElement>(null);
-    const [videoLoaded, setVideoLoaded] = useState(false);
 
-    // Анимация для чисел
-    const yearCount = useCountUp({ end: 2016, duration: 2000 });
-    const studentsCount = useCountUp({ end: 1000, duration: 2500 });
-    const clubsCount = useCountUp({ end: 15, duration: 1500 });
+    // Facts stay readable while the panel appears as a single unit.
+    const yearCount = 2016;
+    const studentsCount = 1000;
+    const clubsCount = 15;
 
-    // Smart video loading: start loading after page settles
+    const [autoplayBlocked, setAutoplayBlocked] = useState(false);
+    const { language } = useLanguage();
+
+    const playVideo = () => {
+        const video = videoRef.current;
+        if (!video) return;
+        video.muted = true;
+        video.play().catch(error => {
+            if (error.name === 'NotAllowedError') setAutoplayBlocked(true);
+        });
+    };
+
+    // The source and autoplay attributes are already present in server HTML.
     useEffect(() => {
         const video = videoRef.current;
         if (!video) return;
-
-        const isMobile = window.innerWidth < 768;
-
-        if (isMobile) {
-            // On mobile: delay video load to prioritize page content
-            const timer = setTimeout(() => {
-                video.src = '/videos/hero-video.mp4';
-                video.load();
-                video.play().catch(() => {
-                    // Autoplay blocked — poster image stays visible
-                });
-            }, 1500);
-            return () => clearTimeout(timer);
-        } else {
-            // On desktop: load immediately
-            video.src = '/videos/hero-video.mp4';
-            video.load();
-        }
+        video.muted = true;
+        video.play().catch(error => {
+            if (error.name === 'NotAllowedError') setAutoplayBlocked(true);
+        });
     }, []);
 
     return (
-        <section className="relative h-screen flex flex-col items-center justify-center">
+        <section className="home-hero relative h-screen flex flex-col items-center justify-center">
             {/* Фоновое видео */}
-            <div className="absolute inset-0 overflow-hidden">
+            <div className="home-hero-media absolute inset-0 overflow-hidden">
                 <Image
                     src="/images/sen-hero.jpg"
                     alt="School background"
@@ -53,6 +50,7 @@ export default function Hero() {
                 />
                 <video
                     ref={videoRef}
+                    src="/videos/hero-video.mp4"
                     autoPlay
                     loop
                     muted
@@ -60,15 +58,21 @@ export default function Hero() {
                     preload="auto"
                     poster="/images/sen-hero.jpg"
                     disablePictureInPicture
-                    onCanPlay={() => setVideoLoaded(true)}
-                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+                    onCanPlay={playVideo}
+                    onPlaying={() => setAutoplayBlocked(false)}
+                    className="absolute inset-0 w-full h-full object-cover"
                 />
                 {/* Оверлей */}
                 <div className="absolute inset-0 hero-overlay" />
+                {autoplayBlocked && (
+                    <button type="button" onClick={playVideo} className="home-video-play">
+                        {language === 'en' ? 'Play video' : 'Включить видео'}
+                    </button>
+                )}
             </div>
 
             {/* Статистический блок внизу */}
-            <div className="relative z-10 container mx-auto px-4 mt-auto mb-0">
+            <HomeReveal className="home-stats relative z-10 container mx-auto px-4 mt-auto mb-0">
                 <div className="max-w-5xl mx-auto">
                     <div className="bg-white/10 backdrop-blur-xl border border-white px-4 md:px-16 py-5 md:py-10 rounded-t-[2.5rem]">
                         {/* Мобильная версия: SINCE 2016 сверху, два блока в ряд снизу */}
@@ -191,7 +195,7 @@ export default function Hero() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </HomeReveal>
         </section>
     );
 }
