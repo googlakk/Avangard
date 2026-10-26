@@ -152,7 +152,7 @@ export default function SeniorHero({
                         </Link>
                     </div>
 
-                    {/* Bottom Badges — IB SAT IELTS */}
+                    {/* Bottom Badges — IGCSE */}
                     <div className="opacity-0 animate-[fadeInUp_0.8s_ease-out_1s_forwards]">
                         {/* Thin Divider Line */}
                         <div
@@ -165,7 +165,7 @@ export default function SeniorHero({
                             className="font-serif text-base tracking-[0.2em]"
                             style={{ color: 'rgba(255,255,255,0.55)' }}
                         >
-                            IB • SAT • IELTS
+                            IGCSE
                         </p>
                     </div>
                 </div>

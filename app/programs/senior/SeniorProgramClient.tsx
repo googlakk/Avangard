@@ -22,11 +22,25 @@ export default function SeniorProgramClient({ cmsOverrides }: SeniorProgramClien
     const { t, language } = useLanguage();
 
     const seniorOfferData = resolveLocalizedContent(
-        deepMerge(getSeniorOfferData(t), pickOverride(cmsOverrides, 'senior-offer')),
+        deepMerge(
+            deepMerge(getSeniorOfferData(t), pickOverride(cmsOverrides, 'senior-offer')),
+            { subheadline: t.senior.hero.subheadline }
+        ),
         language
     );
+    const academicCurriculum = getAcademicResultsData(t);
     const academicResultsData = resolveLocalizedContent(
-        deepMerge(getAcademicResultsData(t), pickOverride(cmsOverrides, 'senior-academic-results')),
+        deepMerge(
+            deepMerge(academicCurriculum, pickOverride(cmsOverrides, 'senior-academic-results')),
+            {
+                headline: academicCurriculum.headline,
+                description: academicCurriculum.description,
+                pillars: academicCurriculum.pillars,
+                proofCaption: academicCurriculum.proofCaption,
+                bottomStrong: academicCurriculum.bottomStrong,
+                bottomText: academicCurriculum.bottomText,
+            }
+        ),
         language
     );
     const cognitiveAiData = resolveLocalizedContent(

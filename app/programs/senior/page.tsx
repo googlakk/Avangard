@@ -5,10 +5,10 @@ export const dynamic = 'force-dynamic';
 
 export const metadata = {
     title: 'Intellect Senior (10-11 классы) | Intellect Pro',
-    description: 'Ваш прямой путь в ТОП-вузы мира. Подготовка к SAT, IELTS, TOEFL и поступлению в университеты США, Европы и Азии. Грантовое обучение.',
+    description: 'Cambridge IGCSE — основная программа 10–11 классов. Подготовка к SAT, IELTS, TOEFL и ОРТ на дополнительных занятиях.',
     openGraph: {
         title: 'Intellect Senior — Путь в ТОП-вузы и гранты',
-        description: 'SAT, IELTS, Essay, карьерное планирование и развитие навыков XXI века',
+        description: 'Основная программа Cambridge IGCSE и дополнительные занятия для подготовки к экзаменам',
         images: [{
             url: '/images/senior/og-image.jpg',
             width: 1200,

@@ -47,7 +47,7 @@ const sitePages = {
                     title: 'Академический фокус',
                     items: [
                         { name: 'Математика', icon: 'Calculator', desc: 'Углублённое изучение' },
-                        { name: 'Английский язык', icon: 'Globe', desc: 'Языковая практика; обучение по программе Cambridge — с 7-го класса' },
+                        { name: 'Английский язык', icon: 'Globe', desc: 'Языковая практика; обучение по программе Cambridge — в 7–9 классах' },
                         { name: 'IT и программирование', icon: 'Code2', desc: 'Python, web и цифровая грамотность' },
                         { name: 'Естественные науки', icon: 'Microscope', desc: 'Лабораторная практика и исследования' },
                         { name: 'Ментальная арифметика', icon: 'Brain', desc: 'Тренировка памяти и скорости мышления' },
@@ -254,8 +254,8 @@ const sitePages = {
                 title: 'Программы обучения',
                 items: [
                     { title: 'Intellect Primary', badge: '1–4 классы', bullets: ['Ментальная арифметика', 'Робототехника', 'Английский язык'], href: '/programs/primary' },
-                    { title: 'Intellect Middle', badge: '5–9 классы', bullets: ['Международная программа Cambridge с 7-го класса', 'STEAM проекты', 'Второй язык'], href: '/programs/middle' },
-                    { title: 'Intellect Senior', badge: '10–11 классы', bullets: ['Подготовка к ОРТ', 'IELTS/TOEFL', 'Профориентация'], href: '/programs/senior' },
+                    { title: 'Intellect Middle', badge: '5–9 классы', bullets: ['Международная программа Cambridge в 7–9 классах', 'STEAM проекты', 'Второй язык'], href: '/programs/middle' },
+                    { title: 'Intellect Senior', badge: '10–11 классы', bullets: ['Основная программа Cambridge IGCSE', 'Дополнительная подготовка к SAT, IELTS, TOEFL и ОРТ', 'Профориентация'], href: '/programs/senior' },
                 ],
                 more: 'Подробнее',
             },
@@ -319,7 +319,7 @@ const sitePages = {
                     title: 'Academic Focus',
                     items: [
                         { name: 'Mathematics', icon: 'Calculator', desc: 'Advanced progression' },
-                        { name: 'English', icon: 'Globe', desc: 'Language practice; the Cambridge curriculum starts in Grade 7' },
+                        { name: 'English', icon: 'Globe', desc: 'Language practice; the Cambridge curriculum is taught in Grades 7–9' },
                         { name: 'IT and programming', icon: 'Code2', desc: 'Python, web, and digital literacy' },
                         { name: 'Science', icon: 'Microscope', desc: 'Labs and inquiry' },
                         { name: 'Mental arithmetic', icon: 'Brain', desc: 'Memory and mental speed' },
@@ -526,8 +526,8 @@ const sitePages = {
                 title: 'Learning Programs',
                 items: [
                     { title: 'Intellect Primary', badge: 'Grades 1–4', bullets: ['Mental arithmetic', 'Robotics', 'English language'], href: '/programs/primary' },
-                    { title: 'Intellect Middle', badge: 'Grades 5–9', bullets: ['Cambridge curriculum from Grade 7', 'STEAM projects', 'Second language'], href: '/programs/middle' },
-                    { title: 'Intellect Senior', badge: 'Grades 10–11', bullets: ['ORT preparation', 'IELTS/TOEFL', 'Career guidance'], href: '/programs/senior' },
+                    { title: 'Intellect Middle', badge: 'Grades 5–9', bullets: ['Cambridge curriculum in Grades 7–9', 'STEAM projects', 'Second language'], href: '/programs/middle' },
+                    { title: 'Intellect Senior', badge: 'Grades 10–11', bullets: ['Cambridge IGCSE core curriculum', 'Additional SAT, IELTS, TOEFL and ORT preparation', 'Career guidance'], href: '/programs/senior' },
                 ],
                 more: 'Learn more',
             },

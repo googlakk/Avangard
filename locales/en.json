@@ -127,7 +127,7 @@
         "criticalThinking": {
             "title": "Critical Inquiry",
             "description": "Cultivating the ability to analyze perspectives and engineer creative solutions.",
-            "badge": "Cambridge curriculum from Grade 7"
+            "badge": "Cambridge curriculum in Grades 7–9"
         },
         "gamification": {
             "title": "Engagement Mechanics",
@@ -211,7 +211,7 @@
                 },
                 "standards": {
                     "title": "International Standards",
-                    "description": "Kyrgyz national educational standards and the international Cambridge curriculum from Grade 7"
+                    "description": "Kyrgyz national educational standards and the international Cambridge curriculum in Grades 7–9"
                 },
                 "love": {
                     "title": "Love for Learning",
@@ -302,7 +302,7 @@
             },
             "photoProof": {
                 "title": "📸 Photo-proof",
-                "caption": "A student solving a problem at an interactive board. The international Cambridge curriculum starts in Grade 7.",
+                "caption": "A student solving a problem at an interactive board. The international Cambridge curriculum is taught in Grades 7–9.",
                 "cta": "We teach not only reading and writing, we train the brain"
             }
         },
@@ -529,7 +529,7 @@
         "hero": {
             "title": "Middle School Excellence",
             "subtitle": "Grades 5-9 • Unlocking Potential",
-            "description": "A transformative journey for students in grades 5–9, with project-based learning, personal growth, and the international Cambridge curriculum starting in Grade 7.",
+            "description": "A transformative journey for students in grades 5–9, with project-based learning, personal growth, and the international Cambridge curriculum in Grades 7–9.",
             "ctaText": "Admissions Open"
         },
         "discipline": {
@@ -609,9 +609,9 @@
         },
         "modals": {
             "internationalCurriculum": {
-                "title": "Cambridge curriculum from Grade 7",
+                "title": "Cambridge curriculum in Grades 7–9",
                 "subtitle": "International Standard",
-                "description": "Study under the international Cambridge curriculum begins in Grade 7, developing strong subject knowledge, English proficiency, and independent learning skills.",
+                "description": "Study under the international Cambridge curriculum is taught in Grades 7–9, developing strong subject knowledge, English proficiency, and independent learning skills.",
                 "subjects": {
                     "math": {
                         "description": "Mathematics focusing on problem solving."
@@ -816,8 +816,8 @@
             "subtitle": "All facets of Intellect Middle",
             "cards": {
                 "internationalCurriculum": {
-                    "title": "Cambridge curriculum from Grade 7",
-                    "description": "Cambridge curriculum from Grade 7"
+                    "title": "Cambridge curriculum in Grades 7–9",
+                    "description": "Cambridge curriculum in Grades 7–9"
                 },
                 "steam": {
                     "title": "IT & STEAM",
@@ -861,13 +861,13 @@
             "middle": {
                 "title": "Intellect Middle",
                 "badge": "Grades 5-9",
-                "description": "Unlocking potential. STEAM laboratories, project-based learning, and the international Cambridge curriculum from Grade 7.",
+                "description": "Unlocking potential. STEAM laboratories, project-based learning, and the international Cambridge curriculum in Grades 7–9.",
                 "subtitle": "Middle School"
             },
             "senior": {
                 "title": "Intellect Senior",
                 "badge": "Grades 10-11",
-                "description": "Pathway to University. IELTS/TOEFL/ORT preparation and strategic career counseling.",
+                "description": "Cambridge IGCSE is the core curriculum in Grades 10–11. IELTS, TOEFL, SAT and ORT preparation is offered through additional classes.",
                 "subtitle": "Senior School"
             },
             "global": {
@@ -1153,18 +1153,18 @@
     "senior": {
         "hero": {
             "headline": "Your Direct Path to Global Top Universities and Grants",
-            "subheadline": "Grades 10 and 11 are not just finishing school. It is a two-year career incubator. We prepare a portfolio that makes universities in USA, Europe and Asia fight for the applicant.",
+            "subheadline": "Cambridge IGCSE is the core curriculum in Grades 10–11. SAT, IELTS, TOEFL and ORT preparation is offered through additional classes.",
             "ctaText": "Check Admission Requirements",
             "scrollText": "Two-year Career Incubator"
         },
         "academic": {
-            "headline": "No Tutors Needed. Everything is Included.",
-            "description": "We save family budget and child's time. Preparation for key exams is integrated into the school day:",
+            "headline": "Cambridge IGCSE — the core senior school curriculum",
+            "description": "In Grades 10–11, learning follows the Cambridge IGCSE curriculum. SAT, IELTS, TOEFL and ORT preparation consists of additional university entrance classes.",
             "timeframe": "08:00 – 17:00 Daily",
             "pillars": {
                 "sat": {
                     "title": "SAT & IELTS/TOEFL",
-                    "description": "Math and English for study abroad",
+                    "description": "Additional classes: math and English for study abroad",
                     "details": [
                         "SAT Math and Verbal reasoning",
                         "IELTS/TOEFL: Reading, Writing, Speaking",
@@ -1173,7 +1173,7 @@
                 },
                 "ort": {
                     "title": "ORT",
-                    "description": "Intensive preparation for Gold Certificate",
+                    "description": "Additional classes: intensive preparation for Gold Certificate",
                     "details": [
                         "Targeted preparation for state exams",
                         "Math, Logic, Native Language",
@@ -1181,18 +1181,18 @@
                     ]
                 },
                 "science": {
-                    "title": "Science in English",
-                    "description": "Learning exact sciences in English",
+                    "title": "Cambridge IGCSE",
+                    "description": "The core curriculum in Grades 10–11",
                     "details": [
-                        "Physics, Chemistry, Biology in English",
-                        "Scientific terminology and academic writing",
-                        "Prep for English-speaking universities"
+                        "Subject learning under the Cambridge IGCSE curriculum",
+                        "International General Certificate of Secondary Education",
+                        "Development of subject knowledge and academic skills"
                     ]
                 }
             },
-            "proofCaption": "📸 Photo-proof: Schedule with blocks: IELTS Prep, SAT Math, Science (Eng) + Native Speaker",
-            "bottomStrong": "Built into our process.",
-            "bottomText": "Every day from 08:00 to 17:00 your child gets what other parents pay tutors separately for."
+            "proofCaption": "Core curriculum: Cambridge IGCSE. Additional classes: SAT, IELTS, TOEFL and ORT preparation.",
+            "bottomStrong": "Core curriculum and additional classes.",
+            "bottomText": "Cambridge IGCSE forms the core curriculum; additional exam preparation supports individual university admission goals."
         },
         "cognitive": {
             "headline": "We Give Unfair Advantage in Exams",
@@ -1258,7 +1258,7 @@
                 "pathways": {
                     "sat": {
                         "title": "SAT Preparation",
-                        "subtitle": "For USA and Europe admission",
+                        "subtitle": "Additional exam preparation classes",
                         "description": [
                             "Math - advanced preparation",
                             "Verbal Reasoning - text analysis",
@@ -1267,7 +1267,7 @@
                     },
                     "ielts": {
                         "title": "IELTS / TOEFL",
-                        "subtitle": "International Certificate",
+                        "subtitle": "Additional exam preparation classes",
                         "description": [
                             "Academic Module",
                             "Practice of all 4 skills",
@@ -1276,7 +1276,7 @@
                     },
                     "ort": {
                         "title": "ORT (Gold Certificate)",
-                        "subtitle": "Grants to Universities in Kyrgyzstan",
+                        "subtitle": "Additional exam preparation classes",
                         "description": [
                             "Intensive Math preparation",
                             "Russian/Kyrgyz language",

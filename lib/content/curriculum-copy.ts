@@ -1,11 +1,11 @@
 // Keep legacy CMS copy consistent with the school's confirmed Cambridge start grade.
 const legacyCopy: Record<string, string> = {
     'Время больших открытий и формирования личности. Международная программа, проектная деятельность и развитие лидерских качеств.':
-        'Время больших открытий и формирования личности. Проектная деятельность, развитие лидерских качеств и обучение по международной программе Cambridge с 7-го класса.',
+        'Время больших открытий и формирования личности. Проектная деятельность, развитие лидерских качеств и обучение по международной программе Cambridge в 7–9 классах.',
     'A transformative journey for students in grades 5-9, combining international curriculum with project-based learning and personal growth.':
-        'A transformative journey for students in grades 5–9, with project-based learning, personal growth, and the international Cambridge curriculum starting in Grade 7.',
+        'A transformative journey for students in grades 5–9, with project-based learning, personal growth, and the international Cambridge curriculum in Grades 7–9.',
     'Science and Math in English (International Program)':
-        'Daily English practice from primary school; the international Cambridge curriculum starts in Grade 7.',
+        'Daily English practice from primary school; the international Cambridge curriculum is taught in Grades 7–9.',
 };
 
 export function correctCurriculumCopy<T>(value: T): T {

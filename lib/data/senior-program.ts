@@ -67,6 +67,12 @@ export const getAcademicResultsData = (t: any) => ({
     timeframe: t.senior.academic.timeframe,
     pillars: [
         {
+            icon: "Microscope",
+            title: t.senior.academic.pillars.science.title,
+            description: t.senior.academic.pillars.science.description,
+            details: t.senior.academic.pillars.science.details
+        },
+        {
             icon: "Globe",
             title: t.senior.academic.pillars.sat.title,
             description: t.senior.academic.pillars.sat.description,
@@ -77,12 +83,6 @@ export const getAcademicResultsData = (t: any) => ({
             title: t.senior.academic.pillars.ort.title,
             description: t.senior.academic.pillars.ort.description,
             details: t.senior.academic.pillars.ort.details
-        },
-        {
-            icon: "Microscope",
-            title: t.senior.academic.pillars.science.title,
-            description: t.senior.academic.pillars.science.description,
-            details: t.senior.academic.pillars.science.details
         }
     ],
     proofImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200",

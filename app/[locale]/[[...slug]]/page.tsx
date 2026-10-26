@@ -55,11 +55,11 @@ const ROUTES: Record<string, RouteEntry> = {
         metadata: {
             ru: {
                 title: 'INTELLECT PRO SCHOOL | Школа нового поколения',
-                description: 'Частная школа в Бишкеке с международной программой Cambridge с 7-го класса, STEAM и билингвальным обучением.',
+                description: 'Частная школа в Бишкеке с международной программой Cambridge в 7–9 классах, STEAM и билингвальным обучением.',
             },
             en: {
                 title: 'INTELLECT PRO SCHOOL | School for the Next Generation',
-                description: 'Private school in Bishkek with the international Cambridge curriculum from Grade 7, STEAM and bilingual learning.',
+                description: 'Private school in Bishkek with the international Cambridge curriculum in Grades 7–9, STEAM and bilingual learning.',
             },
         },
     },
@@ -263,11 +263,11 @@ const ROUTES: Record<string, RouteEntry> = {
         metadata: {
             ru: {
                 title: 'Middle Program | Intellect School',
-                description: 'Средняя школа с международной программой Cambridge с 7-го класса, дисциплиной и навыками XXI века.',
+                description: 'Средняя школа с международной программой Cambridge в 7–9 классах, дисциплиной и навыками XXI века.',
             },
             en: {
                 title: 'Middle Program | Intellect School',
-                description: 'Middle school with the international Cambridge curriculum from Grade 7, discipline and 21st century skills.',
+                description: 'Middle school with the international Cambridge curriculum in Grades 7–9, discipline and 21st century skills.',
             },
         },
     },
@@ -275,12 +275,12 @@ const ROUTES: Record<string, RouteEntry> = {
         component: renderPage(InternationalCurriculumPage),
         metadata: {
             ru: {
-                title: 'Международная программа Cambridge с 7-го класса | Intellect School',
-                description: 'Как в школе устроена международная программа Cambridge, обучение по которой начинается с 7-го класса.',
+                title: 'Международная программа Cambridge в 7–9 классах | Intellect School',
+                description: 'Как в школе устроена международная программа Cambridge для 7–9 классов.',
             },
             en: {
-                title: 'Cambridge Curriculum from Grade 7 | Intellect School',
-                description: 'How the school structures its Cambridge curriculum, starting in Grade 7.',
+                title: 'Cambridge Curriculum for Grades 7–9 | Intellect School',
+                description: 'How the school structures its Cambridge curriculum for Grades 7–9.',
             },
         },
     },
@@ -315,11 +315,11 @@ const ROUTES: Record<string, RouteEntry> = {
         metadata: {
             ru: {
                 title: 'Senior Program | Intellect School',
-                description: 'Старшая школа, академический трек и подготовка к университету.',
+                description: 'Cambridge IGCSE — основная программа 10–11 классов. Подготовка к SAT, IELTS, TOEFL и ОРТ — дополнительные занятия.',
             },
             en: {
                 title: 'Senior Program | Intellect School',
-                description: 'Senior school, academic track and university preparation.',
+                description: 'Cambridge IGCSE is the core curriculum in Grades 10–11. SAT, IELTS, TOEFL and ORT preparation is offered through additional classes.',
             },
         },
     },

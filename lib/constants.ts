@@ -32,7 +32,7 @@ export const SOCIAL_LINKS = [
 
 export const FEATURES = [
     {
-        title: 'Международная программа Cambridge с 7-го класса',
+        title: 'Международная программа Cambridge в 7–9 классах',
         description: 'Академическая траектория с международными стандартами и сильной предметной базой',
         icon: 'TrendingUp',
     },

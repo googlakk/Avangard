@@ -26,13 +26,13 @@ export default function AcademicBreakthrough({
 
     const pillars = isRu
         ? [
-            'Программа Cambridge с 7-го класса',
+            'Программа Cambridge в 7–9 классах',
             'IT & STEAM лаборатории',
             'Клубы, проекты и лидерство',
             'Плавный переход к senior stage',
         ]
         : [
-            'Cambridge curriculum from Grade 7',
+            'Cambridge curriculum in Grades 7–9',
             'IT & STEAM labs',
             'Clubs, projects, and leadership',
             'Structured transition to senior school',

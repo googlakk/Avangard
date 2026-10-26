@@ -27,13 +27,13 @@ export default function MiddleCTA({
     const checkpoints = isRu
         ? [
             '5–9 классы',
-            'Программа Cambridge с 7-го класса',
+            'Программа Cambridge в 7–9 классах',
             'Проектная и клубная среда',
             'Подготовка к senior school',
         ]
         : [
             '5–9 grades',
-            'Cambridge curriculum from Grade 7',
+            'Cambridge curriculum in Grades 7–9',
             'Project and club culture',
             'Preparation for senior school',
         ];

@@ -55,11 +55,11 @@ export const viewport: Viewport = {
 const siteMetadata: Record<PublicLocale, { title: string; description: string; keywords: string[] }> = {
     ru: {
         title: 'INTELLECT PRO SCHOOL | Школа нового поколения',
-        description: 'Частная школа в Бишкеке. Международная программа Cambridge с 7-го класса, STEAM-лаборатории и билингвальное обучение.',
+        description: 'Частная школа в Бишкеке. Международная программа Cambridge в 7–9 классах, STEAM-лаборатории и билингвальное обучение.',
         keywords: [
             'INTELLECT PRO SCHOOL',
             'частная школа Бишкек',
-            'программа Cambridge с 7-го класса',
+            'программа Cambridge в 7–9 классах',
             'STEAM образование',
             'билингвальная школа',
             'международная школа Кыргызстан',
@@ -67,11 +67,11 @@ const siteMetadata: Record<PublicLocale, { title: string; description: string; k
     },
     en: {
         title: 'INTELLECT PRO SCHOOL | School for the Next Generation',
-        description: 'Private school in Bishkek with the international Cambridge curriculum from Grade 7, STEAM labs and bilingual learning.',
+        description: 'Private school in Bishkek with the international Cambridge curriculum in Grades 7–9, STEAM labs and bilingual learning.',
         keywords: [
             'INTELLECT PRO SCHOOL',
             'private school Bishkek',
-            'Cambridge curriculum from Grade 7',
+            'Cambridge curriculum in Grades 7–9',
             'STEAM education',
             'bilingual school',
             'international school Kyrgyzstan',

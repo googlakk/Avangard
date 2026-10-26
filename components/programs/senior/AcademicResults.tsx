@@ -106,8 +106,8 @@ export default function AcademicResults({
                             </p>
                             <p className="mt-3 text-base leading-7 text-slate-700">
                                 {isRu
-                                    ? 'Senior stage собирает в одну систему экзамены, академический английский, science-подготовку и доказательные результаты.'
-                                    : 'Senior stage unifies exams, academic English, science preparation, and evidence-based outcomes into one system.'}
+                                    ? 'В основе старшей школы — Cambridge IGCSE. Дополнительные занятия по SAT, IELTS, TOEFL и ОРТ помогают подготовиться к поступлению.'
+                                    : 'Cambridge IGCSE is the core senior school curriculum. Additional SAT, IELTS, TOEFL and ORT classes support university entrance preparation.'}
                             </p>
                         </div>
                         <div className="rounded-[26px] bg-gradient-to-br from-amber-200 to-amber-100 p-6 text-navy-950">

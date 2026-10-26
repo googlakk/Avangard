@@ -253,9 +253,9 @@ export const twentyFirstSkillsData = {};
 export const leadershipGovernanceData = {};
 export const middleCTAData = {};
 export const internationalCurriculumDetailData = {
-    title: "Международная программа Cambridge с 7-го класса",
-    subtitle: "Cambridge с 7-го класса",
-    description: "Обучение по международной программе Cambridge начинается с 7-го класса: сильная академическая база, обучение на английском языке и развитие самостоятельности в учёбе.",
+    title: "Международная программа Cambridge в 7–9 классах",
+    subtitle: "Cambridge в 7–9 классах",
+    description: "Обучение по международной программе Cambridge проходит в 7–9 классах: сильная академическая база, обучение на английском языке и развитие самостоятельности в учёбе.",
     subjects: [
         {
             name: "Mathematics",

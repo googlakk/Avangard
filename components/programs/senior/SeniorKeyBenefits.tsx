@@ -14,7 +14,7 @@ const keyBenefits: KeyBenefit[] = [
     {
         icon: 'GraduationCap',
         title: 'Поступление в ТОП-вузы',
-        description: 'Комплексная подготовка к IELTS, TOEFL, SAT и ОРТ. Формируем портфолио абитуриента, за которым охотятся университеты.',
+        description: 'Основная программа — Cambridge IGCSE. Подготовка к IELTS, TOEFL, SAT и ОРТ проходит на дополнительных занятиях.',
         highlight: 'Гранты за рубеж',
         link: '#academic-track'
     },
