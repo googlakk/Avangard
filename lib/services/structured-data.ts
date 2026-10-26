@@ -26,7 +26,7 @@ export function getOrganizationSchema(): SchemaOrgData {
         'alternateName': 'INTELLECT School',
         'url': SITE_URL,
         'logo': LOGO_URL,
-        'description': 'Premium international school in Bishkek with an international curriculum, STEAM labs, and bilingual education',
+        'description': 'Premium international school in Bishkek with the international Cambridge curriculum from Grade 7, STEAM labs, and bilingual education',
         'address': {
             '@type': 'PostalAddress',
             'addressCountry': 'KG',

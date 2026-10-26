@@ -109,19 +109,19 @@ export const getInternationalCurriculumDetailData = (t: any) => ({
     subjects: [
         {
             name: "Mathematics",
-            grade: "6-9 классы", // TODO: Translate grades if needed
+            grade: "7-9 классы", // TODO: Translate grades if needed
             description: t.middle.modals.internationalCurriculum.subjects.math.description,
             learningAreas: ["Алгебра", "Геометрия", "Решение задач"]
         },
         {
             name: "Science (Physics, Chemistry, Biology)",
-            grade: "6-9 классы",
+            grade: "7-9 классы",
             description: t.middle.modals.internationalCurriculum.subjects.science.description,
             learningAreas: ["Физика", "Химия", "Биология"]
         },
         {
             name: "Computer Science",
-            grade: "6-9 классы",
+            grade: "7-9 классы",
             description: t.middle.modals.internationalCurriculum.subjects.cs.description,
             learningAreas: ["Информатика", "Программирование", "Цифровая грамотность"]
         }
@@ -133,7 +133,7 @@ export const getInternationalCurriculumDetailData = (t: any) => ({
     },
     pathway: [
         {
-            grade: "6-7 классы",
+            grade: "7-й класс",
             stage: "Базовый академический этап",
             description: t.middle.modals.internationalCurriculum.pathway.lower.description
         },
@@ -253,25 +253,25 @@ export const twentyFirstSkillsData = {};
 export const leadershipGovernanceData = {};
 export const middleCTAData = {};
 export const internationalCurriculumDetailData = {
-    title: "Международная образовательная программа",
-    subtitle: "Международная программа",
-    description: "Сильная академическая база, обучение на английском языке и развитие самостоятельности в учёбе.",
+    title: "Международная программа Cambridge с 7-го класса",
+    subtitle: "Cambridge с 7-го класса",
+    description: "Обучение по международной программе Cambridge начинается с 7-го класса: сильная академическая база, обучение на английском языке и развитие самостоятельности в учёбе.",
     subjects: [
         {
             name: "Mathematics",
-            grade: "6-9 классы",
+            grade: "7-9 классы",
             description: "Математика на английском языке с развитием логики и навыков решения задач.",
             learningAreas: ["Алгебра", "Геометрия", "Решение задач"]
         },
         {
             name: "Science",
-            grade: "6-9 классы",
+            grade: "7-9 классы",
             description: "Естественные науки (физика, химия, биология) на английском.",
             learningAreas: ["Физика", "Химия", "Биология"]
         },
         {
             name: "Computer Science",
-            grade: "6-9 классы",
+            grade: "7-9 классы",
             description: "Информатика и программирование.",
             learningAreas: ["Информатика", "Программирование", "Цифровая грамотность"]
         }
@@ -283,7 +283,7 @@ export const internationalCurriculumDetailData = {
     },
     pathway: [
         {
-            grade: "6-7 классы",
+            grade: "7-й класс",
             stage: "Базовый академический этап",
             description: "Базовая ступень"
         },

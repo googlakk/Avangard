@@ -1,3 +1,4 @@
+import { correctCurriculumCopy } from '@/lib/content/curriculum-copy'
 import { createClient } from '@supabase/supabase-js'
 
 export type PublicCmsPage = {
@@ -57,7 +58,7 @@ export async function getCmsPageSections(pageId: string) {
         .eq('is_enabled', true)
         .order('order_index', { ascending: true })
 
-    return (data || []) as PublicCmsSection[]
+    return correctCurriculumCopy((data || []) as PublicCmsSection[])
 }
 
 export async function getPublishedCmsSectionPayloadsBySlug(slug: string) {

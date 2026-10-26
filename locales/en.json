@@ -127,7 +127,7 @@
         "criticalThinking": {
             "title": "Critical Inquiry",
             "description": "Cultivating the ability to analyze perspectives and engineer creative solutions.",
-            "badge": "International curriculum"
+            "badge": "Cambridge curriculum from Grade 7"
         },
         "gamification": {
             "title": "Engagement Mechanics",
@@ -211,7 +211,7 @@
                 },
                 "standards": {
                     "title": "International Standards",
-                    "description": "International curriculum + Ministry of Education in one program"
+                    "description": "Kyrgyz national educational standards and the international Cambridge curriculum from Grade 7"
                 },
                 "love": {
                     "title": "Love for Learning",
@@ -302,7 +302,7 @@
             },
             "photoProof": {
                 "title": "📸 Photo-proof",
-                "caption": "Child solving a problem at an interactive board in the international curriculum",
+                "caption": "A student solving a problem at an interactive board. The international Cambridge curriculum starts in Grade 7.",
                 "cta": "We teach not only reading and writing, we train the brain"
             }
         },
@@ -529,7 +529,7 @@
         "hero": {
             "title": "Middle School Excellence",
             "subtitle": "Grades 5-9 • Unlocking Potential",
-            "description": "A transformative journey for students in grades 5-9, combining an international curriculum with project-based learning and personal growth.",
+            "description": "A transformative journey for students in grades 5–9, with project-based learning, personal growth, and the international Cambridge curriculum starting in Grade 7.",
             "ctaText": "Admissions Open"
         },
         "discipline": {
@@ -609,9 +609,9 @@
         },
         "modals": {
             "internationalCurriculum": {
-                "title": "International curriculum",
+                "title": "Cambridge curriculum from Grade 7",
                 "subtitle": "International Standard",
-                "description": "Our international curriculum develops strong subject knowledge, English proficiency, and independent learning skills.",
+                "description": "Study under the international Cambridge curriculum begins in Grade 7, developing strong subject knowledge, English proficiency, and independent learning skills.",
                 "subjects": {
                     "math": {
                         "description": "Mathematics focusing on problem solving."
@@ -629,7 +629,7 @@
                 },
                 "pathway": {
                     "lower": {
-                        "description": "Foundation academic stage (Grades 6-7)"
+                        "description": "Start of the Cambridge curriculum (Grade 7)"
                     },
                     "checkpoint": {
                         "description": "Advanced subject-learning stage (Grades 8-9)"
@@ -816,8 +816,8 @@
             "subtitle": "All facets of Intellect Middle",
             "cards": {
                 "internationalCurriculum": {
-                    "title": "International curriculum",
-                    "description": "International Academic Program"
+                    "title": "Cambridge curriculum from Grade 7",
+                    "description": "Cambridge curriculum from Grade 7"
                 },
                 "steam": {
                     "title": "IT & STEAM",
@@ -861,7 +861,7 @@
             "middle": {
                 "title": "Intellect Middle",
                 "badge": "Grades 5-9",
-                "description": "Unlocking potential. International curriculum, STEAM laboratories, and project-based excellence.",
+                "description": "Unlocking potential. STEAM laboratories, project-based learning, and the international Cambridge curriculum from Grade 7.",
                 "subtitle": "Middle School"
             },
             "senior": {

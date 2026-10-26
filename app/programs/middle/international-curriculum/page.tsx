@@ -2,9 +2,9 @@ import Link from 'next/link';
 import { internationalCurriculumDetailData } from '@/lib/data/middle-program';
 
 export const metadata = {
-    title: 'Международная образовательная программа — Intellect Middle | Intellect Pro',
+    title: 'Международная программа Cambridge с 7-го класса — Intellect Middle | Intellect Pro',
     description:
-        'Подробная информация о международной образовательной программе для 5-9 классов: обучение точным наукам на английском, второй иностранный язык и проектная деятельность.',
+        'Подробная информация о международной программе Cambridge, обучение по которой начинается с 7-го класса: обучение точным наукам на английском, второй иностранный язык и проектная деятельность.',
 };
 
 export default function InternationalCurriculumPage() {
@@ -148,7 +148,7 @@ export default function InternationalCurriculumPage() {
                 <div className="container mx-auto px-4">
                     <div className="max-w-3xl mx-auto text-center">
                         <h2 className="text-3xl font-bold font-heading text-gray-900 mb-6">
-                            Готовы начать обучение по международной образовательной программе?
+                            Готовы начать обучение по программе Cambridge с 7-го класса?
                         </h2>
                         <Link
                             href="/admissions"

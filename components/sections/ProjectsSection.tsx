@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { correctCurriculumCopy } from '@/lib/content/curriculum-copy';
 import HomeReveal from '@/components/ui/HomeReveal';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -123,7 +124,7 @@ export default function ProgramsSection({ animateHome = false }: { animateHome?:
 
                 const title = language === 'en' ? page.title_en : page.title_ru;
                 const subtitle = localized(hero?.payload?.subtitle);
-                const description = localized(content?.payload?.text) || localized(hero?.payload?.description);
+                const description = correctCurriculumCopy(localized(content?.payload?.text) || localized(hero?.payload?.description));
                 const image = typeof hero?.payload?.imageUrl === 'string' ? hero.payload.imageUrl : '';
 
                 nextMap[page.slug] = {

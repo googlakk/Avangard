@@ -119,7 +119,7 @@ export default function InternationalCurriculum({
                             </p>
                         </div>
                         <div>
-                            <div className="text-lg font-bold mb-2">International curriculum</div>
+                            <div className="text-lg font-bold mb-2">Cambridge curriculum from Grade 7</div>
                             <p className="text-sm text-gray-300">
                                 {stats.academicFocus}
                             </p>
