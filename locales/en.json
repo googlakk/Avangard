@@ -1159,7 +1159,7 @@
         },
         "academic": {
             "headline": "Cambridge IGCSE — the core senior school curriculum",
-            "description": "In Grades 10–11, learning follows the Cambridge IGCSE curriculum. SAT, IELTS, TOEFL and ORT preparation consists of additional university entrance classes.",
+            "description": "The core Cambridge IGCSE subjects in Grades 10–11 are Physics, Biology, Chemistry, Global Perspectives and English. SAT, IELTS, TOEFL and ORT preparation is offered through additional classes.",
             "timeframe": "08:00 – 17:00 Daily",
             "pillars": {
                 "sat": {
@@ -1184,9 +1184,11 @@
                     "title": "Cambridge IGCSE",
                     "description": "The core curriculum in Grades 10–11",
                     "details": [
-                        "Subject learning under the Cambridge IGCSE curriculum",
-                        "International General Certificate of Secondary Education",
-                        "Development of subject knowledge and academic skills"
+                        "Physics",
+                        "Biology",
+                        "Chemistry",
+                        "Global Perspectives",
+                        "English"
                     ]
                 }
             },
