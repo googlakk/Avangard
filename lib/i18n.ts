@@ -45,6 +45,7 @@ export const STATIC_PUBLIC_ROUTE_KEYS = [
     'about',
     'about/team',
     'contacts',
+    'feedback',
     'parents/academics',
     'parents/admission',
     'parents/care',

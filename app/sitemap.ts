@@ -84,5 +84,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         return routes
     })
 
-    return [...staticRoutes, ...cmsPageRoutes, ...newsRoutes]
+    return [...staticRoutes, { url: `${baseUrl}/ky/feedback`, changeFrequency: 'weekly', priority: 0.8 }, ...cmsPageRoutes, ...newsRoutes]
 }

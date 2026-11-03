@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 import {
     Cinzel,
     Cormorant_Garamond,
@@ -154,7 +154,7 @@ export default function RootLayout({
 }>) {
     const locale = resolveRequestLocale()
     return (
-        <html lang={locale}>
+        <html lang={headers().get('x-feedback-language') === 'ky' ? 'ky' : locale}>
             <head>
                 <script
                     type="application/ld+json"

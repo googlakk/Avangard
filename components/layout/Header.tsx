@@ -2,7 +2,9 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
+import { feedbackCopy, feedbackPath } from '@/lib/feedback';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSwitch from '@/components/ui/LanguageSwitch';
 import DropdownMenu from '@/components/ui/DropdownMenu';
@@ -10,7 +12,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
+    const feedbackLanguage = usePathname() === "/ky/feedback" ? "ky" : language;
 
     return (
         <header
@@ -41,7 +44,7 @@ export default function Header() {
                     </Link>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
+                    <nav className="hidden 2xl:flex items-center gap-4 xl:gap-6">
                         <Link
                             href="/"
                             className="group relative whitespace-nowrap py-2 font-heading text-[14px] font-semibold leading-none tracking-[0.01em] text-white/90 transition-all duration-300 hover:text-white xl:text-[15px]"
@@ -56,6 +59,7 @@ export default function Header() {
                             {t.header.platforms}
                             <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gradient-to-r from-[#C6A96B] to-[#D8C08A] group-hover:w-full transition-all duration-300" />
                         </Link>
+                        <Link href={feedbackPath(feedbackLanguage)} className="font-heading text-[13px] font-semibold text-white/90 hover:text-white max-w-[145px] leading-snug">{feedbackCopy[feedbackLanguage].title}</Link>
                         <DropdownMenu
                             label={t.header.aboutMenu.title}
                             basePath=""
@@ -105,7 +109,7 @@ export default function Header() {
                     </nav>
 
                     {/* Language Switch & CTA Button */}
-                    <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
+                    <div className="hidden 2xl:flex items-center gap-4 flex-shrink-0">
                         <LanguageSwitch />
                         <Link
                             href="/contacts"
@@ -123,7 +127,7 @@ export default function Header() {
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className="lg:hidden text-white/90 hover:text-white p-2 transition-colors duration-300"
+                        className="2xl:hidden text-white/90 hover:text-white p-2 transition-colors duration-300"
                         aria-label="Toggle menu"
                     >
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -144,7 +148,7 @@ export default function Header() {
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.3, ease: 'easeInOut' }}
-                            className="lg:hidden border-t border-white/[0.08]"
+                            className="2xl:hidden border-t border-white/[0.08]"
                             style={{
                                 background: 'linear-gradient(180deg, #0F223A 0%, #162B46 100%)',
                             }}
@@ -164,6 +168,7 @@ export default function Header() {
                                 >
                                     {t.header.platforms}
                                 </Link>
+                                <Link href={feedbackPath(feedbackLanguage)} className="text-white/90 px-4 py-3 rounded-lg" onClick={() => setIsMenuOpen(false)}>{feedbackCopy[feedbackLanguage].title}</Link>
                                 {/* About School Mobile Section */}
                                 <div className="py-3 px-4">
                                     <div className="text-[#C6A96B] text-xs font-semibold uppercase tracking-[0.15em] mb-3">{t.header.aboutMenu.title}</div>

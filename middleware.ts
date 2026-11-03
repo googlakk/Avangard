@@ -93,6 +93,12 @@ export async function middleware(request: NextRequest) {
         return response
     }
 
+    if (pathname === '/ky/feedback') {
+        const headers = new Headers(request.headers)
+        headers.set('x-feedback-language', 'ky')
+        return NextResponse.next({ request: { headers } })
+    }
+
     if (isBypassedPath(pathname)) {
         return NextResponse.next()
     }

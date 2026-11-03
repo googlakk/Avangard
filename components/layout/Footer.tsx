@@ -1,11 +1,14 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
+import { feedbackCopy, feedbackPath } from '@/lib/feedback';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Footer() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
+    const feedbackLanguage = usePathname() === "/ky/feedback" ? "ky" : language;
     const currentYear = new Date().getFullYear();
 
     const socialLinks = [
@@ -122,6 +125,14 @@ export default function Footer() {
                                     {t.header.contacts}
                                 </Link>
                             </li>
+                            <li>
+                                <Link
+                                    href={feedbackPath(feedbackLanguage)}
+                                    className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block"
+                                >
+                                    {feedbackCopy[feedbackLanguage].title}
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 
@@ -215,16 +226,6 @@ export default function Footer() {
                                         +996 778 889 889
                                     </a>
                                 </div>
-                            </li>
-                            <li>
-                                <a
-                                    href="https://feedback.intel.edu.kg/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block"
-                                >
-                                    {t.contact.feedbackLink}
-                                </a>
                             </li>
                         </ul>
                     </div>
